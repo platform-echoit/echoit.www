@@ -280,10 +280,19 @@ a{text-decoration:none;color:inherit}
   .stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.18)}
   .chr-card{width:80vw}
   .val-grid{grid-template-columns:1fr}
-  .cust-grid{grid-template-columns:repeat(3,1fr)}
+  .cust-grid{grid-template-columns:repeat(2,1fr)}
   .frow{grid-template-columns:1fr}
+  .cont-grid{grid-template-columns:1fr}
+  .cont-grid .cont-info{order:2}
+  .cont-grid .cont-form{order:1}
   .footer-cols{gap:24px}
   .fly-mega{min-width:calc(100vw - 48px);grid-template-columns:repeat(2,1fr)}
+  .footer-top{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .fbtn{height:52px;padding:0 12px;justify-content:center}
+  .footer-social{grid-column:1 / -1;margin-left:0;justify-content:center;margin-top:4px}
+}
+@media(max-width:480px){
+  .cust-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -407,7 +416,7 @@ a{text-decoration:none;color:inherit}
     <span class="shaft"></span><span class="head-r"></span>
   </div>
   <div class="hero-cta">
-    <a href="#contact" class="btn-b"><span class="ms" style="font-size:16px">rocket_launch</span>AX 실행체계 보기</a>
+    <a href="#ax-system" class="btn-b"><span class="ms" style="font-size:16px">rocket_launch</span>AX 실행체계 보기</a>
     <a href="#" class="btn-o" style="background:rgba(255,255,255,.85);backdrop-filter:blur(8px)"><span class="ms" style="font-size:16px">download</span>회사소개서 다운로드</a>
   </div>
 </section>
@@ -524,7 +533,7 @@ a{text-decoration:none;color:inherit}
 </section>
 
 <!-- ── AX TIMELINE ── -->
-<section class="sec sec--alt">
+<section class="sec sec--alt" id="ax-system">
   <div class="wrap">
     <p class="eye">AX 실행체계</p>
     <h2 class="htitle">ERP부터 AI까지,<br>실행으로 완성하는 AX 파트너</h2>
