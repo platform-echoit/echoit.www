@@ -68,11 +68,10 @@ a{text-decoration:none;color:inherit}
 #headline{position:absolute;bottom:88px;top:auto;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;width:90%;text-align:center;user-select:none;pointer-events:none;opacity:0;transition:opacity 1.2s ease;z-index:25}
 #headline.show{opacity:1}
 #headline .logo{display:none}
-#drag-hint{display:none}
 #headline .logo svg{display:block;height:20px;width:auto}
 #headline .slogan{font-size:clamp(22px,2.4vw,32px);font-weight:300;letter-spacing:.05em;line-height:1.6;color:#3a3a3a;white-space:nowrap}
 #headline .slogan strong{font-weight:600}
-#drag-hint{position:absolute;bottom:88px;left:50%;transform:translateX(-50%);display:flex;align-items:center;font-size:9px;letter-spacing:.18em;color:#c0c0c0;user-select:none;pointer-events:none;white-space:nowrap;opacity:0;transition:opacity 1.5s ease;z-index:10}
+#drag-hint{position:absolute;bottom:148px;left:50%;transform:translateX(-50%);display:flex;align-items:center;font-size:9px;letter-spacing:.18em;color:#c0c0c0;user-select:none;pointer-events:none;white-space:nowrap;opacity:0;transition:opacity 1.5s ease;z-index:10}
 #drag-hint.show{opacity:1}
 #drag-hint .shaft{width:34px;height:1px;background:#c0c0c0}
 #drag-hint .head-l,#drag-hint .head-r{width:5px;height:5px;border-color:#c0c0c0;border-style:solid;border-width:0}
@@ -111,6 +110,7 @@ a{text-decoration:none;color:inherit}
 .gd-icon-l{font-size:20px;color:#aaa;font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
 .gd-icon-r{font-size:20px;color:var(--b);font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
 .gd-center{display:flex;flex-direction:column;align-items:center;gap:6px}
+.gd-center-icon{font-size:22px;color:#bbb;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24}
 .gd-line{flex:1;width:1px;min-height:18px;background:linear-gradient(to bottom,transparent,#ddd,transparent)}
 .gd-pill{padding:5px 7px;border-radius:999px;background:#efefef;font:700 9px/1 'Pretendard';letter-spacing:.06em;color:#aaa;white-space:nowrap}
 .gd-bridge{display:flex;align-items:center;gap:14px;margin-top:16px;padding:16px 20px;border-radius:14px;background:var(--grd);color:#fff}
@@ -139,16 +139,19 @@ a{text-decoration:none;color:inherit}
 /* ── CORE VALUES ── */
 .val-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
 .val-card{border-radius:16px;padding:26px 22px;background:#fff;border:1px solid #eee;display:flex;flex-direction:column;gap:10px}
-.val-letter{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:var(--grd);color:#fff;font:900 22px/1 'Pretendard'}
+.val-letter{display:flex;align-items:center;justify-content:flex-start;width:auto;height:auto;color:#1a1a1a;font:900 31px/1 'Pretendard'}
 .val-en{font:700 11px/1 'Pretendard';letter-spacing:.06em;text-transform:uppercase;color:#999;margin-top:2px}
 .val-ko{font:700 17px/1.3 'Pretendard';color:#1a1a1a}
 .val-desc{font:400 13px/1.6 'Pretendard';color:#666;word-break:keep-all}
 
 /* ── AX TIMELINE ── */
 .tl{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;position:relative}
-.tl::before{content:'';position:absolute;top:38px;left:calc(16.5% + 18px);right:calc(16.5% + 18px);height:2px;background:var(--grd);z-index:0}
+.tl::before{display:none}
 .tl-card{border-radius:16px;padding:26px 22px;background:#fff;border:1px solid #eee;position:relative;z-index:1}
-.tl-num{width:44px;height:44px;border-radius:50%;background:var(--grd);color:#fff;display:flex;align-items:center;justify-content:center;font:700 15px/1 'Pretendard';margin-bottom:14px}
+.tl-num{width:44px;height:44px;border-radius:50%;background:var(--g);color:#fff;display:flex;align-items:center;justify-content:center;font:700 15px/1 'Pretendard';margin-bottom:14px}
+.tl-card:nth-child(1) .tl-num{background:#89c895}
+.tl-card:nth-child(2) .tl-num{background:#48b2bd}
+.tl-card:nth-child(3) .tl-num{background:#009ce0}
 .tl-era{font:700 11px/1 'Pretendard';letter-spacing:.08em;text-transform:uppercase;color:#aaa;margin-bottom:6px}
 .tl-ver{font:700 16px/1 'Pretendard';color:var(--b);margin-bottom:7px}
 .tl-name{font:700 20px/1.2 'Pretendard';margin-bottom:10px}
@@ -158,13 +161,28 @@ a{text-decoration:none;color:inherit}
 .tl-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--b);flex-shrink:0}
 
 /* ── CUSTOMERS ── */
-.cust-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:44px}
-.cust-item{border:1px solid #eee;border-radius:10px;padding:14px 10px;text-align:center;font:600 12px/1.4 'Pretendard';color:#666;transition:border-color .15s,color .15s,box-shadow .15s;word-break:keep-all}
-.cust-item:hover{border-color:var(--b);color:var(--b);box-shadow:0 3px 12px rgba(0,156,224,.1)}
+.cust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.cust-item{border:1px solid #eee;border-radius:12px;padding:22px 18px;display:flex;flex-direction:column;gap:0;transition:border-color .15s,box-shadow .15s;word-break:keep-all}
+.cust-item:hover{border-color:var(--b);box-shadow:0 4px 16px rgba(0,156,224,.1)}
+.cust-logo{height:57px;display:flex;align-items:center;margin-bottom:16px}
+.cust-logo img{max-height:57px;max-width:252px;width:auto;object-fit:contain}
+.cust-name{font:700 15px/1.3 'Pretendard';color:#1a1a1a;margin-bottom:5px}
+.cust-proj{font:400 13px/1.5 'Pretendard';color:#777}
 
 /* ── CONTACT ── */
-.cont-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start;padding-top:16px}
-.cont-info{display:flex;flex-direction:column;gap:22px}
+.cont-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:stretch;padding-top:16px}
+.cont-info{display:flex;flex-direction:column;gap:18px}
+.privacy-box{border:1px solid #e4e4e4;border-radius:10px;background:#fff;padding:18px 20px;max-height:320px;overflow-y:auto;font:400 12.5px/1.7 'Pretendard';color:#555;word-break:keep-all}
+.privacy-box h4{font:700 13px/1.5 'Pretendard';color:#1a1a1a;margin:0 0 10px}
+.privacy-box p{margin:0 0 12px}
+.privacy-box .pv-item{margin:0 0 8px;padding-left:2px}
+.privacy-box .pv-item b{display:block;color:#1a1a1a;font-weight:700;margin-bottom:3px}
+.privacy-box .pv-item span{display:block;padding-left:8px;position:relative}
+.privacy-box .pv-item span::before{content:'-';position:absolute;left:0;color:#aaa}
+.agree-row{display:flex;align-items:flex-start;gap:9px;padding:2px;cursor:pointer;user-select:none;margin-top:auto}
+.agree-row input{width:18px;height:18px;accent-color:var(--b);margin:1px 0 0;flex-shrink:0;cursor:pointer}
+.agree-row span{font:500 13.5px/1.5 'Pretendard';color:#444}
+.agree-row span b{color:var(--b);font-weight:700}
 .ci-row{display:flex;align-items:flex-start;gap:14px}
 .ci-icon{width:38px;height:38px;border-radius:9px;background:#f0f7ff;color:var(--b);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
 .ci-lbl{font:700 11px/1 'Pretendard';letter-spacing:.06em;text-transform:uppercase;color:#aaa;margin-bottom:4px}
@@ -182,23 +200,57 @@ a{text-decoration:none;color:inherit}
 .chk.sel{background:#f0f7ff;border-color:var(--b);color:var(--b)}
 
 /* ── FOOTER ── */
-.footer{background:#0f1014;color:#aaa;padding:56px 0 28px}
-.footer-top{display:flex;gap:48px;padding-bottom:36px;border-bottom:1px solid #222;align-items:flex-start}
-.fb{flex:0 0 290px}
-.fb img{height:20px;filter:brightness(0) invert(1);margin-bottom:14px;display:block}
-.fb p{font:400 13px/1.7 'Pretendard';color:#666;word-break:keep-all;max-width:270px}
-.fb .fcont{margin-top:14px;font:400 12px/1.8 'Pretendard';color:#555}
-.footer-cols{display:flex;gap:36px;flex:1;justify-content:flex-end;flex-wrap:wrap}
-.fc h5{font:700 11px/1 'Pretendard';letter-spacing:.08em;text-transform:uppercase;color:#ccc;margin-bottom:14px}
-.fc a{display:block;padding:4px 0;font:400 13px/1 'Pretendard';color:#666;transition:color .12s}
-.fc a:hover{color:#fff}
-.footer-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:28px;padding-top:20px;border-top:1px solid #1e1e1e;font:400 12px/1.5 'Pretendard';color:#444}
-.footer-btm a{color:#444;transition:color .12s}
-.footer-btm a:hover{color:#aaa}
-.fbl{display:flex;gap:20px}
+.footer{background:#1a1b1f;color:#aaa}
+.footer-top{display:flex;align-items:center;gap:14px;padding:22px 0;flex-wrap:wrap}
+.fbtn{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 26px;border-radius:6px;border:1px solid #4a4b50;background:transparent;color:#e6e6e6;font:500 14px/1 'Pretendard';text-decoration:none;transition:border-color .15s,background .15s}
+.fbtn:hover{border-color:#7a7b80;background:rgba(255,255,255,.05)}
+.fbtn .ms{font-size:17px;color:#bbb}
+.footer-social{margin-left:auto;display:flex;gap:10px}
+.fsoc{width:34px;height:34px;border-radius:50%;background:#4a4b50;color:#1a1b1f;display:flex;align-items:center;justify-content:center;font:700 15px/1 'Pretendard';text-decoration:none;transition:background .15s}
+.fsoc:hover{background:#6a6b70}
+.footer-btm{border-top:1px solid #2c2d31;padding:28px 0 36px;display:flex;align-items:flex-start;gap:28px}
+.fb-logo{height:24px;width:auto;filter:grayscale(1) brightness(1.4);opacity:.5;flex-shrink:0;margin-top:2px}
+.fb-info{display:flex;flex-direction:column;gap:9px}
+.fb-addr{font:400 14px/1.5 'Pretendard';color:#cfcfcf}
+.fb-addr b{color:#fff;font-weight:700;margin-left:8px}
+.fb-addr .tel-num{font-weight:400;color:#cfcfcf}
+.fb-links{display:flex;align-items:center;gap:16px;font:400 13px/1 'Pretendard'}
+.fb-links a{color:#aaa;text-decoration:none;transition:color .12s}
+.fb-links a:hover{color:#fff}
+.fb-links .sep{color:#444}
+.fb-copy{font:400 12px/1 'Pretendard';color:#5a5b60;margin-top:2px}
+
+/* ── REPORT MODAL ── */
+.rmodal{position:fixed;inset:0;z-index:200;display:none;align-items:flex-start;justify-content:center;background:rgba(0,0,0,.5);padding:40px 20px;overflow-y:auto}
+.rmodal.open{display:flex}
+.rmodal-box{background:#fff;border-radius:16px;width:100%;max-width:560px;box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden;animation:rm-in .25s cubic-bezier(.2,0,0,1)}
+@keyframes rm-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,0,0,1),transform .7s cubic-bezier(.2,0,0,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.08s}
+.reveal-d2{transition-delay:.16s}
+.reveal-d3{transition-delay:.24s}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+}
+.rmodal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:26px 28px 18px;border-bottom:1px solid #eee}
+.rmodal-head h3{font:700 19px/1.3 'Pretendard';color:#1a1a1a}
+.rmodal-head p{font:400 13px/1.6 'Pretendard';color:#777;margin-top:8px;word-break:keep-all}
+.rmodal-close{background:none;border:none;cursor:pointer;color:#999;display:flex;padding:2px;flex-shrink:0}
+.rmodal-body{padding:22px 28px;display:flex;flex-direction:column;gap:16px;max-height:60vh;overflow-y:auto}
+.rmodal-foot{padding:16px 28px 24px;display:flex;justify-content:center;border-top:1px solid #eee}
+.rf-label{font:700 12px/1 'Pretendard';color:#444;letter-spacing:.03em;margin-bottom:8px;display:block}
+.rf-label .req{color:var(--b);margin-left:3px}
+.rf-input,.rf-text{width:100%;padding:11px 14px;border:1.5px solid #e4e4e4;border-radius:8px;font:400 14px/1.4 'Pretendard';color:#1a1a1a;outline:none;transition:border-color .15s;box-sizing:border-box}
+.rf-input:focus,.rf-text:focus{border-color:var(--b)}
+.rf-text{resize:vertical;min-height:100px}
+.rf-file{font:400 13px/1.4 'Pretendard';color:#666}
+.rf-help{font:400 12px/1 'Pretendard';color:#bbb;margin-top:6px}
 
 /* ── FLOATING CTA ── */
-.fcta{position:fixed;right:24px;bottom:24px;z-index:50;width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;background:var(--grd);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(0,156,224,.4);transition:transform .15s,box-shadow .15s}
+.fcta{position:fixed;right:24px;bottom:24px;z-index:50;height:48px;padding:0 20px;border-radius:999px;border:none;cursor:pointer;background:var(--grd);color:#fff;display:inline-flex;align-items:center;gap:8px;font:600 14px/1 'Pretendard';box-shadow:0 6px 22px rgba(0,156,224,.4);transition:transform .15s,box-shadow .15s}
 .fcta:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(0,156,224,.5)}
 
 /* ── RESPONSIVE ── */
@@ -238,8 +290,8 @@ a{text-decoration:none;color:inherit}
 <body>
 
 <!-- ── FLOATING CTA ── -->
-<button class="fcta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" aria-label="문의하기">
-  <span class="ms" style="font-size:24px">mail</span>
+<button class="fcta" onclick="openContact(event)" aria-label="문의하기">
+  <span class="ms" style="font-size:20px">mail</span>문의
 </button>
 
 <!-- ── NAV ── -->
@@ -302,7 +354,6 @@ a{text-decoration:none;color:inherit}
       </li>
     </ul>
     <div class="nav-act">
-      <a href="#contact" class="btn-b"><span class="ms" style="font-size:16px">bolt</span>도입문의</a>
     </div>
     <button class="ham" id="hamBtn" aria-label="메뉴">
       <span></span><span></span><span></span>
@@ -389,12 +440,13 @@ a{text-decoration:none;color:inherit}
           </div>
           <div class="gd-center">
             <div class="gd-line"></div>
+            <span class="ms gd-center-icon">sync_alt</span>
             <div class="gd-pill">GAP</div>
             <div class="gd-line"></div>
           </div>
           <div class="gd-card gd-card--r">
             <div class="gd-row"><span class="ms gd-icon-r">bolt</span><span>Fast</span></div>
-            <div class="gd-row"><span class="ms gd-icon-r">sync_alt</span><span>Flexible</span></div>
+            <div class="gd-row"><span class="ms gd-icon-r">tune</span><span>Flexible</span></div>
             <div class="gd-row"><span class="ms gd-icon-r">wifi_off</span><span>Disconnected</span></div>
           </div>
         </div>
@@ -525,18 +577,18 @@ a{text-decoration:none;color:inherit}
     <h2 class="htitle">함께한 고객사</h2>
     <p class="hdesc">대기업, 공공기관 등 다양한 분야의 고객사와 구축·운영 프로젝트를 성공적으로 수행하고 있습니다.</p>
     <div class="cust-grid">
-      <div class="cust-item">한화에어로스페이스</div>
-      <div class="cust-item">현대자동차</div>
-      <div class="cust-item">LG에너지솔루션</div>
-      <div class="cust-item">삼성전자</div>
-      <div class="cust-item">삼성디스플레이</div>
-      <div class="cust-item">한국철도공사</div>
-      <div class="cust-item">한국남부발전</div>
-      <div class="cust-item">한국마사회</div>
-      <div class="cust-item">한국항공우주산업</div>
-      <div class="cust-item">동성케미컬</div>
-      <div class="cust-item">서울반도체</div>
-      <div class="cust-item">한국생산기술연구원</div>
+      <div class="cust-item"><div class="cust-logo"><img src="assets/logos/customers/hanwha-aerospace.png" alt="한화에어로스페이스" style="max-height:103px;max-width:300px"></div><span class="cust-name">한화에어로스페이스</span><span class="cust-proj">차세대 ONE-ERP 구축</span></div>
+      <div class="cust-item"><div class="cust-logo"><img src="assets/logos/customers/hyundai.png" alt="현대자동차" style="max-height:84px;max-width:280px"></div><span class="cust-name">현대자동차</span><span class="cust-proj">차세대 ERP · 글로벌 템플릿 구축 2단계</span></div>
+      <div class="cust-item"><div class="cust-logo"><img src="assets/logos/customers/lg-energy.png" alt="LG에너지솔루션" style="max-height:91px;max-width:290px"></div><span class="cust-name">LG에너지솔루션</span><span class="cust-proj">차세대 ERP 프로젝트</span></div>
+      <div class="cust-item"><div class="cust-logo"><img src="assets/logos/customers/samsung.png" alt="삼성전자"></div><span class="cust-name">삼성전자</span><span class="cust-proj">온라인 스토어 운영지원</span></div>
+      <div class="cust-item"><div class="cust-logo"><img src="assets/logos/customers/ksp.png" alt="한국남부발전" style="max-height:80px;max-width:260px"></div><span class="cust-name">한국남부발전</span><span class="cust-proj">현장 주도 업무자동화(RPA)</span></div>
+      <div class="cust-item"><div class="cust-logo"><img src="assets/logos/customers/korail.png" alt="한국철도공사"></div><span class="cust-name">한국철도공사</span><span class="cust-proj">RPA 고도화 및 자동화 프로젝트</span></div>
+      <div class="cust-item"><div class="cust-logo"><img src="assets/logos/customers/dongsung.png" alt="동성케미컬" style="max-height:91px;max-width:290px"></div><span class="cust-name">동성케미컬</span><span class="cust-proj">RPA 구축 프로젝트</span></div>
+      <div class="cust-item"><div class="cust-logo"><img src="assets/logos/customers/kitech.png" alt="한국생산기술연구원"></div><span class="cust-name">한국생산기술연구원</span><span class="cust-proj">RPA 고도화 및 추가 구축</span></div>
+      <div class="cust-item"><div class="cust-logo"><img src="assets/logos/customers/sr.png" alt="SR" style="max-height:68px;max-width:220px"></div><span class="cust-name">SR</span><span class="cust-proj">제4차 통합정보시스템 운영 및 유지관리</span></div>
+      <div class="cust-item"><div class="cust-logo"><img src="assets/logos/customers/seoul.png" alt="서울반도체" style="max-height:63px;max-width:200px"></div><span class="cust-name">서울반도체</span><span class="cust-proj">서울반도체 ERP시스템 운영 및 유지보수</span></div>
+      <div class="cust-item"><div class="cust-logo"><img src="assets/logos/customers/kai.png" alt="한국항공우주산업" style="max-height:74px;max-width:240px"></div><span class="cust-name">한국항공우주산업</span><span class="cust-proj">RPA 플랫폼 구축</span></div>
+      <div class="cust-item"><div class="cust-logo"><img src="assets/logos/customers/kra.png" alt="한국마사회" style="max-height:74px;max-width:240px"></div><span class="cust-name">한국마사회</span><span class="cust-proj">업무프로세스자동화(RPA) 구축</span></div>
     </div>
   </div>
 </section>
@@ -546,15 +598,20 @@ a{text-decoration:none;color:inherit}
   <div class="wrap">
     <p class="eye">Contact Us</p>
     <h2 class="htitle">전문 컨설턴트가 직접 상담해 드립니다</h2>
-    <div class="cont-grid">
+    <p class="hdesc">1,000건+ 구축 경험과 영역별 전문 인력이 고객의 AI 전환을 실행으로 완성합니다.</p>
+    <form onsubmit="handleSubmit(event)">
+    <div class="cont-grid" style="padding-top:32px">
       <div class="cont-info">
-        <p style="font:400 16px/1.7 'Pretendard';color:#555;word-break:keep-all;max-width:320px">1,000건+ 구축 경험과 영역별 전문 인력이 고객의 AI 전환을 실행으로 완성합니다.</p>
-        <div class="ci-row"><div class="ci-icon"><span class="ms">location_on</span></div><div><div class="ci-lbl">주소</div><div class="ci-val">서울특별시 강남구 강남대로 146길 25<br>(에코스페이스) 4층</div></div></div>
-        <div class="ci-row"><div class="ci-icon"><span class="ms">phone</span></div><div><div class="ci-lbl">전화</div><div class="ci-val">02-6342-8021</div></div></div>
-        <div class="ci-row"><div class="ci-icon"><span class="ms">fax</span></div><div><div class="ci-lbl">팩스</div><div class="ci-val">02-864-8021</div></div></div>
-        <div class="ci-row"><div class="ci-icon"><span class="ms">language</span></div><div><div class="ci-lbl">웹사이트</div><div class="ci-val">www.echoit.co.kr</div></div></div>
+        <div class="privacy-box">
+          <h4>개인정보 수집 · 이용 동의</h4>
+          <p>㈜에코아이티는 이용자들에게 보다 더 향상된 양질의 서비스를 제공하기 위하여 이용자 개인의 정보를 수집하고 있습니다. 이용자의 사전 동의 없이는 이용자의 개인 정보를 제3자에게 공개하지 않으며 별도의 사항이 발생한다면 반드시 동의를 구한 후 진행합니다.</p>
+          <div class="pv-item"><b>■ 수집하는 개인정보 항목</b>이름, 소속정보, 이메일, 연락처, 접속 로그, 쿠키, 접속 IP 정보</div>
+          <div class="pv-item"><b>■ 개인정보 수집목적</b>온라인 문의 및 요청사항 처리, 행사 및 교육 등록 관리, 뉴스레터 발송을 포함한 에코아이티 홍보 목적</div>
+          <div class="pv-item"><b>■ 개인정보의 보유 및 이용기간</b><span>이용자가 회사의 서비스를 이용하는 동안 회사는 이용자들의 개인 정보를 계속적으로 보유하며 서비스 제공 등을 위해 이용합니다.</span><span>이용자 본인이 직접 삭제하거나 수정한 정보, 삭제를 요청한 경우에는 재생할 수 없는 방법에 의하여 디스크에서 완전히 삭제하며 추후 열람이나 이용이 불가능한 상태로 처리됩니다.</span><span>에코아이티는 개인정보 수집 및 이용목적이 달성된 후에는 예외 없이 해당 정보를 지체 없이 파기합니다.</span></div>
+        </div>
+        <label class="agree-row" style="margin-top:14px"><input type="checkbox" id="agreeChk"><span><b>[필수]</b> 개인정보 수집 및 이용에 동의합니다.</span></label>
       </div>
-      <form class="cont-form" onsubmit="handleSubmit(event)">
+      <div class="cont-form">
         <div class="field">
           <label>문의 구분</label>
           <div class="chk-grp" id="cg1">
@@ -582,9 +639,10 @@ a{text-decoration:none;color:inherit}
         </div>
         <div class="field"><label>이메일</label><input type="email" placeholder="name@company.co.kr"></div>
         <div class="field"><label>문의 내용</label><textarea placeholder="문의하실 내용을 입력해 주세요."></textarea></div>
-        <button type="submit" class="btn-b" style="height:48px;font-size:15px;justify-content:center"><span class="ms" style="font-size:18px">send</span>문의 보내기</button>
-      </form>
+      </div>
     </div>
+    <button type="submit" class="btn-b" style="height:48px;font-size:15px;justify-content:center;padding:0 48px;margin:36px auto 0;display:flex"><span class="ms" style="font-size:18px">send</span>문의 보내기</button>
+    </form>
   </div>
 </section>
 
@@ -592,54 +650,141 @@ a{text-decoration:none;color:inherit}
 <footer class="footer">
   <div class="wrap">
     <div class="footer-top">
-      <div class="fb">
-        <img src="../../assets/logos/echoit-logo-white.svg" alt="ECHOIT">
-        <p>2008년 설립된 에코아이티는 SAP ERP 기반의 시스템 구축과 운영 경험을 바탕으로 RPA를 거쳐 AI까지 확장해왔습니다. AX를 실제 비즈니스 성과로 연결하는 보장된 파트너입니다.</p>
-        <div class="fcont">T. 02-6342-8021 · F. 02-864-8021<br>서울 강남구 강남대로 146길 25 (에코스페이스) 4층</div>
-      </div>
-      <div class="footer-cols">
-        <div class="fc">
-          <h5>회사소개</h5>
-          <a href="#">About Company</a>
-          <a href="#">파트너</a>
-          <a href="#">연혁</a>
-          <a href="#contact">Contact Us</a>
-        </div>
-        <div class="fc">
-          <h5>사업영역</h5>
-          <a href="#">SAP</a>
-          <a href="#">Brity / RPA</a>
-          <a href="#">Outsystems</a>
-          <a href="#">한컴AI</a>
-          <a href="#">Salesforce</a>
-          <a href="#">ITO (SI/SM)</a>
-        </div>
-        <div class="fc">
-          <h5>Notice</h5>
-          <a href="#">ESG경영</a>
-          <a href="#">뉴스레터</a>
-          <a href="#">Customer</a>
-        </div>
-        <div class="fc">
-          <h5>Links</h5>
-          <a href="#">뉴스레터 구독</a>
-          <a href="#">회사소개서</a>
-          <a href="#">지속가능경영</a>
-          <a href="#">에코아이</a>
-          <a href="#">힐하우스</a>
-        </div>
+      <a href="https://page.stibee.com/subscriptions/45645" target="_blank" rel="noopener" class="fbtn">뉴스레터 구독</a>
+      <a href="https://www.echoit.co.kr/pdf/%EC%97%90%EC%BD%94%EC%95%84%EC%9D%B4%ED%8B%B0%EC%86%8C%EA%B0%9C%EC%84%9C_202504.pdf" target="_blank" rel="noopener" class="fbtn">회사소개서 <span class="ms">download</span></a>
+      <a href="https://www.echoit.co.kr/esg/esg.html" target="_blank" rel="noopener" class="fbtn">지속가능경영</a>
+      <a href="#" class="fbtn" onclick="openReport(event)">제보하기</a>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/echoit.co.kr" target="_blank" rel="noopener" class="fsoc" aria-label="Facebook">f</a>
+        <a href="https://blog.naver.com/echoit2008" target="_blank" rel="noopener" class="fsoc" aria-label="Blog">B</a>
       </div>
     </div>
     <div class="footer-btm">
-      <span>Copyright © Echo Information Technology Co., LTD. All Rights Reserved.</span>
-      <div class="fbl">
-        <a href="#">개인정보 처리방침</a>
-        <a href="#">이용약관</a>
-        <a href="#">윤리경영헌장</a>
+      <img src="assets/logos/echoit-logo-white.svg" alt="ECHOIT" class="fb-logo">
+      <div class="fb-info">
+        <div class="fb-addr">서울특별시 강남구 강남대로146길 25(에코스페이스) 4층<b>TEL</b> 02-6342-8021　<b>FAX</b> 02-864-8021</div>
+        <div class="fb-links">
+          <a href="https://www.echoit.co.kr/rest/index.html" target="_blank" rel="noopener">힐링하우스</a>
+          <span class="sep">|</span>
+          <a href="https://echoit.daouoffice.com/login?nextUrl=/" target="_blank" rel="noopener">에코 메아리</a>
+          <span class="sep">|</span>
+          <a href="https://www.echoit.co.kr/common/company-personal_info.html" target="_blank" rel="noopener">개인정보 처리방침</a>
+        </div>
+        <div class="fb-copy">Copyright © Echo Information Technology Co., LTD All Right Reserved.</div>
       </div>
     </div>
   </div>
 </footer>
+
+<!-- ── CONTACT MODAL (floating button) ── -->
+<div class="rmodal" id="contactModal">
+  <div class="rmodal-box">
+    <div class="rmodal-head">
+      <div>
+        <h3>도입 문의</h3>
+      </div>
+      <button class="rmodal-close" onclick="closeContact()" aria-label="닫기"><span class="ms" style="font-size:24px">close</span></button>
+    </div>
+    <form id="contactModalForm" onsubmit="submitContactModal(event)">
+      <div class="rmodal-body" style="gap:12px">
+        <div>
+          <span class="rf-label" style="margin-bottom:6px">문의 구분</span>
+          <div class="chk-grp" id="mcg1">
+            <label class="chk"><input type="checkbox" value="컨설팅">컨설팅</label>
+            <label class="chk"><input type="checkbox" value="구축">구축</label>
+            <label class="chk"><input type="checkbox" value="교육">교육</label>
+            <label class="chk"><input type="checkbox" value="기술">기술</label>
+            <label class="chk"><input type="checkbox" value="기타">기타</label>
+          </div>
+        </div>
+        <div>
+          <span class="rf-label" style="margin-bottom:6px">분야</span>
+          <div class="chk-grp" id="mcg2">
+            <label class="chk"><input type="checkbox" value="SAP">SAP</label>
+            <label class="chk"><input type="checkbox" value="Brity/RPA">Brity / RPA</label>
+            <label class="chk"><input type="checkbox" value="Outsystems">Outsystems</label>
+            <label class="chk"><input type="checkbox" value="한컴AI">한컴AI</label>
+            <label class="chk"><input type="checkbox" value="Salesforce">Salesforce</label>
+            <label class="chk"><input type="checkbox" value="ITO">ITO (SI/SM)</label>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div><span class="rf-label" style="margin-bottom:6px">이름</span><input type="text" class="rf-input" style="padding:9px 12px" placeholder="홍길동"></div>
+          <div><span class="rf-label" style="margin-bottom:6px">회사</span><input type="text" class="rf-input" style="padding:9px 12px" placeholder="(주)에코아이티"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div><span class="rf-label" style="margin-bottom:6px">이메일</span><input type="email" class="rf-input" style="padding:9px 12px" placeholder="name@company.co.kr"></div>
+          <div><span class="rf-label" style="margin-bottom:6px">문의 내용</span><input type="text" class="rf-input" style="padding:9px 12px" placeholder="문의하실 내용을 입력해 주세요."></div>
+        </div>
+        <div>
+          <span class="rf-label" style="margin-bottom:6px">개인정보 수집 · 이용 동의</span>
+          <div class="privacy-box" style="max-height:120px;padding:14px 16px;font-size:11.5px;line-height:1.6">
+            <p style="margin:0 0 8px">㈜에코아이티는 이용자들에게 보다 더 향상된 양질의 서비스를 제공하기 위하여 이용자 개인의 정보를 수집하고 있습니다. 이용자의 사전 동의 없이는 이용자의 개인 정보를 제3자에게 공개하지 않으며 별도의 사항이 발생한다면 반드시 동의를 구한 후 진행합니다.</p>
+            <div class="pv-item"><b>■ 수집하는 개인정보 항목</b>이름, 소속정보, 이메일, 연락처, 접속 로그, 쿠키, 접속 IP 정보</div>
+            <div class="pv-item"><b>■ 개인정보 수집목적</b>온라인 문의 및 요청사항 처리, 행사 및 교육 등록 관리, 뉴스레터 발송을 포함한 에코아이티 홍보 목적</div>
+            <div class="pv-item"><b>■ 개인정보의 보유 및 이용기간</b><span>이용자가 회사의 서비스를 이용하는 동안 회사는 이용자들의 개인 정보를 계속적으로 보유하며 서비스 제공 등을 위해 이용합니다.</span><span>이용자 본인이 직접 삭제·수정하거나 삭제를 요청한 경우 재생할 수 없는 방법으로 디스크에서 완전히 삭제합니다.</span><span>에코아이티는 수집·이용목적이 달성된 후에는 예외 없이 해당 정보를 지체 없이 파기합니다.</span></div>
+          </div>
+        </div>
+        <label class="agree-row"><input type="checkbox" id="mAgreeChk"><span><b>[필수]</b> 개인정보 수집 및 이용에 동의합니다.</span></label>
+      </div>
+      <div class="rmodal-foot">
+        <button type="submit" class="btn-b" style="height:46px;font-size:15px;justify-content:center;padding:0 48px"><span class="ms" style="font-size:18px">send</span>문의 보내기</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── REPORT MODAL ── -->
+<div class="rmodal" id="reportModal">
+  <div class="rmodal-box">
+    <div class="rmodal-head">
+      <div>
+        <h3>제보하기</h3>
+        <p>안녕하세요. ㈜에코아이티입니다.<br>아래 항목을 작성해 주시면 담당자가 빠르게 확인 후 답변드리겠습니다.</p>
+      </div>
+      <button class="rmodal-close" onclick="closeReport()" aria-label="닫기"><span class="ms" style="font-size:24px">close</span></button>
+    </div>
+    <form id="reportForm" onsubmit="submitReport(event)">
+      <div class="rmodal-body">
+        <div>
+          <span class="rf-label">제보유형 <span class="req">*</span></span>
+          <div class="chk-grp" id="rg-type">
+            <label class="chk"><input type="checkbox" value="부정/비리">부정/비리</label>
+            <label class="chk"><input type="checkbox" value="협력사 고충 및 불공정 거래">협력사 고충 및 불공정 거래</label>
+            <label class="chk"><input type="checkbox" value="조직문화 저해">조직문화 저해</label>
+            <label class="chk"><input type="checkbox" value="서비스개선">서비스개선</label>
+            <label class="chk"><input type="checkbox" value="기타">기타</label>
+          </div>
+        </div>
+        <div>
+          <span class="rf-label">제목 <span class="req">*</span></span>
+          <input type="text" class="rf-input" placeholder="제목을 입력해 주세요" required>
+        </div>
+        <div>
+          <span class="rf-label">제보내용 <span class="req">*</span></span>
+          <textarea class="rf-text" placeholder="제보하실 내용을 입력해 주세요" required></textarea>
+        </div>
+        <div>
+          <span class="rf-label">에코아이티와의 관계 <span class="req">*</span></span>
+          <div class="chk-grp" id="rg-rel">
+            <label class="chk"><input type="checkbox" value="임직원">임직원</label>
+            <label class="chk"><input type="checkbox" value="협력업체">협력업체</label>
+            <label class="chk"><input type="checkbox" value="고객">고객</label>
+            <label class="chk"><input type="checkbox" value="기타">기타</label>
+          </div>
+        </div>
+        <div>
+          <span class="rf-label">첨부파일</span>
+          <input type="file" class="rf-file">
+          <div class="rf-help">* 필수입력 항목입니다.</div>
+        </div>
+      </div>
+      <div class="rmodal-foot">
+        <button type="submit" class="btn-b" style="height:46px;font-size:15px;justify-content:center;padding:0 48px">등록</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <script>
 // Nav scroll
@@ -676,6 +821,44 @@ function handleSubmit(e){
 // Close mobile menu on link click
 mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');ham.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity=''})}));
 
+// Report modal
+function openReport(e){if(e)e.preventDefault();document.getElementById('reportModal').classList.add('open');document.body.style.overflow='hidden';}function closeReport(){document.getElementById('reportModal').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('reportModal').addEventListener('click',e=>{if(e.target.id==='reportModal')closeReport();});
+// single-select chips inside report modal
+['rg-type','rg-rel'].forEach(id=>{
+  const grp=document.getElementById(id);
+  grp.querySelectorAll('.chk input').forEach(cb=>cb.addEventListener('change',()=>{
+    if(cb.checked)grp.querySelectorAll('.chk input').forEach(o=>{if(o!==cb){o.checked=false;o.closest('.chk').classList.remove('sel')}});
+    cb.closest('.chk').classList.toggle('sel',cb.checked);
+  }));
+});
+function submitReport(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('[type=submit]');
+  btn.textContent='✓ 제보가 접수되었습니다';
+  btn.style.background='#1a8a3c';
+  setTimeout(()=>{closeReport();e.target.reset();document.querySelectorAll('#reportModal .chk').forEach(c=>c.classList.remove('sel'));btn.textContent='등록';btn.style.background='';},2000);
+}
+
+// Contact modal (floating button)
+function openContact(e){if(e)e.preventDefault();document.getElementById('contactModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeContact(){document.getElementById('contactModal').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('contactModal').addEventListener('click',e=>{if(e.target.id==='contactModal')closeContact();});
+function submitContactModal(e){
+  e.preventDefault();
+  if(!document.getElementById('mAgreeChk').checked){alert('개인정보 수집 및 이용에 동의해 주세요.');return;}
+  const btn=e.target.querySelector('[type=submit]');
+  btn.innerHTML='✓ 접수되었습니다';
+  btn.style.background='#1a8a3c';
+  setTimeout(()=>{closeContact();e.target.reset();document.querySelectorAll('#contactModal .chk').forEach(c=>c.classList.remove('sel'));btn.innerHTML='<span class="ms" style="font-size:18px">send</span>문의 보내기';btn.style.background='';},2000);
+}
+// chip toggle inside contact modal
+document.querySelectorAll('#mcg1 .chk input,#mcg2 .chk input').forEach(cb=>{
+  cb.addEventListener('change',()=>cb.closest('.chk').classList.toggle('sel',cb.checked));
+});
+// close any modal on Esc
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeContact();closeReport();}});
+
 // Auto-scroll chronicles — infinite loop
 (function(){
   const el=document.querySelector('.chr-scroll');
@@ -699,6 +882,45 @@ mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classLi
     }
     requestAnimationFrame(tick);
   })();
+})();
+
+// Scroll reveal — subtle fade-up, plays once
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  // group selectors: each matched element becomes a reveal target;
+  // siblings within a group get a small stagger
+  const groups = [
+    ['.intro-card','.gap-diagram'],
+    ['.stat'],
+    ['#services .eye, #services .htitle, #services .hdesc'],
+    ['.chr-card'],
+    ['.val-card'],
+    ['.tl-card'],
+    ['.cust-item'],
+    ['#contact .eye, #contact .htitle, #contact .hdesc'],
+    ['.cont-info','.cont-form'],
+  ];
+  const targets = [];
+  groups.forEach(sels=>{
+    const els = sels.flatMap(s=>[...document.querySelectorAll(s)]);
+    els.forEach((el,i)=>{
+      el.classList.add('reveal');
+      if(i%4===1)el.classList.add('reveal-d1');
+      else if(i%4===2)el.classList.add('reveal-d2');
+      else if(i%4===3)el.classList.add('reveal-d3');
+      targets.push(el);
+    });
+  });
+  // also reveal standalone section headers not covered above
+  document.querySelectorAll('.section__head, .htitle').forEach(el=>{
+    if(!el.classList.contains('reveal')){el.classList.add('reveal');targets.push(el);}
+  });
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  targets.forEach(t=>io.observe(t));
 })();
 </script>
 
