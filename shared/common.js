@@ -14,10 +14,11 @@ const _cmScript = document.currentScript;
 
   // ── 병렬 fetch + DOM 주입 ──
   async function loadShared(){
+    const v='?v='+Date.now();
     const [navHTML, footerHTML, modalsHTML] = await Promise.all([
-      fetch(sharedPath('nav.html')).then(r=>r.text()),
-      fetch(sharedPath('footer.html')).then(r=>r.text()),
-      fetch(sharedPath('modals.html')).then(r=>r.text()),
+      fetch(sharedPath('nav.html')+v).then(r=>r.text()),
+      fetch(sharedPath('footer.html')+v).then(r=>r.text()),
+      fetch(sharedPath('modals.html')+v).then(r=>r.text()),
     ]);
     const navRoot=document.getElementById('nav-root');
     const footerRoot=document.getElementById('footer-root');
