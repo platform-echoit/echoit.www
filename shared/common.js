@@ -89,17 +89,30 @@ const _cmScript = document.currentScript;
     document.getElementById('contactModal').addEventListener('click',e=>{if(e.target.id==='contactModal')closeContact();});
     window.submitContactModal=function(e){
       e.preventDefault();
-      var err=document.getElementById('cmError');
-      function showErr(msg){if(err){err.textContent=msg;err.style.display='block';}}
-      if(err){err.style.display='none';}
-      if(!document.querySelector('#mcg1 input:checked')){showErr('문의 구분을 선택해 주세요.');return;}
-      if(!document.getElementById('mAgreeChk').checked){showErr('개인정보 수집 및 이용에 동의해 주세요.');return;}
+      var mcg1Err=document.getElementById('mcg1Err');
+      var agreeErr=document.getElementById('mAgreeErr');
+      var okCat=!!document.querySelector('#mcg1 input:checked');
+      var okAgree=document.getElementById('mAgreeChk').checked;
+      if(mcg1Err)mcg1Err.style.display=okCat?'none':'block';
+      if(agreeErr)agreeErr.style.display=okAgree?'none':'block';
+      // 텍스트필드(이름·회사·이메일)는 네이티브 말풍선으로 검증
+      if(!e.target.reportValidity())return;
+      if(!okCat||!okAgree)return;
       const btn=e.target.querySelector('[type=submit]');
       btn.innerHTML='✓ 접수되었습니다';btn.style.background='#1a8a3c';
       setTimeout(()=>{closeContact();e.target.reset();document.querySelectorAll('#contactModal .chk').forEach(c=>c.classList.remove('sel'));btn.innerHTML='<span class="ms" style="font-size:18px">send</span>문의 보내기';btn.style.background='';},2000);
     };
     document.querySelectorAll('#mcg1 .chk input,#mcg2 .chk input').forEach(cb=>{
-      cb.addEventListener('change',()=>cb.closest('.chk').classList.toggle('sel',cb.checked));
+      cb.addEventListener('change',()=>{
+        cb.closest('.chk').classList.toggle('sel',cb.checked);
+        var mcg1Err=document.getElementById('mcg1Err');
+        if(mcg1Err&&document.querySelector('#mcg1 input:checked'))mcg1Err.style.display='none';
+      });
+    });
+    var agreeBox=document.getElementById('mAgreeChk');
+    if(agreeBox)agreeBox.addEventListener('change',()=>{
+      var agreeErr=document.getElementById('mAgreeErr');
+      if(agreeErr&&agreeBox.checked)agreeErr.style.display='none';
     });
 
     // Close modal on Esc

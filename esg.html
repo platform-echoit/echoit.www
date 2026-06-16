@@ -104,12 +104,14 @@
   <!-- SVG 배경 (Three.js 로드 후 자동 숨김) -->
   <svg id="esg-bg" style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <radialGradient id="g1" cx="20%" cy="50%" r="60%"><stop offset="0%" stop-color="#009ce0" stop-opacity="0.35"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
-      <radialGradient id="g2" cx="80%" cy="50%" r="55%"><stop offset="0%" stop-color="#89c895" stop-opacity="0.28"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g1" gradientUnits="userSpaceOnUse" cx="250" cy="120" r="430"><stop offset="0%" stop-color="#009ce0" stop-opacity="0.42"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g2" gradientUnits="userSpaceOnUse" cx="1190" cy="280" r="430"><stop offset="0%" stop-color="#89c895" stop-opacity="0.34"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g3" gradientUnits="userSpaceOnUse" cx="790" cy="40" r="340"><stop offset="0%" stop-color="#3aa0d8" stop-opacity="0.22"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
     </defs>
     <rect width="1440" height="400" fill="#0f1115"/>
     <rect width="1440" height="400" fill="url(#g1)"/>
     <rect width="1440" height="400" fill="url(#g2)"/>
+    <rect width="1440" height="400" fill="url(#g3)"/>
   </svg>
   <!-- 수평 레이아웃: 좌=파티클 영역, 우=텍스트 -->
   <div class="esg-hero-inner">
@@ -221,17 +223,17 @@ function initESGParticles() {
   if (!container) { console.warn('[ESGParticles] container 없음'); return; }
 
   const svgBg = document.getElementById('esg-bg');
-  if (svgBg) svgBg.style.display = 'none';
+  // SVG 그라디언트 배경을 유지 (투명 캔버스 뒤로 비침)
 
   // ── Renderer ────────────────────────────────────────────────
-  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setClearColor(0x0f1115, 1);
+  renderer.setClearColor(0x0f1115, 0);
   Object.assign(renderer.domElement.style, { display: 'block', position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', zIndex: '1' });
   container.appendChild(renderer.domElement);
 
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x0f1115);
+  scene.background = null; // 투명 — SVG 그라디언트 배경이 비치도록
   scene.position.x = 34;
   scene.position.z = 0;
 
@@ -327,7 +329,9 @@ function initESGParticles() {
   // ── 아이콘 파티클 (흰색) ────────────────────────────────────
   const posArr  = new Float32Array(MAX_ICON * 3);
   for (let i = 0; i < MAX_ICON; i++) {
-    posArr[i*3] = iconSets[0][i][0]; posArr[i*3+1] = iconSets[0][i][1]; posArr[i*3+2] = iconSets[0][i][2];
+    posArr[i*3]   = (Math.random()-0.5) * 200;
+    posArr[i*3+1] = (Math.random()-0.5) * 120;
+    posArr[i*3+2] = (Math.random()-0.5) * 60;
   }
   const geoIcon  = new THREE.BufferGeometry();
   const posAttr  = new THREE.BufferAttribute(posArr, 3);
@@ -391,7 +395,7 @@ function initESGParticles() {
   });
 
   // ── 모핑 시퀀스 ─────────────────────────────────────────────
-  let fromSnap = iconSets[0].map(p => [...p]);
+  let fromSnap = Array.from({length: MAX_ICON}, (_, i) => [posArr[i*3], posArr[i*3+1], posArr[i*3+2]]);
 
   function morphTo(toIdx) {
     const to = iconSets[toIdx], from = fromSnap, proxy = {t: 0};
@@ -412,7 +416,7 @@ function initESGParticles() {
       },
     });
   }
-  gsap.delayedCall(3, () => morphTo(1));
+  morphTo(0); // 즉시 모임 (딜레이 없이)
 
   // ── Resize ───────────────────────────────────────────────────
   function onResize() {
