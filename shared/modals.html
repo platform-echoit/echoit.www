@@ -1,0 +1,108 @@
+<!-- ── CONTACT MODAL (floating button) ── -->
+<div class="rmodal" id="contactModal">
+  <div class="rmodal-box">
+    <div class="rmodal-head">
+      <div>
+        <h3>도입 문의</h3>
+      </div>
+      <button class="rmodal-close" onclick="closeContact()" aria-label="닫기"><span class="ms" style="font-size:24px">close</span></button>
+    </div>
+    <form id="contactModalForm" onsubmit="submitContactModal(event)">
+      <div class="rmodal-body" style="gap:12px">
+        <div>
+          <span class="rf-label" style="margin-bottom:6px">문의 구분 <span style="color:#009ce0">*</span></span>
+          <div class="chk-grp" id="mcg1">
+            <label class="chk"><input type="checkbox" value="컨설팅">컨설팅</label>
+            <label class="chk"><input type="checkbox" value="구축">구축</label>
+            <label class="chk"><input type="checkbox" value="교육">교육</label>
+            <label class="chk"><input type="checkbox" value="기술">기술</label>
+            <label class="chk"><input type="checkbox" value="기타">기타</label>
+          </div>
+        </div>
+        <div>
+          <span class="rf-label" style="margin-bottom:6px">분야</span>
+          <div class="chk-grp" id="mcg2" style="flex-wrap:nowrap;overflow-x:auto">
+            <label class="chk"><input type="checkbox" value="SAP">SAP</label>
+            <label class="chk"><input type="checkbox" value="Automation">Automation</label>
+            <label class="chk"><input type="checkbox" value="Outsystems">Outsystems</label>
+            <label class="chk"><input type="checkbox" value="한컴AI">한컴AI</label>
+            <label class="chk"><input type="checkbox" value="Salesforce">Salesforce</label>
+            <label class="chk"><input type="checkbox" value="ITO">ITO</label>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div><span class="rf-label" style="margin-bottom:6px">이름 <span style="color:#009ce0">*</span></span><input type="text" class="rf-input" style="padding:9px 12px" placeholder="홍길동" required></div>
+          <div><span class="rf-label" style="margin-bottom:6px">회사 <span style="color:#009ce0">*</span></span><input type="text" class="rf-input" style="padding:9px 12px" placeholder="(주)에코아이티" required></div>
+        </div>
+        <div><span class="rf-label" style="margin-bottom:6px">이메일 <span style="color:#009ce0">*</span></span><input type="email" class="rf-input" style="padding:9px 12px" placeholder="name@company.co.kr" required></div>
+        <div><span class="rf-label" style="margin-bottom:6px">문의 내용</span><textarea class="rf-text" style="min-height:88px" placeholder="문의하실 내용을 입력해 주세요."></textarea></div>
+        <div>
+          <span class="rf-label" style="margin-bottom:6px">개인정보 수집 · 이용 동의</span>
+          <div class="privacy-box" style="max-height:120px;padding:14px 16px;font-size:11.5px;line-height:1.6">
+            <p style="margin:0 0 8px">㈜에코아이티는 이용자들에게 보다 더 향상된 양질의 서비스를 제공하기 위하여 이용자 개인의 정보를 수집하고 있습니다. 이용자의 사전 동의 없이는 이용자의 개인 정보를 제3자에게 공개하지 않으며 별도의 사항이 발생한다면 반드시 동의를 구한 후 진행합니다.</p>
+            <div class="pv-item"><b>■ 수집하는 개인정보 항목</b>이름, 소속정보, 이메일, 연락처, 접속 로그, 쿠키, 접속 IP 정보</div>
+            <div class="pv-item"><b>■ 개인정보 수집목적</b>온라인 문의 및 요청사항 처리, 행사 및 교육 등록 관리, 뉴스레터 발송을 포함한 에코아이티 홍보 목적</div>
+            <div class="pv-item"><b>■ 개인정보의 보유 및 이용기간</b><span>이용자가 회사의 서비스를 이용하는 동안 회사는 이용자들의 개인 정보를 계속적으로 보유하며 서비스 제공 등을 위해 이용합니다.</span><span>이용자 본인이 직접 삭제·수정하거나 삭제를 요청한 경우 재생할 수 없는 방법으로 디스크에서 완전히 삭제합니다.</span><span>에코아이티는 수집·이용목적이 달성된 후에는 예외 없이 해당 정보를 지체 없이 파기합니다.</span></div>
+          </div>
+        </div>
+        <label class="agree-row"><input type="checkbox" id="mAgreeChk"><span style="font-size:12px"><b>[필수]</b> 개인정보 수집 및 이용에 동의합니다.</span></label>
+      </div>
+      <div class="rmodal-foot">
+        <div id="cmError" style="display:none;width:100%;text-align:center;color:#d32f2f;font:600 13px/1.4 'Pretendard';margin-bottom:12px"></div>
+        <button type="submit" class="btn-b" style="height:46px;font-size:15px;justify-content:center;padding:0 48px"><span class="ms" style="font-size:18px">send</span>문의 보내기</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── REPORT MODAL ── -->
+<div class="rmodal" id="reportModal">
+  <div class="rmodal-box">
+    <div class="rmodal-head">
+      <div>
+        <h3>제보하기</h3>
+        <p>안녕하세요. ㈜에코아이티입니다.<br>아래 항목을 작성해 주시면 담당자가 빠르게 확인 후 답변드리겠습니다.</p>
+      </div>
+      <button class="rmodal-close" onclick="closeReport()" aria-label="닫기"><span class="ms" style="font-size:24px">close</span></button>
+    </div>
+    <form id="reportForm" onsubmit="submitReport(event)">
+      <div class="rmodal-body">
+        <div>
+          <span class="rf-label">제보유형 <span class="req">*</span></span>
+          <div class="chk-grp" id="rg-type">
+            <label class="chk"><input type="checkbox" value="부정/비리">부정/비리</label>
+            <label class="chk"><input type="checkbox" value="협력사 고충 및 불공정 거래">협력사 고충 및 불공정 거래</label>
+            <label class="chk"><input type="checkbox" value="조직문화 저해">조직문화 저해</label>
+            <label class="chk"><input type="checkbox" value="서비스개선">서비스개선</label>
+            <label class="chk"><input type="checkbox" value="기타">기타</label>
+          </div>
+        </div>
+        <div>
+          <span class="rf-label">제목 <span class="req">*</span></span>
+          <input type="text" class="rf-input" placeholder="제목을 입력해 주세요" required>
+        </div>
+        <div>
+          <span class="rf-label">제보내용 <span class="req">*</span></span>
+          <textarea class="rf-text" placeholder="제보하실 내용을 입력해 주세요" required></textarea>
+        </div>
+        <div>
+          <span class="rf-label">에코아이티와의 관계 <span class="req">*</span></span>
+          <div class="chk-grp" id="rg-rel">
+            <label class="chk"><input type="checkbox" value="임직원">임직원</label>
+            <label class="chk"><input type="checkbox" value="협력업체">협력업체</label>
+            <label class="chk"><input type="checkbox" value="고객">고객</label>
+            <label class="chk"><input type="checkbox" value="기타">기타</label>
+          </div>
+        </div>
+        <div>
+          <span class="rf-label">첨부파일</span>
+          <input type="file" class="rf-file">
+          <div class="rf-help">* 필수입력 항목입니다.</div>
+        </div>
+      </div>
+      <div class="rmodal-foot">
+        <button type="submit" class="btn-b" style="height:46px;font-size:15px;justify-content:center;padding:0 48px">등록</button>
+      </div>
+    </form>
+  </div>
+</div>
