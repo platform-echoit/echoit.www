@@ -161,9 +161,9 @@ a{text-decoration:none;color:inherit}
 .cust-proj{font:400 13px/1.5 'Pretendard';color:#777}
 
 /* ── CONTACT ── */
-.cont-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:stretch;padding-top:16px}
+.cont-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:stretch;padding-top:16px}
 .cont-info{display:flex;flex-direction:column;gap:18px}
-.privacy-box{border:1px solid #e4e4e4;border-radius:10px;background:#fff;padding:18px 20px;max-height:320px;overflow-y:auto;font:400 12.5px/1.7 'Pretendard';color:#555;word-break:keep-all}
+.privacy-box{border:1px solid #e4e4e4;border-radius:10px;background:#fff;padding:18px 20px;flex:1;min-height:320px;overflow-y:auto;font:400 12.5px/1.7 'Pretendard';color:#555;word-break:keep-all}
 .privacy-box h4{font:700 13px/1.5 'Pretendard';color:#1a1a1a;margin:0 0 10px}
 .privacy-box p{margin:0 0 12px}
 .privacy-box .pv-item{margin:0 0 8px;padding-left:2px}
@@ -179,6 +179,8 @@ a{text-decoration:none;color:inherit}
 .ci-lbl{font:700 11px/1 'Pretendard';letter-spacing:.06em;text-transform:uppercase;color:#aaa;margin-bottom:4px}
 .ci-val{font:400 14px/1.5 'Pretendard';color:#444}
 .cont-form{display:flex;flex-direction:column;gap:14px}
+.cont-form .field:last-child{flex:1}
+.cont-form .field:last-child textarea{flex:1;min-height:90px}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .field{display:flex;flex-direction:column;gap:5px}
 .field label{font:700 12px/1 'Pretendard';color:#666;letter-spacing:.03em}

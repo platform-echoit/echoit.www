@@ -15,17 +15,20 @@ const _cmScript = document.currentScript;
   // ── 병렬 fetch + DOM 주입 ──
   async function loadShared(){
     const v='?v='+Date.now();
-    const [navHTML, footerHTML, modalsHTML] = await Promise.all([
+    const [navHTML, footerHTML, modalsHTML, contactHTML] = await Promise.all([
       fetch(sharedPath('nav.html')+v).then(r=>r.text()),
       fetch(sharedPath('footer.html')+v).then(r=>r.text()),
       fetch(sharedPath('modals.html')+v).then(r=>r.text()),
+      fetch(sharedPath('contact.html')+v).then(r=>r.text()).catch(()=>''),
     ]);
     const navRoot=document.getElementById('nav-root');
     const footerRoot=document.getElementById('footer-root');
     const modalRoot=document.getElementById('modal-root');
+    const contactRoot=document.getElementById('contact-form-root');
     if(navRoot)navRoot.innerHTML=navHTML;
     if(footerRoot)footerRoot.innerHTML=footerHTML;
     if(modalRoot)modalRoot.innerHTML=modalsHTML;
+    if(contactRoot)contactRoot.innerHTML=contactHTML;
     init();
     // 페이지별 after-load 훅
     if(typeof window.onSharedLoaded==='function')window.onSharedLoaded();
@@ -64,6 +67,32 @@ const _cmScript = document.currentScript;
       btn.innerHTML='✓ 접수되었습니다';btn.style.background='#1a8a3c';
       setTimeout(()=>{btn.innerHTML='<span class="ms" style="font-size:18px">send</span>문의 보내기';btn.style.background=''},3000);
     };
+
+    // Inline contact form (shared/contact.html → #contact-form-root)
+    window.submitContact=function(e){
+      e.preventDefault();
+      var catErr=document.getElementById('cf-catErr');
+      var agreeErr=document.getElementById('cf-agreeErr');
+      var okCat=!!document.querySelector('#cf-cat input:checked');
+      var agreeBox=document.getElementById('cf-agree');
+      var okAgree=agreeBox?agreeBox.checked:true;
+      if(catErr)catErr.style.display=okCat?'none':'block';
+      if(agreeErr)agreeErr.style.display=okAgree?'none':'block';
+      if(!e.target.reportValidity())return;
+      if(!okCat||!okAgree)return;
+      var btn=e.target.querySelector('[type=submit]');
+      btn.innerHTML='✓ 접수되었습니다';btn.style.background='#1a8a3c';
+      setTimeout(()=>{e.target.reset();document.querySelectorAll('#contactForm .chk').forEach(c=>c.classList.remove('sel'));btn.innerHTML='<span class="ms" style="font-size:18px">send</span>등록';btn.style.background='';},2500);
+    };
+    document.querySelectorAll('#cf-cat .chk input,#cf-field .chk input').forEach(cb=>{
+      cb.addEventListener('change',()=>{
+        cb.closest('.chk').classList.toggle('sel',cb.checked);
+        var catErr=document.getElementById('cf-catErr');
+        if(catErr&&document.querySelector('#cf-cat input:checked'))catErr.style.display='none';
+      });
+    });
+    var cfAgree=document.getElementById('cf-agree');
+    if(cfAgree)cfAgree.addEventListener('change',()=>{var e2=document.getElementById('cf-agreeErr');if(e2&&cfAgree.checked)e2.style.display='none';});
 
     // Report modal
     window.openReport=function(e){if(e)e.preventDefault();document.getElementById('reportModal').classList.add('open');document.body.style.overflow='hidden';};
@@ -147,6 +176,13 @@ const _cmScript = document.currentScript;
         ['.chr-card'],['.val-card'],['.tl-card'],['.cust-item'],
         ['#contact .eye, #contact .htitle, #contact .hdesc'],
         ['.cont-info','.cont-form'],
+        ['.eb-block > .wrap > div:first-child'],
+        ['.eb-icard'],['.eb-item'],['.eb-imgcard'],
+        ['.rc-ben'],['.rc-step'],['.rc-pill'],['.rc-table'],
+        ['.cv-about > div'],['.cv-biz'],['.cv-val'],['.cv-str'],['.cv-partner'],['.cv-hist-tabs'],
+        ['.cv-map'],['.cv-loc-item'],['.cont-info','.cont-form'],
+        ['.cu-tabs'],['.cu-feat'],['.cu-logo'],
+        ['.it-svc'],['.it-band-item'],['.it-why'],
       ];
       const targets=[];
       groups.forEach(sels=>{
@@ -159,7 +195,7 @@ const _cmScript = document.currentScript;
           targets.push(el);
         });
       });
-      document.querySelectorAll('.section__head,.htitle').forEach(el=>{
+      document.querySelectorAll('.section__head,.htitle,.eb-title,.cv-title,.cu-title,.it-title').forEach(el=>{
         if(!el.classList.contains('reveal')){el.classList.add('reveal');targets.push(el);}
       });
       const io=new IntersectionObserver(entries=>{

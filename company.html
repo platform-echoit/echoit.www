@@ -1,0 +1,533 @@
+<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="Company 회사소개" subtitle="About Company — 회사소개·핵심가치·파트너·연혁" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECHOIT — About Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+<link rel="stylesheet" href="shared/common.css">
+
+<!-- Three.js (UMD global) + GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+
+<div id="nav-root"></div>
+
+<style>
+/* ── HERO (esg 차용) ── */
+.eb-hero{position:relative;overflow:hidden;height:34vh;min-height:300px;background:#0f1115;color:#fff}
+.eb-eye{font:700 12px/1 'Pretendard';letter-spacing:.14em;text-transform:uppercase;color:#7fd3f3}
+.eb-h1{margin:18px 0 0;font-weight:800;font-size:clamp(32px,4.4vw,54px);line-height:1.12;letter-spacing:-1px}
+.eb-h1 .g{background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.eb-sub{margin:22px 0 0;max-width:640px;font:400 16px/1.7 'Pretendard';color:#b9bcc4;word-break:keep-all}
+.esg-hero-inner{position:relative;z-index:10;height:100%;display:flex;align-items:center;max-width:1200px;margin:0 auto;padding:0 32px;gap:0}
+.esg-p-zone{flex:0 0 50%;height:100%;pointer-events:none}
+.esg-t-zone{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:6px}
+@media(max-width:1024px){.esg-p-zone{flex:0 0 45%}}
+@media(max-width:768px){
+  .eb-hero{height:calc(46vh - 100px);min-height:240px}
+  .eb-h1{font-size:clamp(26px,7vw,38px)}
+  .eb-sub{font-size:14.5px}
+  .esg-hero-inner{flex-direction:column-reverse;justify-content:flex-end;padding:0 20px 24px}
+  .esg-p-zone{flex:0 0 40%;width:100%;height:auto}
+  .esg-t-zone{width:100%}
+}
+
+/* ── SECTION BASE ── */
+.cv-block{padding:80px 0;border-bottom:1px solid #eee}
+.cv-block.alt{background:#f7f8fa}
+.cv-head{text-align:center;max-width:760px;margin:0 auto 48px}
+.cv-eye{font:700 12px/1 'Pretendard';letter-spacing:.12em;text-transform:uppercase;color:var(--b)}
+.cv-title{margin:14px 0 0;font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.18;letter-spacing:-.6px;word-break:keep-all}
+.cv-desc{margin:16px 0 0;font:400 16px/1.7 'Pretendard';color:#666;word-break:keep-all}
+
+/* ── ABOUT: 회사정보 + 사업영역 ── */
+.cv-about{display:flex;flex-direction:column;gap:32px}
+.cv-info{border:1px solid #e8e8e8;border-radius:18px;overflow:hidden;background:#fff;display:grid;grid-template-columns:repeat(3,1fr)}
+.cv-info-row{display:grid;grid-template-columns:120px 1fr;border-top:1px solid #f0f0f0;border-left:1px solid #f0f0f0}
+.cv-info-row:nth-child(-n+3){border-top:none}
+.cv-info-row:nth-child(3n+1){border-left:none}
+.cv-info-row dt{padding:16px 18px;background:#fafbfc;font:700 13px/1.5 'Pretendard';color:#555;border-right:1px solid #f0f0f0}
+.cv-info-row dd{padding:16px 18px;font:400 13px/1.5 'Pretendard';color:#222;word-break:break-all;display:flex;align-items:center}
+.cv-info-row dd a{color:var(--b)}
+.cv-biz-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cv-biz{border:1px solid #eaeaea;border-radius:16px;padding:24px 22px;background:#fff;display:flex;flex-direction:column;gap:12px;transition:box-shadow .15s,border-color .15s}
+.cv-biz:hover{box-shadow:0 6px 24px rgba(0,0,0,.07);border-color:#d6d6d6}
+.cv-biz-ic{width:48px;height:48px;border-radius:12px;background:#f2f3f5;color:#555;display:flex;align-items:center;justify-content:center}
+.cv-biz-ic .ms{font-size:26px}
+.cv-biz h4{font:700 16px/1.3 'Pretendard';color:var(--b)}
+.cv-biz .tags{font:600 12.5px/1.5 'Pretendard';color:#777}
+.cv-biz p{font:400 13.5px/1.6 'Pretendard';color:#666;word-break:keep-all}
+
+/* ── CORE VALUE ── */
+.cv-val-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cv-val{border:1px solid #eee;border-radius:16px;padding:28px 22px;background:#fff;display:flex;flex-direction:column;gap:12px;transition:box-shadow .15s,border-color .15s}
+.cv-val:hover{box-shadow:0 6px 24px rgba(0,0,0,.07);border-color:#d6d6d6}
+.cv-val-no{font:800 13px/1 'Pretendard';color:#bbb;letter-spacing:.04em}
+.cv-val-ic{width:54px;height:54px;border-radius:14px;background:var(--grd);color:#fff;display:flex;align-items:center;justify-content:center}
+.cv-val:nth-child(1) .cv-val-ic{background:#89c895}
+.cv-val:nth-child(2) .cv-val-ic{background:#54b4ac}
+.cv-val:nth-child(3) .cv-val-ic{background:#2aa6cd}
+.cv-val:nth-child(4) .cv-val-ic{background:#009ce0}
+.cv-val-ic .ms{font-size:28px}
+.cv-val h4{font:700 18px/1.3 'Pretendard';color:#1a1a1a}
+.cv-val .en{font:500 12.5px/1.4 'Pretendard';color:#999;letter-spacing:.02em}
+
+/* ── STRENGTH ── */
+.cv-str-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.cv-str{border:1px solid #eee;border-radius:18px;padding:30px 28px;background:#fff;display:flex;flex-direction:column;gap:14px;transition:box-shadow .15s,border-color .15s}
+.cv-str:hover{box-shadow:0 8px 28px rgba(0,0,0,.08);border-color:#d6d6d6}
+.cv-str-top{display:flex;align-items:center;gap:16px}
+.cv-str-no{font:800 30px/1 'Pretendard';color:#1a1a1a}
+.cv-str-en{font:700 17px/1.3 'Pretendard';background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cv-str-lead{font:600 15px/1.55 'Pretendard';color:#333;word-break:keep-all}
+.cv-str ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:0;padding:0}
+.cv-str li{display:flex;gap:9px;font:400 13.5px/1.55 'Pretendard';color:#666;word-break:keep-all}
+.cv-str li::before{content:'';flex-shrink:0;width:6px;height:6px;margin-top:7px;border-radius:50%;background:var(--b)}
+
+/* ── PARTNERS ── */
+.cv-partner-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.cv-partner{aspect-ratio:3/2;border:1px solid #ececec;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;padding:16px;transition:box-shadow .15s,border-color .15s}
+.cv-partner:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);border-color:#d6d6d6}
+.cv-partner img{max-width:100%;max-height:42px;width:auto;height:auto;object-fit:contain}
+
+/* ── HISTORY ── */
+.cv-hist-tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+.cv-tab{display:flex;flex-direction:column;align-items:center;gap:2px;padding:16px 30px;border-radius:14px;border:1.5px solid #e2e2e2;background:#fff;cursor:pointer;transition:all .18s;min-width:180px}
+.cv-tab .era{font:800 18px/1.2 'Pretendard';color:#1a1a1a}
+.cv-tab .era b{background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cv-tab .yr{font:500 12.5px/1 'Pretendard';color:#999}
+.cv-tab.active{border-color:transparent;background:var(--grd);box-shadow:0 8px 24px rgba(0,156,224,.28)}
+.cv-tab.active .era,.cv-tab.active .era b,.cv-tab.active .yr{color:#fff;-webkit-text-fill-color:#fff}
+.cv-hist-panel{display:none}
+.cv-hist-panel.active{display:block;min-height:620px}
+@media(max-width:768px){.cv-hist-panel.active{min-height:0}}
+
+/* ── LOCATION ── */
+.cv-map-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:32px;align-items:stretch}
+.cv-map{border-radius:18px;overflow:hidden;border:1px solid #e8e8e8;min-height:340px}
+.cv-map iframe{display:block;width:100%;height:100%;min-height:340px}
+.cv-loc-info{display:flex;flex-direction:column;gap:14px;justify-content:center}
+.cv-loc-item{display:flex;gap:16px;align-items:flex-start;padding:22px;border:1px solid #eee;border-radius:16px;background:#fff}
+.cv-loc-ic{width:46px;height:46px;border-radius:12px;background:#f2f3f5;color:#555;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cv-loc-ic .ms{font-size:24px}
+.cv-loc-item h4{font:700 15px/1.3 'Pretendard';color:#1a1a1a;margin-bottom:5px}
+.cv-loc-item p{font:400 14px/1.55 'Pretendard';color:#666;word-break:keep-all}
+.cv-field-sel{position:relative}
+@media(max-width:768px){.cv-map-grid{grid-template-columns:1fr}}
+.cv-tl{max-width:780px;margin:0 auto;display:flex;flex-direction:column}
+.cv-tl-row{display:grid;grid-template-columns:96px 1fr;gap:24px;padding:22px 0;border-top:1px solid #ececec;align-items:start}
+.cv-tl-row:first-child{border-top:none}
+.cv-tl-year{font:800 22px/1 'Pretendard';color:#1a1a1a}
+.cv-tl-row p{font:400 14.5px/1.7 'Pretendard';color:#444;word-break:keep-all}
+
+@media(max-width:1024px){
+  .cv-about{gap:28px}
+  .cv-info{grid-template-columns:repeat(2,1fr)}
+  .cv-info-row:nth-child(-n+3){border-top:1px solid #f0f0f0}
+  .cv-info-row:nth-child(1),.cv-info-row:nth-child(2){border-top:none}
+  .cv-info-row:nth-child(3n+1){border-left:1px solid #f0f0f0}
+  .cv-info-row:nth-child(2n+1){border-left:none}
+  .cv-biz-grid{grid-template-columns:repeat(2,1fr)}
+  .cv-val-grid{grid-template-columns:repeat(2,1fr)}
+  .cv-partner-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:768px){
+  .cv-block{padding:56px 0}
+  .cv-info{grid-template-columns:1fr}
+  .cv-info-row{border-left:none!important}
+  .cv-info-row:nth-child(2){border-top:1px solid #f0f0f0!important}
+  .cv-biz-grid{grid-template-columns:1fr}
+  .cv-val-grid{grid-template-columns:1fr}
+  .cv-str-grid{grid-template-columns:1fr}
+  .cv-partner-grid{grid-template-columns:repeat(3,1fr)}
+  .cv-tab{min-width:0;flex:1;padding:14px 12px}
+  .cv-tl-row{grid-template-columns:72px 1fr;gap:14px}
+}
+</style>
+
+<!-- ── HERO ── -->
+<section class="eb-hero" id="esg-hero">
+  <svg id="esg-bg" style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="g1" gradientUnits="userSpaceOnUse" cx="1180" cy="70" r="520"><stop offset="0%" stop-color="#89c895" stop-opacity="0.36"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g2" gradientUnits="userSpaceOnUse" cx="180" cy="360" r="420"><stop offset="0%" stop-color="#009ce0" stop-opacity="0.4"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1440" height="400" fill="#0f1115"/>
+    <rect width="1440" height="400" fill="url(#g1)"/>
+    <rect width="1440" height="400" fill="url(#g2)"/>
+  </svg>
+  <div class="esg-hero-inner">
+    <div class="esg-t-zone">
+      <p class="eb-eye">About Company</p>
+      <h1 class="eb-h1">성공 비즈니스 파트너,<br><span class="g">에코아이티</span></h1>
+      <p class="eb-sub"><strong style="color:#dfe3e8">All Technologies for Smart DX</strong><br>SAP, AI/RPA, Low-Code, CRM &amp; ITO. 빠르게 변하는 AI시대에 기술 및 트렌드에 신속하게 대응하여 기업이 지향하는 최고 수준의 디지털 혁신을 지원합니다.</p>
+    </div>
+    <div class="esg-p-zone"></div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="cv-block" id="about">
+  <div class="wrap">
+    <div class="cv-head">
+      <p class="cv-eye">Company Overview</p>
+      <h2 class="cv-title">에코아이티</h2>
+      <p class="cv-desc">SAP ERP·CRM·AI/RPA·Low-Code·ITO 전 영역에 걸친 종합 IT 서비스로 기업의 디지털 전환을 실행합니다.</p>
+    </div>
+    <div class="cv-about">
+      <dl class="cv-info">
+        <div class="cv-info-row"><dt>회사명</dt><dd>(주) 에코아이티</dd></div>
+        <div class="cv-info-row"><dt>대표자</dt><dd>홍성호</dd></div>
+        <div class="cv-info-row"><dt>전화번호</dt><dd>T. 02-6342-8021 &nbsp; F. 02-864-8021</dd></div>
+        <div class="cv-info-row" style="grid-column:span 2"><dt>본사위치</dt><dd style="white-space:nowrap">서울특별시 강남구 강남대로146길 25(논현동) 4층</dd></div>
+        <div class="cv-info-row"><dt>홈페이지</dt><dd><a href="https://www.echoit.co.kr" target="_blank" rel="noopener">https://www.echoit.co.kr</a></dd></div>
+        <div class="cv-info-row"><dt>설립년도</dt><dd>2008년 6월</dd></div>
+      </dl>
+      <div class="cv-biz-grid">
+        <div class="cv-biz"><div class="cv-biz-ic"><span class="ms">database</span></div><h4>SAP ERP · SAP BC</h4><span class="tags">정확성 / 규정준수</span><p>18년 SAP 구축·운영 경험으로 안정적인 기업 데이터 기반을 제공합니다.</p></div>
+        <div class="cv-biz"><div class="cv-biz-ic"><span class="ms">groups</span></div><h4>CRM</h4><span class="tags">24 / 365 고객관리</span><p>Salesforce 기반 고객관계관리로 비즈니스 성과를 높입니다.</p></div>
+        <div class="cv-biz"><div class="cv-biz-ic"><span class="ms">smart_toy</span></div><h4>AI/RPA · Low-Code</h4><span class="tags">빠른 ROI 실현 · 생산성 향상</span><p>반복업무 자동화와 로우코드로 인력 생산성을 극대화합니다.</p></div>
+        <div class="cv-biz"><div class="cv-biz-ic"><span class="ms">handshake</span></div><h4>컨설팅 · 개발 / ITO</h4><span class="tags">공급 · 통합 운영</span><p>컨설팅부터 개발·공급·ITO까지 End-to-End 서비스를 제공합니다.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VISION + CORE VALUE ── -->
+<section class="cv-block alt">
+  <div class="wrap">
+    <div class="cv-head">
+      <p class="cv-eye">Core Value</p>
+      <h2 class="cv-title">고객의 성공과 기업가치의 제고</h2>
+      <p class="cv-desc">고객만족, 인재중심, 도전과 추진력, 실력과 역량이라는 핵심 가치를 바탕으로 국내 최고의 종합 IT 서비스 제공회사로 도약하며, IT 서비스를 통해 고객의 기업 가치를 높이는 역할을 담당하겠습니다.</p>
+    </div>
+    <div class="cv-val-grid">
+      <div class="cv-val"><span class="cv-val-no">핵심가치 01</span><div class="cv-val-ic"><span class="ms">sentiment_satisfied</span></div><h4>고객만족</h4><span class="en">Customer satisfaction</span></div>
+      <div class="cv-val"><span class="cv-val-no">핵심가치 02</span><div class="cv-val-ic"><span class="ms">diversity_3</span></div><h4>인재중심</h4><span class="en">Human Resources-oriented</span></div>
+      <div class="cv-val"><span class="cv-val-no">핵심가치 03</span><div class="cv-val-ic"><span class="ms">rocket_launch</span></div><h4>도전과 추진력</h4><span class="en">Challenge &amp; Action</span></div>
+      <div class="cv-val"><span class="cv-val-no">핵심가치 04</span><div class="cv-val-ic"><span class="ms">workspace_premium</span></div><h4>실력과 역량</h4><span class="en">Expertise &amp; Know-how</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STRENGTH ── -->
+<section class="cv-block">
+  <div class="wrap">
+    <div class="cv-head">
+      <p class="cv-eye">Why ECHOIT</p>
+      <h2 class="cv-title">On Time, Quality, Satisfaction</h2>
+      <p class="cv-desc">에코아이티는 1,000개 이상의 다양한 프로젝트 수행 노하우와 영역별 국내 최고의 인력을 보유하고 있습니다. 합리적인 비용과 안정적인 기술 지원을 위해 끊임없이 연구하고 도전합니다.</p>
+    </div>
+    <div class="cv-str-grid">
+      <div class="cv-str">
+        <div class="cv-str-top"><span class="cv-str-no">01</span><span class="cv-str-en">Experience &amp; Knowledge</span></div>
+        <p class="cv-str-lead">경험과 지식을 바탕으로 성공적인 프로젝트를 수행합니다.</p>
+        <ul><li>1,000개 이상의 다양한 프로젝트 수행</li><li>대형 그룹사 및 공공기관이 주요고객</li><li>프로젝트 실패 Zero</li></ul>
+      </div>
+      <div class="cv-str">
+        <div class="cv-str-top"><span class="cv-str-no">02</span><span class="cv-str-en">Resource Excellence</span></div>
+        <p class="cv-str-lead">여러 방면의 우수한 인력과 함께 합니다.</p>
+        <ul><li>영역별 국내 최고의 전문 컨설턴트 보유</li><li>컨설턴트·개발자 포함 4,300명 이상의 인력 pool 보유</li><li>신기술에 대한 지속적 교육 및 내부 프로젝트 수행</li></ul>
+      </div>
+      <div class="cv-str">
+        <div class="cv-str-top"><span class="cv-str-no">03</span><span class="cv-str-en">Collaboration Model</span></div>
+        <p class="cv-str-lead">강력한 파트너십으로 성공적인 협업을 이끕니다.</p>
+        <ul><li>전문가 집단과의 강력한 파트너십</li><li>글로벌 컨설팅 기업·기술 특화 전문 기업과 협업</li><li>강력한 신뢰와 책임 기반의 상호 협업</li></ul>
+      </div>
+      <div class="cv-str">
+        <div class="cv-str-top"><span class="cv-str-no">04</span><span class="cv-str-en">Differentiated Customer Care</span></div>
+        <p class="cv-str-lead">차별화된 고객 관리를 지원합니다.</p>
+        <ul><li>프로젝트 전/중/후 일상지원 체계</li><li>프로젝트 종료 후에도 지속적인 기술 지원 및 IT동향 조언</li><li>합리적인 비용의 전략적 ITO 서비스 제공</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARTNERS ── -->
+<section class="cv-block alt" id="partner">
+  <div class="wrap">
+    <div class="cv-head">
+      <p class="cv-eye">Partners</p>
+      <h2 class="cv-title">파트너사와 만들어가는 에코스토리</h2>
+      <p class="cv-desc">에코아이티와 신뢰를 바탕으로 협력하여 일하고 있는 파트너사를 소개합니다.</p>
+    </div>
+    <div class="cv-partner-grid">
+      <div class="cv-partner"><img src="assets/logos/partners/p01.png" alt="Deloitte"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p02.png" alt="KPMG"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p03.png" alt="IBM"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p04.png" alt="SAP"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p05.png" alt="Microsoft"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p06.png" alt="TmaxSoft"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p07.png" alt="LG CNS"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p08.png" alt="SK C&amp;C"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p09.png" alt="Hyundai AutoEver"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p10.png" alt="롯데정보통신"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p11.png" alt="동부CNI"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p12.png" alt="GS ITM"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p13.png" alt="아시아나IDT"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p14.png" alt="CJ 올리브네트웍스"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p15.png" alt="NDS 농섭데이터시스템"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p16.png" alt="Brity RPA"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p17.png" alt="Mendix"></div>
+      <div class="cv-partner"><img src="assets/logos/partners/p18.png" alt="Salesforce"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HISTORY ── -->
+<section class="cv-block" id="history">
+  <div class="wrap">
+    <div class="cv-head">
+      <p class="cv-eye">History</p>
+      <h2 class="cv-title">에코아이티의 살아있는 역사</h2>
+    </div>
+    <div class="cv-hist-tabs">
+      <button class="cv-tab active" onclick="showHist(0)"><span class="era">에코 <b>1.0</b> Beginning</span><span class="yr">2008 ~ 2017</span></button>
+      <button class="cv-tab" onclick="showHist(1)"><span class="era">에코 <b>2.0</b> Growth</span><span class="yr">2018 ~ 2022</span></button>
+      <button class="cv-tab" onclick="showHist(2)"><span class="era">에코 <b>3.0</b> Value</span><span class="yr">2023 ~ 현재</span></button>
+    </div>
+
+    <div class="cv-hist-panel active" id="hist0">
+      <div class="cv-tl">
+        <div class="cv-tl-row"><div class="cv-tl-year">2008</div><p>(주)제이에스에이치 컨설팅 설립, 삼성전자 G-ERP 참여</p></div>
+        <div class="cv-tl-row"><div class="cv-tl-year">2009</div><p>(주)에코정보기술 사명 변경, 파트너 협약</p></div>
+        <div class="cv-tl-row"><div class="cv-tl-year">2011</div><p>동부 아이엔씨 협력사 선정, LG CNS 협력사 선정</p></div>
+        <div class="cv-tl-row"><div class="cv-tl-year">2012</div><p>아시아나 IDT 협력사 선정</p></div>
+        <div class="cv-tl-row"><div class="cv-tl-year">2013</div><p>(주)에코정보기술 부설 연구소 설립, 벤처기업 인증<br>Tmax 솔루션 파트너 체결, SK C&amp;C Biz. 파트너 선정</p></div>
+        <div class="cv-tl-row"><div class="cv-tl-year">2015</div><p>현대오토에버 4Star 협력사 선정</p></div>
+        <div class="cv-tl-row"><div class="cv-tl-year">2016</div><p>롯데정보통신 협력사 선정</p></div>
+        <div class="cv-tl-row"><div class="cv-tl-year">2017</div><p>KT ds 협력사 선정, GSITM 전략협력사 선정<br>CJ 올리브네트웍스 협력사 선정</p></div>
+      </div>
+    </div>
+
+    <div class="cv-hist-panel" id="hist1">
+      <div class="cv-tl">
+        <div class="cv-tl-row"><div class="cv-tl-year">2018</div><p>오토메이션 애니웨어 파트너 체결, RPA 교육센터 운영</p></div>
+        <div class="cv-tl-row"><div class="cv-tl-year">2019</div><p>경영혁신형 중소기업(Main-Biz) 인증, 고용노동부 2019년 강소기업 선정<br>솔데스크 '민간 4차 산업혁명 인력양성 훈련지원사업' 파트너 협약</p></div>
+        <div class="cv-tl-row"><div class="cv-tl-year">2020</div><p>(주)에코정보기술, ㈜에코아이티로 사명 변경<br>삼성SDS Brity RPA 파트너 체결, 삼성SDS 협력사 선정<br>코오롱베니트·시큐아이 협력사, IBM CORE 파트너 선정<br>한국소프트웨어 인재개발원 교육자문위원 위촉<br>명지대학 행정업무 자동화 프로그램 코칭 기업 선정</p></div>
+        <div class="cv-tl-row"><div class="cv-tl-year">2021</div><p>혁신성장유형 벤처기업 인증<br>기술혁신형 중소기업(Inno-Biz) 인증<br>성과공유기업 선정 및 고용노동부 2021년도 청년친화 강소기업 선정</p></div>
+        <div class="cv-tl-row"><div class="cv-tl-year">2022</div><p>강남구 논현동 신사옥 이전<br>경영혁신형 중소기업(Main-Biz) 인증<br>한화시스템·현대오토에버·삼성SDS 협력사 선정<br>한화시스템 동반성장활동 우수 협력사 선정<br>삼성SDS 브리티RPA 최대 신규 사업 수주사 &amp; 대외 마케팅 우수 협업사 선정</p></div>
+      </div>
+    </div>
+
+    <div class="cv-hist-panel" id="hist2">
+      <div class="cv-tl">
+        <div class="cv-tl-row"><div class="cv-tl-year">2023</div><p>ESG 우수 중소기업(동반성장위원회)<br>Siemens Mendix 파트너십 체결<br>롯데정보통신·GSITM·포스코ICT·삼성SDS 협력사 선정<br>삼성멀티캠퍼스·에스코어·미라콤아이앤씨 파트너사 선정<br>SUSE Linux 파트너사 체결, Salesforce 파트너십 체결</p></div>
+        <div class="cv-tl-row"><div class="cv-tl-year">2024</div><p>한글과컴퓨터 파트너십 체결<br>2024년도 청년친화 강소기업 선정</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 오시는 길 ── -->
+<section class="cv-block" id="location">
+  <div class="wrap">
+    <div class="cv-head">
+      <p class="cv-eye">Location</p>
+      <h2 class="cv-title">오시는 길</h2>
+      <p class="cv-desc">성공 비즈니스 파트너 에코아이티로 오시는 길을 안내해 드립니다.</p>
+    </div>
+    <div class="cv-map-grid">
+      <div class="cv-map">
+        <iframe src="https://maps.google.com/maps?q=서울특별시 강남구 강남대로146길 25&hl=ko&z=17&output=embed" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="에코아이티 본사 지도"></iframe>
+      </div>
+      <div class="cv-loc-info">
+        <div class="cv-loc-item">
+          <div class="cv-loc-ic"><span class="ms">apartment</span></div>
+          <div><h4>에코아이티 본사</h4><p>서울특별시 강남구 강남대로146길 25(논현동) 4층</p></div>
+        </div>
+        <div class="cv-loc-item">
+          <div class="cv-loc-ic"><span class="ms">call</span></div>
+          <div><h4>연락처</h4><p>T. 02-6342-8021 &nbsp; F. 02-864-8021</p></div>
+        </div>
+        <div class="cv-loc-item">
+          <div class="cv-loc-ic"><span class="ms">directions_subway</span></div>
+          <div><h4>가까운 지하철</h4><p>3호선·신분당선 신사역 1, 2, 3번 출구</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 문의하기 ── -->
+<section class="cv-block alt" id="contact">
+  <div class="wrap">
+    <div class="cv-head">
+      <p class="cv-eye">Contact Us</p>
+      <h2 class="cv-title">문의하기</h2>
+      <p class="cv-desc">전문 컨설턴트가 직접 상담해 드립니다. 아래 항목을 작성해 주시면 빠르게 답변 드리겠습니다.</p>
+    </div>
+    <div id="contact-form-root"></div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<div id="modal-root"></div>
+
+<script src="shared/common.js"></script>
+<script>
+function showHist(i){
+  document.querySelectorAll('.cv-tab').forEach((t,idx)=>t.classList.toggle('active',idx===i));
+  document.querySelectorAll('.cv-hist-panel').forEach((p,idx)=>p.classList.toggle('active',idx===i));
+}
+</script>
+<script>
+(function waitDeps(){
+  if (!window.THREE || !window.gsap) { return setTimeout(waitDeps, 50); }
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(initCompanyParticles); }
+  else { initCompanyParticles(); }
+})();
+
+function initCompanyParticles() {
+  const THREE     = window.THREE;
+  const gsap      = window.gsap;
+  const container = document.getElementById('esg-hero');
+  if (!container) return;
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setClearColor(0x0f1115, 0);
+  Object.assign(renderer.domElement.style, { display: 'block', position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', zIndex: '1' });
+  container.appendChild(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  scene.background = null;
+  scene.position.x = 34;
+
+  const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 2000);
+  camera.position.z = 150;
+
+  // ── 아이콘 드로잉: ECHOIT 로고(통합)·노드(연결)·상승그래프(성장) ──
+  function drawEchoLogo(ctx){
+    const SZ=400, svgW=33.59, svgH=32.0, margin=10;
+    const scale=Math.min((SZ-margin*2)/svgW,(SZ-margin*2)/svgH);
+    ctx.save();
+    ctx.translate((SZ-svgW*scale)/2,(SZ-svgH*scale)/2);
+    ctx.scale(scale,scale);
+    ctx.fillStyle='#fff';
+    ctx.fill(new Path2D('M31.7177 14.127C29.4763 11.8843 27.4283 13.6603 27.031 14.051L26.9683 14.1123C26.9657 14.1177 26.955 14.127 26.955 14.127V14.1257L16.871 24.211C16.8483 24.2323 16.8297 24.2443 16.8083 24.263L16.7177 24.355C16.7163 24.359 16.7137 24.359 16.7123 24.359L16.6657 24.407L16.6603 24.4017C16.2137 24.8217 15.751 24.9297 15.3483 24.8883C15.3097 24.8883 15.2697 24.875 15.2297 24.8697C15.2083 24.867 15.1857 24.867 15.1643 24.8617C14.2377 24.715 13.2723 23.5443 13.2723 23.5443L6.579 16.8523C5.34567 15.6177 6.579 14.363 6.579 14.363L14.3457 6.59633C14.3457 6.59633 15.763 5.155 17.203 6.59633L17.731 7.12433C18.083 7.515 18.7737 8.555 17.5657 9.763L13.1283 14.2017L13.0443 14.2843C12.7537 14.591 11.851 15.735 13.1283 17.0123L14.171 18.0577C15.2563 18.9537 16.1697 18.4537 16.6003 18.0937L23.807 10.8897C25.9763 8.71767 24.2723 6.71633 23.883 6.31367L23.807 6.235L19.0257 1.455C17.0857 -0.484998 13.9403 -0.484998 11.9977 1.455L1.455 11.999C-0.485 13.9403 -0.485 17.087 1.455 19.0283L11.9977 29.5723C13.9403 31.5137 17.0857 31.5137 19.0257 29.5723L28.291 20.307L28.3003 20.3177L33.1043 15.515L31.7177 14.127Z'));
+    ctx.restore();
+  }
+  function drawNetwork(ctx){
+    ctx.fillStyle='#fff'; ctx.strokeStyle='#fff'; ctx.lineWidth=12; ctx.lineCap='round';
+    const nodes=[[200,70],[90,180],[310,180],[140,320],[260,320],[200,210]];
+    // edges from center
+    nodes.slice(0,5).forEach(([x,y])=>{ ctx.beginPath(); ctx.moveTo(200,210); ctx.lineTo(x,y); ctx.stroke(); });
+    nodes.forEach(([x,y],i)=>{ ctx.beginPath(); ctx.arc(x,y,i===5?26:18,0,Math.PI*2); ctx.fill(); });
+  }
+  function drawGraph(ctx){
+    ctx.strokeStyle='#fff'; ctx.lineWidth=9; ctx.lineJoin='round'; ctx.lineCap='round';
+    // axis
+    ctx.beginPath(); ctx.moveTo(60,330); ctx.lineTo(60,70); ctx.moveTo(60,330); ctx.lineTo(345,330); ctx.stroke();
+    // rising line
+    ctx.beginPath(); ctx.moveTo(90,300); ctx.lineTo(160,235); ctx.lineTo(230,260); ctx.lineTo(316,124); ctx.stroke();
+    // arrow head — 채워진 삼각형(뾰족하게)
+    ctx.fillStyle='#fff';
+    ctx.beginPath();
+    ctx.moveTo(340,96);    // 뾰족한 끝점
+    ctx.lineTo(300,120);
+    ctx.lineTo(322,150);
+    ctx.closePath();
+    ctx.fill();
+    // dots
+    ctx.fillStyle='#fff';
+    [[90,300],[160,235],[230,260]].forEach(([x,y])=>{ ctx.beginPath(); ctx.arc(x,y,11,0,Math.PI*2); ctx.fill(); });
+  }
+
+  function sampleIcon(drawFn){
+    const off=document.createElement('canvas'); off.width=400; off.height=400;
+    const ctx=off.getContext('2d'); drawFn(ctx);
+    const {data}=ctx.getImageData(0,0,400,400); const pts=[];
+    for(let y=0;y<400;y+=5)for(let x=0;x<400;x+=5)
+      if(data[(y*400+x)*4]>128 && Math.random()>0.34)
+        pts.push([(x/400-0.5)*96, -(y/400-0.5)*96, (Math.random()-0.5)*1.2]);
+    return pts;
+  }
+
+  const rawSets=[drawEchoLogo,drawNetwork,drawGraph].map(sampleIcon);
+  const MAX_ICON=Math.max(...rawSets.map(s=>s.length));
+
+  function padAndShuffle(pts,n){
+    const out=pts.map(p=>[...p]);
+    while(out.length<n){const src=pts[Math.floor(Math.random()*pts.length)];out.push([src[0]+(Math.random()-0.5)*2,src[1]+(Math.random()-0.5)*2,(Math.random()-0.5)*1.5]);}
+    for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}
+    return out.slice(0,n);
+  }
+  const iconSets=rawSets.map(pts=>padAndShuffle(pts,MAX_ICON));
+
+  const posArr=new Float32Array(MAX_ICON*3);
+  for(let i=0;i<MAX_ICON;i++){posArr[i*3]=(Math.random()-0.5)*200;posArr[i*3+1]=(Math.random()-0.5)*120;posArr[i*3+2]=(Math.random()-0.5)*60;}
+  const geoIcon=new THREE.BufferGeometry();
+  const posAttr=new THREE.BufferAttribute(posArr,3);
+  geoIcon.setAttribute('position',posAttr);
+  scene.add(new THREE.Points(geoIcon,new THREE.PointsMaterial({color:0xffffff,size:1.64,sizeAttenuation:true,transparent:true,opacity:0.95})));
+
+  const AMBIENT=368;
+  const ambientBase=Array.from({length:AMBIENT},()=>[(Math.random()-0.5)*320,(Math.random()-0.5)*160,(Math.random()-0.5)*90]);
+  const ambPosArr=new Float32Array(AMBIENT*3);
+  for(let i=0;i<AMBIENT;i++){ambPosArr[i*3]=ambientBase[i][0];ambPosArr[i*3+1]=ambientBase[i][1];ambPosArr[i*3+2]=ambientBase[i][2];}
+  const geoAmb=new THREE.BufferGeometry();
+  const ambAttr=new THREE.BufferAttribute(ambPosArr,3);
+  geoAmb.setAttribute('position',ambAttr);
+  scene.add(new THREE.Points(geoAmb,new THREE.PointsMaterial({color:0x5a5a64,size:1.19,sizeAttenuation:true,transparent:true,opacity:0.75})));
+
+  function makeKeywordSprite(text){
+    const dpr=Math.min(devicePixelRatio,2),fs=28,pad=20;
+    const fontStr=`300 ${fs}px 'Pretendard',sans-serif`;
+    const measure=document.createElement('canvas').getContext('2d'); measure.font=fontStr;
+    const tw=Math.ceil(measure.measureText(text).width+2);
+    const logW=tw+pad*2,logH=fs+pad;
+    const c=document.createElement('canvas'); c.width=logW*dpr; c.height=logH*dpr;
+    const ctx=c.getContext('2d'); ctx.scale(dpr,dpr); ctx.font=fontStr;
+    ctx.fillStyle='#7a7a88'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(text,logW/2,logH/2);
+    const tex=new THREE.CanvasTexture(c);
+    const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,transparent:true,depthWrite:false,opacity:0.80}));
+    const wH=9; sp.scale.set(wH*(logW/logH),wH,1);
+    return sp;
+  }
+  const KEYWORDS=[
+    {text:'SAP',        x:-58, y: 30, z:-20},
+    {text:'AI / RPA',   x: 54, y: 28, z:-15},
+    {text:'Low-Code',   x: 50, y:-28, z:-22},
+    {text:'CRM · ITO',  x:  4, y: 46, z: 15},
+  ];
+  KEYWORDS.forEach(({text,x,y,z})=>{const sp=makeKeywordSprite(text);sp.position.set(x,y,z);scene.add(sp);});
+
+  let fromSnap=Array.from({length:MAX_ICON},(_,i)=>[posArr[i*3],posArr[i*3+1],posArr[i*3+2]]);
+  function morphTo(toIdx){
+    const to=iconSets[toIdx],from=fromSnap,proxy={t:0};
+    gsap.to(proxy,{t:1,duration:1.6,ease:'power2.inOut',
+      onUpdate(){const t=proxy.t;for(let i=0;i<MAX_ICON;i++){posArr[i*3]=from[i][0]+(to[i][0]-from[i][0])*t;posArr[i*3+1]=from[i][1]+(to[i][1]-from[i][1])*t;posArr[i*3+2]=from[i][2]+(to[i][2]-from[i][2])*t;}posAttr.needsUpdate=true;},
+      onComplete(){fromSnap=to.map(p=>[...p]);gsap.delayedCall(3,()=>morphTo((toIdx+1)%iconSets.length));}});
+  }
+  morphTo(0);
+
+  function onResize(){
+    const w=container.clientWidth,h=container.clientHeight;
+    if(!w||!h)return;
+    camera.aspect=w/h; camera.updateProjectionMatrix(); renderer.setSize(w,h);
+    if(w<=768){scene.position.x=0;scene.position.y=30;}
+    else{scene.position.x=34;scene.position.y=0;}
+  }
+  new ResizeObserver(onResize).observe(container); onResize();
+
+  let clock=0;
+  (function animate(){
+    requestAnimationFrame(animate);
+    clock+=0.004;
+    for(let i=0;i<AMBIENT;i++){ambPosArr[i*3]=ambientBase[i][0]+Math.cos(clock*0.65+i*0.21)*1.0;ambPosArr[i*3+1]=ambientBase[i][1]+Math.sin(clock+i*0.30)*1.4;}
+    ambAttr.needsUpdate=true;
+    scene.rotation.y=Math.sin(clock*1.68)*0.5;
+    renderer.render(scene,camera);
+  })();
+}
+</script>
+</body>
+</html>

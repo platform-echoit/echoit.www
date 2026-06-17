@@ -1,10 +1,10 @@
-<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="ESG 지속가능경영" subtitle="지속가능경영(ESG) — 윤리·인권·환경경영 헌장" -->
+<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="Newsletter 뉴스레터" subtitle="에코아이티 뉴스레터 아카이브" -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECHOIT — 지속가능경영 (ESG)</title>
+<title>ECHOIT — 뉴스레터</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
@@ -116,79 +116,55 @@
   <!-- 수평 레이아웃: 좌=파티클 영역, 우=텍스트 -->
   <div class="esg-hero-inner">
     <div class="esg-t-zone">
-      <p class="eb-eye">Sustainability · ESG</p>
-      <h1 class="eb-h1">지속가능경영,<br><span class="g">기술로 잇는 책임</span></h1>
-      <p class="eb-sub">현실과 미래를 기술로 잇는 IT기업 에코아이티는 사회적 책임을 바탕으로 지속가능한 성장을 추구합니다. 새로운 가치창출로, 더불어 성장할 수 있는 미래를 만들어가겠습니다.</p>
+      <p class="eb-eye">Newsletter</p>
+      <h1 class="eb-h1">에코아이티<br><span class="g">뉴스레터</span></h1>
+      <p class="eb-sub">AI·RPA·로우코드·ERP 등 최신 IT 트렌드와 에코아이티의 소식을 매월 전해 드립니다.</p>
     </div>
     <div class="esg-p-zone"></div>
   </div>
 
 </section>
 
-<section class="eb-block">
-  <div class="wrap eb-stack">
-    <div>
-      <p class="eye">Ethics Charter</p>
-      <h2 class="eb-title">윤리헌장</h2>
-      <p class="eb-desc">에코아이티는 법과 윤리를 준수하고 기업 본연의 역할과 사회적 책임을 다하기 위해 공정하고 투명한 윤리경영문화를 만들고 있습니다.</p>
-    </div>
-    <div class="eb-icard-grid">
-      <div class="eb-icard"><div class="eb-ic"><span class="ms">gavel</span></div><p>법과 원칙을 준수하고 부패를 예방함으로써 청렴한 공직사회 구현을 위해 솔선수범합니다.</p></div>
-      <div class="eb-icard"><div class="eb-ic"><span class="ms">balance</span></div><p>사익보다 공익을 우선으로 하며 업무수행 과정에서 부당한 이익을 추구하지 않습니다.</p></div>
-      <div class="eb-icard"><div class="eb-ic"><span class="ms">block</span></div><p>지위를 이용한 지위·권한 남용, 이권개입, 알선·청탁을 하지 않습니다.</p></div>
-      <div class="eb-icard"><div class="eb-ic"><span class="ms">money_off</span></div><p>금품·향응을 요구하지도 받지도 않으며, 의심을 받을 만한 일체의 행동을 하지 않습니다.</p></div>
-      <div class="eb-icard"><div class="eb-ic"><span class="ms">lock</span></div><p>고객의 기밀정보, 시스템 보안을 위해 노력합니다.</p></div>
-      <div class="eb-icard"><div class="eb-ic"><span class="ms">shield</span></div><p>부당한 간섭을 철저히 배제하여 구성원들이 소신 있게 일할 수 있도록 노력합니다.</p></div>
-    </div>
-  </div>
-</section>
+<style>
+.nl-block{padding:72px 0}
+.nl-head{text-align:center;max-width:720px;margin:0 auto 36px}
+.nl-eye{font:700 12px/1 'Pretendard';letter-spacing:.12em;text-transform:uppercase;color:var(--b)}
+.nl-title{margin:14px 0 0;font-weight:700;font-size:clamp(24px,2.8vw,34px);letter-spacing:-.5px}
+.nl-count{margin:14px 0 0;font:400 14px/1.6 'Pretendard';color:#888}
+.nl-count b{color:var(--b);font-weight:700}
+.nl-list{border-top:2px solid #1a1a1a;margin-top:8px}
+.nl-row{display:grid;grid-template-columns:72px 1fr 120px;align-items:center;gap:20px;padding:22px 12px;border-bottom:1px solid #eee;text-decoration:none;transition:background .12s}
+.nl-row:hover{background:#f7fafd}
+.nl-no{font:700 15px/1 'Pretendard';color:#bbb;text-align:center}
+.nl-main{display:flex;flex-direction:column;gap:6px;min-width:0}
+.nl-period{font:700 12px/1 'Pretendard';letter-spacing:.04em;color:var(--b)}
+.nl-subject{font:500 16px/1.5 'Pretendard';color:#1a1a1a;word-break:keep-all;display:flex;align-items:center;gap:7px}
+.nl-row:hover .nl-subject{color:var(--b)}
+.nl-subject .ms{font-size:15px;color:#bbb;flex-shrink:0}
+.nl-row:hover .nl-subject .ms{color:var(--b)}
+.nl-date{font:400 13.5px/1 'Pretendard';color:#999;text-align:right}
+.nl-pager{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:40px}
+.nl-pg{min-width:38px;height:38px;border-radius:8px;border:1px solid #e2e2e2;background:#fff;cursor:pointer;font:600 14px/1 'Pretendard';color:#555;display:inline-flex;align-items:center;justify-content:center;transition:all .13s;padding:0 6px}
+.nl-pg:hover:not(:disabled){border-color:var(--b);color:var(--b)}
+.nl-pg.active{background:var(--b);border-color:transparent;color:#fff}
+.nl-pg:disabled{opacity:.4;cursor:default}
+.nl-pg .ms{font-size:18px}
+@media(max-width:768px){
+  .nl-block{padding:48px 0}
+  .nl-row{grid-template-columns:44px 1fr;gap:12px;padding:18px 6px}
+  .nl-date{grid-column:2;text-align:left;margin-top:2px}
+}
+</style>
 
-<section class="eb-block">
-  <div class="wrap eb-grid">
-    <div class="eb-side">
-      <p class="eye">Human Rights Charter</p>
-      <h2 class="eb-title">인권헌장</h2>
-      <p class="eb-desc">우리의 고객, 임직원, 주주와 투자자, 협력회사 등 모든 이해관계자의 기본적인 권리를 존중하며 인권경영을 적극적으로 이행합니다.</p>
-    </div>
-    <div class="eb-list">
-        <div class="eb-item"><div class="eb-num">01</div><div class="eb-ic"><span class="ms">public</span></div><p>노동, 반부패 등 국내외 인권 규범을 지지하며 준수합니다.</p></div>
-        <div class="eb-item"><div class="eb-num">02</div><div class="eb-ic"><span class="ms">diversity_3</span></div><p>학연·지연·혈연 등을 이유로 차별하지 않습니다.</p></div>
-        <div class="eb-item"><div class="eb-num">03</div><div class="eb-ic"><span class="ms">work</span></div><p>노동원칙을 준수하고 공명정대한 근무여건을 조성합니다.</p></div>
-        <div class="eb-item"><div class="eb-num">04</div><div class="eb-ic"><span class="ms">groups</span></div><p>모든 임직원을 공정히 대우하며 인권경영 실천을 지원합니다.</p></div>
-        <div class="eb-item"><div class="eb-num">05</div><div class="eb-ic"><span class="ms">self_improvement</span></div><p>효율적인 업무수행으로 일과 삶의 균형을 도모합니다.</p></div>
-        <div class="eb-item"><div class="eb-num">06</div><div class="eb-ic"><span class="ms">volunteer_activism</span></div><p>사업활동지역에서 근로자의 인권을 존중·보호합니다.</p></div>
-        <div class="eb-item"><div class="eb-num">07</div><div class="eb-ic"><span class="ms">health_and_safety</span></div><p>인권침해를 사전에 예방하며 피해자 구제에 적극 노력합니다.</p></div>
-        <div class="eb-item"><div class="eb-num">08</div><div class="eb-ic"><span class="ms">child_care</span></div><p>RBA 행동규범을 기반으로 15세 미만 아동 고용을 명시적으로 금지합니다.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="eb-block">
-  <div class="wrap eb-stack">
-    <div>
-      <p class="eye">Environmental Management</p>
-      <h2 class="eb-title">환경경영</h2>
-      <p class="eb-desc">보다 나은 지구 환경을 물려주기 위해 '환경 보존'을 경영의 중요 과제로 삼고 작은 것부터 실천하며 환경보호에 동참하고 있습니다.</p>
-    </div>
-    <div class="eb-imgrid eb-imgrid-4">
-        <div class="eb-imgcard"><div class="eb-imgph" style="height:120px"><img src="assets/images/eco_01.png" alt="에너지 절약" style="width:100%;height:100%;object-fit:cover"></div><p>자원과 에너지를 절약하고 효율적으로 이용하며, 온실가스 배출 및 환경오염의 발생을 최소화합니다.</p></div>
-        <div class="eb-imgcard"><div class="eb-imgph" style="height:120px"><img src="assets/images/eco_02.png" alt="IT산업 환경" style="width:100%;height:100%;object-fit:cover"></div><p>IT산업 현장의 안정과 환경을 우선하며 환경보호에 기여합니다.</p></div>
-        <div class="eb-imgcard"><div class="eb-imgph" style="height:120px"><img src="assets/images/eco_03.png" alt="환경경영 실천" style="width:100%;height:100%;object-fit:cover"></div><p>환경경영이념을 적극 함양하여 환경경영활동에 적극 동참하고 환경보호 실천에 앞장섭니다.</p></div>
-        <div class="eb-imgcard"><div class="eb-imgph" style="height:120px"><img src="assets/images/eco_04.png" alt="환경방침 공개" style="width:100%;height:100%;object-fit:cover"></div><p>환경방침과 목표를 모든 이해관계자에게 공개하고 책임 있게 행동합니다.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="eb-dl">
+<section class="nl-block" id="newsletter">
   <div class="wrap">
-    <h3>경영헌장 자료실</h3>
-    <p>에코아이티의 윤리·인권·환경경영 원칙을 자세히 확인하세요.</p>
-    <div class="eb-dlrow">
-      <a href="#" class="eb-dlbtn"><span class="ms">download</span>윤리경영헌장</a>
-      <a href="#" class="eb-dlbtn"><span class="ms">download</span>인권경영헌장</a>
-      <a href="#" class="eb-dlbtn"><span class="ms">download</span>환경경영방침</a>
-      <a href="#" class="eb-dlbtn prime" onclick="openReport(event)"><span class="ms">campaign</span>사이버 제보</a>
+    <div class="nl-head">
+      <p class="nl-eye">Newsletter</p>
+      <h2 class="nl-title">뉴스레터</h2>
+      <p class="nl-count">전체 <b id="nlTotal">0</b>건 · 제목을 클릭하면 새 창에서 원문을 볼 수 있습니다.</p>
     </div>
+    <div class="nl-list" id="nlList"></div>
+    <div class="nl-pager" id="nlPager"></div>
   </div>
 </section>
 
@@ -196,6 +172,43 @@
 <div id="modal-root"></div>
 
 <script src="shared/common.js"></script>
+<script>
+(function(){
+  var PER_PAGE = 10, page = 1, items = [];
+  var listEl = document.getElementById('nlList');
+  var pagerEl = document.getElementById('nlPager');
+  var totalEl = document.getElementById('nlTotal');
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function render(){
+    var totalPages = Math.max(1, Math.ceil(items.length/PER_PAGE));
+    if(page>totalPages)page=totalPages;
+    var startI=(page-1)*PER_PAGE, slice=items.slice(startI,startI+PER_PAGE);
+    listEl.innerHTML = slice.map(function(it){
+      var href = it.url ? it.url : '#';
+      var tgt = it.url ? ' target="_blank" rel="noopener"' : '';
+      return '<a class="nl-row" href="'+esc(href)+'"'+tgt+'>'+
+        '<span class="nl-no">'+esc(it.no)+'</span>'+
+        '<span class="nl-main"><span class="nl-period">'+esc(it.period)+'</span>'+
+        '<span class="nl-subject"><span class="ms">mail</span>'+esc(it.title)+'</span></span>'+
+        '<span class="nl-date">'+esc(it.date)+'</span></a>';
+    }).join('');
+    // pager
+    var btns='';
+    btns+='<button class="nl-pg" '+(page===1?'disabled':'')+' onclick="__nlGo('+(page-1)+')"><span class="ms">chevron_left</span></button>';
+    for(var p=1;p<=totalPages;p++){
+      btns+='<button class="nl-pg'+(p===page?' active':'')+'" onclick="__nlGo('+p+')">'+p+'</button>';
+    }
+    btns+='<button class="nl-pg" '+(page===totalPages?'disabled':'')+' onclick="__nlGo('+(page+1)+')"><span class="ms">chevron_right</span></button>';
+    pagerEl.innerHTML=btns;
+  }
+  window.__nlGo=function(p){page=p;render();var el=document.getElementById('newsletter');if(el){window.scrollTo({top:el.offsetTop-80,behavior:'smooth'});}};
+  fetch('assets/newsletters.json?v='+Date.now()).then(function(r){return r.json();}).then(function(data){
+    items=(data.items||[]).slice().sort(function(a,b){return b.no-a.no;});
+    totalEl.textContent=items.length;
+    render();
+  }).catch(function(e){listEl.innerHTML='<p style="padding:40px;text-align:center;color:#999">목록을 불러오지 못했습니다.</p>';});
+})();
+</script>
 <script>
 (function waitDeps(){
   if (!window.THREE || !window.gsap) { return setTimeout(waitDeps, 50); }
@@ -370,10 +383,10 @@ function initESGParticles() {
   }
 
   const ESG_KEYWORDS = [
-    { text: 'Environment',    x: -58,  y:  30, z: -20 },
-    { text: 'Social',         x:  54,  y:  28, z: -15 },
-    { text: 'Governance',     x:  50,  y: -28, z: -22 },
-    { text: 'Sustainability', x:   4,  y:  46, z:  15 },
+    { text: 'News',      x: -58,  y:  30, z: -20 },
+    { text: 'Trend',     x:  54,  y:  28, z: -15 },
+    { text: 'Insight',   x:  50,  y: -28, z: -22 },
+    { text: 'AI · RPA',  x:   4,  y:  46, z:  15 },
   ];
   ESG_KEYWORDS.forEach(({ text, x, y, z }) => {
     const sp = makeKeywordSprite(text);

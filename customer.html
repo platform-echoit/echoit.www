@@ -1,10 +1,10 @@
-<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="ESG 지속가능경영" subtitle="지속가능경영(ESG) — 윤리·인권·환경경영 헌장" -->
+<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="Customers 고객사" subtitle="주요 고객사 — SAP·RPA·SI 프로젝트" -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECHOIT — 지속가능경영 (ESG)</title>
+<title>ECHOIT — Customers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
@@ -116,86 +116,187 @@
   <!-- 수평 레이아웃: 좌=파티클 영역, 우=텍스트 -->
   <div class="esg-hero-inner">
     <div class="esg-t-zone">
-      <p class="eb-eye">Sustainability · ESG</p>
-      <h1 class="eb-h1">지속가능경영,<br><span class="g">기술로 잇는 책임</span></h1>
-      <p class="eb-sub">현실과 미래를 기술로 잇는 IT기업 에코아이티는 사회적 책임을 바탕으로 지속가능한 성장을 추구합니다. 새로운 가치창출로, 더불어 성장할 수 있는 미래를 만들어가겠습니다.</p>
+      <p class="eb-eye">Customers</p>
+      <h1 class="eb-h1">에코아이티와 함께 해 온<br><span class="g">주요 고객사</span></h1>
+      <p class="eb-sub">대기업, 스타트업, 공공기관 등 다양한 분야의 고객사에 구축 및 운영 프로젝트를 성공적으로 수행해 오고 있습니다.</p>
     </div>
     <div class="esg-p-zone"></div>
   </div>
 
 </section>
 
-<section class="eb-block">
-  <div class="wrap eb-stack">
-    <div>
-      <p class="eye">Ethics Charter</p>
-      <h2 class="eb-title">윤리헌장</h2>
-      <p class="eb-desc">에코아이티는 법과 윤리를 준수하고 기업 본연의 역할과 사회적 책임을 다하기 위해 공정하고 투명한 윤리경영문화를 만들고 있습니다.</p>
-    </div>
-    <div class="eb-icard-grid">
-      <div class="eb-icard"><div class="eb-ic"><span class="ms">gavel</span></div><p>법과 원칙을 준수하고 부패를 예방함으로써 청렴한 공직사회 구현을 위해 솔선수범합니다.</p></div>
-      <div class="eb-icard"><div class="eb-ic"><span class="ms">balance</span></div><p>사익보다 공익을 우선으로 하며 업무수행 과정에서 부당한 이익을 추구하지 않습니다.</p></div>
-      <div class="eb-icard"><div class="eb-ic"><span class="ms">block</span></div><p>지위를 이용한 지위·권한 남용, 이권개입, 알선·청탁을 하지 않습니다.</p></div>
-      <div class="eb-icard"><div class="eb-ic"><span class="ms">money_off</span></div><p>금품·향응을 요구하지도 받지도 않으며, 의심을 받을 만한 일체의 행동을 하지 않습니다.</p></div>
-      <div class="eb-icard"><div class="eb-ic"><span class="ms">lock</span></div><p>고객의 기밀정보, 시스템 보안을 위해 노력합니다.</p></div>
-      <div class="eb-icard"><div class="eb-ic"><span class="ms">shield</span></div><p>부당한 간섭을 철저히 배제하여 구성원들이 소신 있게 일할 수 있도록 노력합니다.</p></div>
-    </div>
-  </div>
-</section>
+<style>
+.cu-block{padding:80px 0}
+.cu-head{text-align:center;max-width:760px;margin:0 auto 40px}
+.cu-eye{font:700 12px/1 'Pretendard';letter-spacing:.12em;text-transform:uppercase;color:var(--b)}
+.cu-title{margin:14px 0 0;font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.18;letter-spacing:-.6px;word-break:keep-all}
+.cu-desc{margin:16px 0 0;font:400 16px/1.7 'Pretendard';color:#666;word-break:keep-all}
+.cu-tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+.cu-tab{padding:13px 34px;border-radius:999px;border:1.5px solid #e2e2e2;background:#fff;cursor:pointer;font:600 15px/1 'Pretendard';color:#555;transition:all .18s}
+.cu-tab.active{border-color:transparent;background:var(--grd);color:#fff;box-shadow:0 8px 24px rgba(0,156,224,.28)}
+.cu-panel{display:none}
+.cu-panel.active{display:block}
+.cu-sub{font:700 14px/1 'Pretendard';color:#999;letter-spacing:.04em;text-transform:uppercase;margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid #eee}
+.cu-sub:not(:first-child){margin-top:48px}
+/* 중요 프로젝트: 로고+회사명+설명 */
+.cu-feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cu-feat{border:1px solid #eee;border-radius:16px;padding:24px 22px;background:#fff;display:flex;flex-direction:column;gap:14px;transition:box-shadow .15s,border-color .15s}
+.cu-feat:hover{box-shadow:0 6px 24px rgba(0,0,0,.07);border-color:#d6d6d6}
+.cu-feat-logo{height:104px;display:flex;align-items:center;justify-content:flex-start}
+.cu-feat-logo .ph{width:100%;height:48px;border-radius:8px;background:repeating-linear-gradient(135deg,#f3f5f7,#f3f5f7 10px,#eef1f4 10px,#eef1f4 20px);display:flex;align-items:center;justify-content:center;color:#c2c8ce}
+.cu-feat-logo img{max-height:96px;max-width:300px;object-fit:contain}
+.cu-feat-logo img[alt="서울반도체"],.cu-feat-logo img[alt="한국항공우주산업"]{max-height:48px;max-width:160px}
+.cu-feat-logo img[alt="한화에어로스페이스"]{max-height:none;height:36px;width:180px;object-fit:cover;object-position:center}
+#cu1 .cu-feat-logo img{max-height:67px}
+#cu1 .cu-feat-logo img[alt="한국남부발전"],#cu1 .cu-feat-logo img[alt="동성케미컬"]{max-height:96px}
+#cu1 .cu-feat-logo img[alt="한국항공우주산업"]{max-height:77px}
+.cu-feat h4{font:700 16px/1.3 'Pretendard';color:#1a1a1a;word-break:keep-all}
+.cu-feat p{font:400 13.5px/1.6 'Pretendard';color:#666;word-break:keep-all}
+/* 그 외: 로고만 */
+.cu-logo-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.cu-logo{aspect-ratio:3/2;border:1px solid #ececec;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;padding:14px;color:#c8ccd2;transition:box-shadow .15s,border-color .15s}
+.cu-logo:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);border-color:#d6d6d6}
+.cu-logo img{max-width:100%;max-height:84px;object-fit:contain}
+.cu-logo img[alt="GS칼텍스"]{max-height:42px}
+.cu-logo img[alt="NVH KOREA"]{max-height:59px}
+.cu-logo img[src$="si08.png"]{max-height:none;height:64px;width:170px;object-fit:cover;object-position:center}
+.cu-empty{text-align:center;padding:60px 0;color:#aaa;font:400 15px/1.6 'Pretendard'}
+@media(max-width:1024px){.cu-feat-grid{grid-template-columns:repeat(2,1fr)}.cu-logo-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:768px){.cu-block{padding:56px 0}.cu-feat-grid{grid-template-columns:1fr}.cu-logo-grid{grid-template-columns:repeat(3,1fr)}.cu-tab{flex:1;padding:13px 12px}}
+</style>
 
-<section class="eb-block">
-  <div class="wrap eb-grid">
-    <div class="eb-side">
-      <p class="eye">Human Rights Charter</p>
-      <h2 class="eb-title">인권헌장</h2>
-      <p class="eb-desc">우리의 고객, 임직원, 주주와 투자자, 협력회사 등 모든 이해관계자의 기본적인 권리를 존중하며 인권경영을 적극적으로 이행합니다.</p>
-    </div>
-    <div class="eb-list">
-        <div class="eb-item"><div class="eb-num">01</div><div class="eb-ic"><span class="ms">public</span></div><p>노동, 반부패 등 국내외 인권 규범을 지지하며 준수합니다.</p></div>
-        <div class="eb-item"><div class="eb-num">02</div><div class="eb-ic"><span class="ms">diversity_3</span></div><p>학연·지연·혈연 등을 이유로 차별하지 않습니다.</p></div>
-        <div class="eb-item"><div class="eb-num">03</div><div class="eb-ic"><span class="ms">work</span></div><p>노동원칙을 준수하고 공명정대한 근무여건을 조성합니다.</p></div>
-        <div class="eb-item"><div class="eb-num">04</div><div class="eb-ic"><span class="ms">groups</span></div><p>모든 임직원을 공정히 대우하며 인권경영 실천을 지원합니다.</p></div>
-        <div class="eb-item"><div class="eb-num">05</div><div class="eb-ic"><span class="ms">self_improvement</span></div><p>효율적인 업무수행으로 일과 삶의 균형을 도모합니다.</p></div>
-        <div class="eb-item"><div class="eb-num">06</div><div class="eb-ic"><span class="ms">volunteer_activism</span></div><p>사업활동지역에서 근로자의 인권을 존중·보호합니다.</p></div>
-        <div class="eb-item"><div class="eb-num">07</div><div class="eb-ic"><span class="ms">health_and_safety</span></div><p>인권침해를 사전에 예방하며 피해자 구제에 적극 노력합니다.</p></div>
-        <div class="eb-item"><div class="eb-num">08</div><div class="eb-ic"><span class="ms">child_care</span></div><p>RBA 행동규범을 기반으로 15세 미만 아동 고용을 명시적으로 금지합니다.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="eb-block">
-  <div class="wrap eb-stack">
-    <div>
-      <p class="eye">Environmental Management</p>
-      <h2 class="eb-title">환경경영</h2>
-      <p class="eb-desc">보다 나은 지구 환경을 물려주기 위해 '환경 보존'을 경영의 중요 과제로 삼고 작은 것부터 실천하며 환경보호에 동참하고 있습니다.</p>
-    </div>
-    <div class="eb-imgrid eb-imgrid-4">
-        <div class="eb-imgcard"><div class="eb-imgph" style="height:120px"><img src="assets/images/eco_01.png" alt="에너지 절약" style="width:100%;height:100%;object-fit:cover"></div><p>자원과 에너지를 절약하고 효율적으로 이용하며, 온실가스 배출 및 환경오염의 발생을 최소화합니다.</p></div>
-        <div class="eb-imgcard"><div class="eb-imgph" style="height:120px"><img src="assets/images/eco_02.png" alt="IT산업 환경" style="width:100%;height:100%;object-fit:cover"></div><p>IT산업 현장의 안정과 환경을 우선하며 환경보호에 기여합니다.</p></div>
-        <div class="eb-imgcard"><div class="eb-imgph" style="height:120px"><img src="assets/images/eco_03.png" alt="환경경영 실천" style="width:100%;height:100%;object-fit:cover"></div><p>환경경영이념을 적극 함양하여 환경경영활동에 적극 동참하고 환경보호 실천에 앞장섭니다.</p></div>
-        <div class="eb-imgcard"><div class="eb-imgph" style="height:120px"><img src="assets/images/eco_04.png" alt="환경방침 공개" style="width:100%;height:100%;object-fit:cover"></div><p>환경방침과 목표를 모든 이해관계자에게 공개하고 책임 있게 행동합니다.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="eb-dl">
+<section class="cu-block" id="customers">
   <div class="wrap">
-    <h3>경영헌장 자료실</h3>
-    <p>에코아이티의 윤리·인권·환경경영 원칙을 자세히 확인하세요.</p>
-    <div class="eb-dlrow">
-      <a href="#" class="eb-dlbtn"><span class="ms">download</span>윤리경영헌장</a>
-      <a href="#" class="eb-dlbtn"><span class="ms">download</span>인권경영헌장</a>
-      <a href="#" class="eb-dlbtn"><span class="ms">download</span>환경경영방침</a>
-      <a href="#" class="eb-dlbtn prime" onclick="openReport(event)"><span class="ms">campaign</span>사이버 제보</a>
+    <div class="cu-head">
+      <p class="cu-eye">Customers</p>
+      <h2 class="cu-title">주요 고객사</h2>
+      <p class="cu-desc">에코아이티는 대기업, 스타트업, 공공기관 등 다양한 분야의 고객사에 구축 및 운영 프로젝트를 성공적으로 수행해 오고 있습니다.</p>
     </div>
-  </div>
-</section>
+    <div class="cu-tabs">
+      <button class="cu-tab active" onclick="showCu(0)">SAP 고객사</button>
+      <button class="cu-tab" onclick="showCu(1)">RPA 고객사</button>
+      <button class="cu-tab" onclick="showCu(2)">SI 고객사</button>
+    </div>
+
+    <!-- SAP -->
+    <div class="cu-panel active" id="cu0">
+      <p class="cu-sub">주요 프로젝트</p>
+      <div class="cu-feat-grid">
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/sap/sap01.png" alt="한화에어로스페이스"></div><h4>한화에어로스페이스</h4><p>한화에어로스페이스 차세대 ONE-ERP 구축</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/sap/sap02.png" alt="현대자동차"></div><h4>현대자동차</h4><p>차세대 ERP 구축 · 글로벌 템플릿 구축 2단계</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/sap/sap03.png" alt="LG에너지솔루션"></div><h4>LG에너지솔루션</h4><p>㈜엘지에너지솔루션 차세대 ERP 프로젝트</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/sap/sap04.png" alt="삼성전자"></div><h4>삼성전자</h4><p>온라인 스토어 운영지원</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/sap/sap05.png" alt="사회복지공동모금회"></div><h4>사회복지공동모금회</h4><p>2023-2024년 통합정보시스템 유지보수</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/sap/sap06.png" alt="SR"></div><h4>SR</h4><p>제4차 통합정보시스템 운영 및 유지관리</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/sap/sap07.png" alt="서울반도체"></div><h4>서울반도체</h4><p>서울반도체 ERP시스템 운영 및 유지보수</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/sap/sap08.png" alt="한국항공우주산업"></div><h4>한국항공우주산업</h4><p>KAI 정보시스템</p></div>
+      </div>
+      <p class="cu-sub">그 외 고객사</p>
+      <div class="cu-logo-grid">
+        <div class="cu-logo"><img src="assets/logos/sap/sap09.png" alt="NVH KOREA"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap10.png" alt="SK이노베이션"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap11.png" alt="CJ프레시웨이"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap12.png" alt="CJ제일제당"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap13.png" alt="국민건강보험"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap14.png" alt="코웨이"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap15.png" alt="IBM"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap16.png" alt="한화솔루션"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap17.png" alt="한화첨단소재"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap18.png" alt="SAP"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap19.png" alt="EY"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap20.png" alt="PwC"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap21.png" alt="GS칼텍스"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap22.png" alt="LX판토스"></div>
+        <div class="cu-logo"><img src="assets/logos/sap/sap23.png" alt="LG전자"></div>
+      </div>
+    </div>
+
+    <!-- RPA -->
+    <div class="cu-panel" id="cu1">
+      <p class="cu-sub">주요 프로젝트</p>
+      <div class="cu-feat-grid">
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/rpa/rpa01.png" alt="한국남부발전"></div><h4>한국남부발전</h4><p>현장 주도 업무자동화(RPA)</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/rpa/rpa02.png" alt="한국철도공사"></div><h4>한국철도공사</h4><p>RPA 고도화 및 자동화 프로젝트</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/rpa/rpa03.png" alt="한국항공우주산업"></div><h4>한국항공우주산업</h4><p>RPA 플랫폼 구축</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/rpa/rpa04.png" alt="삼성전자"></div><h4>삼성전자</h4><p>MX RPA 챗봇 통합운영</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/rpa/rpa05.png" alt="동성케미컬"></div><h4>동성케미컬</h4><p>RPA 구축 프로젝트</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/rpa/rpa06.png" alt="한국생산기술연구원"></div><h4>한국생산기술연구원</h4><p>RPA 고도화 및 추가 구축</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/rpa/rpa07.png" alt="하이트진로"></div><h4>하이트진로</h4><p>RPA 솔루션 구축 프로젝트</p></div>
+        <div class="cu-feat"><div class="cu-feat-logo"><img src="assets/logos/rpa/rpa08.png" alt="한국마사회"></div><h4>한국마사회</h4><p>업무프로세스자동화(RPA) 구축</p></div>
+      </div>
+      <p class="cu-sub">그 외 고객사</p>
+      <div class="cu-logo-grid">
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa09.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa10.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa11.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa12.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa13.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa14.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa15.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa16.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa17.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa18.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa19.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa20.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa21.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa22.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa23.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa24.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa25.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa26.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa27.png" alt="RPA 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/rpa/rpa28.png" alt="RPA 고객사"></div>
+      </div>
+    </div>
+
+    <!-- SI -->
+    <div class="cu-panel" id="cu2">
+      <p class="cu-sub">고객사</p>
+      <div class="cu-logo-grid">
+        <div class="cu-logo"><img src="assets/logos/si/si01.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si02.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si03.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si04.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si05.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si06.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si07.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si08.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si09.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si10.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si11.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si12.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si13.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si14.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si15.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si16.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si17.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si18.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si19.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si20.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si21.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si22.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si23.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si24.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si25.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si26.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si27.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si28.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si29.png" alt="SI 고객사"></div>
+        <div class="cu-logo"><img src="assets/logos/si/si30.png" alt="SI 고객사"></div>
+      </div>
+    </div>
+  </section>
 
 <div id="footer-root"></div>
 <div id="modal-root"></div>
 
 <script src="shared/common.js"></script>
+<script>
+function showCu(i){
+  document.querySelectorAll('.cu-tab').forEach((t,idx)=>t.classList.toggle('active',idx===i));
+  document.querySelectorAll('.cu-panel').forEach((p,idx)=>p.classList.toggle('active',idx===i));
+}
+</script>
 <script>
 (function waitDeps(){
   if (!window.THREE || !window.gsap) { return setTimeout(waitDeps, 50); }
@@ -370,10 +471,10 @@ function initESGParticles() {
   }
 
   const ESG_KEYWORDS = [
-    { text: 'Environment',    x: -58,  y:  30, z: -20 },
-    { text: 'Social',         x:  54,  y:  28, z: -15 },
-    { text: 'Governance',     x:  50,  y: -28, z: -22 },
-    { text: 'Sustainability', x:   4,  y:  46, z:  15 },
+    { text: 'Enterprise',  x: -58,  y:  30, z: -20 },
+    { text: 'Public',      x:  54,  y:  28, z: -15 },
+    { text: 'Partnership', x:  50,  y: -28, z: -22 },
+    { text: 'Trust',       x:   4,  y:  46, z:  15 },
   ];
   ESG_KEYWORDS.forEach(({ text, x, y, z }) => {
     const sp = makeKeywordSprite(text);
