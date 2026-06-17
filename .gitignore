@@ -1,0 +1,18 @@
+# 환경변수 / 로그인 정보 - 절대 커밋 금지
+.env
+.env.local
+.env.*.local
+
+# 시스템 파일
+.DS_Store
+Thumbs.db
+
+# 에디터 설정
+.vscode/
+.idea/
+
+# 의존성
+node_modules/
+
+# 로컬 개발 서버
+serve.ps1
