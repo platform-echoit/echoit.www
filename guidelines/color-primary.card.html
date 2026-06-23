@@ -1,0 +1,28 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Primary · Echo Blue" subtitle="Brand blue tonal palette (seed #009CE0)" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; padding: 20px; background: var(--md-sys-color-surface); }
+  .ramp { display: flex; border-radius: 12px; overflow: hidden; box-shadow: var(--md-sys-elevation-1); }
+  .swatch { flex: 1; height: 96px; display: flex; align-items: flex-end; padding: 8px; box-sizing: border-box; }
+  .swatch span { font: 600 11px/1.2 var(--md-sys-typescale-font-mono); }
+</style>
+</head>
+<body>
+<div class="ramp" id="r"></div>
+<script>
+  const tones = [10,20,30,40,50,60,70,80,90,95,99];
+  const r = document.getElementById('r');
+  const cs = getComputedStyle(document.documentElement);
+  tones.forEach(t => {
+    const hex = cs.getPropertyValue('--ref-primary-' + t).trim();
+    const light = t >= 60;
+    r.insertAdjacentHTML('beforeend',
+      `<div class="swatch" style="background:${hex};color:${light?'#00344e':'#fff'}"><span>${t}<br>${hex}</span></div>`);
+  });
+</script>
+</body>
+</html>

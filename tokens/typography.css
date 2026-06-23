@@ -1,0 +1,56 @@
+/* ===========================================================================
+   EchoIT — Type scale (Material 3)
+   Family: Pretendard Variable (Korean + Latin). The M3 role names are kept;
+   each role exposes -font / -size / -line / -weight / -tracking so components
+   can compose a shorthand or pick individual axes. Use the .md-* helper
+   classes, or the role tokens directly.
+   =========================================================================== */
+
+:root {
+  --md-sys-typescale-font-brand: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", "Apple SD Gothic Neo", sans-serif;
+  --md-sys-typescale-font-plain: var(--md-sys-typescale-font-brand);
+  --md-sys-typescale-font-mono:  "Roboto Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Display */
+  --md-display-large-size: 57px;   --md-display-large-line: 64px;   --md-display-large-weight: 400; --md-display-large-tracking: -0.25px;
+  --md-display-medium-size: 45px;  --md-display-medium-line: 52px;  --md-display-medium-weight: 400; --md-display-medium-tracking: 0;
+  --md-display-small-size: 36px;   --md-display-small-line: 44px;   --md-display-small-weight: 400; --md-display-small-tracking: 0;
+
+  /* Headline */
+  --md-headline-large-size: 32px;  --md-headline-large-line: 40px;  --md-headline-large-weight: 400; --md-headline-large-tracking: 0;
+  --md-headline-medium-size: 28px; --md-headline-medium-line: 36px; --md-headline-medium-weight: 400; --md-headline-medium-tracking: 0;
+  --md-headline-small-size: 24px;  --md-headline-small-line: 32px;  --md-headline-small-weight: 400; --md-headline-small-tracking: 0;
+
+  /* Title */
+  --md-title-large-size: 22px;     --md-title-large-line: 28px;     --md-title-large-weight: 500; --md-title-large-tracking: 0;
+  --md-title-medium-size: 16px;    --md-title-medium-line: 24px;    --md-title-medium-weight: 500; --md-title-medium-tracking: 0.15px;
+  --md-title-small-size: 14px;     --md-title-small-line: 20px;     --md-title-small-weight: 500; --md-title-small-tracking: 0.1px;
+
+  /* Label */
+  --md-label-large-size: 14px;     --md-label-large-line: 20px;     --md-label-large-weight: 500; --md-label-large-tracking: 0.1px;
+  --md-label-medium-size: 12px;    --md-label-medium-line: 16px;    --md-label-medium-weight: 500; --md-label-medium-tracking: 0.5px;
+  --md-label-small-size: 11px;     --md-label-small-line: 16px;     --md-label-small-weight: 500; --md-label-small-tracking: 0.5px;
+
+  /* Body */
+  --md-body-large-size: 16px;      --md-body-large-line: 24px;      --md-body-large-weight: 400; --md-body-large-tracking: 0.5px;
+  --md-body-medium-size: 14px;     --md-body-medium-line: 20px;     --md-body-medium-weight: 400; --md-body-medium-tracking: 0.25px;
+  --md-body-small-size: 12px;      --md-body-small-line: 16px;      --md-body-small-weight: 400; --md-body-small-tracking: 0.4px;
+}
+
+/* ---- Helper classes ------------------------------------------------------ */
+.md-display-large  { font-family: var(--md-sys-typescale-font-brand); font-size: var(--md-display-large-size);  line-height: var(--md-display-large-line);  font-weight: var(--md-display-large-weight);  letter-spacing: var(--md-display-large-tracking); }
+.md-display-medium { font-family: var(--md-sys-typescale-font-brand); font-size: var(--md-display-medium-size); line-height: var(--md-display-medium-line); font-weight: var(--md-display-medium-weight); letter-spacing: var(--md-display-medium-tracking); }
+.md-display-small  { font-family: var(--md-sys-typescale-font-brand); font-size: var(--md-display-small-size);  line-height: var(--md-display-small-line);  font-weight: var(--md-display-small-weight);  letter-spacing: var(--md-display-small-tracking); }
+.md-headline-large  { font-family: var(--md-sys-typescale-font-brand); font-size: var(--md-headline-large-size);  line-height: var(--md-headline-large-line);  font-weight: var(--md-headline-large-weight);  letter-spacing: var(--md-headline-large-tracking); }
+.md-headline-medium { font-family: var(--md-sys-typescale-font-brand); font-size: var(--md-headline-medium-size); line-height: var(--md-headline-medium-line); font-weight: var(--md-headline-medium-weight); letter-spacing: var(--md-headline-medium-tracking); }
+.md-headline-small  { font-family: var(--md-sys-typescale-font-brand); font-size: var(--md-headline-small-size);  line-height: var(--md-headline-small-line);  font-weight: var(--md-headline-small-weight);  letter-spacing: var(--md-headline-small-tracking); }
+.md-title-large  { font-family: var(--md-sys-typescale-font-brand); font-size: var(--md-title-large-size);  line-height: var(--md-title-large-line);  font-weight: var(--md-title-large-weight);  letter-spacing: var(--md-title-large-tracking); }
+.md-title-medium { font-family: var(--md-sys-typescale-font-plain); font-size: var(--md-title-medium-size); line-height: var(--md-title-medium-line); font-weight: var(--md-title-medium-weight); letter-spacing: var(--md-title-medium-tracking); }
+.md-title-small  { font-family: var(--md-sys-typescale-font-plain); font-size: var(--md-title-small-size);  line-height: var(--md-title-small-line);  font-weight: var(--md-title-small-weight);  letter-spacing: var(--md-title-small-tracking); }
+.md-label-large  { font-family: var(--md-sys-typescale-font-plain); font-size: var(--md-label-large-size);  line-height: var(--md-label-large-line);  font-weight: var(--md-label-large-weight);  letter-spacing: var(--md-label-large-tracking); }
+.md-label-medium { font-family: var(--md-sys-typescale-font-plain); font-size: var(--md-label-medium-size); line-height: var(--md-label-medium-line); font-weight: var(--md-label-medium-weight); letter-spacing: var(--md-label-medium-tracking); }
+.md-label-small  { font-family: var(--md-sys-typescale-font-plain); font-size: var(--md-label-small-size);  line-height: var(--md-label-small-line);  font-weight: var(--md-label-small-weight);  letter-spacing: var(--md-label-small-tracking); }
+.md-body-large  { font-family: var(--md-sys-typescale-font-plain); font-size: var(--md-body-large-size);  line-height: var(--md-body-large-line);  font-weight: var(--md-body-large-weight);  letter-spacing: var(--md-body-large-tracking); }
+.md-body-medium { font-family: var(--md-sys-typescale-font-plain); font-size: var(--md-body-medium-size); line-height: var(--md-body-medium-line); font-weight: var(--md-body-medium-weight); letter-spacing: var(--md-body-medium-tracking); }
+.md-body-small  { font-family: var(--md-sys-typescale-font-plain); font-size: var(--md-body-small-size);  line-height: var(--md-body-small-line);  font-weight: var(--md-body-small-weight);  letter-spacing: var(--md-body-small-tracking); }

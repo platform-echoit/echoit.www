@@ -1,0 +1,35 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Semantic Roles (Light)" subtitle="Material 3 color roles — primary / secondary / tertiary / error" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; padding: 20px; background: var(--md-sys-color-surface); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .pair { border-radius: 12px; overflow: hidden; box-shadow: var(--md-sys-elevation-1); }
+  .main { height: 64px; display:flex; align-items:flex-end; padding: 8px; font: 500 12px/1.2 var(--md-sys-typescale-font-plain); }
+  .cont { height: 40px; display:flex; align-items:center; padding: 8px; font: 500 11px/1.2 var(--md-sys-typescale-font-plain); }
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="pair">
+    <div class="main" style="background:var(--primary);color:var(--on-primary)">Primary</div>
+    <div class="cont" style="background:var(--primary-container);color:var(--on-primary-container)">Container</div>
+  </div>
+  <div class="pair">
+    <div class="main" style="background:var(--secondary);color:var(--on-secondary)">Secondary</div>
+    <div class="cont" style="background:var(--secondary-container);color:var(--on-secondary-container)">Container</div>
+  </div>
+  <div class="pair">
+    <div class="main" style="background:var(--tertiary);color:var(--md-sys-color-on-tertiary)">Tertiary</div>
+    <div class="cont" style="background:var(--tertiary-container);color:var(--md-sys-color-on-tertiary-container)">Container</div>
+  </div>
+  <div class="pair">
+    <div class="main" style="background:var(--error);color:var(--md-sys-color-on-error)">Error</div>
+    <div class="cont" style="background:var(--error-container);color:var(--on-error-container)">Container</div>
+  </div>
+</div>
+</body>
+</html>

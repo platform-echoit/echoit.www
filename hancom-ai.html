@@ -1,0 +1,474 @@
+<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="Business · 한컴AI" subtitle="한컴AI 솔루션 — 에코아이티 총판사" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECHOIT — 한컴 AI Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+<link rel="stylesheet" href="shared/common.css">
+
+<!-- Three.js (UMD global) + GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+
+<div id="nav-root"></div>
+
+<style>
+/* ── HERO (business-hero 차용) ── */
+.eb-hero{position:relative;overflow:hidden;height:34vh;min-height:300px;background:#0f1115;color:#fff}
+.esg-hero-inner{position:relative;z-index:10;height:100%;display:flex;align-items:center;max-width:1200px;margin:0 auto;padding:0 32px;gap:0}
+.esg-p-zone{flex:0 0 50%;height:100%;pointer-events:none}
+.esg-t-zone{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:10px}
+.eb-eye{font:700 12px/1 'Pretendard';letter-spacing:.14em;text-transform:uppercase;color:#7fd3f3}
+.eb-h1{font-weight:800;font-size:clamp(28px,3.8vw,48px);line-height:1.12;letter-spacing:-1px;color:#fff}
+.eb-h1 .g{background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.eb-sub{max-width:480px;font:400 15px/1.7 'Pretendard';color:#b9bcc4;word-break:keep-all}
+@media(max-width:1024px){.esg-p-zone{flex:0 0 45%}}
+@media(max-width:768px){
+  .eb-hero{height:calc(46vh - 100px);min-height:220px}
+  .esg-hero-inner{flex-direction:column-reverse;justify-content:flex-end;padding:0 20px 24px}
+  .esg-p-zone{flex:0 0 46%;width:100%;height:auto}
+  .esg-t-zone{width:100%;align-items:flex-start}
+}
+
+/* ── SECTION BASE ── */
+.it-block{padding:80px 0}
+.it-block.alt{background:#f7f8fa}
+.it-head{text-align:center;max-width:780px;margin:0 auto 48px}
+.it-eye{font:700 12px/1 'Pretendard';letter-spacing:.12em;text-transform:uppercase;color:var(--b)}
+.it-title{margin:14px 0 0;font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.18;letter-spacing:-.6px;word-break:keep-all}
+.it-desc{margin:16px 0 0;font:400 16px/1.7 'Pretendard';color:#666;word-break:keep-all}
+
+/* ── SERVICE AREAS ── */
+.it-svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.it-svc{border:1px solid #eee;border-radius:16px;padding:28px 24px;background:#fff;display:flex;flex-direction:column;gap:16px;transition:box-shadow .15s,border-color .15s}
+.it-svc:hover{box-shadow:0 8px 28px rgba(0,0,0,.08);border-color:#d6d6d6}
+.it-svc-ic{width:52px;height:52px;border-radius:13px;background:#009ce0;color:#fff;display:flex;align-items:center;justify-content:center}
+.it-svc-ic .ms{font-size:27px}
+.it-svc h4{font:700 17px/1.3 'Pretendard';color:#1a1a1a;word-break:keep-all}
+.it-svc ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:0;padding:0}
+.it-svc li{display:flex;gap:9px;font:400 14px/1.55 'Pretendard';color:#666;word-break:keep-all}
+.it-svc li::before{content:'';flex-shrink:0;width:6px;height:6px;margin-top:7px;border-radius:50%;background:var(--b)}
+
+/* ── PMO 강조 밴드 ── */
+.it-band{margin-top:40px;border-radius:20px;background:var(--grd);color:#fff;padding:44px 48px;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.it-band-item{display:flex;flex-direction:column;gap:10px}
+.it-band-item:first-child{padding-right:40px}
+.it-band-item + .it-band-item{border-left:1px solid rgba(255,255,255,.3);padding-left:40px}
+.it-band-item .lead{font:700 18px/1.4 'Pretendard';word-break:keep-all}
+.it-band-item p{font:400 14.5px/1.65 'Pretendard';color:rgba(255,255,255,.88);word-break:keep-all}
+.it-band-item .tag{display:inline-flex;align-items:center;gap:7px;font:700 13px/1 'Pretendard';letter-spacing:.04em;opacity:.95}
+
+/* ── WHY ── */
+.it-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.it-why{border:1px solid #eee;border-radius:16px;padding:28px 24px;background:#fff;display:flex;flex-direction:column;gap:14px;transition:box-shadow .15s,border-color .15s}
+.it-why:hover{box-shadow:0 6px 24px rgba(0,0,0,.07);border-color:#d6d6d6}
+.it-why-ic{width:50px;height:50px;border-radius:13px;background:#f1f7fb;color:var(--b);display:flex;align-items:center;justify-content:center}
+.it-why-ic .ms{font-size:26px}
+.it-why h4{font:700 16px/1.35 'Pretendard';color:#1a1a1a;word-break:keep-all}
+.it-why ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin:0;padding:0}
+.it-why li{display:flex;gap:8px;font:400 13.5px/1.55 'Pretendard';color:#666;word-break:keep-all}
+.it-why li::before{content:'';flex-shrink:0;width:5px;height:5px;margin-top:7px;border-radius:50%;background:var(--b)}
+.it-why.feature{background:#23262e;border-color:transparent}
+.it-why.feature h4{color:#fff}
+.it-why.feature li{color:#b9bcc4}
+.it-why.feature .it-why-ic{background:rgba(255,255,255,.1);color:#7fd3f3}
+
+@media(max-width:1024px){
+  .it-svc-grid{grid-template-columns:repeat(2,1fr)}
+  .it-why-grid{grid-template-columns:repeat(2,1fr)}
+  .it-band{grid-template-columns:1fr;gap:20px;padding:36px 32px}
+  .it-band-item:first-child{padding-right:0}
+  .it-band-item + .it-band-item{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.3);padding-top:20px}
+}
+@media(max-width:768px){
+  .it-block{padding:56px 0}
+  .it-svc-grid{grid-template-columns:1fr}
+  .it-why-grid{grid-template-columns:1fr}
+}
+/* ── TAG NAV ── */
+.hc-tagnav{background:#fff;border-bottom:1px solid #eee;position:sticky;top:64px;z-index:90;margin-top:0}
+.hc-intro-block{padding-bottom:48px!important}
+.hc-tagnav .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;justify-content:center}
+.hc-tagnav .wrap::-webkit-scrollbar{display:none}
+.hc-tag{flex-shrink:0;padding:18px 22px;font:600 14px/1 'Pretendard';color:#666;border-bottom:2px solid transparent;text-decoration:none;transition:color .15s,border-color .15s;white-space:nowrap}
+.hc-tag:hover,.hc-tag.active{color:var(--b);border-bottom-color:var(--b)}
+
+/* ── YOUTUBE ── */
+.hc-yt-wrap{width:100%;max-width:860px;margin:0 auto;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000}
+
+/* ── PRODUCT SECTIONS ── */
+.hc-prod{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hc-prod-rev{direction:rtl}
+.hc-prod-rev>*{direction:ltr}
+.hc-prod-txt{display:flex;flex-direction:column;gap:16px}
+.hc-img-ph{aspect-ratio:4/3;background:repeating-linear-gradient(135deg,#f3f5f7,#f3f5f7 12px,#eef1f4 12px,#eef1f4 24px);border-radius:18px;display:flex;align-items:center;justify-content:center;color:#c2c8ce}
+.hc-img-ph .ms{font-size:40px}
+.hc-img-wide{width:100%;max-width:860px;margin:0 auto;aspect-ratio:16/9}
+
+@media(max-width:1024px){.hc-prod{grid-template-columns:1fr;gap:32px}.hc-prod-rev{direction:ltr}}
+@media(max-width:768px){.hc-tag{padding:14px 16px;font-size:13px}}
+
+
+/* ── HANCOM PRODUCT IMAGE + FEATURE LIST ── */
+.hc-img-crop{width:100%;max-width:900px;margin:0 auto;aspect-ratio:16/7.5;overflow:hidden;border-radius:16px}
+.hc-img-crop.crop-tight{aspect-ratio:16/6.4}
+.hc-img-crop.crop-sm{aspect-ratio:16/7.25}
+.hc-img-crop.crop-lg{aspect-ratio:16/8}
+.hc-img-crop img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.hc-feat-list{display:grid;gap:16px;margin:28px auto 0;max-width:900px}
+.hc-feat-list.col3{grid-template-columns:repeat(3,1fr)}
+.hc-feat-list.col4{grid-template-columns:repeat(4,1fr)}
+.hc-feat-item{background:#fff;border:1px solid #eee;border-radius:14px;padding:22px 20px;display:flex;flex-direction:column;gap:14px;transition:box-shadow .15s,border-color .15s}
+.hc-feat-item:hover{box-shadow:0 4px 18px rgba(0,0,0,.07);border-color:#d6d6d6}
+.hc-feat-no{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;font:800 17px/1 'Pretendard';color:#fff;flex-shrink:0}
+.hc-feat-item:nth-child(1) .hc-feat-no{background:#89c895}
+.hc-feat-item:nth-child(2) .hc-feat-no{background:#4aafbc}
+.hc-feat-item:nth-child(3) .hc-feat-no{background:#1fa1d4}
+.hc-feat-item:nth-child(4) .hc-feat-no{background:#009ce0}
+.hc-feat-txt{font:400 14px/1.6 'Pretendard';color:#444;word-break:keep-all}
+@media(max-width:768px){
+  .hc-feat-list.col3,.hc-feat-list.col4{grid-template-columns:repeat(2,1fr)}
+  .hc-img-crop{aspect-ratio:16/9}
+}
+@media(max-width:480px){
+  .hc-feat-list.col3,.hc-feat-list.col4{grid-template-columns:1fr}
+}
+</style>
+
+<!-- ── HERO ── -->
+<section class="eb-hero" id="biz-hero">
+  <svg id="biz-bg" style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="g1" gradientUnits="userSpaceOnUse" cx="720" cy="180" r="480"><stop offset="0%" stop-color="#009ce0" stop-opacity="0.36"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g2" gradientUnits="userSpaceOnUse" cx="100" cy="380" r="340"><stop offset="0%" stop-color="#89c895" stop-opacity="0.28"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g3" gradientUnits="userSpaceOnUse" cx="1380" cy="200" r="280"><stop offset="0%" stop-color="#3aa0d8" stop-opacity="0.22"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1440" height="400" fill="#0f1115"/>
+    <rect width="1440" height="400" fill="url(#g1)"/>
+    <rect width="1440" height="400" fill="url(#g2)"/>
+    <rect width="1440" height="400" fill="url(#g3)"/>
+  </svg>
+  <div class="esg-hero-inner">
+    <div class="esg-t-zone">
+      <p class="eb-eye">Business · 한컴AI</p>
+      <h1 class="eb-h1">미래의 기술,<br><span class="g">오늘의 선택</span></h1>
+      <p class="eb-sub">AI 혁신으로 함께하는 더 큰 성장<br><span style="font-size:13px;opacity:.7">에코아이티는 한컴 AI솔루션의 총판사입니다</span></p>
+    </div>
+    <div class="esg-p-zone" id="biz-p-zone"></div>
+  </div>
+</section>
+
+
+<!-- ── TAG NAV ── -->
+<nav class="hc-tagnav">
+  <div class="wrap">
+    <a href="#hc-pedia" class="hc-tag">한컴피디아</a>
+    <a href="#hc-loader" class="hc-tag">한컴 데이터 로더</a>
+    <a href="#hc-assistant" class="hc-tag">한컴어시스턴트</a>
+    <a href="#hc-office" class="hc-tag">한컴오피스 AI 패키지</a>
+  </div>
+</nav>
+
+<!-- ── 한컴AI 소개 ── -->
+<section class="it-block hc-intro-block" id="hc-intro">
+  <div class="wrap">
+    <div class="it-head">
+      <p class="it-eye">AI Solution &amp; Service</p>
+      <h2 class="it-title">한컴AI가 만드는<br>Intelligent AutoMation</h2>
+      <p class="it-desc">한컴은 오랜 시간 축적해 온 데이터와 미래를 위한 새로운 AI 기술을 결합하여 우리의 기술을 모두가 함께 사용할 수 있도록 합니다.</p>
+    </div>
+    <div class="hc-yt-wrap">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Sr_m3Qg2pxY" title="[HANCOM AI] 지금 당신의 업무에 가장 필요한 AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ── 한컴피디아 ── -->
+<section class="it-block alt" id="hc-pedia">
+  <div class="wrap">
+    <div class="it-head">
+      <h2 class="it-title" style="background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">한컴피디아</h2>
+      <p class="it-desc" style="font-size:14px;color:#888;margin-top:10px">빠르고 정확한 문서 검색, 한컴피디아</p>
+      <p class="it-desc">방대한 문서 속 필요한 정보를 찾아주는 문서 데이터 검색 솔루션입니다.</p>
+    </div>
+    <div class="hc-img-crop crop-tight"><img src="assets/images/hancom/pedia.png" alt="한컴피디아"></div>
+    <div class="hc-feat-list col3">
+      <div class="hc-feat-item"><span class="hc-feat-no">01</span><span class="hc-feat-txt">환각 최소화로 신뢰도 높은 답변 생성</span></div>
+      <div class="hc-feat-item"><span class="hc-feat-no">02</span><span class="hc-feat-txt">고객 맞춤 검색 설정으로 정확한 정보 검색</span></div>
+      <div class="hc-feat-item"><span class="hc-feat-no">03</span><span class="hc-feat-txt">조직 맞춤형 지식 적용 및 유연한 데이터 업데이트</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 한컴 데이터 로더 ── -->
+<section class="it-block" id="hc-loader">
+  <div class="wrap">
+    <div class="it-head">
+      <h2 class="it-title" style="background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">한컴 데이터 로더</h2>
+      <p class="it-desc" style="font-size:14px;color:#888;margin-top:10px">다양한 객체를 추출하고 레벨 추론을 제공하는 데이터 전처리 핵심 도구</p>
+      <p class="it-desc">한컴 데이터 로더는 문서 내 텍스트, 표, 차트, 이미지 등 핵심 데이터를 정교하게 추출합니다. 문서를 효과적으로 데이터화하여 비즈니스 목적에 최적화된 활용 환경을 지원합니다.</p>
+    </div>
+    <div class="hc-img-crop crop-sm"><img src="assets/images/hancom/loader.png" alt="한컴 데이터 로더"></div>
+    <div class="hc-feat-list col3">
+      <div class="hc-feat-item"><span class="hc-feat-no">01</span><span class="hc-feat-txt">문서 내 정확한 데이터 추출 및 분리</span></div>
+      <div class="hc-feat-item"><span class="hc-feat-no">02</span><span class="hc-feat-txt">의미 단위로 구분하기 위한 메타 데이터 추출</span></div>
+      <div class="hc-feat-item"><span class="hc-feat-no">03</span><span class="hc-feat-txt">JSON, CSV 등의 포맷 형식 지원을 통한 다양한 활용성</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 한컴어시스턴트 ── -->
+<section class="it-block alt" id="hc-assistant">
+  <div class="wrap">
+    <div class="it-head">
+      <h2 class="it-title" style="background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">한컴어시스턴트</h2>
+      <p class="it-desc" style="font-size:14px;color:#888;margin-top:10px">사용자의 의도를 읽고 완성하는 AI 문서 작성 파트너</p>
+      <p class="it-desc">한컴어시스턴트는 LLM과 연동하여 사용자의 의도를 분석하고 문서의 시작과 완성을 더 쉽게 도와주는 AI기반 문서 작성 도구입니다.</p>
+    </div>
+    <div class="hc-img-crop crop-lg"><img src="assets/images/hancom/assistant.png" alt="한컴어시스턴트"></div>
+    <div class="hc-feat-list col4">
+      <div class="hc-feat-item"><span class="hc-feat-no">01</span><span class="hc-feat-txt">문서 작성을 위한 생성·편집 등 다양한 AI기능 제공</span></div>
+      <div class="hc-feat-item"><span class="hc-feat-no">02</span><span class="hc-feat-txt">클라우드 환경의 대형 LLM 폐쇄망 환경을 위한 sLLM 지원</span></div>
+      <div class="hc-feat-item"><span class="hc-feat-no">03</span><span class="hc-feat-txt">API를 통해 어시스턴트 기능을 다양한 도구에 연동</span></div>
+      <div class="hc-feat-item"><span class="hc-feat-no">04</span><span class="hc-feat-txt">고객사별 기능을 Add-on으로 연동</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 한컴오피스 AI 패키지 ── -->
+<section class="it-block" id="hc-office">
+  <div class="wrap">
+    <div class="it-head">
+      <h2 class="it-title" style="background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">한컴오피스 AI 패키지(플러스)</h2>
+      <p class="it-desc" style="font-size:14px;color:#888;margin-top:10px">강력한 한컴오피스와 AI를 결합한 패키지</p>
+      <p class="it-desc">한컴오피스 AI 패키지는 강력한 성능의 한컴오피스와 사용자의 의도를 파악하는 AI 도구인 한컴어시스턴트가 결합된 패키지입니다.</p>
+    </div>
+    <div class="hc-img-crop crop-tight"><img src="assets/images/hancom/package.png" alt="한컴오피스 AI 패키지"></div>
+    <div class="hc-feat-list col3">
+      <div class="hc-feat-item"><span class="hc-feat-no">01</span><span class="hc-feat-txt">초안 작성부터 편집까지 문서 작성의 전 과정을 지원</span></div>
+      <div class="hc-feat-item"><span class="hc-feat-no">02</span><span class="hc-feat-txt">패키지 제공으로 간편한 도입 및 관리</span></div>
+      <div class="hc-feat-item"><span class="hc-feat-no">03</span><span class="hc-feat-txt">설치형 오피스에 AI 기능을 결합하여 안정적인 운영 환경 제공</span></div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<div id="modal-root"></div>
+
+<script src="shared/common.js"></script>
+<script>
+function playYt(){
+  var w=document.getElementById('hcYt');
+  w.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Sr_m3Qg2pxY?autoplay=1" title="[HANCOM AI] 지금 당신의 업무에 가장 필요한 AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+  w.style.cursor='default';
+}
+// Tag nav smooth scroll with offset for sticky GNB + tagnav
+document.querySelectorAll('.hc-tag').forEach(a=>{
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    const target=document.querySelector(this.getAttribute('href'));
+    if(!target)return;
+    const tagnav=document.querySelector('.hc-tagnav');
+    const offset=(document.getElementById('snav')?document.getElementById('snav').offsetHeight:64)+(tagnav?tagnav.offsetHeight:52)+8;
+    window.scrollTo({top:target.offsetTop-offset,behavior:'smooth'});
+  });
+});
+// IntersectionObserver — active tag sync on scroll
+(function(){
+  const sections=['#hc-pedia','#hc-loader','#hc-assistant','#hc-office']
+    .map(s=>document.querySelector(s)).filter(Boolean);
+  const tags=document.querySelectorAll('.hc-tag');
+  const navH=(document.getElementById('snav')?document.getElementById('snav').offsetHeight:64)
+            +(document.querySelector('.hc-tagnav')?document.querySelector('.hc-tagnav').offsetHeight:52)+12;
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id='#'+e.target.id;
+        tags.forEach(t=>t.classList.toggle('active',t.getAttribute('href')===id));
+      }
+    });
+  },{rootMargin:`-${navH}px 0px -40% 0px`,threshold:0});
+  sections.forEach(s=>io.observe(s));
+})();
+</script>
+<script>
+(function waitDeps(){
+  if (!window.THREE || !window.gsap) { return setTimeout(waitDeps, 50); }
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(initBizParticles); }
+  else { initBizParticles(); }
+})();
+
+function initBizParticles() {
+  const container = document.getElementById('biz-hero');
+  const svgBg     = document.getElementById('biz-bg');
+  if (!container) return;
+
+  const scene    = new THREE.Scene();
+  const w0 = container.clientWidth, h0 = container.clientHeight;
+  const camera   = new THREE.PerspectiveCamera(50, w0/h0, 0.1, 2000);
+  camera.position.z = 150;
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setSize(w0, h0);
+  renderer.setClearColor(0x0f1115, 0);
+  renderer.domElement.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;z-index:1';
+  container.appendChild(renderer.domElement);
+
+  const isMobile = () => container.clientWidth <= 768;
+  scene.position.x = isMobile() ? 0 : 34;
+  scene.position.y = isMobile() ? 30 : 0;
+
+  const CW = 800, CH = 280;
+  function sampleText(lines, fontSizes) {
+    const off = document.createElement('canvas');
+    off.width = CW; off.height = CH;
+    const ctx = off.getContext('2d');
+    ctx.fillStyle = '#fff';
+    lines.forEach((line, i) => {
+      ctx.font = `800 ${fontSizes[i]}px 'Pretendard', Arial Black, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const yOff = lines.length === 1 ? CH/2 : (i === 0 ? CH*0.36 : CH*0.72);
+      ctx.fillText(line, CW/2, yOff);
+    });
+    const { data } = ctx.getImageData(0, 0, CW, CH);
+    const pts = [];
+    for (let y = 0; y < CH; y += 4)
+      for (let x = 0; x < CW; x += 4)
+        if (data[(y*CW+x)*4] > 128 && Math.random() > 0.22)
+          pts.push([(x/CW-0.5)*96, -(y/CH-0.5)*72, (Math.random()-0.5)*1.0]);
+    return pts;
+  }
+
+  const rawSets = [
+    sampleText(['AI'],        [300]),
+    sampleText(['LLM'],       [240]),
+    sampleText(['RAG'],       [240]),
+    sampleText(['OCR'],       [240]),
+  ];
+  const MAX_N = Math.max(...rawSets.map(s => s.length));
+
+  function padAndShuffle(pts, n) {
+    const out = pts.map(p => [...p]);
+    while (out.length < n) {
+      const src = pts[Math.floor(Math.random()*pts.length)];
+      out.push([src[0]+(Math.random()-0.5)*2, src[1]+(Math.random()-0.5)*2, (Math.random()-0.5)*1.5]);
+    }
+    for (let i = out.length-1; i > 0; i--) {
+      const j = Math.floor(Math.random()*(i+1));
+      [out[i], out[j]] = [out[j], out[i]];
+    }
+    return out.slice(0, n);
+  }
+  const textSets = rawSets.map(pts => padAndShuffle(pts, MAX_N));
+
+  const posArr = new Float32Array(MAX_N * 3);
+  for (let i = 0; i < MAX_N; i++) {
+    posArr[i*3]   = (Math.random()-0.5) * 200;
+    posArr[i*3+1] = (Math.random()-0.5) * 120;
+    posArr[i*3+2] = (Math.random()-0.5) * 60;
+  }
+  const geoText = new THREE.BufferGeometry();
+  const posAttr = new THREE.BufferAttribute(posArr, 3);
+  geoText.setAttribute('position', posAttr);
+  scene.add(new THREE.Points(geoText, new THREE.PointsMaterial({
+    color: 0xffffff, size: 1.64, sizeAttenuation: true, transparent: true, opacity: 0.95,
+  })));
+
+  const AMBIENT = 460;
+  const ambPosArr = new Float32Array(AMBIENT * 3);
+  for (let i = 0; i < AMBIENT; i++) {
+    ambPosArr[i*3]   = (Math.random()-0.5)*320;
+    ambPosArr[i*3+1] = (Math.random()-0.5)*160;
+    ambPosArr[i*3+2] = (Math.random()-0.5)*90;
+  }
+  const geoAmb  = new THREE.BufferGeometry();
+  const ambAttr = new THREE.BufferAttribute(ambPosArr, 3);
+  geoAmb.setAttribute('position', ambAttr);
+  scene.add(new THREE.Points(geoAmb, new THREE.PointsMaterial({
+    color: 0x5a5a64, size: 1.19, sizeAttenuation: true, transparent: true, opacity: 0.75,
+  })));
+
+  function makeKeywordSprite(text) {
+    const dpr = Math.min(devicePixelRatio, 2), fs = 28, pad = 22;
+    const fontStr = `300 ${fs}px 'Pretendard', sans-serif`;
+    const mc = document.createElement('canvas').getContext('2d');
+    mc.font = fontStr;
+    const m = mc.measureText(text);
+    const logW = Math.ceil(m.width) + pad*2, logH = fs + pad;
+    const c = document.createElement('canvas');
+    c.width = logW*dpr; c.height = logH*dpr;
+    const ctx = c.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.font = fontStr; ctx.fillStyle = '#7a7a88';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(text, logW/2, logH/2);
+    const tex = new THREE.CanvasTexture(c);
+    const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: 0.80 });
+    const sp  = new THREE.Sprite(mat);
+    const wH  = 9;
+    sp.scale.set(wH * (logW/logH), wH, 1);
+    return sp;
+  }
+  const BIZ_KEYWORDS = [
+    { text: 'Consulting', x: -58,  y:  30, z: -20 },
+    { text: 'Build',      x:  50,  y:  28, z: -15 },
+    { text: 'Operate',    x:  48,  y: -28, z: -22 },
+    { text: 'SLA',        x:   4,  y:  46, z:  15 },
+  ];
+  BIZ_KEYWORDS.forEach(({ text, x, y, z }) => {
+    const sp = makeKeywordSprite(text);
+    sp.position.set(x, y, z);
+    scene.add(sp);
+  });
+
+  let fromSnap = Array.from({length: MAX_N}, (_, i) => [posArr[i*3], posArr[i*3+1], posArr[i*3+2]]);
+  function morphTo(toIdx, duration) {
+    const dur = duration ?? 1.6;
+    const to = textSets[toIdx], from = fromSnap, proxy = {t: 0};
+    gsap.to(proxy, {
+      t: 1, duration: dur, ease: 'power2.inOut',
+      onUpdate() {
+        const t = proxy.t;
+        for (let i = 0; i < MAX_N; i++) {
+          posArr[i*3]   = from[i][0]+(to[i][0]-from[i][0])*t;
+          posArr[i*3+1] = from[i][1]+(to[i][1]-from[i][1])*t;
+          posArr[i*3+2] = from[i][2]+(to[i][2]-from[i][2])*t;
+        }
+        posAttr.needsUpdate = true;
+      },
+      onComplete() {
+        fromSnap = to.map(p => [...p]);
+        gsap.delayedCall(3, () => morphTo((toIdx+1) % textSets.length));
+      },
+    });
+  }
+  morphTo(0, 2.2);
+
+  let clock = 0;
+  (function animate() {
+    requestAnimationFrame(animate);
+    clock += 0.008;
+    scene.rotation.y = Math.sin(clock * 1.68) * 0.5;
+    renderer.render(scene, camera);
+  })();
+
+  function onResize() {
+    const w = container.clientWidth, h = container.clientHeight;
+    if (!w || !h) return;
+    camera.aspect = w/h; camera.updateProjectionMatrix(); renderer.setSize(w, h);
+    if (w <= 768) { scene.position.x = 0; scene.position.y = 30; }
+    else          { scene.position.x = 34; scene.position.y = 0; }
+  }
+  window.addEventListener('resize', onResize);
+}
+</script>
+</body>
+</html>

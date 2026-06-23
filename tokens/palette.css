@@ -1,0 +1,120 @@
+/* ===========================================================================
+   EchoIT — Reference tonal palettes (Material 3)
+   Six tonal ramps generated from the EchoIT brand marks:
+     • Primary   — Echo Blue   #009CE0  (logo wordmark + glyph gradient end)
+     • Secondary — Echo Green  #89C895  (logo glyph gradient start)
+     • Tertiary  — Indigo accent (AX / intelligence tone)
+     • Neutral / Neutral-variant — from the logo's IT gray #595858
+     • Error     — Material 3 standard red
+   Tones run 0 (black) → 100 (white). These are RAW values; never use them
+   directly in UI — consume the semantic roles in colors.css instead.
+   =========================================================================== */
+
+:root {
+  /* ---- Primary · Echo Blue ------------------------------------------------ */
+  --ref-primary-0:   #000000;
+  --ref-primary-10:  #001e2f;
+  --ref-primary-20:  #00344e;
+  --ref-primary-30:  #004c6f;
+  --ref-primary-40:  #006d9f;
+  --ref-primary-50:  #0089c4;
+  --ref-primary-60:  #009ce0;  /* ← EchoIT brand blue (point color) */
+  --ref-primary-70:  #4bb6f2;
+  --ref-primary-80:  #84ceff;
+  --ref-primary-90:  #c7e7ff;
+  --ref-primary-95:  #e6f3ff;
+  --ref-primary-99:  #f8fcff;
+  --ref-primary-100: #ffffff;
+
+  /* ---- Secondary · Echo Green --------------------------------------------- */
+  --ref-secondary-0:   #000000;
+  --ref-secondary-10:  #0d1f13;
+  --ref-secondary-20:  #223526;
+  --ref-secondary-30:  #384b3b;
+  --ref-secondary-40:  #4f6352;
+  --ref-secondary-50:  #677c69;
+  --ref-secondary-60:  #809681;
+  --ref-secondary-70:  #9bb19a;
+  --ref-secondary-80:  #b5ccb4;
+  --ref-secondary-90:  #d1e8cf;
+  --ref-secondary-95:  #dff6dd;
+  --ref-secondary-99:  #f6fff2;
+  --ref-secondary-100: #ffffff;
+
+  /* ---- Tertiary · Indigo (AX accent) -------------------------------------- */
+  --ref-tertiary-0:   #000000;
+  --ref-tertiary-10:  #191a2c;
+  --ref-tertiary-20:  #2e2f42;
+  --ref-tertiary-30:  #444559;
+  --ref-tertiary-40:  #5c5d72;
+  --ref-tertiary-50:  #75758b;
+  --ref-tertiary-60:  #8f8fa6;
+  --ref-tertiary-70:  #aaaac1;
+  --ref-tertiary-80:  #c6c5dd;
+  --ref-tertiary-90:  #e3e0f9;
+  --ref-tertiary-95:  #f1efff;
+  --ref-tertiary-99:  #fffbff;
+  --ref-tertiary-100: #ffffff;
+
+  /* ---- Neutral · from IT gray #595858 ------------------------------------- */
+  --ref-neutral-0:   #000000;
+  --ref-neutral-4:   #0c0e0f;
+  --ref-neutral-6:   #111314;
+  --ref-neutral-10:  #1a1c1d;
+  --ref-neutral-12:  #1e2021;
+  --ref-neutral-17:  #282a2b;
+  --ref-neutral-20:  #2f3133;
+  --ref-neutral-22:  #333537;
+  --ref-neutral-24:  #37393b;
+  --ref-neutral-30:  #454749;
+  --ref-neutral-40:  #5d5e61;
+  --ref-neutral-50:  #76777a;
+  --ref-neutral-60:  #909094;
+  --ref-neutral-70:  #aaabae;
+  --ref-neutral-80:  #c6c6c9;
+  --ref-neutral-87:  #dcdce0;
+  --ref-neutral-90:  #e2e2e6;
+  --ref-neutral-92:  #e8e8ec;
+  --ref-neutral-94:  #eeedf1;
+  --ref-neutral-95:  #f0f0f4;
+  --ref-neutral-96:  #f3f3f7;
+  --ref-neutral-98:  #f9f9fc;
+  --ref-neutral-99:  #fcfcff;
+  --ref-neutral-100: #ffffff;
+
+  /* ---- Neutral variant · cooler gray for outlines / surfaces -------------- */
+  --ref-nv-10:  #181c1f;
+  --ref-nv-20:  #2d3134;
+  --ref-nv-30:  #43474b;
+  --ref-nv-40:  #5b5f63;
+  --ref-nv-50:  #74777b;
+  --ref-nv-60:  #8e9195;
+  --ref-nv-70:  #a8abb0;
+  --ref-nv-80:  #c4c7cc;
+  --ref-nv-90:  #e0e3e8;
+  --ref-nv-95:  #eff1f6;
+  --ref-nv-99:  #fafcff;
+  --ref-nv-100: #ffffff;
+
+  /* ---- Error · Material 3 standard ---------------------------------------- */
+  --ref-error-0:   #000000;
+  --ref-error-10:  #410002;
+  --ref-error-20:  #690005;
+  --ref-error-30:  #93000a;
+  --ref-error-40:  #ba1a1a;
+  --ref-error-50:  #de3730;
+  --ref-error-60:  #ff5449;
+  --ref-error-70:  #ff897d;
+  --ref-error-80:  #ffb4ab;
+  --ref-error-90:  #ffdad6;
+  --ref-error-95:  #ffedea;
+  --ref-error-99:  #fffbff;
+  --ref-error-100: #ffffff;
+
+  /* ---- Brand literals — use ONLY for logo / hero / large brand fills ------ */
+  --echo-blue:   #009ce0;
+  --echo-green:  #89c895;
+  --echo-gray:   #595858;
+  --echo-gradient: linear-gradient(100deg, #89c895 0%, #009ce0 100%); /* @kind color */
+  --echo-gradient-soft: linear-gradient(120deg, #e6f3ff 0%, #dff6dd 100%); /* @kind color */
+}

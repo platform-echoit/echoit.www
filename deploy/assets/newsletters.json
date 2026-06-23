@@ -1,0 +1,22 @@
+{
+  "items": [
+    { "no": 18, "period": "2025년 1월 뉴스레터", "title": "[25년 1월호] '인공지능은 새 디지털 노동력' 세일즈포스, AI에이전트 가속", "date": "2025.01.08", "url": "https://stibee.com/api/v1.0/emails/share/79vFd0WDGakKvIBKz2UYKK02M_AED9A" },
+    { "no": 17, "period": "2024년 12월 뉴스레터", "title": "[소프트웨이브 2024] 지멘스 멘딕스, SoftWave 2024에서 로우코드 혁신 선보인다", "date": "2024.12.01", "url": "https://stibee.com/api/v1.0/emails/share/xTpaOvyhE9Iw8NRrnpXeW7WtnYZMJJw" },
+    { "no": 16, "period": "2024년 11월 뉴스레터", "title": "한전, 사업효율화 매진…70여 RPA 도입 추진", "date": "2024.11.01", "url": "https://stibee.com/api/v1.0/emails/share/rJK_f1RcZVhAwRISdCymuY1aN-FcD0Y" },
+    { "no": 15, "period": "2024년 10월 뉴스레터", "title": "AI 강화하는 세일즈포스…美오라클파크에 IT인 모인 까닭은[르포]", "date": "2024.10.01", "url": "https://stibee.com/api/v1.0/emails/share/9WPwjWQIIAkrb5AweRthZfPRlRJfF7Q" },
+    { "no": 14, "period": "2024년 9월 뉴스레터", "title": "단순 업무는 AI에...경기도 업무자동화(RPA) 연말쯤 적용", "date": "2024.09.01", "url": "https://stibee.com/api/v1.0/emails/share/8WbRiG41Xh4b80FepQb6HvsAWKY0o70" },
+    { "no": 13, "period": "2024년 8월 뉴스레터", "title": "영업에 AI 적용한 조직 83%가 매출 성장··· 잡무 제거가 주효", "date": "2024.08.01", "url": "https://stibee.com/api/v1.0/emails/share/46qEszShj4p5H5Fv0kYkR2jTA5dqmo0" },
+    { "no": 12, "period": "2024년 7월 뉴스레터", "title": "남부발전, AI사원 뽑았다…K-프로봇 입사식 개최", "date": "2024.07.03", "url": "https://stibee.com/api/v1.0/emails/share/TFWcSde75hjT0lH-nO6dtiYP4zilySc" },
+    { "no": 11, "period": "2024년 6월 뉴스레터", "title": "[컨퍼런스] Salesforce World Tour Korea | 코엑스 컨벤션센터", "date": "2024.06.03", "url": "https://stibee.com/api/v1.0/emails/share/Z47zttxCTsp7KTIryCUWOIgx_dhCYHY" },
+    { "no": 10, "period": "2024년 5월 뉴스레터", "title": "2024년 생성 AI 4대 트렌드: 기업용 ERP 애플리케이션 영역", "date": "2024.05.02", "url": "https://stib.ee/1LGC" },
+    { "no": 9, "period": "2024년 4월 뉴스레터", "title": "[멘딕스] 기업이 디지털 전환에 실패하는 이유", "date": "2024.04.01", "url": "https://stib.ee/l6nB" },
+    { "no": 8, "period": "2024년 3월 뉴스레터", "title": "세일즈포스, 전 세계 자동화·AI 전략 구축 담은 '2024 연결성 벤치마크' 발표", "date": "2024.03.04", "url": "https://stib.ee/zQKB" },
+    { "no": 7, "period": "2024년 2월 4주 뉴스레터", "title": "전북특자도 RPA 업무자동화 도입…정확도와 신속성 높인다", "date": "2024.02.26", "url": "https://stib.ee/4u7B" },
+    { "no": 6, "period": "2024년 2월 2주 뉴스레터", "title": "정선군, 행정업무 자동화로 처리 시간 90% 절감 | 커지는 AI 기대감, 금융권 활용 어디까지?", "date": "2024.02.05", "url": "https://stib.ee/ZGxA" },
+    { "no": 5, "period": "2024년 1월 4주 뉴스레터", "title": "삼성서울병원, 의무기록사본발급에 RPA 접목 | 아세아시멘트·한라시멘트, RPA 자동화 솔루션 도입", "date": "2024.01.22", "url": "https://stib.ee/N8lA" },
+    { "no": 4, "period": "2024년 1월 2주 뉴스레터", "title": "창원시 공무원, 단순·반복 업무 손 뗀다 | 강남세브란스병원, 7개 조직 업무에 RPA 도입", "date": "2024.01.08", "url": "https://stib.ee/uLZA" },
+    { "no": 3, "period": "2023년 12월 5주 뉴스레터", "title": "KB금융, 내부통제 디지털화 추진...AI·RPA 활용 | 광주은행, RPA 시스템으로 업무 자동화 구현", "date": "2023.12.25", "url": "https://stib.ee/xsMA" },
+    { "no": 2, "period": "2023년 12월 3주 뉴스레터", "title": "전력거래소, AI·RPA 활용 프로세스 혁신 우수사례 소개 | [위기는 기회다] 신한은행, AI 활용 사업 확대...", "date": "2023.12.11", "url": "https://stib.ee/pRCA" },
+    { "no": 1, "period": "2023년 11월 5주 뉴스레터", "title": "은행권 업무자동화 '박차'…생산성 향상 나선다 | '가짜 캐시미어 거른다'…상품 모니터링 강화 나선 e커머스업계", "date": "2023.11.27", "url": "https://stib.ee/oFz9" }
+  ]
+}

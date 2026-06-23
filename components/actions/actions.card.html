@@ -1,0 +1,50 @@
+<!-- @dsCard group="Components" viewport="700x260" name="Buttons & Actions" subtitle="Button · IconButton · FAB · Segmented" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; padding: 24px; background: var(--md-sys-color-surface); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 16px; }
+  .row:last-child { margin-bottom: 0; }
+  .lbl { width: 100%; font: 500 11px/1 var(--md-sys-typescale-font-plain); letter-spacing: .5px; text-transform: uppercase; color: var(--md-sys-color-on-surface-variant); margin-bottom: 2px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+  const { Button, IconButton, Fab, SegmentedButton } = window.EchoITDesignSystem_36408b;
+  function Demo() {
+    const [seg, setSeg] = React.useState("month");
+    return (
+      <>
+        <div className="row">
+          <span className="lbl">Button — emphasis</span>
+          <Button variant="filled" icon="bolt">도입 문의</Button>
+          <Button variant="tonal">더 알아보기</Button>
+          <Button variant="elevated">자료실</Button>
+          <Button variant="outlined" trailingIcon="arrow_forward">자세히</Button>
+          <Button variant="text">취소</Button>
+        </div>
+        <div className="row">
+          <span className="lbl">Icon button · FAB · Segmented</span>
+          <IconButton icon="search" label="검색" />
+          <IconButton icon="favorite" variant="filled" fill label="좋아요" />
+          <IconButton icon="settings" variant="tonal" label="설정" />
+          <IconButton icon="bookmark" variant="outlined" label="저장" />
+          <Fab icon="add" label="문의하기" />
+          <Fab icon="edit" size="small" color="secondary" />
+          <SegmentedButton segments={[{value:"month",label:"월간"},{value:"year",label:"연간"}]} value={seg} onChange={setSeg} />
+        </div>
+      </>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>
