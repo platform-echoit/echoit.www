@@ -16,3 +16,17 @@ node_modules/
 
 # 로컬 개발 서버
 serve.ps1
+
+# 디자인 시스템 파일
+components/
+tokens/
+guidelines/
+templates/
+ui_kits/
+scraps/
+uploads/
+_ds_bundle.js
+_ds_manifest.json
+_adherence.oxlintrc.json
+styles.css
+deploy/
