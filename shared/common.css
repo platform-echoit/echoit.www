@@ -287,3 +287,10 @@ a{text-decoration:none;color:inherit}
 @media(max-width:480px){
   .cust-grid{grid-template-columns:1fr}
 }
+
+/* ── GNB ACTIVE ── */
+.nav-list>.ni.ni-active>a{color:var(--b)!important}
+.nav-list>.ni.ni-active>a .arr{color:var(--b)}
+
+/* ── SECTION ALT (새 페이지 공통 gray BG 섹션) ── */
+.section-alt{background:#f7f8fa;border-top:1px dashed #ccc}

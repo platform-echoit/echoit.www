@@ -1,28 +1,26 @@
-<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="Business · ITO" subtitle="ITO Service — IT 아웃소싱 서비스" -->
+<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="Business · AI Orchestrator" subtitle="한컴 Sovereign Agentic OS Architecture" -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECHOIT — ITO Service</title>
+<title>ECHOIT — AI Orchestrator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
 <link rel="stylesheet" href="shared/common.css">
-
-<!-- Three.js (UMD global) + GSAP -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 </head>
 <body>
 
 <script>
-window.__breadcrumb = ["Business","ITO"];
+window.__breadcrumb = ["Business","한컴AI","AI Orchestrator"];
 </script>
 <div id="nav-root"></div>
 
 <style>
-/* ── HERO (business-hero 차용) ── */
+/* ── HERO ── */
 .eb-hero{position:relative;overflow:hidden;height:34vh;min-height:300px;background:#0f1115;color:#fff}
 .esg-hero-inner{position:relative;z-index:10;height:100%;display:flex;align-items:center;max-width:1200px;margin:0 auto;padding:0 32px;gap:0}
 .esg-p-zone{flex:0 0 50%;height:100%;pointer-events:none}
@@ -42,58 +40,34 @@ window.__breadcrumb = ["Business","ITO"];
 /* ── SECTION BASE ── */
 .it-block{padding:80px 0}
 .it-block.alt{background:#f7f8fa}
-.it-head{text-align:center;max-width:780px;margin:0 auto 48px}
 .it-eye{font:700 12px/1 'Pretendard';letter-spacing:.12em;text-transform:uppercase;color:var(--b)}
 .it-title{margin:14px 0 0;font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.18;letter-spacing:-.6px;word-break:keep-all}
 .it-desc{margin:16px 0 0;font:400 16px/1.7 'Pretendard';color:#666;word-break:keep-all}
+@media(max-width:768px){.it-block{padding:56px 0}}
 
-/* ── SERVICE AREAS ── */
-.it-svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.it-svc{border:1px solid #eee;border-radius:16px;padding:28px 24px;background:#fff;display:flex;flex-direction:column;gap:16px;transition:box-shadow .15s,border-color .15s}
-.it-svc:hover{box-shadow:0 8px 28px rgba(0,0,0,.08);border-color:#d6d6d6}
-.it-svc-ic{width:52px;height:52px;border-radius:13px;background:#009ce0;color:#fff;display:flex;align-items:center;justify-content:center}
-.it-svc-ic .ms{font-size:27px}
-.it-svc h4{font:700 17px/1.3 'Pretendard';color:#1a1a1a;word-break:keep-all}
-.it-svc ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:0;padding:0}
-.it-svc li{display:flex;gap:9px;font:400 14px/1.55 'Pretendard';color:#666;word-break:keep-all}
-.it-svc li::before{content:'';flex-shrink:0;width:6px;height:6px;margin-top:7px;border-radius:50%;background:var(--b)}
+/* ── IMAGE CROP ── */
+.hc-img-crop{width:100%;max-width:960px;margin:0 auto;overflow:hidden;border-radius:16px}
+.hc-img-crop img{width:100%;height:100%;object-fit:cover;object-position:top center}
 
-/* ── PMO 강조 밴드 ── */
-.it-band{margin-top:40px;border-radius:20px;background:var(--grd);color:#fff;padding:44px 48px;display:grid;grid-template-columns:1fr 1fr;gap:0}
-.it-band-item{display:flex;flex-direction:column;gap:10px}
-.it-band-item:first-child{padding-right:40px}
-.it-band-item + .it-band-item{border-left:1px solid rgba(255,255,255,.3);padding-left:40px}
-.it-band-item .lead{font:700 18px/1.4 'Pretendard';word-break:keep-all}
-.it-band-item p{font:400 14.5px/1.65 'Pretendard';color:rgba(255,255,255,.88);word-break:keep-all}
-.it-band-item .tag{display:inline-flex;align-items:center;gap:7px;font:700 13px/1 'Pretendard';letter-spacing:.04em;opacity:.95}
+/* ── ORCHESTRATOR SPECIFIC ── */
+.or-intro{text-align:center;max-width:820px;margin:0 auto 56px}
+.or-feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:0}
+.or-feat-card{background:#fff;border:1px solid #e8edf2;border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:box-shadow .15s,border-color .15s}
+.or-feat-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.08);border-color:#d0d8e0}
+.or-feat-icon{width:48px;height:48px;background:#009ce0;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.or-feat-icon .ms{font-size:24px;color:#fff}
+.or-feat-card h4{font:700 17px/1.3 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.or-feat-card p{font:400 14px/1.7 'Pretendard';color:#555;margin:0;flex:1;word-break:keep-all}
 
-/* ── WHY ── */
-.it-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.it-why{border:1px solid #eee;border-radius:16px;padding:28px 24px;background:#fff;display:flex;flex-direction:column;gap:14px;transition:box-shadow .15s,border-color .15s}
-.it-why:hover{box-shadow:0 6px 24px rgba(0,0,0,.07);border-color:#d6d6d6}
-.it-why-ic{width:50px;height:50px;border-radius:13px;background:#f1f7fb;color:var(--b);display:flex;align-items:center;justify-content:center}
-.it-why-ic .ms{font-size:26px}
-.it-why h4{font:700 16px/1.35 'Pretendard';color:#1a1a1a;word-break:keep-all}
-.it-why ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin:0;padding:0}
-.it-why li{display:flex;gap:8px;font:400 13.5px/1.55 'Pretendard';color:#666;word-break:keep-all}
-.it-why li::before{content:'';flex-shrink:0;width:5px;height:5px;margin-top:7px;border-radius:50%;background:var(--b)}
-.it-why.feature{background:#23262e;border-color:transparent}
-.it-why.feature h4{color:#fff}
-.it-why.feature li{color:#b9bcc4}
-.it-why.feature .it-why-ic{background:rgba(255,255,255,.1);color:#7fd3f3}
+.or-arch-wrap{text-align:center;max-width:820px;margin:0 auto 48px}
+.or-layer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.or-layer-item{background:linear-gradient(145deg,#f0f9ff,#f8fafc);border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;gap:12px;border:1px solid #d6eef9}
+.or-layer-no{font:800 32px/1 'Pretendard';color:#009ce0;opacity:.4}
+.or-layer-item h4{font:700 17px/1.3 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.or-layer-item p{font:400 14px/1.7 'Pretendard';color:#555;margin:0;word-break:keep-all}
 
-@media(max-width:1024px){
-  .it-svc-grid{grid-template-columns:repeat(2,1fr)}
-  .it-why-grid{grid-template-columns:repeat(2,1fr)}
-  .it-band{grid-template-columns:1fr;gap:20px;padding:36px 32px}
-  .it-band-item:first-child{padding-right:0}
-  .it-band-item + .it-band-item{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.3);padding-top:20px}
-}
-@media(max-width:768px){
-  .it-block{padding:56px 0}
-  .it-svc-grid{grid-template-columns:1fr}
-  .it-why-grid{grid-template-columns:1fr}
-}
+@media(max-width:1024px){.or-feat-grid{grid-template-columns:repeat(2,1fr)}.or-layer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.or-feat-grid{grid-template-columns:1fr}.or-layer-grid{grid-template-columns:1fr}}
 
 .it-block.alt{border-top:1px dashed #ccc}
 </style>
@@ -102,9 +76,9 @@ window.__breadcrumb = ["Business","ITO"];
 <section class="eb-hero" id="biz-hero">
   <svg id="biz-bg" style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <radialGradient id="g1" gradientUnits="userSpaceOnUse" cx="160" cy="200" r="560"><stop offset="0%" stop-color="#009ce0" stop-opacity="0.4"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
-      <radialGradient id="g2" gradientUnits="userSpaceOnUse" cx="1290" cy="60" r="300"><stop offset="0%" stop-color="#89c895" stop-opacity="0.32"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
-      <radialGradient id="g3" gradientUnits="userSpaceOnUse" cx="780" cy="410" r="260"><stop offset="0%" stop-color="#3aa0d8" stop-opacity="0.2"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g1" gradientUnits="userSpaceOnUse" cx="1100" cy="100" r="500"><stop offset="0%" stop-color="#009ce0" stop-opacity="0.38"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g2" gradientUnits="userSpaceOnUse" cx="200" cy="450" r="360"><stop offset="0%" stop-color="#3aa0d8" stop-opacity="0.24"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g3" gradientUnits="userSpaceOnUse" cx="800" cy="520" r="240"><stop offset="0%" stop-color="#89c895" stop-opacity="0.18"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
     </defs>
     <rect width="1440" height="400" fill="#0f1115"/>
     <rect width="1440" height="400" fill="url(#g1)"/>
@@ -113,91 +87,98 @@ window.__breadcrumb = ["Business","ITO"];
   </svg>
   <div class="esg-hero-inner">
     <div class="esg-t-zone">
-      <p class="eb-eye">Business · ITO</p>
-      <h1 class="eb-h1">ITO Service<br><span class="g">On Time, Quality, Satisfaction</span></h1>
-      <p class="eb-sub">영역별 전문가가 제공하는 최상의 IT Service. 검증된 방법론과 체계적인 수행 프로세스로 최적의 IT Outsourcing을 제공합니다.</p>
+      <p class="eb-eye">Business · 한컴AI</p>
+      <h1 class="eb-h1">미래의 기술, <span class="g">오늘의 선택</span></h1>
+      <p class="eb-sub">AI 혁신으로 함께하는 더 큰 성장<br><span style="font-size:13px;opacity:.7">에코아이티는 한컴 AI솔루션의 총판사입니다</span></p>
     </div>
     <div class="esg-p-zone" id="biz-p-zone"></div>
   </div>
 </section>
 
-<!-- ── INTRO + 서비스 영역 ── -->
-<section class="it-block" id="ito">
+<!-- ── 상단 슬로건 밴드 ── -->
+<section class="it-block" style="padding:56px 0;border-bottom:1px dashed #ccc">
+  <div class="wrap" style="text-align:center;max-width:860px;margin:0 auto">
+    <p class="it-eye" style="color:var(--b)">Sovereign Agentic OS</p>
+    <h2 class="it-title" style="font-size:clamp(22px,2.8vw,36px)">우리를 이해하고 에이전트를 조율하는, Sovereign Agentic OS</h2>
+    <p class="it-desc" style="margin-top:20px">AI를 사용하는 시대를 넘어 AI가 스스로 일하는 시대,<br>한컴과 함께하세요.</p>
+  </div>
+</section>
+
+<!-- ── 한컴이 만드는 AX ── -->
+<section class="it-block">
   <div class="wrap">
-    <div class="it-head">
-      <p class="it-eye">ITO Service</p>
-      <h2 class="it-title">영역별 전문가가 제공하는 최상의 IT Service</h2>
-      <p class="it-desc">풍부한 전문 IT 인력 Pool, 다수의 사업수행을 통해 검증된 에코아이티만의 방법론, 그리고 체계적인 수행 프로세스를 기반으로 가장 좋은 IT Outsourcing 서비스를 제공합니다.</p>
+    <div class="or-intro">
+      <p class="it-eye">AI Orchestrator</p>
+      <h2 class="it-title">한컴이 만드는 AX</h2>
+      <p class="it-desc">한컴은 AX 데이터·검증된 고객·통합기술 아키텍처를 기반으로<br>Sovereign Agentic OS 시대를 열어가고 있습니다.</p>
     </div>
-    <div class="it-svc-grid">
-      <div class="it-svc">
-        <div class="it-svc-ic"><span class="ms">lightbulb</span></div>
-        <h4>IT기획 및 컨설팅</h4>
-        <ul><li>차별화된 방법론</li><li>체계적인 컨설팅</li><li>최적의 프로세스 설계</li></ul>
+    <div class="or-feat-grid">
+      <div class="or-feat-card">
+        <div class="or-feat-icon"><span class="ms">database</span></div>
+        <h4>AX 데이터</h4>
+        <p>내부 AX 혁신 사례와 고객 프로젝트를 통해 축적된 AI 업무 자동화 실행 데이터</p>
       </div>
-      <div class="it-svc">
-        <div class="it-svc-ic"><span class="ms">code</span></div>
-        <h4>구축 / 개발 (SI)</h4>
-        <ul><li>다양한 산업 및 분야별 전문 개발자</li><li>개발 품질 향상</li></ul>
+      <div class="or-feat-card">
+        <div class="or-feat-icon"><span class="ms">groups</span></div>
+        <h4>고객 기반</h4>
+        <p>36년간 축적된 공공·금융·기업 환경에서의 업무 시스템 구축 경험과 고객 신뢰</p>
       </div>
-      <div class="it-svc">
-        <div class="it-svc-ic"><span class="ms">dns</span></div>
-        <h4>시스템 운영 (SM)</h4>
-        <ul><li>데이터 통합 및 관리</li><li>시스템 통합 운영</li><li>신속한 장애 대응</li></ul>
+      <div class="or-feat-card">
+        <div class="or-feat-icon"><span class="ms">hub</span></div>
+        <h4>통합기술 아키텍처</h4>
+        <p>데이터 구조화·시스템 연동·실행·보안·권한 통제를 아우르는 통합형 AX 아키텍처 구성 역량 확보</p>
       </div>
-      <div class="it-svc">
-        <div class="it-svc-ic"><span class="ms">smart_toy</span></div>
-        <h4>Brity RPA</h4>
-        <ul><li>풍부한 경험과 전문성</li><li>합리적인 비용 &amp; 적기 제공</li></ul>
-      </div>
-    </div>
-    <div class="it-band">
-      <div class="it-band-item">
-        <span class="tag"><span class="ms" style="font-size:18px">groups</span>전문 PMO 그룹</span>
-        <span class="lead">대형 SI 수행경험을 갖춘 전문 PMO 그룹 보유</span>
-        <p>공공·금융·대기업 등 대형 SI 프로젝트를 성공적으로 수행해 온 전문 PMO 그룹이 프로젝트를 관리합니다.</p>
-      </div>
-      <div class="it-band-item">
-        <span class="tag"><span class="ms" style="font-size:18px">person_search</span>최적 자원 공급</span>
-        <span class="lead">종합 분석을 통한 최적의 자원 공급</span>
-        <p>인력의 Character, Skill, Experience 등을 종합 분석하여 프로젝트에 가장 적합한 자원을 공급합니다.</p>
+      <div class="or-feat-card">
+        <div class="or-feat-icon"><span class="ms">public</span></div>
+        <h4>글로벌 AX 협업 인프라</h4>
+        <p>폐쇄형·개방형 환경을 아우르며 유연한 글로벌 AI Agent 협업 인프라 지향</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── WHY ECHOIT ITO ── -->
+<!-- ── Sovereign Agentic OS Architecture ── -->
 <section class="it-block alt">
   <div class="wrap">
-    <div class="it-head">
-      <p class="it-eye">Why ECHOIT ITO</p>
-      <h2 class="it-title">에코아이티 ITO를 선택하는 이유</h2>
+    <div class="or-arch-wrap">
+      <p class="it-eye">Architecture</p>
+      <h2 class="it-title">Sovereign Agentic OS Architecture</h2>
+      <p class="it-desc">한컴의 Sovereign Agentic OS Architecture는 기업 업무 환경 전반에서 AI Agent가 안전하고 유기적으로 동작할 수 있는 구조로 설계되었습니다.</p>
     </div>
-    <div class="it-why-grid">
-      <div class="it-why">
-        <div class="it-why-ic"><span class="ms">workspace_premium</span></div>
-        <h4>Experience &amp; Knowledge</h4>
-        <ul><li>1,000건 이상의 다양한 프로젝트 사례</li><li>대형 그룹사 및 공공기관이 주요 고객</li></ul>
+    <div class="hc-img-crop" style="aspect-ratio:16/9">
+      <img src="assets/images/hancom/agentic_os_arch.png" alt="Sovereign Agentic OS Architecture 다이어그램">
+    </div>
+  </div>
+</section>
+
+<!-- ── Sovereign Agentic OS 레이어 ── -->
+<section class="it-block">
+  <div class="wrap">
+    <div class="or-arch-wrap">
+      <p class="it-eye">Platform</p>
+      <h2 class="it-title">Sovereign Agentic OS 레이어</h2>
+      <p class="it-desc">한컴은 복잡한 기업 환경 속에서 데이터와 시스템, AI가 연결될 수 있도록<br>기업 업무 환경에 최적화된 AX 플랫폼을 만들어가고 있습니다.</p>
+    </div>
+    <div class="or-layer-grid">
+      <div class="or-layer-item">
+        <div class="or-layer-no">01</div>
+        <h4>데이터 구조화</h4>
+        <p>기업 내부의 데이터를 AI가 이해할 수 있는 구조로 변환합니다.</p>
       </div>
-      <div class="it-why">
-        <div class="it-why-ic"><span class="ms">groups</span></div>
-        <h4>Resource &amp; Excellence</h4>
-        <ul><li>영역별 국내 최고 수준의 인력 POOL 보유</li><li>신기술에 대한 지속적 교육 및 내부 프로젝트 수행</li></ul>
+      <div class="or-layer-item">
+        <div class="or-layer-no">02</div>
+        <h4>실행</h4>
+        <p>내·외부 환경과의 연동을 기반으로 실제 업무를 수행하는 환경을 제공합니다.</p>
       </div>
-      <div class="it-why">
-        <div class="it-why-ic"><span class="ms">handshake</span></div>
-        <h4>Collaboration Model</h4>
-        <ul><li>글로벌 전문가 집단과의 강력한 파트너십</li><li>강력한 신뢰와 책임 기반의 상호 협업</li></ul>
+      <div class="or-layer-item">
+        <div class="or-layer-no">03</div>
+        <h4>오케스트레이터</h4>
+        <p>업무 흐름과 우선순위를 조율하여 기업 전반의 AI 실행 환경을 관리합니다.</p>
       </div>
-      <div class="it-why">
-        <div class="it-why-ic"><span class="ms">support_agent</span></div>
-        <h4>Differentiated Customer Care</h4>
-        <ul><li>프로젝트 전/중/후 일상지원 체계</li><li>프로젝트 종료 후에도 지속적인 기술 지원</li></ul>
-      </div>
-      <div class="it-why feature">
-        <div class="it-why-ic"><span class="ms">hub</span></div>
-        <h4>Total IT Service</h4>
-        <ul><li>SAP ERP, AI/RPA, Low-Code, CRM 등 최신 ICT 기술을 보유한 종합 IT 서비스 기업</li></ul>
+      <div class="or-layer-item">
+        <div class="or-layer-no">04</div>
+        <h4>보안 및 거버넌스</h4>
+        <p>공공·금융·국방 환경에서 축적된 보안 기술과 권한 통제 경험을 기반으로 소버린 AI 환경을 구축합니다.</p>
       </div>
     </div>
   </div>
@@ -216,7 +197,6 @@ window.__breadcrumb = ["Business","ITO"];
 
 function initBizParticles() {
   const container = document.getElementById('biz-hero');
-  const svgBg     = document.getElementById('biz-bg');
   if (!container) return;
 
   const scene    = new THREE.Scene();
@@ -258,10 +238,10 @@ function initBizParticles() {
   }
 
   const rawSets = [
-    sampleText(['ITO'],       [280]),
-    sampleText(['SI'],        [340]),
-    sampleText(['SM'],        [320]),
-    sampleText(['PMO'],       [240]),
+    sampleText(['Agent'],  [220]),
+    sampleText(['MCP'],    [240]),
+    sampleText(['API'],    [240]),
+    sampleText(['AX'],     [300]),
   ];
   const MAX_N = Math.max(...rawSets.map(s => s.length));
 
@@ -327,13 +307,13 @@ function initBizParticles() {
     sp.scale.set(wH * (logW/logH), wH, 1);
     return sp;
   }
-  const BIZ_KEYWORDS = [
-    { text: 'Consulting', x: -58,  y:  30, z: -20 },
-    { text: 'Build',      x:  50,  y:  28, z: -15 },
-    { text: 'Operate',    x:  48,  y: -28, z: -22 },
-    { text: 'SLA',        x:   4,  y:  46, z:  15 },
+  const OR_KEYWORDS = [
+    { text: 'MCP',        x: -58,  y:  30, z: -20 },
+    { text: 'LLM',        x:  54,  y:  28, z: -15 },
+    { text: 'Security',   x:  50,  y: -28, z: -22 },
+    { text: 'Governance', x:   4,  y:  46, z:  15 },
   ];
-  BIZ_KEYWORDS.forEach(({ text, x, y, z }) => {
+  OR_KEYWORDS.forEach(({ text, x, y, z }) => {
     const sp = makeKeywordSprite(text);
     sp.position.set(x, y, z);
     scene.add(sp);
