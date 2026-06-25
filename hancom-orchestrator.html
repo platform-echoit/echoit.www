@@ -1,0 +1,364 @@
+<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="Business · AI Orchestrator" subtitle="한컴 Sovereign Agentic OS Architecture" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECHOIT — AI Orchestrator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+<link rel="stylesheet" href="shared/common.css">
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+
+<script>
+window.__breadcrumb = ["Business","한컴AI","AI Orchestrator"];
+</script>
+<div id="nav-root"></div>
+
+<style>
+/* ── HERO ── */
+.eb-hero{position:relative;overflow:hidden;height:34vh;min-height:300px;background:#0f1115;color:#fff}
+.esg-hero-inner{position:relative;z-index:10;height:100%;display:flex;align-items:center;max-width:1200px;margin:0 auto;padding:0 32px;gap:0}
+.esg-p-zone{flex:0 0 50%;height:100%;pointer-events:none}
+.esg-t-zone{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:10px}
+.eb-eye{font:700 12px/1 'Pretendard';letter-spacing:.14em;text-transform:uppercase;color:#7fd3f3}
+.eb-h1{font-weight:800;font-size:clamp(28px,3.8vw,48px);line-height:1.12;letter-spacing:-1px;color:#fff}
+.eb-h1 .g{background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.eb-sub{max-width:480px;font:400 15px/1.7 'Pretendard';color:#b9bcc4;word-break:keep-all}
+@media(max-width:1024px){.esg-p-zone{flex:0 0 45%}}
+@media(max-width:768px){
+  .eb-hero{height:calc(46vh - 100px);min-height:220px}
+  .esg-hero-inner{flex-direction:column-reverse;justify-content:flex-end;padding:0 20px 24px}
+  .esg-p-zone{flex:0 0 46%;width:100%;height:auto}
+  .esg-t-zone{width:100%;align-items:flex-start}
+}
+
+/* ── SECTION BASE ── */
+.it-block{padding:80px 0}
+.it-block.alt{background:#f7f8fa}
+.it-eye{font:700 12px/1 'Pretendard';letter-spacing:.12em;text-transform:uppercase;color:var(--b)}
+.it-title{margin:14px 0 0;font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.18;letter-spacing:-.6px;word-break:keep-all}
+.it-desc{margin:16px 0 0;font:400 16px/1.7 'Pretendard';color:#666;word-break:keep-all}
+@media(max-width:768px){.it-block{padding:56px 0}}
+
+/* ── IMAGE CROP ── */
+.hc-img-crop{width:100%;max-width:960px;margin:0 auto;overflow:hidden;border-radius:16px}
+.hc-img-crop img{width:100%;height:100%;object-fit:cover;object-position:top center}
+
+/* ── ORCHESTRATOR SPECIFIC ── */
+.or-intro{text-align:center;max-width:820px;margin:0 auto 56px}
+.or-feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:0}
+.or-feat-card{background:#fff;border:1px solid #e8edf2;border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:box-shadow .15s,border-color .15s}
+.or-feat-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.08);border-color:#d0d8e0}
+.or-feat-icon{width:48px;height:48px;background:#009ce0;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.or-feat-icon .ms{font-size:24px;color:#fff}
+.or-feat-card h4{font:700 17px/1.3 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.or-feat-card p{font:400 14px/1.7 'Pretendard';color:#555;margin:0;flex:1;word-break:keep-all}
+
+.or-arch-wrap{text-align:center;max-width:820px;margin:0 auto 48px}
+.or-layer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.or-layer-item{background:linear-gradient(145deg,#f0f9ff,#f8fafc);border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;gap:12px;border:1px solid #d6eef9}
+.or-layer-no{font:800 32px/1 'Pretendard';color:#009ce0;opacity:.4}
+.or-layer-item h4{font:700 17px/1.3 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.or-layer-item p{font:400 14px/1.7 'Pretendard';color:#555;margin:0;word-break:keep-all}
+
+@media(max-width:1024px){.or-feat-grid{grid-template-columns:repeat(2,1fr)}.or-layer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.or-feat-grid{grid-template-columns:1fr}.or-layer-grid{grid-template-columns:1fr}}
+
+.it-block.alt{border-top:1px dashed #ccc}
+</style>
+
+<!-- ── HERO ── -->
+<section class="eb-hero" id="biz-hero">
+  <svg id="biz-bg" style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="g1" gradientUnits="userSpaceOnUse" cx="1100" cy="100" r="500"><stop offset="0%" stop-color="#009ce0" stop-opacity="0.38"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g2" gradientUnits="userSpaceOnUse" cx="200" cy="450" r="360"><stop offset="0%" stop-color="#3aa0d8" stop-opacity="0.24"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g3" gradientUnits="userSpaceOnUse" cx="800" cy="520" r="240"><stop offset="0%" stop-color="#89c895" stop-opacity="0.18"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1440" height="400" fill="#0f1115"/>
+    <rect width="1440" height="400" fill="url(#g1)"/>
+    <rect width="1440" height="400" fill="url(#g2)"/>
+    <rect width="1440" height="400" fill="url(#g3)"/>
+  </svg>
+  <div class="esg-hero-inner">
+    <div class="esg-t-zone">
+      <p class="eb-eye">Business · 한컴AI</p>
+      <h1 class="eb-h1">미래의 기술, <span class="g">오늘의 선택</span></h1>
+      <p class="eb-sub">AI 혁신으로 함께하는 더 큰 성장<br><span style="font-size:13px;opacity:.7">에코아이티는 한컴 AI솔루션의 총판사입니다</span></p>
+    </div>
+    <div class="esg-p-zone" id="biz-p-zone"></div>
+  </div>
+</section>
+
+<!-- ── 상단 슬로건 밴드 ── -->
+<section class="it-block" style="padding:56px 0;border-bottom:1px dashed #ccc">
+  <div class="wrap" style="text-align:center;max-width:860px;margin:0 auto">
+    <p class="it-eye" style="color:var(--b)">Sovereign Agentic OS</p>
+    <h2 class="it-title" style="font-size:clamp(22px,2.8vw,36px)">우리를 이해하고 에이전트를 조율하는, Sovereign Agentic OS</h2>
+    <p class="it-desc" style="margin-top:20px">AI를 사용하는 시대를 넘어 AI가 스스로 일하는 시대,<br>한컴과 함께하세요.</p>
+  </div>
+</section>
+
+<!-- ── 한컴이 만드는 AX ── -->
+<section class="it-block">
+  <div class="wrap">
+    <div class="or-intro">
+      <p class="it-eye">AI Orchestrator</p>
+      <h2 class="it-title">한컴이 만드는 AX</h2>
+      <p class="it-desc">한컴은 AX 데이터·검증된 고객·통합기술 아키텍처를 기반으로<br>Sovereign Agentic OS 시대를 열어가고 있습니다.</p>
+    </div>
+    <div class="or-feat-grid">
+      <div class="or-feat-card">
+        <div class="or-feat-icon"><span class="ms">database</span></div>
+        <h4>AX 데이터</h4>
+        <p>내부 AX 혁신 사례와 고객 프로젝트를 통해 축적된 AI 업무 자동화 실행 데이터</p>
+      </div>
+      <div class="or-feat-card">
+        <div class="or-feat-icon"><span class="ms">groups</span></div>
+        <h4>고객 기반</h4>
+        <p>36년간 축적된 공공·금융·기업 환경에서의 업무 시스템 구축 경험과 고객 신뢰</p>
+      </div>
+      <div class="or-feat-card">
+        <div class="or-feat-icon"><span class="ms">hub</span></div>
+        <h4>통합기술 아키텍처</h4>
+        <p>데이터 구조화·시스템 연동·실행·보안·권한 통제를 아우르는 통합형 AX 아키텍처 구성 역량 확보</p>
+      </div>
+      <div class="or-feat-card">
+        <div class="or-feat-icon"><span class="ms">public</span></div>
+        <h4>글로벌 AX 협업 인프라</h4>
+        <p>폐쇄형·개방형 환경을 아우르며 유연한 글로벌 AI Agent 협업 인프라 지향</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Sovereign Agentic OS Architecture ── -->
+<section class="it-block alt">
+  <div class="wrap">
+    <div class="or-arch-wrap">
+      <p class="it-eye">Architecture</p>
+      <h2 class="it-title">Sovereign Agentic OS Architecture</h2>
+      <p class="it-desc">한컴의 Sovereign Agentic OS Architecture는 기업 업무 환경 전반에서 AI Agent가 안전하고 유기적으로 동작할 수 있는 구조로 설계되었습니다.</p>
+    </div>
+    <div class="hc-img-crop" style="aspect-ratio:16/9">
+      <img src="assets/images/hancom/agentic_os_arch.png" alt="Sovereign Agentic OS Architecture 다이어그램">
+    </div>
+  </div>
+</section>
+
+<!-- ── Sovereign Agentic OS 레이어 ── -->
+<section class="it-block">
+  <div class="wrap">
+    <div class="or-arch-wrap">
+      <p class="it-eye">Platform</p>
+      <h2 class="it-title">Sovereign Agentic OS 레이어</h2>
+      <p class="it-desc">한컴은 복잡한 기업 환경 속에서 데이터와 시스템, AI가 연결될 수 있도록<br>기업 업무 환경에 최적화된 AX 플랫폼을 만들어가고 있습니다.</p>
+    </div>
+    <div class="or-layer-grid">
+      <div class="or-layer-item">
+        <div class="or-layer-no">01</div>
+        <h4>데이터 구조화</h4>
+        <p>기업 내부의 데이터를 AI가 이해할 수 있는 구조로 변환합니다.</p>
+      </div>
+      <div class="or-layer-item">
+        <div class="or-layer-no">02</div>
+        <h4>실행</h4>
+        <p>내·외부 환경과의 연동을 기반으로 실제 업무를 수행하는 환경을 제공합니다.</p>
+      </div>
+      <div class="or-layer-item">
+        <div class="or-layer-no">03</div>
+        <h4>오케스트레이터</h4>
+        <p>업무 흐름과 우선순위를 조율하여 기업 전반의 AI 실행 환경을 관리합니다.</p>
+      </div>
+      <div class="or-layer-item">
+        <div class="or-layer-no">04</div>
+        <h4>보안 및 거버넌스</h4>
+        <p>공공·금융·국방 환경에서 축적된 보안 기술과 권한 통제 경험을 기반으로 소버린 AI 환경을 구축합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<div id="modal-root"></div>
+
+<script src="shared/common.js"></script>
+<script>
+(function waitDeps(){
+  if (!window.THREE || !window.gsap) { return setTimeout(waitDeps, 50); }
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(initBizParticles); }
+  else { initBizParticles(); }
+})();
+
+function initBizParticles() {
+  const container = document.getElementById('biz-hero');
+  if (!container) return;
+
+  const scene    = new THREE.Scene();
+  const w0 = container.clientWidth, h0 = container.clientHeight;
+  const camera   = new THREE.PerspectiveCamera(50, w0/h0, 0.1, 2000);
+  camera.position.z = 150;
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setSize(w0, h0);
+  renderer.setClearColor(0x0f1115, 0);
+  renderer.domElement.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;z-index:1';
+  container.appendChild(renderer.domElement);
+
+  const isMobile = () => container.clientWidth <= 768;
+  scene.position.x = isMobile() ? 0 : 34;
+  scene.position.y = isMobile() ? 30 : 0;
+
+  const CW = 800, CH = 280;
+  function sampleText(lines, fontSizes) {
+    const off = document.createElement('canvas');
+    off.width = CW; off.height = CH;
+    const ctx = off.getContext('2d');
+    ctx.fillStyle = '#fff';
+    lines.forEach((line, i) => {
+      ctx.font = `800 ${fontSizes[i]}px 'Pretendard', Arial Black, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const yOff = lines.length === 1 ? CH/2 : (i === 0 ? CH*0.36 : CH*0.72);
+      ctx.fillText(line, CW/2, yOff);
+    });
+    const { data } = ctx.getImageData(0, 0, CW, CH);
+    const pts = [];
+    for (let y = 0; y < CH; y += 4)
+      for (let x = 0; x < CW; x += 4)
+        if (data[(y*CW+x)*4] > 128 && Math.random() > 0.22)
+          pts.push([(x/CW-0.5)*96, -(y/CH-0.5)*72, (Math.random()-0.5)*1.0]);
+    return pts;
+  }
+
+  const rawSets = [
+    sampleText(['Agent'],  [220]),
+    sampleText(['MCP'],    [240]),
+    sampleText(['API'],    [240]),
+    sampleText(['AX'],     [300]),
+  ];
+  const MAX_N = Math.max(...rawSets.map(s => s.length));
+
+  function padAndShuffle(pts, n) {
+    const out = pts.map(p => [...p]);
+    while (out.length < n) {
+      const src = pts[Math.floor(Math.random()*pts.length)];
+      out.push([src[0]+(Math.random()-0.5)*2, src[1]+(Math.random()-0.5)*2, (Math.random()-0.5)*1.5]);
+    }
+    for (let i = out.length-1; i > 0; i--) {
+      const j = Math.floor(Math.random()*(i+1));
+      [out[i], out[j]] = [out[j], out[i]];
+    }
+    return out.slice(0, n);
+  }
+  const textSets = rawSets.map(pts => padAndShuffle(pts, MAX_N));
+
+  const posArr = new Float32Array(MAX_N * 3);
+  for (let i = 0; i < MAX_N; i++) {
+    posArr[i*3]   = (Math.random()-0.5) * 200;
+    posArr[i*3+1] = (Math.random()-0.5) * 120;
+    posArr[i*3+2] = (Math.random()-0.5) * 60;
+  }
+  const geoText = new THREE.BufferGeometry();
+  const posAttr = new THREE.BufferAttribute(posArr, 3);
+  geoText.setAttribute('position', posAttr);
+  scene.add(new THREE.Points(geoText, new THREE.PointsMaterial({
+    color: 0xffffff, size: 1.64, sizeAttenuation: true, transparent: true, opacity: 0.95,
+  })));
+
+  const AMBIENT = 460;
+  const ambPosArr = new Float32Array(AMBIENT * 3);
+  for (let i = 0; i < AMBIENT; i++) {
+    ambPosArr[i*3]   = (Math.random()-0.5)*320;
+    ambPosArr[i*3+1] = (Math.random()-0.5)*160;
+    ambPosArr[i*3+2] = (Math.random()-0.5)*90;
+  }
+  const geoAmb  = new THREE.BufferGeometry();
+  const ambAttr = new THREE.BufferAttribute(ambPosArr, 3);
+  geoAmb.setAttribute('position', ambAttr);
+  scene.add(new THREE.Points(geoAmb, new THREE.PointsMaterial({
+    color: 0x5a5a64, size: 1.19, sizeAttenuation: true, transparent: true, opacity: 0.75,
+  })));
+
+  function makeKeywordSprite(text) {
+    const dpr = Math.min(devicePixelRatio, 2), fs = 28, pad = 22;
+    const fontStr = `300 ${fs}px 'Pretendard', sans-serif`;
+    const mc = document.createElement('canvas').getContext('2d');
+    mc.font = fontStr;
+    const m = mc.measureText(text);
+    const logW = Math.ceil(m.width) + pad*2, logH = fs + pad;
+    const c = document.createElement('canvas');
+    c.width = logW*dpr; c.height = logH*dpr;
+    const ctx = c.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.font = fontStr; ctx.fillStyle = '#7a7a88';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(text, logW/2, logH/2);
+    const tex = new THREE.CanvasTexture(c);
+    const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: 0.80 });
+    const sp  = new THREE.Sprite(mat);
+    const wH  = 9;
+    sp.scale.set(wH * (logW/logH), wH, 1);
+    return sp;
+  }
+  const OR_KEYWORDS = [
+    { text: 'MCP',        x: -58,  y:  30, z: -20 },
+    { text: 'LLM',        x:  54,  y:  28, z: -15 },
+    { text: 'Security',   x:  50,  y: -28, z: -22 },
+    { text: 'Governance', x:   4,  y:  46, z:  15 },
+  ];
+  OR_KEYWORDS.forEach(({ text, x, y, z }) => {
+    const sp = makeKeywordSprite(text);
+    sp.position.set(x, y, z);
+    scene.add(sp);
+  });
+
+  let fromSnap = Array.from({length: MAX_N}, (_, i) => [posArr[i*3], posArr[i*3+1], posArr[i*3+2]]);
+  function morphTo(toIdx, duration) {
+    const dur = duration ?? 1.6;
+    const to = textSets[toIdx], from = fromSnap, proxy = {t: 0};
+    gsap.to(proxy, {
+      t: 1, duration: dur, ease: 'power2.inOut',
+      onUpdate() {
+        const t = proxy.t;
+        for (let i = 0; i < MAX_N; i++) {
+          posArr[i*3]   = from[i][0]+(to[i][0]-from[i][0])*t;
+          posArr[i*3+1] = from[i][1]+(to[i][1]-from[i][1])*t;
+          posArr[i*3+2] = from[i][2]+(to[i][2]-from[i][2])*t;
+        }
+        posAttr.needsUpdate = true;
+      },
+      onComplete() {
+        fromSnap = to.map(p => [...p]);
+        gsap.delayedCall(3, () => morphTo((toIdx+1) % textSets.length));
+      },
+    });
+  }
+  morphTo(0, 2.2);
+
+  let clock = 0;
+  (function animate() {
+    requestAnimationFrame(animate);
+    clock += 0.008;
+    scene.rotation.y = Math.sin(clock * 1.68) * 0.5;
+    renderer.render(scene, camera);
+  })();
+
+  function onResize() {
+    const w = container.clientWidth, h = container.clientHeight;
+    if (!w || !h) return;
+    camera.aspect = w/h; camera.updateProjectionMatrix(); renderer.setSize(w, h);
+    if (w <= 768) { scene.position.x = 0; scene.position.y = 30; }
+    else          { scene.position.x = 34; scene.position.y = 0; }
+  }
+  window.addEventListener('resize', onResize);
+}
+</script>
+</body>
+</html>

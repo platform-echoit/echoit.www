@@ -1,0 +1,501 @@
+<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="Business · 한컴AI 솔루션 및 서비스" subtitle="한컴 디지털 업무 솔루션" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECHOIT — 한컴 솔루션 및 서비스</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+<link rel="stylesheet" href="shared/common.css">
+
+<!-- Three.js (UMD global) + GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+
+<script>
+window.__breadcrumb = ["Business","한컴AI","솔루션 및 서비스"];
+</script>
+<div id="nav-root"></div>
+
+<style>
+/* ── HERO (business-hero 차용) ── */
+.eb-hero{position:relative;overflow:hidden;height:34vh;min-height:300px;background:#0f1115;color:#fff}
+.esg-hero-inner{position:relative;z-index:10;height:100%;display:flex;align-items:center;max-width:1200px;margin:0 auto;padding:0 32px;gap:0}
+.esg-p-zone{flex:0 0 50%;height:100%;pointer-events:none}
+.esg-t-zone{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:10px}
+.eb-eye{font:700 12px/1 'Pretendard';letter-spacing:.14em;text-transform:uppercase;color:#7fd3f3}
+.eb-h1{font-weight:800;font-size:clamp(28px,3.8vw,48px);line-height:1.12;letter-spacing:-1px;color:#fff}
+.eb-h1 .g{background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.eb-sub{max-width:480px;font:400 15px/1.7 'Pretendard';color:#b9bcc4;word-break:keep-all}
+@media(max-width:1024px){.esg-p-zone{flex:0 0 45%}}
+@media(max-width:768px){
+  .eb-hero{height:calc(46vh - 100px);min-height:220px}
+  .esg-hero-inner{flex-direction:column-reverse;justify-content:flex-end;padding:0 20px 24px}
+  .esg-p-zone{flex:0 0 46%;width:100%;height:auto}
+  .esg-t-zone{width:100%;align-items:flex-start}
+}
+
+/* ── SECTION BASE ── */
+.it-block{padding:80px 0}
+.it-block.alt{background:#f7f8fa}
+.it-head{text-align:center;max-width:780px;margin:0 auto 48px}
+.it-eye{font:700 12px/1 'Pretendard';letter-spacing:.12em;text-transform:uppercase;color:var(--b)}
+.it-title{margin:14px 0 0;font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.18;letter-spacing:-.6px;word-break:keep-all}
+.it-desc{margin:16px 0 0;font:400 16px/1.7 'Pretendard';color:#666;word-break:keep-all}
+
+/* ── SERVICE AREAS ── */
+.it-svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.it-svc{border:1px solid #eee;border-radius:16px;padding:28px 24px;background:#fff;display:flex;flex-direction:column;gap:16px;transition:box-shadow .15s,border-color .15s}
+.it-svc:hover{box-shadow:0 8px 28px rgba(0,0,0,.08);border-color:#d6d6d6}
+.it-svc-ic{width:52px;height:52px;border-radius:13px;background:#009ce0;color:#fff;display:flex;align-items:center;justify-content:center}
+.it-svc-ic .ms{font-size:27px}
+.it-svc h4{font:700 17px/1.3 'Pretendard';color:#1a1a1a;word-break:keep-all}
+.it-svc ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:0;padding:0}
+.it-svc li{display:flex;gap:9px;font:400 14px/1.55 'Pretendard';color:#666;word-break:keep-all}
+.it-svc li::before{content:'';flex-shrink:0;width:6px;height:6px;margin-top:7px;border-radius:50%;background:var(--b)}
+
+/* ── PMO 강조 밴드 ── */
+.it-band{margin-top:40px;border-radius:20px;background:var(--grd);color:#fff;padding:44px 48px;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.it-band-item{display:flex;flex-direction:column;gap:10px}
+.it-band-item:first-child{padding-right:40px}
+.it-band-item + .it-band-item{border-left:1px solid rgba(255,255,255,.3);padding-left:40px}
+.it-band-item .lead{font:700 18px/1.4 'Pretendard';word-break:keep-all}
+.it-band-item p{font:400 14.5px/1.65 'Pretendard';color:rgba(255,255,255,.88);word-break:keep-all}
+.it-band-item .tag{display:inline-flex;align-items:center;gap:7px;font:700 13px/1 'Pretendard';letter-spacing:.04em;opacity:.95}
+
+/* ── WHY ── */
+.it-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.it-why{border:1px solid #eee;border-radius:16px;padding:28px 24px;background:#fff;display:flex;flex-direction:column;gap:14px;transition:box-shadow .15s,border-color .15s}
+.it-why:hover{box-shadow:0 6px 24px rgba(0,0,0,.07);border-color:#d6d6d6}
+.it-why-ic{width:50px;height:50px;border-radius:13px;background:#f1f7fb;color:var(--b);display:flex;align-items:center;justify-content:center}
+.it-why-ic .ms{font-size:26px}
+.it-why h4{font:700 16px/1.35 'Pretendard';color:#1a1a1a;word-break:keep-all}
+.it-why ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin:0;padding:0}
+.it-why li{display:flex;gap:8px;font:400 13.5px/1.55 'Pretendard';color:#666;word-break:keep-all}
+.it-why li::before{content:'';flex-shrink:0;width:5px;height:5px;margin-top:7px;border-radius:50%;background:var(--b)}
+.it-why.feature{background:#23262e;border-color:transparent}
+.it-why.feature h4{color:#fff}
+.it-why.feature li{color:#b9bcc4}
+.it-why.feature .it-why-ic{background:rgba(255,255,255,.1);color:#7fd3f3}
+
+@media(max-width:1024px){
+  .it-svc-grid{grid-template-columns:repeat(2,1fr)}
+  .it-why-grid{grid-template-columns:repeat(2,1fr)}
+  .it-band{grid-template-columns:1fr;gap:20px;padding:36px 32px}
+  .it-band-item:first-child{padding-right:0}
+  .it-band-item + .it-band-item{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.3);padding-top:20px}
+}
+@media(max-width:768px){
+  .it-block{padding:56px 0}
+  .it-svc-grid{grid-template-columns:1fr}
+  .it-why-grid{grid-template-columns:1fr}
+}
+/* ── TAG NAV ── */
+.hc-tagnav{background:#fff;border-bottom:1px solid #eee;position:sticky;top:64px;z-index:90;margin-top:0}
+.hc-intro-block{padding-bottom:48px!important}
+.hc-tagnav .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;justify-content:center}
+.hc-tagnav .wrap::-webkit-scrollbar{display:none}
+.hc-tag{flex-shrink:0;padding:18px 22px;font:600 14px/1 'Pretendard';color:#666;border-bottom:2px solid transparent;text-decoration:none;transition:color .15s,border-color .15s;white-space:nowrap}
+.hc-tag:hover,.hc-tag.active{color:var(--b);border-bottom-color:var(--b)}
+
+/* ── YOUTUBE ── */
+.hc-yt-wrap{width:100%;max-width:860px;margin:0 auto;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000}
+
+/* ── PRODUCT SECTIONS ── */
+.hc-prod{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hc-prod-rev{direction:rtl}
+.hc-prod-rev>*{direction:ltr}
+.hc-prod-txt{display:flex;flex-direction:column;gap:16px}
+.hc-img-ph{aspect-ratio:4/3;background:repeating-linear-gradient(135deg,#f3f5f7,#f3f5f7 12px,#eef1f4 12px,#eef1f4 24px);border-radius:18px;display:flex;align-items:center;justify-content:center;color:#c2c8ce}
+.hc-img-ph .ms{font-size:40px}
+.hc-img-wide{width:100%;max-width:860px;margin:0 auto;aspect-ratio:16/9}
+.hc-prod-head{text-align:center;max-width:760px;margin:0 auto}
+
+@media(max-width:1024px){.hc-prod{grid-template-columns:1fr;gap:32px}.hc-prod-rev{direction:ltr}}
+@media(max-width:768px){.hc-tag{padding:14px 16px;font-size:13px}}
+
+
+/* ── HANCOM PRODUCT IMAGE + FEATURE LIST ── */
+.hc-img-crop{width:100%;max-width:900px;margin:0 auto;aspect-ratio:16/7.5;overflow:hidden;border-radius:16px}
+.hc-img-crop.crop-tight{aspect-ratio:16/6.4}
+.hc-img-crop.crop-sm{aspect-ratio:16/7.25}
+.hc-img-crop.crop-lg{aspect-ratio:16/8}
+.hc-img-crop img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.hc-feat-list{display:grid;gap:16px;margin:28px auto 0;max-width:900px}
+.hc-feat-list.col3{grid-template-columns:repeat(3,1fr)}
+.hc-feat-list.col4{grid-template-columns:repeat(4,1fr)}
+.hc-feat-item{background:#fff;border:1px solid #eee;border-radius:14px;padding:22px 20px;display:flex;flex-direction:column;gap:14px;transition:box-shadow .15s,border-color .15s}
+.hc-feat-item:hover{box-shadow:0 4px 18px rgba(0,0,0,.07);border-color:#d6d6d6}
+.hc-feat-no{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;font:800 17px/1 'Pretendard';color:#fff;flex-shrink:0}
+.hc-feat-item:nth-child(1) .hc-feat-no{background:#89c895}
+.hc-feat-item:nth-child(2) .hc-feat-no{background:#4aafbc}
+.hc-feat-item:nth-child(3) .hc-feat-no{background:#1fa1d4}
+.hc-feat-item:nth-child(4) .hc-feat-no{background:#009ce0}
+.hc-feat-txt{font:400 14px/1.6 'Pretendard';color:#444;word-break:keep-all}
+@media(max-width:768px){
+  .hc-feat-list.col3,.hc-feat-list.col4{grid-template-columns:repeat(2,1fr)}
+  .hc-img-crop{aspect-ratio:16/9}
+}
+@media(max-width:480px){
+  .hc-feat-list.col3,.hc-feat-list.col4{grid-template-columns:1fr}
+}
+.hc-legal-box{max-width:860px;margin:28px auto 0;background:#f8f9fb;border-radius:14px;padding:24px 28px;font:400 14px/1.8 'Pretendard';color:#444}
+.hc-legal-box h4{font:700 15px/1 'Pretendard';color:var(--b);margin-bottom:14px}
+.hc-legal-box ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;font-size:12.5px;letter-spacing:-.03em}
+.hc-legal-box li::before{content:'• ';color:var(--b)}
+@media(max-width:768px){.hc-legal-box ul{grid-template-columns:1fr}}
+
+.it-block.alt{border-top:1px dashed #ccc}
+</style>
+
+<!-- ── HERO ── -->
+<section class="eb-hero" id="biz-hero">
+  <svg id="biz-bg" style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="g1" gradientUnits="userSpaceOnUse" cx="320" cy="60" r="400"><stop offset="0%" stop-color="#89c895" stop-opacity="0.36"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g2" gradientUnits="userSpaceOnUse" cx="1200" cy="300" r="380"><stop offset="0%" stop-color="#009ce0" stop-opacity="0.32"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g3" gradientUnits="userSpaceOnUse" cx="700" cy="420" r="300"><stop offset="0%" stop-color="#3aa0d8" stop-opacity="0.18"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1440" height="400" fill="#0f1115"/>
+    <rect width="1440" height="400" fill="url(#g1)"/>
+    <rect width="1440" height="400" fill="url(#g2)"/>
+    <rect width="1440" height="400" fill="url(#g3)"/>
+  </svg>
+  <div class="esg-hero-inner">
+    <div class="esg-t-zone">
+      <p class="eb-eye">Business · 한컴AI</p>
+      <h1 class="eb-h1">미래의 기술, <span class="g">오늘의 선택</span></h1>
+      <p class="eb-sub">AI 혁신으로 함께하는 더 큰 성장<br><span style="font-size:13px;opacity:.7">에코아이티는 한컴 AI솔루션의 총판사입니다</span></p>
+    </div>
+    <div class="esg-p-zone" id="biz-p-zone"></div>
+  </div>
+</section>
+
+
+<!-- ── TAG NAV ── -->
+<nav class="hc-tagnav">
+  <div class="wrap">
+    <a href="#hc-sol1" class="hc-tag">한컴오피스 Web</a>
+    <a href="#hc-sol2" class="hc-tag">웹한글 기안기 V3.0</a>
+    <a href="#hc-sol3" class="hc-tag">도큐먼트툴즈</a>
+    <a href="#hc-sol4" class="hc-tag">한컴싸인</a>
+    <a href="#hc-sol5" class="hc-tag">다듬</a>
+  </div>
+</nav>
+
+<section class="it-block" style="border-bottom:1px dashed #ccc">
+  <div class="wrap">
+    <div class="hc-prod-head">
+      <p class="it-eye">Solution &amp; Service</p>
+      <h2 class="it-title">디지털 업무 환경을 완성하는 한글 기반 솔루션</h2>
+      <p class="it-desc">한컴오피스 Web부터 문서관리, 전자문서 플랫폼까지 조직의 문서 작성, 관리, 활용을 하나의 환경에서 지원하는 한글 업무 솔루션을 제공합니다.</p>
+    </div>
+    <div class="hc-img-crop" style="max-width:640px;margin:32px auto 0;aspect-ratio:auto"><img src="assets/images/hancom/solution.png" alt="한컴 솔루션 개요" style="width:100%;height:auto;object-fit:contain"></div>
+  </div>
+</section>
+
+<!-- ── 한컴오피스 Web ── -->
+<section class="it-block" id="hc-sol1">
+  <div class="wrap eb-stack">
+    <div class="hc-prod-head">
+      <p class="it-eye">Hancom Office Web</p>
+      <h2 class="it-title">한컴오피스 Web</h2>
+      <p class="it-desc">별도의 설치 없이 웹 브라우저에서 자유로운 문서 편집과 실시간 동시 협업 기능을 제공합니다.</p>
+    </div>
+    <div class="hc-img-crop" style="aspect-ratio:16/7.3"><img src="assets/images/hancom/web.png" alt=""></div>
+    <div class="hc-feat-list col3">
+        <div class="hc-feat-item"><div class="hc-feat-no">01</div><span class="hc-feat-txt">다양한 브라우저 및 운영체제 지원</span></div>
+        <div class="hc-feat-item"><div class="hc-feat-no">02</div><span class="hc-feat-txt">실시간 문서 공동 편집을 통한 업무 협업 효율화</span></div>
+        <div class="hc-feat-item"><div class="hc-feat-no">03</div><span class="hc-feat-txt">외부에서도 연속성 있는 문서 작업</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 웹한글 기안기 V3.0 ── -->
+<section class="it-block alt" id="hc-sol2">
+  <div class="wrap eb-stack">
+    <div class="hc-prod-head">
+      <p class="it-eye">Web Hangeul Drafter V3.0</p>
+      <h2 class="it-title">웹한글 기안기 V3.0</h2>
+      <p class="it-desc">HTML5를 지원하는 웹 브라우저를 기반으로 대용량 문서도 안정적으로 열람하고 편집할 수 있는 가장 빠른 기안 환경을 제공하여 별도의 적응 기간 없이 업무에 즉시 활용합니다.</p>
+    </div>
+    <div class="hc-img-crop" style="aspect-ratio:16/7.8"><img src="assets/images/hancom/office.png" alt=""></div>
+    <div class="hc-feat-list col4">
+        <div class="hc-feat-item"><div class="hc-feat-no">01</div><span class="hc-feat-txt">한글 설치 없이 다양한 브라우저 및 OS에서 기안 작성</span></div>
+        <div class="hc-feat-item"><div class="hc-feat-no">02</div><span class="hc-feat-txt">효율적·연속적 문서 관리와 활용</span></div>
+        <div class="hc-feat-item"><div class="hc-feat-no">03</div><span class="hc-feat-txt">물리적 서버 구축 비용 절감</span></div>
+        <div class="hc-feat-item"><div class="hc-feat-no">04</div><span class="hc-feat-txt">서버리스 구조 기반으로 신속하고 안정적인 실행 속도</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 도큐먼트툴즈 ── -->
+<section class="it-block" id="hc-sol3">
+  <div class="wrap eb-stack">
+    <div class="hc-prod-head">
+      <p class="it-eye">Document Tools</p>
+      <h2 class="it-title">도큐먼트툴즈</h2>
+      <p class="it-desc">다운로드 없는 안전한 미리보기와 강력한 포맷 변환, 민감 정보 마스킹으로 보안까지 생각한 웹 문서 솔루션입니다.</p>
+    </div>
+    <div class="hc-img-crop" style="aspect-ratio:16/6.8"><img src="assets/images/hancom/tools.png" alt=""></div>
+    <div class="hc-feat-list col4">
+        <div class="hc-feat-item"><div class="hc-feat-no">01</div><span class="hc-feat-txt">문서 다운로드 없이 웹 페이지에서 미리보기</span></div>
+        <div class="hc-feat-item"><div class="hc-feat-no">02</div><span class="hc-feat-txt">워터마크 삽입을 통해 데이터 활용성 강화</span></div>
+        <div class="hc-feat-item"><div class="hc-feat-no">03</div><span class="hc-feat-txt">다양한 문서 변환 및 파일 병합 지원</span></div>
+        <div class="hc-feat-item"><div class="hc-feat-no">04</div><span class="hc-feat-txt">PC, 모바일, 태블릿 등 다양한 디바이스 지원</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 한컴싸인 ── -->
+<section class="it-block alt" id="hc-sol4">
+  <div class="wrap eb-stack">
+    <div class="hc-prod-head">
+      <p class="it-eye">Hancom Sign</p>
+      <h2 class="it-title">한컴싸인</h2>
+      <p class="it-desc">웹 기반 전자계약 서비스로 언제 어디서나 계약 업무를 간편하게 처리할 수 있습니다.</p>
+    </div>
+    <div class="hc-img-crop" style="aspect-ratio:16/8"><img src="assets/images/hancom/sign.png" alt=""></div>
+    <div class="hc-feat-list col3">
+        <div class="hc-feat-item"><div class="hc-feat-no">01</div><span class="hc-feat-txt">On-Premise, SaaS 등 다양한 구축 환경 지원</span></div>
+        <div class="hc-feat-item"><div class="hc-feat-no">02</div><span class="hc-feat-txt">이메일 연동, 카카오 알림톡, 서명·도장 등 제공</span></div>
+        <div class="hc-feat-item"><div class="hc-feat-no">03</div><span class="hc-feat-txt">CSAP 인증을 획득한 공공기관용 SaaS 서비스</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 다듬 - 바른 한글사용 솔루션 ── -->
+<section class="it-block" id="hc-sol5">
+  <div class="wrap eb-stack">
+    <div class="hc-prod-head">
+      <p class="it-eye">Dadum</p>
+      <h2 class="it-title">다듬 - 바른 한글사용 솔루션</h2>
+      <p class="it-desc">문서의 맥락을 스스로 이해하여 어색한 표현을 자연스럽게 가다듬고, 최신 맞춤법과 외래어 표기법을 기준으로 정확한 교정안을 제시하는 지능형 도구입니다.</p>
+    </div>
+    <div class="hc-img-crop" style="aspect-ratio:16/5.5"><img src="assets/images/hancom/dadum.png" alt=""></div>
+    <div class="hc-legal-box">
+      <h4>공공언어 개선의 법적 근거</h4>
+      <ul>
+        <li><strong>국어기본법 14조 공공언어 개선 대상기관 지정:</strong> 중앙행정기관, 지자체, 공공기관</li>
+        <li><strong>국어기본법 17조 전문용어 개선 대상기관 지정:</strong> 정부 18부, 4처, 18청, 7위</li>
+        <li><strong>국어사용(진흥)조례 대상:</strong> 지정 국어 책임관 2,274명</li>
+        <li><strong>문화체육관광부 공공언어 평가 대상기관 지정:</strong> 24년 423개 기관 지정</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<div id="modal-root"></div>
+
+<script src="shared/common.js"></script>
+<script>
+
+// Tag nav smooth scroll with offset for sticky GNB + tagnav
+document.querySelectorAll('.hc-tag').forEach(a=>{
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    const target=document.querySelector(this.getAttribute('href'));
+    if(!target)return;
+    const tagnav=document.querySelector('.hc-tagnav');
+    const offset=(document.getElementById('snav')?document.getElementById('snav').offsetHeight:64)+(tagnav?tagnav.offsetHeight:52)+8;
+    window.scrollTo({top:target.offsetTop-offset,behavior:'smooth'});
+  });
+});
+// IntersectionObserver — active tag sync on scroll
+(function(){
+  const sections=['#hc-sol1','#hc-sol2','#hc-sol3','#hc-sol4','#hc-sol5']
+    .map(s=>document.querySelector(s)).filter(Boolean);
+  const tags=document.querySelectorAll('.hc-tag');
+  const navH=(document.getElementById('snav')?document.getElementById('snav').offsetHeight:64)
+            +(document.querySelector('.hc-tagnav')?document.querySelector('.hc-tagnav').offsetHeight:52)+12;
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id='#'+e.target.id;
+        tags.forEach(t=>t.classList.toggle('active',t.getAttribute('href')===id));
+      }
+    });
+  },{rootMargin:`-${navH}px 0px -40% 0px`,threshold:0});
+  sections.forEach(s=>io.observe(s));
+})();
+</script>
+<script>
+(function waitDeps(){
+  if (!window.THREE || !window.gsap) { return setTimeout(waitDeps, 50); }
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(initBizParticles); }
+  else { initBizParticles(); }
+})();
+
+function initBizParticles() {
+  const container = document.getElementById('biz-hero');
+  const svgBg     = document.getElementById('biz-bg');
+  if (!container) return;
+
+  const scene    = new THREE.Scene();
+  const w0 = container.clientWidth, h0 = container.clientHeight;
+  const camera   = new THREE.PerspectiveCamera(50, w0/h0, 0.1, 2000);
+  camera.position.z = 150;
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setSize(w0, h0);
+  renderer.setClearColor(0x0f1115, 0);
+  renderer.domElement.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;z-index:1';
+  container.appendChild(renderer.domElement);
+
+  const isMobile = () => container.clientWidth <= 768;
+  scene.position.x = isMobile() ? 0 : 34;
+  scene.position.y = isMobile() ? 30 : 0;
+
+  const CW = 800, CH = 280;
+  function sampleText(lines, fontSizes) {
+    const off = document.createElement('canvas');
+    off.width = CW; off.height = CH;
+    const ctx = off.getContext('2d');
+    ctx.fillStyle = '#fff';
+    lines.forEach((line, i) => {
+      ctx.font = `800 ${fontSizes[i]}px 'Pretendard', Arial Black, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const yOff = lines.length === 1 ? CH/2 : (i === 0 ? CH*0.36 : CH*0.72);
+      ctx.fillText(line, CW/2, yOff);
+    });
+    const { data } = ctx.getImageData(0, 0, CW, CH);
+    const pts = [];
+    for (let y = 0; y < CH; y += 4)
+      for (let x = 0; x < CW; x += 4)
+        if (data[(y*CW+x)*4] > 128 && Math.random() > 0.22)
+          pts.push([(x/CW-0.5)*96, -(y/CH-0.5)*72, (Math.random()-0.5)*1.0]);
+    return pts;
+  }
+
+  const rawSets = [
+    sampleText(['Web'],       [300]),
+    sampleText(['Docs'],      [240]),
+    sampleText(['Sign'],      [240]),
+    sampleText(['HWP'],       [240]),
+  ];
+  const MAX_N = Math.max(...rawSets.map(s => s.length));
+
+  function padAndShuffle(pts, n) {
+    const out = pts.map(p => [...p]);
+    while (out.length < n) {
+      const src = pts[Math.floor(Math.random()*pts.length)];
+      out.push([src[0]+(Math.random()-0.5)*2, src[1]+(Math.random()-0.5)*2, (Math.random()-0.5)*1.5]);
+    }
+    for (let i = out.length-1; i > 0; i--) {
+      const j = Math.floor(Math.random()*(i+1));
+      [out[i], out[j]] = [out[j], out[i]];
+    }
+    return out.slice(0, n);
+  }
+  const textSets = rawSets.map(pts => padAndShuffle(pts, MAX_N));
+
+  const posArr = new Float32Array(MAX_N * 3);
+  for (let i = 0; i < MAX_N; i++) {
+    posArr[i*3]   = (Math.random()-0.5) * 200;
+    posArr[i*3+1] = (Math.random()-0.5) * 120;
+    posArr[i*3+2] = (Math.random()-0.5) * 60;
+  }
+  const geoText = new THREE.BufferGeometry();
+  const posAttr = new THREE.BufferAttribute(posArr, 3);
+  geoText.setAttribute('position', posAttr);
+  scene.add(new THREE.Points(geoText, new THREE.PointsMaterial({
+    color: 0xffffff, size: 1.64, sizeAttenuation: true, transparent: true, opacity: 0.95,
+  })));
+
+  const AMBIENT = 460;
+  const ambPosArr = new Float32Array(AMBIENT * 3);
+  for (let i = 0; i < AMBIENT; i++) {
+    ambPosArr[i*3]   = (Math.random()-0.5)*320;
+    ambPosArr[i*3+1] = (Math.random()-0.5)*160;
+    ambPosArr[i*3+2] = (Math.random()-0.5)*90;
+  }
+  const geoAmb  = new THREE.BufferGeometry();
+  const ambAttr = new THREE.BufferAttribute(ambPosArr, 3);
+  geoAmb.setAttribute('position', ambAttr);
+  scene.add(new THREE.Points(geoAmb, new THREE.PointsMaterial({
+    color: 0x5a5a64, size: 1.19, sizeAttenuation: true, transparent: true, opacity: 0.75,
+  })));
+
+  function makeKeywordSprite(text) {
+    const dpr = Math.min(devicePixelRatio, 2), fs = 28, pad = 22;
+    const fontStr = `300 ${fs}px 'Pretendard', sans-serif`;
+    const mc = document.createElement('canvas').getContext('2d');
+    mc.font = fontStr;
+    const m = mc.measureText(text);
+    const logW = Math.ceil(m.width) + pad*2, logH = fs + pad;
+    const c = document.createElement('canvas');
+    c.width = logW*dpr; c.height = logH*dpr;
+    const ctx = c.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.font = fontStr; ctx.fillStyle = '#7a7a88';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(text, logW/2, logH/2);
+    const tex = new THREE.CanvasTexture(c);
+    const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: 0.80 });
+    const sp  = new THREE.Sprite(mat);
+    const wH  = 9;
+    sp.scale.set(wH * (logW/logH), wH, 1);
+    return sp;
+  }
+  const BIZ_KEYWORDS = [
+    { text: 'Consulting', x: -58,  y:  30, z: -20 },
+    { text: 'Build',      x:  50,  y:  28, z: -15 },
+    { text: 'Operate',    x:  48,  y: -28, z: -22 },
+    { text: 'SLA',        x:   4,  y:  46, z:  15 },
+  ];
+  BIZ_KEYWORDS.forEach(({ text, x, y, z }) => {
+    const sp = makeKeywordSprite(text);
+    sp.position.set(x, y, z);
+    scene.add(sp);
+  });
+
+  let fromSnap = Array.from({length: MAX_N}, (_, i) => [posArr[i*3], posArr[i*3+1], posArr[i*3+2]]);
+  function morphTo(toIdx, duration) {
+    const dur = duration ?? 1.6;
+    const to = textSets[toIdx], from = fromSnap, proxy = {t: 0};
+    gsap.to(proxy, {
+      t: 1, duration: dur, ease: 'power2.inOut',
+      onUpdate() {
+        const t = proxy.t;
+        for (let i = 0; i < MAX_N; i++) {
+          posArr[i*3]   = from[i][0]+(to[i][0]-from[i][0])*t;
+          posArr[i*3+1] = from[i][1]+(to[i][1]-from[i][1])*t;
+          posArr[i*3+2] = from[i][2]+(to[i][2]-from[i][2])*t;
+        }
+        posAttr.needsUpdate = true;
+      },
+      onComplete() {
+        fromSnap = to.map(p => [...p]);
+        gsap.delayedCall(3, () => morphTo((toIdx+1) % textSets.length));
+      },
+    });
+  }
+  morphTo(0, 2.2);
+
+  let clock = 0;
+  (function animate() {
+    requestAnimationFrame(animate);
+    clock += 0.008;
+    scene.rotation.y = Math.sin(clock * 1.68) * 0.5;
+    renderer.render(scene, camera);
+  })();
+
+  function onResize() {
+    const w = container.clientWidth, h = container.clientHeight;
+    if (!w || !h) return;
+    camera.aspect = w/h; camera.updateProjectionMatrix(); renderer.setSize(w, h);
+    if (w <= 768) { scene.position.x = 0; scene.position.y = 30; }
+    else          { scene.position.x = 34; scene.position.y = 0; }
+  }
+  window.addEventListener('resize', onResize);
+}
+</script>
+</body>
+</html>

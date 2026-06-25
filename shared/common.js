@@ -28,6 +28,20 @@ const _cmScript = document.currentScript;
     if(navRoot)navRoot.innerHTML=navHTML;
     if(footerRoot)footerRoot.innerHTML=footerHTML;
     if(modalRoot)modalRoot.innerHTML=modalsHTML;
+    // ── Active GNB highlight ──
+    (function(){
+      const page=location.pathname.split('/').pop()||'index.html';
+      const map={
+        'hancom-orchestrator.html':0,'hancom-ai.html':0,'hancom-solution.html':0,'ito.html':0,'ax-service.html':0,
+        'esg.html':1,'newsletter.html':1,
+        'recruit.html':2,
+        'company.html':3
+      };
+      const idx=map[page];
+      if(idx===undefined)return;
+      const items=document.querySelectorAll('.nav-list > .ni');
+      if(items[idx])items[idx].classList.add('ni-active');
+    })();
     if(contactRoot)contactRoot.innerHTML=contactHTML;
     init();
     // 페이지별 after-load 훅
