@@ -197,6 +197,7 @@ const _cmScript = document.currentScript;
         ['.cv-map'],['.cv-loc-item'],['.cont-info','.cont-form'],
         ['.cu-tabs'],['.cu-feat'],['.cu-logo'],
         ['.it-svc'],['.it-band-item'],['.it-why'],
+        ['.ap-arch'],['.ap-band'],['.ap-arch-img'],['.ap-cat'],['.ap-step'],['.ap-cap'],['.ap-metric'],['.ap-doc-img'],['.ap-feat'],['.ap-apps'],
       ];
       const targets=[];
       groups.forEach(sels=>{

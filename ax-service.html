@@ -153,7 +153,13 @@
 .br-scn-card ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
 .br-scn-card ul li{font:400 13.5px/1.6 'Pretendard';color:#555;padding-left:16px;position:relative;word-break:keep-all}
 .br-scn-card ul li::before{content:'·';position:absolute;left:2px;color:#009ce0;font-weight:700}
-.br-kpi-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.br-scn-grid.cols3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1024px){.br-scn-grid.cols3{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.br-scn-grid.cols3{grid-template-columns:1fr}}
+.br-kpi-wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.br-kpi-left,.br-kpi-right{background:#fff;border:1px solid #eaeaea;border-radius:16px;padding:36px 32px;display:flex;flex-direction:column}
+.br-kpi-right{align-items:center;text-align:center}
+.br-kpi-right .it-eye{align-self:flex-start;text-align:left}
 .br-hybrid-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
 .br-hybrid-card{background:#f7f8fa;border-radius:12px;padding:20px 18px;display:flex;flex-direction:column;gap:10px}
 .br-hybrid-ic{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center}
@@ -312,7 +318,7 @@
       <p class="it-desc">사업을 통해 실전 검증된 금융 특화 표준 시나리오를 제공합니다.</p>
       <div class="br-scn-layout" style="display:block">
         <div class="br-scn-img" style="margin-bottom:32px;text-align:center"><img src="assets/images/brity/scenario-builder.png" alt="시나리오 워크플로우 빌더 화면" style="width:40%;object-fit:contain;display:inline-block;border-radius:12px"></div>
-        <div class="br-scn-grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="br-scn-grid cols3">
           <div class="br-scn-card">
             <div class="br-scn-no">01</div>
             <h4>다양한 금융 특화 표준 시나리오</h4>
