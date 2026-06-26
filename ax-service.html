@@ -1,0 +1,748 @@
+<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="Business · AX Service" subtitle="Brity RPA / Low-Code 서비스" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECHOIT — AX Service</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<link rel="stylesheet" href="shared/common.css">
+<style>
+/* ── HERO ── */
+.eb-hero{position:relative;overflow:hidden;height:34vh;min-height:280px;background:#0f1115;color:#fff}
+.esg-hero-inner{position:relative;z-index:10;height:100%;display:flex;align-items:center;max-width:1200px;margin:0 auto;padding:0 32px}
+.esg-t-zone{display:flex;flex-direction:column;justify-content:center;gap:10px}
+.eb-eye{font:700 12px/1 'Pretendard';letter-spacing:.14em;text-transform:uppercase;color:#7fd3f3}
+.eb-h1{font-weight:800;font-size:clamp(28px,3.8vw,48px);line-height:1.12;letter-spacing:-1px;color:#fff;margin:0}
+.eb-h1 .g{background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.eb-sub{max-width:560px;font:400 15px/1.7 'Pretendard';color:#b9bcc4;word-break:keep-all;margin:0}
+
+/* ── TABS ── */
+.ax-tabs{display:flex;justify-content:center;border-bottom:2px solid #e8edf2;background:#fff;position:sticky;top:64px;z-index:90}
+.ax-tab{padding:20px 40px;font:600 16px/1 'Pretendard';color:#888;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .18s,border-color .18s;background:none;border-top:none;border-left:none;border-right:none}
+.ax-tab.active{color:var(--b);border-bottom-color:var(--b)}
+.ax-tab:hover{color:#444}
+
+/* ── PANELS ── */
+.ax-panel{display:none;padding:0}
+.ax-panel.active{display:block}
+
+/* ── SECTION ── */
+.it-block{padding:80px 0}
+.it-block.alt{background:#f7f8fa;border-top:1px dashed #ccc}
+.it-eye{font:700 12px/1 'Pretendard';letter-spacing:.12em;text-transform:uppercase;color:var(--b);margin-bottom:10px}
+.it-title{font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.18;letter-spacing:-.6px;word-break:keep-all;margin:0 0 16px}
+.it-desc{font:400 16px/1.7 'Pretendard';color:#666;word-break:keep-all;margin:0}
+
+@media(max-width:768px){
+  .eb-hero{height:28vh;min-height:220px}
+  .ax-tab{padding:16px 24px;font-size:14px}
+  .ax-panel{padding:48px 0}
+}
+/* ── LOW-CODE COMPONENTS ── */
+.lc-pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.lc-pain{background:#fff;border:1px solid #eaeaea;border-radius:16px;padding:32px 28px;display:flex;flex-direction:column;gap:12px;transition:box-shadow .18s,border-color .18s,transform .18s}
+.lc-pain:hover{box-shadow:0 10px 30px rgba(0,0,0,.08);border-color:#009ce0;transform:translateY(-4px)}
+.lc-pain-no{font:800 36px/1 'Pretendard';color:#009ce0;opacity:.3}
+.lc-pain h4{font:700 18px/1.3 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.lc-pain p{font:400 14px/1.7 'Pretendard';color:#666;margin:0;word-break:keep-all}
+
+.lc-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.lc-stat{background:#009ce0;border-radius:16px;padding:32px 24px;text-align:center;border:none;display:flex;flex-direction:column;justify-content:center;gap:8px;min-height:200px}
+.lc-stat-num{font:800 52px/1 'Pretendard';color:#fff;margin-bottom:2px}
+.lc-stat p.lc-stat-sub{font:800 20px/1.3 'Pretendard';color:#fff;margin:0;letter-spacing:-.3px}
+.lc-stat p{font:400 13px/1.6 'Pretendard';color:rgba(255,255,255,.8);margin:0;word-break:keep-all}
+
+.lc-feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.lc-feat{background:#fff;border:1px solid #eaeaea;border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:box-shadow .18s,border-color .18s,transform .18s}
+.lc-feat:hover{box-shadow:0 10px 30px rgba(0,0,0,.08);border-color:#009ce0;transform:translateY(-4px)}
+.lc-feat-ic{width:48px;height:48px;background:#009ce0;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.lc-feat-ic .ms{font-size:24px;color:#fff}
+.lc-feat h4{font:700 17px/1.3 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.lc-feat p{font:400 14px/1.7 'Pretendard';color:#555;margin:0;word-break:keep-all}
+
+.lc-method-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.lc-method{background:#f7f8fa;border-radius:16px;padding:36px 32px;display:flex;flex-direction:column;gap:14px;border:1px dashed #ccc}
+.lc-method-no{font:800 40px/1 'Pretendard';color:#009ce0;opacity:.25}
+.lc-method h4{font:700 20px/1.3 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.lc-method p{font:400 15px/1.7 'Pretendard';color:#666;margin:0;word-break:keep-all}
+.lc-method ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.lc-method ul li{font:400 14px/1.6 'Pretendard';color:#555;padding-left:18px;position:relative;word-break:keep-all}
+.lc-method ul li::before{content:'✓';position:absolute;left:0;color:#009ce0;font-weight:700}
+
+.lc-app-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.lc-app{background:#fff;border:1px solid #eaeaea;border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:box-shadow .15s}
+.lc-app:hover{box-shadow:0 8px 28px rgba(0,0,0,.08)}
+.lc-app:nth-child(1) .lc-app-ic{background:#009ce0}
+.lc-app:nth-child(2) .lc-app-ic{background:#47b8a8}
+.lc-app:nth-child(3) .lc-app-ic{background:#89c895}
+.lc-app-ic{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lc-app-ic .ms{font-size:26px;color:#fff;font-variation-settings:'FILL' 1}
+.lc-app h4{font:700 17px/1.3 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.lc-app p{font:400 14px/1.7 'Pretendard';color:#555;margin:0;word-break:keep-all}
+
+.lc-ref{display:flex;gap:40px;align-items:flex-start;background:#fff;border:1px solid #eaeaea;border-radius:20px;padding:40px}
+.lc-ref-logo{flex:0 0 160px;display:flex;align-items:center;justify-content:center}
+.lc-ref-logo img{max-width:140px;max-height:60px;object-fit:contain}
+.lc-ref-body{flex:1;display:flex;flex-direction:column;gap:16px}
+.lc-ref-tag{font:600 12px/1 'Pretendard';letter-spacing:.08em;color:#009ce0;text-transform:uppercase;margin:0}
+.lc-ref-body h4{font:700 22px/1.3 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.lc-ref-body>p{font:400 15px/1.7 'Pretendard';color:#555;margin:0;word-break:keep-all}
+.lc-ref-venn{display:flex;flex-direction:column;gap:16px;margin-top:8px}
+.lc-ref-venn-circles{position:relative;height:120px;display:flex;align-items:center;isolation:isolate}
+.lc-venn-c{width:120px;height:120px;border-radius:50%;opacity:.85;mix-blend-mode:multiply;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;padding:14px;box-sizing:border-box}
+.lc-venn-c.c1{background:#009ce0}
+.lc-venn-c.c2{background:#3db3c8}
+.lc-venn-c.c3{background:#6ac4a8}
+.lc-venn-c.c4{background:#89c895}
+.lc-venn-c strong{font:800 16px/1 'Pretendard';color:#fff;display:block}
+.lc-venn-c span{font:400 10px/1.4 'Pretendard';color:rgba(255,255,255,.9);word-break:keep-all}
+
+.lc-faq{display:flex;flex-direction:column;gap:0;border-top:1px solid #e8edf2}
+.lc-faq-item{border-bottom:1px solid #e8edf2}
+.lc-faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 0;background:none;border:none;cursor:pointer;font:600 16px/1.4 'Pretendard';color:#141920;text-align:left;gap:16px}
+.lc-faq-q:hover{color:#009ce0}
+.lc-faq-arr{font-size:22px;color:#aaa;transition:transform .2s;flex-shrink:0}
+.lc-faq-item.open .lc-faq-arr{transform:rotate(180deg)}
+.lc-faq-a{display:none;padding:0 0 22px}
+.lc-faq-a p{font:400 15px/1.8 'Pretendard';color:#555;margin:0;word-break:keep-all}
+.lc-faq-item.open .lc-faq-a{display:block}
+
+.lc-cta-btn{display:inline-flex;align-items:center;gap:8px;padding:18px 44px;background:var(--grd);color:#fff;border:none;border-radius:999px;font:700 16px/1 'Pretendard';cursor:pointer;transition:opacity .18s,transform .15s}
+.lc-cta-btn:hover{opacity:.88;transform:translateY(-2px)}
+
+@media(max-width:1024px){
+  .lc-pain-grid,.lc-stat-grid,.lc-feat-grid,.lc-app-grid{grid-template-columns:repeat(2,1fr)}
+  .lc-method-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .lc-pain-grid,.lc-stat-grid,.lc-feat-grid,.lc-app-grid{grid-template-columns:1fr}
+  .lc-ref{flex-direction:column;gap:24px;padding:28px 20px}
+  .lc-ref-kpi{flex-wrap:wrap;gap:20px}
+}
+
+/* ── BRITY ON ── */
+.br-card3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.br-card3{background:#fff;border:1px solid #eaeaea;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .15s}
+.br-card3:hover{box-shadow:0 8px 28px rgba(0,0,0,.07);border-color:#d6d6d6}
+.br-card3 h3{font:700 17px/1.3 'Pretendard';color:#141920;margin:0;word-break:keep-all;padding:20px 20px 16px}
+.br-card3 ul{list-style:none;padding:16px 20px;margin:0;display:flex;flex-direction:column;gap:10px;background:#f0f9ff;flex:1;border-top:1px solid #d6eef9}
+.br-card3 ul li{font:400 13.5px/1.7 'Pretendard';color:#555;padding-left:16px;position:relative;word-break:keep-all}
+.br-card3 ul li::before{content:'·';position:absolute;left:2px;color:#009ce0;font-weight:700}
+@media(max-width:768px){.br-card3-grid{grid-template-columns:1fr}}
+.br-feat-item{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.br-feat-item-rev{direction:rtl}.br-feat-item-rev>*{direction:ltr}
+.br-feat-txt h3{font:700 20px/1.3 'Pretendard';color:#141920;margin:0 0 16px;word-break:keep-all}
+.br-feat-txt ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.br-feat-txt ul li{font:400 14.5px/1.7 'Pretendard';color:#555;padding-left:18px;position:relative;word-break:keep-all}
+.br-feat-txt ul li::before{content:'·';position:absolute;left:4px;color:#009ce0;font-weight:700}
+.br-patent{margin-top:16px;padding:10px 14px;background:#f0f9ff;border-left:3px solid #009ce0;border-radius:0 8px 8px 0;font:400 12.5px/1.6 'Pretendard';color:#444;word-break:keep-all}
+.br-img-ph{width:100%;min-height:220px;background:#f3f5f7;border:2px dashed #d6dce4;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#b0b8c4}
+.br-img-ph .ms{font-size:36px}
+.br-img-ph p{font:400 13px/1 'Pretendard';margin:0;color:#b0b8c4}
+.br-img-ph-sm{height:220px;min-height:unset;border-radius:0;margin-bottom:0;border:none;overflow:hidden}
+.br-scn-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;margin-top:36px}
+.br-scn-img{background:#fff}
+.br-scn-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.br-scn-card{background:#f7f8fa;border:1px dashed #ccc;border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:12px}
+.br-scn-no{font:800 32px/1 'Pretendard';color:#009ce0;opacity:.3}
+.br-scn-card h4{font:700 17px/1.3 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.br-scn-card ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.br-scn-card ul li{font:400 13.5px/1.6 'Pretendard';color:#555;padding-left:16px;position:relative;word-break:keep-all}
+.br-scn-card ul li::before{content:'·';position:absolute;left:2px;color:#009ce0;font-weight:700}
+.br-kpi-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.br-hybrid-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.br-hybrid-card{background:#f7f8fa;border-radius:12px;padding:20px 18px;display:flex;flex-direction:column;gap:10px}
+.br-hybrid-ic{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center}
+.br-hybrid-ic .ms{font-size:22px;color:#fff}
+.br-hybrid-card h4{font:700 16px/1.3 'Pretendard';color:#141920;margin:0}
+.br-hybrid-card p{font:400 13px/1.6 'Pretendard';color:#666;margin:0;word-break:keep-all}
+.br-hybrid-uses{display:flex;flex-direction:column;gap:8px}
+.br-hybrid-uses>div{display:flex;align-items:flex-start;gap:8px;font:400 13.5px/1.6 'Pretendard';color:#444;word-break:keep-all}
+.br-hybrid-uses .ms{font-size:18px;color:#009ce0;flex-shrink:0;margin-top:2px}
+.br-kpi-circles{position:relative;width:290px;height:270px;margin-top:24px}
+.br-kpi-circle{position:absolute;width:155px;height:155px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;padding:12px;box-sizing:border-box;mix-blend-mode:multiply;opacity:.9}
+.br-kpi-circle.c1{background:#009ce0;top:0;left:50%;transform:translateX(-50%)}
+.br-kpi-circle.c2{background:#3db8b0;bottom:0;left:0}
+.br-kpi-circle.c3{background:#89c895;bottom:0;right:0}
+.br-kpi-circles-wrap{isolation:isolate}
+.br-kpi-cnum{font:800 28px/1 'Pretendard';color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.2)}
+.br-kpi-circle p{font:400 11px/1.4 'Pretendard';color:#fff;margin:0;word-break:keep-all;text-shadow:0 1px 3px rgba(0,0,0,.2)}
+.br-kpi-num{font:800 38px/1 'Pretendard';color:#fff}
+.br-kpi-card p{font:400 13px/1.5 'Pretendard';color:rgba(255,255,255,.85);margin:0;word-break:keep-all}
+.br-kpi-note{margin-top:16px;font:400 12.5px/1.6 'Pretendard';color:#888;word-break:keep-all}
+.br-case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.br-case-card{background:#fff;border:1px solid #eaeaea;border-radius:16px;padding:24px;display:flex;flex-direction:column;transition:box-shadow .15s}
+.br-case-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.07)}
+.br-case-no{font:700 11px/1 'Pretendard';letter-spacing:.1em;color:#009ce0;text-transform:uppercase;margin-bottom:8px}
+.br-case-card h4{font:700 18px/1.3 'Pretendard';color:#141920;margin:0 0 6px;word-break:keep-all}
+.br-case-sub{font:600 13px/1.4 'Pretendard';color:#009ce0;margin:0 0 10px;word-break:keep-all}
+.br-case-card>p{font:400 13.5px/1.7 'Pretendard';color:#666;margin:0;word-break:keep-all}
+.br-ref-logos{display:flex;gap:24px}
+@media(max-width:1024px){
+  .br-feat-item{grid-template-columns:1fr}
+  .br-feat-item-rev{direction:ltr}
+  .br-scn-grid,.br-case-grid{grid-template-columns:1fr 1fr}
+  .br-kpi-wrap{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .br-scn-grid,.br-case-grid,.br-hybrid-grid{grid-template-columns:1fr}
+  .br-kpi-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<script>window.__breadcrumb=['Business','AX Service'];</script>
+<div id="nav-root"></div>
+
+<!-- ── HERO ── -->
+<section class="eb-hero" id="ax-hero">
+  <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="g1" gradientUnits="userSpaceOnUse" cx="900" cy="80" r="520"><stop offset="0%" stop-color="#009ce0" stop-opacity="0.35"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g2" gradientUnits="userSpaceOnUse" cx="300" cy="380" r="340"><stop offset="0%" stop-color="#89c895" stop-opacity="0.2"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1440" height="400" fill="#0f1115"/>
+    <rect width="1440" height="400" fill="url(#g1)"/>
+    <rect width="1440" height="400" fill="url(#g2)"/>
+  </svg>
+  <div class="esg-hero-inner">
+    <div class="esg-t-zone">
+      <p class="eb-eye">Business · AX Service</p>
+      <h1 class="eb-h1">업무 자동화의 새로운 기준,<br><span class="g">AX Service</span></h1>
+      <p class="eb-sub">Brity RPA와 Low-Code 플랫폼으로 기업의 반복 업무를 자동화하고<br>빠른 디지털 전환을 실현합니다.</p>
+    </div>
+    <div class="esg-p-zone" id="ax-p-zone"></div>
+  </div>
+</section>
+
+<!-- ── TAB BAR ── -->
+<div class="ax-tabs">
+  <button class="ax-tab active" onclick="showAX(0)">Brity On</button>
+  <button class="ax-tab" onclick="showAX(1)">Low-Code</button>
+</div>
+
+<!-- ── PANEL: BRITY ── -->
+<div class="ax-panel active" id="axp0">
+
+  <section class="it-block" style="text-align:center;padding-bottom:48px;border-bottom:1px dashed #ccc">
+    <div class="wrap" style="max-width:760px;margin:0 auto">
+      <p class="it-eye">Brity On</p>
+      <h2 class="it-title">Agent가 스스로 수행하는<br>Human-Like 가상상담 솔루션</h2>
+      <p class="it-desc" style="margin-top:20px">생성형 AI 기반의 Brity On을 통해<br>고객의 의도 파악부터 문제해결까지 스스로 완결하는<br>자동 응대 체계를 구현할 수 있습니다.</p>
+    </div>
+  </section>
+
+  <section class="it-block" style="padding-top:64px">
+    <div class="wrap" style="text-align:center">
+      <p class="it-eye">AI Assistant</p>
+      <h2 class="it-title">상담 답변 추천</h2>
+      <p class="it-desc">실시간 상담 흐름을 이해하고, 지식과 맥락을 결합하여 상담사가 바로 말할 수 있는 최적의 답변을 제안하는 AI 기반 상담지원 기능을 제공합니다.</p>
+      <div class="br-card3-grid" style="text-align:left">
+
+        <div class="br-card3">
+          <h3>상담사 실시간 답변 추천</h3>
+          <div class="br-img-ph br-img-ph-sm" style="background:#fff;border:1px solid #e8edf2;padding:0;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="assets/images/brity/answer-recommend.png" alt="상담사 실시간 답변 추천 화면" style="width:92%;height:92%;object-fit:contain;display:block"></div>
+          <ul>
+            <li>발화 선택, 전체 대화, 자동 셀렉션, 직접 질문 등 다중 트리 구조로 유연한 추천 방식 제공</li>
+            <li>상담 문맥과 상황을 반영한 바로 읽어도 되는 자연스러운 답변 생성</li>
+          </ul>
+        </div>
+
+        <div class="br-card3">
+          <h3>자동 답변 추천 관리</h3>
+          <div class="br-img-ph br-img-ph-sm" style="background:#fff;border:1px solid #e8edf2;padding:0;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="assets/images/brity/auto-answer-manage.png" alt="자동 답변 추천 관리 설정 화면" style="width:92%;height:92%;object-fit:contain;display:block"></div>
+          <ul>
+            <li>자동 추천 발화 기준과 추천 횟수를 제어하여 상담 흐름에 맞는 답변 추천</li>
+            <li>놓치기 쉬운 순간에도 AI가 개입하여 응대 답변 가이드 추천</li>
+          </ul>
+        </div>
+
+        <div class="br-card3">
+          <h3>답변 추천 이력</h3>
+          <div class="br-img-ph br-img-ph-sm" style="background:#fff;border:1px solid #e8edf2;padding:0;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="assets/images/brity/answer-history.png" alt="답변 추천 이력 목록 화면" style="width:92%;height:92%;object-fit:contain;display:block"></div>
+          <ul>
+            <li>상세 답변 추천이력을 질의 단위로 축적 관리</li>
+            <li>각 추천 답변의 생성 기준과 활용 상세 확인 가능</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="it-block alt">
+    <div class="wrap">
+      <p class="it-eye">Agentic Bot</p>
+      <h2 class="it-title">Hybrid형 의도 분류</h2>
+      <p class="it-desc">일반적인 문장은 NLU 우선 처리, 비정형 문장은 LLM으로 추가 의도 분류하여 상담사 연결을 줄이고 다양한 변수 상황에 대응합니다.</p>
+      <div class="br-feat-list" style="margin-top:40px">
+        <div class="br-feat-item br-feat-item-rev">
+          <div class="br-feat-txt">
+            <h3>NLU → LLM Hybrid Intent Analyzer</h3>
+            <ul>
+              <li>의도 분류가 용이한 일반 발화 문장은 NLU로 처리하여 LLM 자원 사용 최소화</li>
+              <li>NLU 신뢰도 Score가 낮은 비정형 문장(신조어, 축약어, 사투리 등)은 LLM으로 추가 의도 분류하여 상담사 연결 감소</li>
+            </ul>
+            <div class="br-patent">특허 출원 완료 · 하이브리드 의도 분류 시스템을 이용한 음성봇 서비스 제공 방법</div>
+          </div>
+          <div class="br-img-ph" style="background:#fff;border:1px solid #e8edf2;padding:0;overflow:hidden"><img src="assets/images/brity/hybrid-intent-analyzer.png" alt="NLU→LLM Hybrid Intent Analyzer 흐름도" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+        </div>
+        <div class="br-feat-item">
+          <div class="br-feat-txt">
+            <h3>시나리오 진행 중 의도 전환</h3>
+            <ul>
+              <li>시나리오 진행 중에도 고객 돌발 질문은 NLU → LLM Hybrid Intent Analyzer를 활용하여 의도 전환 진행</li>
+              <li>LLM 연동을 통해 지식 데이터가 없어도 적합한 답변 생성, 다양한 변수 상황 대응</li>
+            </ul>
+          </div>
+          <div class="br-img-ph" style="background:#fff;border:1px solid #e8edf2;padding:0;overflow:hidden"><img src="assets/images/brity/intent-switch.png" alt="시나리오 진행 중 의도 전환 흐름도" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="it-block">
+    <div class="wrap">
+      <p class="it-eye">Agentic Bot</p>
+      <h2 class="it-title">표준 시나리오 제공</h2>
+      <p class="it-desc">사업을 통해 실전 검증된 금융 특화 표준 시나리오를 제공합니다.</p>
+      <div class="br-scn-layout" style="display:block">
+        <div class="br-scn-img" style="margin-bottom:32px;text-align:center"><img src="assets/images/brity/scenario-builder.png" alt="시나리오 워크플로우 빌더 화면" style="width:40%;object-fit:contain;display:inline-block;border-radius:12px"></div>
+        <div class="br-scn-grid" style="grid-template-columns:repeat(3,1fr)">
+          <div class="br-scn-card">
+            <div class="br-scn-no">01</div>
+            <h4>다양한 금융 특화 표준 시나리오</h4>
+            <ul>
+              <li>생명보험: 연체 이자 상환, 해피콜, 보험료 환급 등</li>
+              <li>증권: 미수 안내, 반대매매 안내, 담보부족 안내 등</li>
+              <li>손해보험: 완전판매모니터링, 자동차 고장 접수 등</li>
+              <li>은행: 계좌 및 잔액 조회, 거래내역 조회, 자동이체 설정 등</li>
+            </ul>
+          </div>
+          <div class="br-scn-card">
+            <div class="br-scn-no">02</div>
+            <h4>GUI 기반 시나리오 빌더</h4>
+            <ul>
+              <li>Drag &amp; Drop 방식의 편리한 상담봇 시나리오 설계 구현</li>
+              <li>설계한 시나리오는 포탈에서 즉시 사용 가능</li>
+            </ul>
+          </div>
+          <div class="br-scn-card">
+            <div class="br-scn-no">03</div>
+            <h4>LLM 연동을 통한 유연한 시나리오 확장</h4>
+            <ul>
+              <li>LLM 카드 및 프롬프트 템플릿 기능으로 시나리오 처리 능력 강화</li>
+              <li>답변 생성, 의도 분석 등에 LLM을 활용하여 다양한 방향으로 확장 가능</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="it-block alt">
+    <div class="wrap">
+      <p class="it-eye">Architecture</p>
+      <h2 class="it-title">최고의 솔루션으로 고객혁신과<br>성과창출을 지원하는, Brity On</h2>
+      <p class="it-desc">생성형 AI 시대의 Brity On은 NLU 방식을 적용하여 실수없이, LLM 및 벡터DB와 연계하여 돌발 질문과 요청에도 유연하게 대응 가능한 하이브리드 챗봇을 손쉽게 구축할 수 있습니다.</p>
+      <div style="margin-top:36px"><img src="assets/images/brity/architecture.png" alt="Brity On 전체 아키텍처 다이어그램" style="width:100%;display:block;border-radius:12px"></div>
+    </div>
+  </section>
+
+  <section class="it-block">
+    <div class="wrap">
+      <div class="br-kpi-wrap">
+        <div class="br-kpi-left">
+          <p class="it-eye">Brity On Assistant</p>
+          <h2 class="it-title" style="font-size:clamp(22px,2.4vw,30px)">판별형 + 생성형 하이브리드</h2>
+          <div class="br-hybrid-grid">
+            <div class="br-hybrid-card">
+              <div class="br-hybrid-ic" style="background:#009ce0"><span class="ms">rule</span></div>
+              <h4>판별형</h4>
+              <p>의도/개체 인식, 시나리오형 응답, 기간계 연동에 강점</p>
+            </div>
+            <div class="br-hybrid-card">
+              <div class="br-hybrid-ic" style="background:#89c895"><span class="ms">auto_awesome</span></div>
+              <h4>생성형</h4>
+              <p>미정형 질문·전문용어 대응, 문서 기반 탐색/종합/톤 적용</p>
+            </div>
+          </div>
+          <div class="br-hybrid-uses">
+            <div><span class="ms">check_circle</span> FAQ·업무 시나리오: 판별형으로 빠르고 정확하게</div>
+            <div><span class="ms">check_circle</span> 지식 탐색·요약·용어질의: 생성형(RAG)으로 유연하게</div>
+            <div><span class="ms">check_circle</span> 환각/보안 대응: 출처 제시·프롬프트 가드레일·권한제어</div>
+          </div>
+        </div>
+        <div class="br-kpi-right">
+          <p class="it-eye">핵심 KPI</p>
+          <div class="br-kpi-circles-wrap">
+            <div class="br-kpi-circles">
+              <div class="br-kpi-circle c1"><div class="br-kpi-cnum">40%</div><p>자연어 이해율 달성</p></div>
+              <div class="br-kpi-circle c2"><div class="br-kpi-cnum">70%</div><p>정보제공 챗봇<br>설계 비용 절감</p></div>
+              <div class="br-kpi-circle c3"><div class="br-kpi-cnum">24×7</div><p>E2E 자동화<br>구현율</p></div>
+            </div>
+          </div>
+          <p class="br-kpi-note"><strong style="display:block;font:700 13px/1 'Pretendard';color:#444;margin-bottom:4px">PoC/파일럿을 통한 최적화</strong>산업·업무별 PoC/파일럿을 통해 고객 KPI에 맞춘 최적화 가능</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="it-block alt">
+    <div class="wrap">
+      <p class="it-eye">Use Cases</p>
+      <h2 class="it-title">판별형과 생성형 AI를 융합한<br>하이브리드 접근</h2>
+      <div class="br-case-grid">
+        <div class="br-case-card">
+          <div class="br-img-ph br-img-ph-sm" style="padding:0;overflow:hidden;background:#000;border-radius:16px;height:176px;margin-bottom:16px"><img src="assets/images/brity/case-automation.png" alt="업무자동화" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          
+          <h4>업무자동화</h4>
+          <p class="br-case-sub">RPA, OCR과 연계한 E2E 업무자동화</p>
+          <p>RPA, OCR 등의 자동화 솔루션과 ChatGPT을 연계하여 더욱 높은 수준의 업무 자동화 혁신이 가능합니다.</p>
+        </div>
+        <div class="br-case-card">
+          <div class="br-img-ph br-img-ph-sm" style="padding:0;overflow:hidden;background:#000;border-radius:16px;height:176px;margin-bottom:16px"><img src="assets/images/brity/case-finance.png" alt="금융" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          
+          <h4>금융</h4>
+          <p class="br-case-sub">업무시스템과 연계한 임직원 어시스턴트</p>
+          <p>제조 현장에서 근무하는 임직원의 업무를 돕는 챗봇 서비스를 구축할 수 있습니다.</p>
+        </div>
+        <div class="br-case-card">
+          <div class="br-img-ph br-img-ph-sm" style="padding:0;overflow:hidden;background:#000;border-radius:16px;height:176px;margin-bottom:16px"><img src="assets/images/brity/case-public.png" alt="공공" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          
+          <h4>공공</h4>
+          <p class="br-case-sub">고객 지원 및 정보제공</p>
+          <p>모바일 증권 App 내 챗봇 서비스를 탑재하여 고객의 주식 조회 및 거래 수행을 지원합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="it-block">
+    <div class="wrap">
+      <p class="it-eye">Reference</p>
+      <h2 class="it-title">에코아이티 구현사례</h2>
+      <p class="it-desc" style="margin-bottom:36px">금융사 AI 상담 시나리오 개발</p>
+      <div style="margin-bottom:32px;text-align:center"><img src="assets/images/brity/ref-logos.png" alt="삼성생명 · 삼성화재 · DB손해보험" style="max-height:78px;object-fit:contain;display:inline-block"></div>
+      <div style="margin-top:0;background:#f0f2f5;border-radius:16px;padding:24px;text-align:center"><img src="assets/images/brity/ref-diagram.png" alt="금융사 AI 상담 시나리오 플로우 다이어그램" style="width:85%;display:inline-block;border-radius:8px"></div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ── PANEL: LOW-CODE ── -->
+<div class="ax-panel" id="axp1">
+
+  <!-- 02 Pain Point -->
+  <section class="it-block">
+    <div class="wrap">
+      <p class="it-eye">Why Low-Code</p>
+      <h2 class="it-title">급변하는 비즈니스 환경,<br>기존 방식만으로 충분하십니까?</h2>
+      <p class="it-desc" style="margin-bottom:40px">기존 Hand-Coding 방식이 직면한 3가지 핵심 과제</p>
+      <div class="lc-pain-grid">
+        <div class="lc-pain">
+          <div class="lc-pain-no">01</div>
+          <h4>극심한 IT 인력난</h4>
+          <p>숙련된 엔지니어 채용·유지에 막대한 비용 소요</p>
+        </div>
+        <div class="lc-pain">
+          <div class="lc-pain-no">02</div>
+          <h4>느린 시장 대응</h4>
+          <p>레거시 연동 문제로 현업 요구사항 반영 지연</p>
+        </div>
+        <div class="lc-pain">
+          <div class="lc-pain-no">03</div>
+          <h4>폭발하는 앱 백로그</h4>
+          <p>기존 방식으로는 폭증하는 개발 수요 감당 불가</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 왜 OutSystems인가 -->
+  <section class="it-block alt">
+    <div class="wrap">
+      <p class="it-eye">OutSystems Official Partner</p>
+      <h2 class="it-title">Build it Fast, Build it Right,<br>Build for the Future</h2>
+      <p class="it-desc" style="margin-bottom:44px">복잡한 코딩 없이 비주얼 모델링으로 고성능 앱을 신속하게 구축·운영·확장. No.1 엔터프라이즈 로우코드 플랫폼이 선택받는 이유를 지표로 확인하세요.</p>
+      <div class="lc-stat-grid">
+        <div class="lc-stat"><div class="lc-stat-num">6년</div><p class="lc-stat-sub">연속</p><p>Gartner Magic Quadrant Leader 선정</p></div>
+        <div class="lc-stat"><div class="lc-stat-num">#1</div><p class="lc-stat-sub">4개 전 부문</p><p>Gartner 핵심 역량 평가 B2C·백오피스·워크플로우 등</p></div>
+        <div class="lc-stat"><div class="lc-stat-num">10×</div><p class="lc-stat-sub">빠른 배포</p><p>전통 방식 대비 개발 기간 단축</p></div>
+      </div>
+      <div class="lc-feat-grid" style="margin-top:48px">
+        <div class="lc-feat">
+          <div class="lc-feat-ic"><span class="ms">verified_user</span></div>
+          <h4>Enterprise급 요건 완벽 충족</h4>
+          <p>보안·확장성·성능·통합·거버넌스 등 미션 크리티컬 시스템의 모든 요건 충족. SOC2·ISO·HIPAA 컴플라이언스 지원.</p>
+        </div>
+        <div class="lc-feat">
+          <div class="lc-feat-ic"><span class="ms">auto_awesome</span></div>
+          <h4>AI 자동화 및 UX 최적화</h4>
+          <p>AI 기반 코드 작성 지원 및 5,200개 이상 재사용 컴포넌트(Forge)로 최상의 UX를 빠르게 구현.</p>
+        </div>
+        <div class="lc-feat">
+          <div class="lc-feat-ic"><span class="ms">sync_alt</span></div>
+          <h4>DevOps 기반 통합 라이프사이클</h4>
+          <p>설계-개발-테스트-배포-운영을 하나로 통합. 전통 방식 대비 10배 빠른 배포 속도 달성.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 에코아이티의 역량 -->
+  <section class="it-block">
+    <div class="wrap">
+      <p class="it-eye">ECHOIT Capability</p>
+      <h2 class="it-title">성공을 보장하는 LCAP 도입 방법론</h2>
+      <p class="it-desc" style="margin-bottom:44px">기획부터 개발, 운영까지 에코아이티의 End-to-End 토탈 서비스</p>
+      <div class="lc-method-grid">
+        <div class="lc-method">
+          <div class="lc-method-no">01</div>
+          <h4>기술 컨설팅 (CoE)</h4>
+          <p>고객사 맞춤형 아키텍처 설계 및 LCAP CoE 조직 구성 지원</p>
+          <ul>
+            <li>개발/운영 표준 정책 수립</li>
+            <li>공통 재사용 모듈(Forge) 구축</li>
+            <li>애자일(Agile) 문화 전파 교육</li>
+          </ul>
+        </div>
+        <div class="lc-method">
+          <div class="lc-method-no">02</div>
+          <h4>LCAP 엔지니어링</h4>
+          <p>검증된 OutSystems 전문 엔지니어 투입, 고품질 애플리케이션 직접 구축</p>
+          <ul>
+            <li>Agile 기반 민첩한 개발 프로세스</li>
+            <li>안정적인 시스템 연동 아키텍처</li>
+            <li>통합 테스트 및 배포 자동화</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 무엇을 만들 수 있나 -->
+  <section class="it-block alt">
+    <div class="wrap">
+      <p class="it-eye">What You Can Build</p>
+      <h2 class="it-title">OutSystems로 구축할 수 있는 애플리케이션</h2>
+      <p class="it-desc" style="margin-bottom:44px">단순한 부서용 앱부터 미션 크리티컬한 핵심 엔터프라이즈 시스템까지</p>
+      <div class="lc-app-grid">
+        <div class="lc-app">
+          <div class="lc-app-ic"><span class="ms">web</span></div>
+          <h4>대고객 앱 &amp; 포털</h4>
+          <p>모바일 뱅킹 / 금융 앱 · 대국민 / 대시민 서비스 포털 · B2C 커머스 및 예매 시스템</p>
+        </div>
+        <div class="lc-app">
+          <div class="lc-app-ic"><span class="ms">corporate_fare</span></div>
+          <h4>내부 업무 시스템</h4>
+          <p>인사(HR) / 채용 관리 시스템 · 사내 IT 서비스 데스크(ITSM) · 주문 및 물류 관리(SCM)</p>
+        </div>
+        <div class="lc-app">
+          <div class="lc-app-ic"><span class="ms">autorenew</span></div>
+          <h4>코어 시스템 현대화</h4>
+          <p>맞춤형 차세대 ERP / CRM · 코어 뱅킹 / 보험 청구 시스템 · 전자건강기록(EHR) 시스템</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 레퍼런스 -->
+  <section class="it-block">
+    <div class="wrap">
+      <p class="it-eye">Reference</p>
+      <h2 class="it-title">Low-code로 만든 결과</h2>
+      <p class="it-desc" style="margin-bottom:44px">OutSystems를 활용한 에코아이티의 엔터프라이즈 구축 레퍼런스</p>
+      <div class="lc-ref">
+        <div class="lc-ref-logo"><img src="assets/logos/sap/sap12.png" alt="CJ제일제당"></div>
+        <div class="lc-ref-body">
+          <p class="lc-ref-tag">CJ제일제당 · OutSystems Low-code 활용 구축 사례</p>
+          <h4>RPA 통합 관리 포털, Low-code로 단기간 완성</h4>
+          <p>전사적으로 운영 중인 RPA 봇의 실행 현황 모니터링과 현업 부서의 업무 요청·승인 워크플로우를 통합한 관리 대시보드 포털을 OutSystems Low-code로 단기간에 구축했습니다.</p>
+          <div class="lc-ref-venn">
+            <div class="lc-ref-venn-circles" style="isolation:isolate;position:relative;height:130px;display:flex;align-items:center;width:420px">
+              <div class="lc-venn-c c1" style="position:absolute;left:0"><strong>60%</strong><span>구축 기간<br>단축</span></div>
+              <div class="lc-venn-c c2" style="position:absolute;left:100px"><strong>가시성</strong><span>RPA 봇<br>통합 확보</span></div>
+              <div class="lc-venn-c c3" style="position:absolute;left:200px"><strong>시스템 연동</strong><span>ERP·그룹웨어<br>레거시 API</span></div>
+              <div class="lc-venn-c c4" style="position:absolute;left:300px"><strong>워크플로우</strong><span>현업 중심<br>프로세스</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 FAQ -->
+  <section class="it-block alt">
+    <div class="wrap">
+      <p class="it-eye">FAQ</p>
+      <h2 class="it-title">자주 묻는 질문</h2>
+      <p class="it-desc" style="margin-bottom:44px">엔터프라이즈 Low-code 도입, 궁금한 점을 명쾌하게 해결해 드립니다.</p>
+      <div class="lc-faq">
+        <div class="lc-faq-item open">
+          <button class="lc-faq-q" onclick="toggleFaq(this)">
+            <span>기존 레거시 시스템(SAP 등)과 연동이 가능한가요?</span>
+            <span class="ms lc-faq-arr">expand_more</span>
+          </button>
+          <div class="lc-faq-a">
+            <p>네, 완벽하게 가능합니다. OutSystems는 SAP·Salesforce 등 주요 엔터프라이즈 시스템과의 커넥터를 기본 제공하며, REST/SOAP API를 통해 어떤 외부 시스템이나 DB와도 연동할 수 있습니다.</p>
+          </div>
+        </div>
+        <div class="lc-faq-item">
+          <button class="lc-faq-q" onclick="toggleFaq(this)">
+            <span>로우코드면 엔터프라이즈급 보안이나 확장성에 문제가 없나요?</span>
+            <span class="ms lc-faq-arr">expand_more</span>
+          </button>
+          <div class="lc-faq-a">
+            <p>OutSystems는 단순 시민 개발자용 툴이 아닌 전문 개발자를 위한 High-Performance 플랫폼입니다. SOC2·ISO·HIPAA 등 글로벌 최고 수준의 보안 컴플라이언스를 충족하며 대규모 B2C 서비스도 안정적으로 처리합니다.</p>
+          </div>
+        </div>
+        <div class="lc-faq-item">
+          <button class="lc-faq-q" onclick="toggleFaq(this)">
+            <span>실제 개발 비용과 기간은 얼마나 단축되나요?</span>
+            <span class="ms lc-faq-arr">expand_more</span>
+          </button>
+          <div class="lc-faq-a">
+            <p>전통적인 Hand-coding 대비 개발 기간은 6~10배 단축, 초기 구축 및 유지보수 비용(TCO)은 40~60% 절감됩니다. 5,200개 이상의 재사용 가능 컴포넌트(Forge)를 활용하여 기술 부채를 원천 차단합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 CTA -->
+  <section class="it-block" style="background:#2a2d34;text-align:center">
+    <div class="wrap">
+      <h2 class="it-title" style="color:#fff">복잡한 엔터프라이즈 앱 개발,<br>가장 빠르고 완벽한 해답.</h2>
+      <p class="it-desc" style="color:#b9bcc4;margin:20px auto 36px;max-width:600px">에코아이티의 OutSystems 전문가가 귀사의 비즈니스 과제를 듣고<br>최적의 아키텍처와 로드맵을 제안해 드립니다.</p>
+      <button class="lc-cta-btn" onclick="openContact(event)">도입 문의 및 컨설팅 상담</button>
+    </div>
+  </section>
+
+</div>
+
+<div id="footer-root"></div>
+<div id="modal-root"></div>
+
+<script src="shared/common.js"></script>
+<script>
+(function waitDeps(){
+  if(!window.THREE||!window.gsap){return setTimeout(waitDeps,50);}
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(initAxParticles);}
+  else{initAxParticles();}
+})();
+
+function initAxParticles(){
+  const container=document.getElementById('ax-hero');
+  if(!container)return;
+  const scene=new THREE.Scene();
+  const w0=container.clientWidth,h0=container.clientHeight;
+  const camera=new THREE.PerspectiveCamera(50,w0/h0,0.1,2000);
+  camera.position.z=150;
+  const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.setSize(w0,h0);
+  renderer.setClearColor(0x0f1115,0);
+  renderer.domElement.style.cssText='position:absolute;top:0;left:0;width:100%;height:100%;z-index:1';
+  container.appendChild(renderer.domElement);
+  const isMobile=()=>container.clientWidth<=768;
+  scene.position.x=isMobile()?0:34;
+  scene.position.y=isMobile()?30:0;
+  const CW=800,CH=280;
+  function sampleText(lines,fontSizes){
+    const off=document.createElement('canvas');
+    off.width=CW;off.height=CH;
+    const ctx=off.getContext('2d');
+    ctx.fillStyle='#fff';
+    lines.forEach((line,i)=>{
+      ctx.font=`800 ${fontSizes[i]}px 'Pretendard',Arial Black,sans-serif`;
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      const yOff=lines.length===1?CH/2:(i===0?CH*0.36:CH*0.72);
+      ctx.fillText(line,CW/2,yOff);
+    });
+    const{data}=ctx.getImageData(0,0,CW,CH);
+    const pts=[];
+    for(let y=0;y<CH;y+=4)
+      for(let x=0;x<CW;x+=4)
+        if(data[(y*CW+x)*4]>128&&Math.random()>0.22)
+          pts.push([(x/CW-0.5)*96,-(y/CH-0.5)*72,(Math.random()-0.5)*1.0]);
+    return pts;
+  }
+  const rawSets=[
+    sampleText(['AX'],[300]),
+    sampleText(['RPA'],[240]),
+    sampleText(['Bot'],[220]),
+    sampleText(['NLU'],[240]),
+  ];
+  const MAX_N=Math.max(...rawSets.map(s=>s.length));
+  function padAndShuffle(pts,n){
+    const out=pts.map(p=>[...p]);
+    while(out.length<n){const src=pts[Math.floor(Math.random()*pts.length)];out.push([src[0]+(Math.random()-0.5)*2,src[1]+(Math.random()-0.5)*2,(Math.random()-0.5)*1.5]);}
+    for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}
+    return out.slice(0,n);
+  }
+  const textSets=rawSets.map(pts=>padAndShuffle(pts,MAX_N));
+  const posArr=new Float32Array(MAX_N*3);
+  for(let i=0;i<MAX_N;i++){posArr[i*3]=(Math.random()-0.5)*200;posArr[i*3+1]=(Math.random()-0.5)*120;posArr[i*3+2]=(Math.random()-0.5)*60;}
+  const geoText=new THREE.BufferGeometry();
+  const posAttr=new THREE.BufferAttribute(posArr,3);
+  geoText.setAttribute('position',posAttr);
+  scene.add(new THREE.Points(geoText,new THREE.PointsMaterial({color:0xffffff,size:1.64,sizeAttenuation:true,transparent:true,opacity:0.95})));
+  const AMBIENT=460;
+  const ambPosArr=new Float32Array(AMBIENT*3);
+  for(let i=0;i<AMBIENT;i++){ambPosArr[i*3]=(Math.random()-0.5)*320;ambPosArr[i*3+1]=(Math.random()-0.5)*160;ambPosArr[i*3+2]=(Math.random()-0.5)*90;}
+  const geoAmb=new THREE.BufferGeometry();
+  geoAmb.setAttribute('position',new THREE.BufferAttribute(ambPosArr,3));
+  scene.add(new THREE.Points(geoAmb,new THREE.PointsMaterial({color:0x5a5a64,size:1.19,sizeAttenuation:true,transparent:true,opacity:0.75})));
+  let fromSnap=Array.from({length:MAX_N},(_,i)=>[posArr[i*3],posArr[i*3+1],posArr[i*3+2]]);
+  function morphTo(toIdx,duration){
+    const dur=duration??1.6;
+    const to=textSets[toIdx],from=fromSnap,proxy={t:0};
+    gsap.to(proxy,{t:1,duration:dur,ease:'power2.inOut',
+      onUpdate(){const t=proxy.t;for(let i=0;i<MAX_N;i++){posArr[i*3]=from[i][0]+(to[i][0]-from[i][0])*t;posArr[i*3+1]=from[i][1]+(to[i][1]-from[i][1])*t;posArr[i*3+2]=from[i][2]+(to[i][2]-from[i][2])*t;}posAttr.needsUpdate=true;},
+      onComplete(){fromSnap=to.map(p=>[...p]);gsap.delayedCall(3,()=>morphTo((toIdx+1)%textSets.length));}
+    });
+  }
+  morphTo(0,2.2);
+  // Keyword sprites
+  function makeKeywordSprite(text){
+    const dpr=Math.min(devicePixelRatio,2),fs=28,pad=22;
+    const fontStr=`300 ${fs}px 'Pretendard',sans-serif`;
+    const mc=document.createElement('canvas').getContext('2d');
+    mc.font=fontStr;
+    const m=mc.measureText(text);
+    const logW=Math.ceil(m.width)+pad*2,logH=fs+pad;
+    const c=document.createElement('canvas');
+    c.width=logW*dpr;c.height=logH*dpr;
+    const ctx=c.getContext('2d');
+    ctx.scale(dpr,dpr);ctx.font=fontStr;ctx.fillStyle='#7a7a88';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(text,logW/2,logH/2);
+    const tex=new THREE.CanvasTexture(c);
+    const mat=new THREE.SpriteMaterial({map:tex,transparent:true,depthWrite:false,opacity:0.80});
+    const sp=new THREE.Sprite(mat);
+    const wH=9;sp.scale.set(wH*(logW/logH),wH,1);
+    return sp;
+  }
+  [{text:'Chatbot',x:-56,y:30,z:-18},{text:'LLM',x:52,y:28,z:-14},{text:'Automation',x:4,y:-32,z:12},{text:'Agentic',x:50,y:-26,z:-20}]
+  .forEach(({text,x,y,z})=>{const sp=makeKeywordSprite(text);sp.position.set(x,y,z);scene.add(sp);});
+  let clock=0;
+  (function animate(){requestAnimationFrame(animate);clock+=0.008;scene.rotation.y=Math.sin(clock*1.68)*0.5;renderer.render(scene,camera);})();
+  function onResize(){const w=container.clientWidth,h=container.clientHeight;if(!w||!h)return;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h);if(w<=768){scene.position.x=0;scene.position.y=30;}else{scene.position.x=34;scene.position.y=0;}}
+  window.addEventListener('resize',onResize);
+}
+
+function toggleFaq(btn){
+  btn.closest('.lc-faq-item').classList.toggle('open');
+}
+function showAX(i){
+  document.querySelectorAll('.ax-tab').forEach((t,idx)=>t.classList.toggle('active',idx===i));
+  document.querySelectorAll('.ax-panel').forEach((p,idx)=>p.classList.toggle('active',idx===i));
+}
+</script>
+</body>
+</html>

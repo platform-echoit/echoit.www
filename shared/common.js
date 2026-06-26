@@ -32,7 +32,7 @@ const _cmScript = document.currentScript;
     (function(){
       const page=location.pathname.split('/').pop()||'index.html';
       const map={
-        'hancom-orchestrator.html':0,'hancom-ai.html':0,'hancom-solution.html':0,'ito.html':0,
+        'hancom-orchestrator.html':0,'hancom-ai.html':0,'hancom-solution.html':0,'ito.html':0,'ax-service.html':0,
         'esg.html':1,'newsletter.html':1,
         'recruit.html':2,
         'company.html':3
