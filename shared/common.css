@@ -111,9 +111,9 @@ a{text-decoration:none;color:inherit}
 
 /* ── STATS ── */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);background:linear-gradient(100deg,#0d6640,#005b87);margin-top:28px}
-.stat{padding:32px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.18)}
+.stat{padding:16px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.18)}
 .stat:last-child{border-right:none}
-.sn{font-weight:700;font-size:clamp(32px,3.5vw,46px);line-height:1;color:#fff}
+.sn{font-weight:700;font-size:clamp(22px,2.45vw,32px);line-height:1;color:#fff}
 .sl{margin-top:8px;font:400 13px/1.4 'Pretendard';color:rgba(255,255,255,.72)}
 
 /* ── AX CHRONICLES ── */

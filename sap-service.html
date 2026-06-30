@@ -1,0 +1,456 @@
+<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="Business · 에코아이티 SAP Service" subtitle="SAP Cloud ERP 전환 — 구축부터 운영까지 End-to-End" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECHOIT — 에코아이티의 SAP Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+<link rel="stylesheet" href="shared/common.css">
+
+<!-- Three.js (UMD global) + GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+
+<script>window.__breadcrumb=['Business','SAP Service'];</script>
+<div id="nav-root"></div>
+
+<style>
+/* ── HERO (SAP 공통 — sap-ai-coding.html과 동일) ── */
+.eb-hero{position:relative;overflow:hidden;height:36vh;min-height:320px;background:#0f1115;color:#fff}
+.esg-hero-inner{position:relative;z-index:10;height:100%;display:flex;align-items:center;max-width:1200px;margin:0 auto;padding:0 32px;gap:0}
+.esg-p-zone{flex:0 0 50%;height:100%;pointer-events:none}
+.esg-t-zone{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:10px}
+.eb-eye{font:700 12px/1 'Pretendard';letter-spacing:.14em;text-transform:uppercase;color:#7fd3f3}
+.eb-h1{font-weight:800;font-size:clamp(28px,3.8vw,46px);line-height:1.14;letter-spacing:-1px;color:#fff;margin:0}
+.eb-h1 .g{background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.eb-sub{max-width:520px;font:400 15px/1.7 'Pretendard';color:#b9bcc4;word-break:keep-all;margin:0}
+@media(max-width:1024px){.esg-p-zone{flex:0 0 45%}}
+@media(max-width:768px){
+  .eb-hero{height:calc(48vh - 100px);min-height:240px}
+  .esg-hero-inner{flex-direction:column-reverse;justify-content:flex-end;padding:0 20px 24px}
+  .esg-p-zone{flex:0 0 44%;width:100%;height:auto}
+  .esg-t-zone{width:100%;align-items:flex-start}
+}
+
+/* ── SECTION BASE ── */
+.it-block{padding:80px 0}
+.it-block.alt{background:#f7f8fa;border-top:1px dashed #ccc}
+.it-head{text-align:center;max-width:860px;margin:0 auto 48px}
+.it-eye{font:700 12px/1 'Pretendard';letter-spacing:.12em;text-transform:uppercase;color:var(--b)}
+.it-title{margin:14px 0 0;font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.18;letter-spacing:-.6px;word-break:keep-all}
+.it-desc{margin:16px 0 0;font:400 16px/1.7 'Pretendard';color:#666;word-break:keep-all}
+
+/* ── 00 INTRO ── */
+.sa-intro-tx{max-width:840px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center}
+.sa-intro-eye{display:inline-flex;align-items:center;gap:8px;font:700 12px/1 'Pretendard';letter-spacing:.1em;text-transform:uppercase;color:var(--b)}
+.sa-intro-tx h2{font:800 clamp(26px,3vw,36px)/1.25 'Pretendard';letter-spacing:-.6px;color:#141920;margin:14px 0 0;word-break:keep-all}
+.sa-intro-tx p{font:400 16px/1.8 'Pretendard';color:#555;margin:20px 0 0;word-break:keep-all}
+.sa-band{margin:40px auto 0;max-width:980px;border-radius:18px;background:var(--grd);color:#fff;padding:28px 38px;display:flex;align-items:center;gap:20px}
+.sa-band-ic{flex:0 0 52px;width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center}
+.sa-band-ic .ms{font-size:26px}
+.sa-band p{font:700 19px/1.45 'Pretendard';margin:0;word-break:keep-all;letter-spacing:-.3px}
+
+/* ── 01 METHODOLOGY FLOW ── */
+.sa-flow{display:flex;align-items:stretch;gap:18px;margin-top:8px}
+.sa-phase{flex:1;position:relative;border:1px solid #eee;border-radius:18px;padding:30px 26px;background:#fff;display:flex;flex-direction:column;gap:14px;transition:box-shadow .18s,border-color .18s,transform .18s}
+.sa-phase:hover{box-shadow:0 14px 34px rgba(0,0,0,.09);border-color:#009ce0;transform:translateY(-4px)}
+.sa-phase-top{display:flex;align-items:center;gap:13px}
+.sa-phase-ic{width:48px;height:48px;border-radius:13px;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sa-phase-ic .ms{font-size:25px}
+.sa-flow .sa-phase:nth-child(1) .sa-phase-ic{background:#89c895}
+.sa-flow .sa-phase:nth-child(3) .sa-phase-ic{background:#3eabbf}
+.sa-flow .sa-phase:nth-child(5) .sa-phase-ic{background:#009ce0}
+.sa-phase-tag{font:700 11px/1 'Pretendard';letter-spacing:.08em;text-transform:uppercase;color:#9aa3ad}
+.sa-phase h4{font:700 18px/1.3 'Pretendard';color:#141920;margin:2px 0 0;word-break:keep-all}
+.sa-pl{list-style:none;margin:6px 0 0;padding:16px 0 0;border-top:1px solid #eee;display:flex;flex-direction:column;gap:10px}
+.sa-pl li{position:relative;padding-left:24px;font:500 13.5px/1.5 'Pretendard';color:#374049;word-break:keep-all}
+.sa-pl li .ms{position:absolute;left:0;top:1px;font-size:17px;color:#009ce0}
+.sa-flow-arrow{flex:0 0 auto;align-self:center;color:#cdd4dc;display:flex;align-items:center}
+.sa-flow-arrow .ms{font-size:26px}
+.sa-method-img{position:relative;margin-top:36px;border:1px solid #eaeaea;border-radius:18px;overflow:hidden;background:#fff;cursor:zoom-in;display:flex;justify-content:center;padding:28px;transition:box-shadow .18s,border-color .18s,transform .18s}
+.sa-method-img:hover{box-shadow:0 16px 38px rgba(0,0,0,.1);border-color:#009ce0;transform:translateY(-3px)}
+.sa-method-img img{width:80%;max-width:740px;height:auto;display:block}
+.sa-method-zoom{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:9px;background:rgba(15,17,21,.55);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .18s}
+.sa-method-zoom .ms{font-size:18px}
+.sa-method-img:hover .sa-method-zoom{opacity:1}
+.sa-method-cap{margin-top:18px;text-align:center;font:400 13.5px/1.6 'Pretendard';color:#9aa3ad}
+.sa-method-cap .ms{font-size:16px;color:#009ce0;vertical-align:-3px;margin-right:4px}
+/* lightbox */
+.sa-lb{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;background:rgba(10,12,16,.86);padding:32px;backdrop-filter:blur(4px)}
+.sa-lb.open{display:flex}
+.sa-lb-box{position:relative;max-width:1100px;width:100%;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.sa-lb-box img{width:100%;height:auto;max-height:78vh;object-fit:contain;display:block;background:#fff}
+.sa-lb-cap{padding:18px 24px;font:700 16px/1.3 'Pretendard';color:#141920;border-top:1px solid #eee}
+.sa-lb-close{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;border:none;background:rgba(15,17,21,.55);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s;z-index:2}
+.sa-lb-close:hover{background:rgba(15,17,21,.85)}
+.sa-lb-close .ms{font-size:22px}
+
+/* ── 02 SERVICES ── */
+.sa-svc{border:1px solid #eee;border-radius:20px;background:#fff;overflow:hidden;display:grid;grid-template-columns:340px 1fr;transition:box-shadow .18s,border-color .18s}
+.sa-svc:hover{box-shadow:0 16px 40px rgba(0,0,0,.08);border-color:#009ce0}
+.sa-svc + .sa-svc{margin-top:24px}
+.sa-svc-side{background:var(--grd);color:#fff;padding:38px 34px;display:flex;flex-direction:column;justify-content:center;gap:14px;position:relative;overflow:hidden;isolation:isolate}
+.sa-svc-side::before{content:"";position:absolute;left:-46px;top:-54px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.12);z-index:-1}
+.sa-svc-side::after{content:"";position:absolute;right:-50px;bottom:-60px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.14);z-index:-1}
+.sa-svc-orb{position:absolute;right:34px;bottom:-22px;width:108px;height:108px;border-radius:50%;background:rgba(255,255,255,.1);z-index:-1;pointer-events:none}
+/* 카드별 원 위치 변형 */
+.sa-svc.v2 .sa-svc-side::before{left:auto;right:-40px;top:-50px;width:170px;height:170px}
+.sa-svc.v2 .sa-svc-side::after{right:auto;left:-56px;bottom:-50px;width:180px;height:180px}
+.sa-svc.v2 .sa-svc-orb{right:auto;left:46px;top:-30px;bottom:auto;width:90px;height:90px}
+.sa-svc.v3 .sa-svc-side::before{left:42%;top:-64px;width:130px;height:130px}
+.sa-svc.v3 .sa-svc-side::after{right:30%;bottom:-70px;width:200px;height:200px}
+.sa-svc.v3 .sa-svc-orb{right:auto;left:-34px;top:40%;bottom:auto;width:124px;height:124px}
+.sa-svc-no{display:inline-flex;align-items:center;gap:9px;font:700 12px/1 'Pretendard';letter-spacing:.1em;color:rgba(255,255,255,.92);position:relative;z-index:1}
+.sa-svc-no .ms{font-size:18px}
+.sa-svc-side h3{font:800 22px/1.32 'Pretendard';letter-spacing:-.4px;margin:6px 0 0;position:relative;z-index:1;word-break:keep-all}
+.sa-svc-side p{font:400 14px/1.65 'Pretendard';color:rgba(255,255,255,.9);margin:6px 0 0;position:relative;z-index:1;word-break:keep-all}
+.sa-svc-body{padding:34px 36px}
+.sa-svc-body .lbl{font:700 12px/1 'Pretendard';letter-spacing:.08em;text-transform:uppercase;color:var(--b);margin:0 0 18px}
+.sa-svc-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+.sa-svc-list li{position:relative;padding-left:28px;font:500 14.5px/1.5 'Pretendard';color:#374049;word-break:keep-all}
+.sa-svc-list li .ms{position:absolute;left:0;top:0;font-size:19px;color:#009ce0}
+
+/* ── 03 CTA ── */
+.sa-cta{position:relative;overflow:hidden;border-radius:24px;background:var(--grd);color:#fff;text-align:center;padding:64px 40px;max-width:1040px;margin:0 auto}
+.sa-cta::before{content:"";position:absolute;left:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.1)}
+.sa-cta::after{content:"";position:absolute;right:-50px;bottom:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.08)}
+.sa-cta h2{font:800 clamp(26px,3vw,38px)/1.25 'Pretendard';letter-spacing:-.6px;margin:0;position:relative;z-index:1;word-break:keep-all}
+.sa-cta p{font:400 16px/1.7 'Pretendard';color:rgba(255,255,255,.92);margin:18px 0 0;position:relative;z-index:1;word-break:keep-all;max-width:640px;margin-left:auto;margin-right:auto}
+.sa-cta-btn{display:inline-flex;align-items:center;gap:9px;margin-top:30px;padding:16px 32px;border-radius:999px;background:#fff;color:#0f1115;font:700 15px/1 'Pretendard';text-decoration:none;position:relative;z-index:1;transition:transform .16s,box-shadow .16s}
+.sa-cta-btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.22)}
+.sa-cta-btn .ms{font-size:20px}
+
+@media(max-width:1024px){
+  .sa-flow{flex-direction:column;gap:14px}
+  .sa-flow-arrow{transform:rotate(90deg)}
+  .sa-svc{grid-template-columns:1fr}
+  .sa-svc-side{padding:30px 30px}
+}
+@media(max-width:768px){
+  .it-block{padding:56px 0}
+  .sa-band{flex-direction:column;text-align:center;gap:14px;padding:26px 24px}
+  .sa-band p{font-size:17px}
+  .sa-svc-list{grid-template-columns:1fr;gap:12px}
+  .sa-svc-body{padding:28px 26px}
+  .sa-method-img{padding:16px}
+  .sa-method-img img{width:100%}
+  .sa-lb{padding:18px}
+  .sa-cta{padding:48px 26px;border-radius:18px}
+}
+</style>
+
+<!-- ── HERO (SAP 공통 — sap-ai-coding.html과 동일) ── -->
+<section class="eb-hero" id="sap-hero">
+  <svg id="sap-bg" style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="g1" gradientUnits="userSpaceOnUse" cx="180" cy="200" r="560"><stop offset="0%" stop-color="#009ce0" stop-opacity="0.4"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g2" gradientUnits="userSpaceOnUse" cx="1290" cy="60" r="320"><stop offset="0%" stop-color="#89c895" stop-opacity="0.3"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g3" gradientUnits="userSpaceOnUse" cx="780" cy="410" r="280"><stop offset="0%" stop-color="#3aa0d8" stop-opacity="0.2"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1440" height="400" fill="#0f1115"/>
+    <rect width="1440" height="400" fill="url(#g1)"/>
+    <rect width="1440" height="400" fill="url(#g2)"/>
+    <rect width="1440" height="400" fill="url(#g3)"/>
+  </svg>
+  <div class="esg-hero-inner">
+    <div class="esg-t-zone">
+      <p class="eb-eye">Business · SAP</p>
+      <h1 class="eb-h1">비즈니스의 미래를 움직이는<br><span class="g">지능형 SAP Cloud ERP</span></h1>
+      <p class="eb-sub">비즈니스의 핵심 프로세스를 통합 관리하며, 지속 가능한 비즈니스 가치를 창출합니다.</p>
+    </div>
+    <div class="esg-p-zone" id="sap-p-zone"></div>
+  </div>
+</section>
+
+<!-- ── 00 INTRO ── -->
+<section class="it-block" id="intro">
+  <div class="wrap">
+    <div class="sa-intro-tx">
+      <span class="sa-intro-eye"><span class="ms" style="font-size:17px">hub</span>End-to-End SAP Service</span>
+      <h2>SAP Cloud ERP 전환,<br>에코아이티가 제공하는 서비스</h2>
+      <p>에코아이티는 SAP ECC부터 SAP S/4HANA, SAP Cloud ERP까지 다양한 구축 및 운영 경험을 기반으로 고객의 ERP 현대화 여정을 지원합니다. 단순한 시스템 전환을 넘어 비즈니스 프로세스 혁신, 클라우드 전환, 운영 최적화, Clean Core 전략 수립까지 End-to-End 서비스를 제공합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 01 METHODOLOGY ── -->
+<section class="it-block alt" id="methodology">
+  <div class="wrap">
+    <div class="it-head">
+      <p class="it-eye">Conversion Methodology</p>
+      <h2 class="it-title">에코아이티 전환 방법론 단계</h2>
+      <p class="it-desc">사전 작업(Pre-Conversion), 마이그레이션 및 버전 전환(Conversion), 그리고 사후 지원(Post-Conversion)에 이르는 상세 흐름을 체계적으로 적용합니다.</p>
+    </div>
+    <div class="sa-flow">
+      <div class="sa-phase">
+        <div class="sa-phase-top">
+          <div class="sa-phase-ic"><span class="ms">fact_check</span></div>
+          <div>
+            <div class="sa-phase-tag">STEP 01</div>
+            <h4>Pre-Conversion</h4>
+          </div>
+        </div>
+        <ul class="sa-pl">
+          <li><span class="ms">arrow_right</span>시스템 진단 및 현황 분석</li>
+          <li><span class="ms">arrow_right</span>전환 범위·전략 수립</li>
+          <li><span class="ms">arrow_right</span>커스텀 코드 적합성 사전 점검</li>
+          <li><span class="ms">arrow_right</span>데이터 정비 및 사전 준비</li>
+        </ul>
+      </div>
+      <div class="sa-flow-arrow"><span class="ms">arrow_forward</span></div>
+      <div class="sa-phase">
+        <div class="sa-phase-top">
+          <div class="sa-phase-ic"><span class="ms">sync_alt</span></div>
+          <div>
+            <div class="sa-phase-tag">STEP 02</div>
+            <h4>Conversion</h4>
+          </div>
+        </div>
+        <ul class="sa-pl">
+          <li><span class="ms">arrow_right</span>마이그레이션 및 버전 전환</li>
+          <li><span class="ms">arrow_right</span>데이터 전환 및 검증</li>
+          <li><span class="ms">arrow_right</span>커스텀 코드 조정·최적화</li>
+          <li><span class="ms">arrow_right</span>통합 테스트 및 성능 검증</li>
+        </ul>
+      </div>
+      <div class="sa-flow-arrow"><span class="ms">arrow_forward</span></div>
+      <div class="sa-phase">
+        <div class="sa-phase-top">
+          <div class="sa-phase-ic"><span class="ms">rocket_launch</span></div>
+          <div>
+            <div class="sa-phase-tag">STEP 03</div>
+            <h4>Post-Conversion</h4>
+          </div>
+        </div>
+        <ul class="sa-pl">
+          <li><span class="ms">arrow_right</span>Cut-Over 및 Go-Live 지원</li>
+          <li><span class="ms">arrow_right</span>운영 안정화 및 모니터링</li>
+          <li><span class="ms">arrow_right</span>성능 개선 및 최적화</li>
+          <li><span class="ms">arrow_right</span>지속 운영(AMS) 지원</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sa-method-img" id="methodDiagram" data-cap="Pre-Conversion · Conversion · Post-Conversion 상세 단계">
+      <img src="assets/images/sap-service/conversion-methodology.png" alt="SAP S/4HANA 전환 방법론 상세 단계 — Discovery/Prepare Phase와 Realize Phase, Pre-Conversion·Conversion·Post-Conversion 흐름도">
+      <div class="sa-method-zoom"><span class="ms">zoom_in</span></div>
+    </div>
+    <p class="sa-method-cap"><span class="ms">touch_app</span>Pre-Conversion · Conversion · Post-Conversion 상세 단계 — 클릭하면 확대해서 보실 수 있습니다.</p>
+  </div>
+</section>
+
+<!-- ── 02 SERVICES ── -->
+<section class="it-block" id="services">
+  <div class="wrap">
+    <div class="it-head">
+      <p class="it-eye">Our Services</p>
+      <h2 class="it-title">에코아이티 제공 서비스</h2>
+      <p class="it-desc">전환·구축·운영부터 Clean Core 전략까지, 고객 비즈니스에 최적화된 SAP 서비스를 제공합니다.</p>
+    </div>
+
+    <div class="sa-svc">
+      <div class="sa-svc-side">
+        <span class="sa-svc-orb"></span>
+        <span class="sa-svc-no"><span class="ms">bolt</span>SERVICE 01</span>
+        <h3>SAP S/4HANA Conversion &amp; Upgrade Service</h3>
+        <p>기존 ERP 자산을 보호하면서 안전하게 차세대 ERP로 전환</p>
+      </div>
+      <div class="sa-svc-body">
+        <p class="lbl">주요 서비스</p>
+        <ul class="sa-svc-list">
+          <li><span class="ms">check_circle</span>SAP ECC → SAP S/4HANA Conversion</li>
+          <li><span class="ms">check_circle</span>SAP ERP Upgrade 및 버전 전환</li>
+          <li><span class="ms">check_circle</span>Custom Code 적합성 분석 및 조정</li>
+          <li><span class="ms">check_circle</span>데이터 마이그레이션 및 검증</li>
+          <li><span class="ms">check_circle</span>인터페이스 영향도 분석</li>
+          <li><span class="ms">check_circle</span>Cut-Over 및 Go-Live 지원</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sa-svc v2">
+      <div class="sa-svc-side">
+        <span class="sa-svc-orb"></span>
+        <span class="sa-svc-no"><span class="ms">build</span>SERVICE 02</span>
+        <h3>SAP 구축(개발) · 운영 Service</h3>
+        <p>구축부터 운영까지 고객 비즈니스에 최적화된 ERP 서비스 제공</p>
+      </div>
+      <div class="sa-svc-body">
+        <p class="lbl">주요 서비스</p>
+        <ul class="sa-svc-list">
+          <li><span class="ms">check_circle</span>SAP Cloud ERP 구축 및 Roll-Out</li>
+          <li><span class="ms">check_circle</span>SAP 모듈별 컨설팅 및 개발</li>
+          <li><span class="ms">check_circle</span>인터페이스 및 연계 시스템 구축</li>
+          <li><span class="ms">check_circle</span>AMS(Application Management Service)</li>
+          <li><span class="ms">check_circle</span>운영 안정화·성능 개선·글로벌 ERP 운영</li>
+          <li><span class="ms">check_circle</span>SAP Business AI 및 신규 기능 적용</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sa-svc v3">
+      <div class="sa-svc-side">
+        <span class="sa-svc-orb"></span>
+        <span class="sa-svc-no"><span class="ms">eco</span>SERVICE 03</span>
+        <h3>Clean Core 전환 Service</h3>
+        <p>지속 가능한 ERP 혁신을 위한 표준 중심 아키텍처 구축</p>
+      </div>
+      <div class="sa-svc-body">
+        <p class="lbl">주요 서비스</p>
+        <ul class="sa-svc-list">
+          <li><span class="ms">check_circle</span>Clean Core 진단 및 로드맵 수립</li>
+          <li><span class="ms">check_circle</span>Custom Code 표준화 및 정비</li>
+          <li><span class="ms">check_circle</span>SAP Best Practice 적용</li>
+          <li><span class="ms">check_circle</span>SAP BTP 기반 Extension 설계·Side-by-Side</li>
+          <li><span class="ms">check_circle</span>업그레이드 영향도 최소화 전략 수립</li>
+          <li><span class="ms">check_circle</span>SAP Business Suite 전환 지원</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<div id="modal-root"></div>
+
+<!-- lightbox -->
+<div class="sa-lb" id="saLb" role="dialog" aria-modal="true" aria-label="전환 방법론 확대">
+  <div class="sa-lb-box">
+    <button class="sa-lb-close" id="saLbClose" aria-label="닫기"><span class="ms">close</span></button>
+    <img id="saLbImg" src="assets/images/sap-service/conversion-methodology.png" alt="SAP S/4HANA 전환 방법론 상세 단계 확대">
+    <div class="sa-lb-cap" id="saLbCap"></div>
+  </div>
+</div>
+
+<script src="shared/common.js"></script>
+<script>
+/* ── 라이트박스 (전환 방법론 확대) ── */
+(function(){
+  const lb=document.getElementById('saLb'),cap=document.getElementById('saLbCap'),trigger=document.getElementById('methodDiagram');
+  function open(){cap.textContent=trigger.getAttribute('data-cap')||'';lb.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';}
+  trigger.addEventListener('click',open);
+  document.getElementById('saLbClose').addEventListener('click',close);
+  lb.addEventListener('click',e=>{if(e.target===lb)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))close();});
+})();
+
+/* ── HERO 파티클 (SAP 공통 — sap-ai-coding.html과 동일) ── */
+(function waitDeps(){
+  if(!window.THREE||!window.gsap){return setTimeout(waitDeps,50);}
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(initSapParticles);}
+  else{initSapParticles();}
+})();
+
+function initSapParticles(){
+  const container=document.getElementById('sap-hero');
+  if(!container)return;
+  const scene=new THREE.Scene();
+  const w0=container.clientWidth,h0=container.clientHeight;
+  const camera=new THREE.PerspectiveCamera(50,w0/h0,0.1,2000);
+  camera.position.z=150;
+  const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.setSize(w0,h0);
+  renderer.setClearColor(0x0f1115,0);
+  renderer.domElement.style.cssText='position:absolute;top:0;left:0;width:100%;height:100%;z-index:1';
+  container.appendChild(renderer.domElement);
+  const isMobile=()=>container.clientWidth<=768;
+  scene.position.x=isMobile()?0:34;
+  scene.position.y=isMobile()?30:0;
+  const CW=800,CH=280;
+  function sampleText(lines,fontSizes){
+    const off=document.createElement('canvas');
+    off.width=CW;off.height=CH;
+    const ctx=off.getContext('2d');
+    ctx.fillStyle='#fff';
+    lines.forEach((line,i)=>{
+      ctx.font=`800 ${fontSizes[i]}px 'Pretendard',Arial Black,sans-serif`;
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      const yOff=lines.length===1?CH/2:(i===0?CH*0.36:CH*0.72);
+      ctx.fillText(line,CW/2,yOff);
+    });
+    const{data}=ctx.getImageData(0,0,CW,CH);
+    const pts=[];
+    for(let y=0;y<CH;y+=4)
+      for(let x=0;x<CW;x+=4)
+        if(data[(y*CW+x)*4]>128&&Math.random()>0.22)
+          pts.push([(x/CW-0.5)*96,-(y/CH-0.5)*72,(Math.random()-0.5)*1.0]);
+    return pts;
+  }
+  /* placeholder 텍스트 세트 — SAP 하부 페이지 전체 제작 후 공통 확정 */
+  const rawSets=[
+    sampleText(['SAP'],[300]),
+    sampleText(['ERP'],[280]),
+    sampleText(['S/4'],[260]),
+    sampleText(['ABAP'],[200]),
+  ];
+  const MAX_N=Math.max(...rawSets.map(s=>s.length));
+  function padAndShuffle(pts,n){
+    const out=pts.map(p=>[...p]);
+    while(out.length<n){const src=pts[Math.floor(Math.random()*pts.length)];out.push([src[0]+(Math.random()-0.5)*2,src[1]+(Math.random()-0.5)*2,(Math.random()-0.5)*1.5]);}
+    for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}
+    return out.slice(0,n);
+  }
+  const textSets=rawSets.map(pts=>padAndShuffle(pts,MAX_N));
+  const posArr=new Float32Array(MAX_N*3);
+  for(let i=0;i<MAX_N;i++){posArr[i*3]=(Math.random()-0.5)*200;posArr[i*3+1]=(Math.random()-0.5)*120;posArr[i*3+2]=(Math.random()-0.5)*60;}
+  const geoText=new THREE.BufferGeometry();
+  const posAttr=new THREE.BufferAttribute(posArr,3);
+  geoText.setAttribute('position',posAttr);
+  scene.add(new THREE.Points(geoText,new THREE.PointsMaterial({color:0xffffff,size:1.64,sizeAttenuation:true,transparent:true,opacity:0.95})));
+  const AMBIENT=460;
+  const ambPosArr=new Float32Array(AMBIENT*3);
+  for(let i=0;i<AMBIENT;i++){ambPosArr[i*3]=(Math.random()-0.5)*320;ambPosArr[i*3+1]=(Math.random()-0.5)*160;ambPosArr[i*3+2]=(Math.random()-0.5)*90;}
+  const geoAmb=new THREE.BufferGeometry();
+  geoAmb.setAttribute('position',new THREE.BufferAttribute(ambPosArr,3));
+  scene.add(new THREE.Points(geoAmb,new THREE.PointsMaterial({color:0x5a5a64,size:1.19,sizeAttenuation:true,transparent:true,opacity:0.75})));
+  let fromSnap=Array.from({length:MAX_N},(_,i)=>[posArr[i*3],posArr[i*3+1],posArr[i*3+2]]);
+  function morphTo(toIdx,duration){
+    const dur=duration??1.6;
+    const to=textSets[toIdx],from=fromSnap,proxy={t:0};
+    gsap.to(proxy,{t:1,duration:dur,ease:'power2.inOut',
+      onUpdate(){const t=proxy.t;for(let i=0;i<MAX_N;i++){posArr[i*3]=from[i][0]+(to[i][0]-from[i][0])*t;posArr[i*3+1]=from[i][1]+(to[i][1]-from[i][1])*t;posArr[i*3+2]=from[i][2]+(to[i][2]-from[i][2])*t;}posAttr.needsUpdate=true;},
+      onComplete(){fromSnap=to.map(p=>[...p]);gsap.delayedCall(3,()=>morphTo((toIdx+1)%textSets.length));}
+    });
+  }
+  morphTo(0,2.2);
+  function makeKeywordSprite(text){
+    const dpr=Math.min(devicePixelRatio,2),fs=28,pad=22;
+    const fontStr=`300 ${fs}px 'Pretendard',sans-serif`;
+    const mc=document.createElement('canvas').getContext('2d');
+    mc.font=fontStr;
+    const m=mc.measureText(text);
+    const logW=Math.ceil(m.width)+pad*2,logH=fs+pad;
+    const c=document.createElement('canvas');
+    c.width=logW*dpr;c.height=logH*dpr;
+    const ctx=c.getContext('2d');
+    ctx.scale(dpr,dpr);ctx.font=fontStr;ctx.fillStyle='#7a7a88';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(text,logW/2,logH/2);
+    const tex=new THREE.CanvasTexture(c);
+    const mat=new THREE.SpriteMaterial({map:tex,transparent:true,depthWrite:false,opacity:0.80});
+    const sp=new THREE.Sprite(mat);
+    const wH=9;sp.scale.set(wH*(logW/logH),wH,1);
+    return sp;
+  }
+  /* placeholder 키워드 — 추후 확정 */
+  const SAP_KEYWORDS=[
+    {text:'S/4HANA',x:-58,y:30,z:-20},
+    {text:'Clean Core',x:50,y:28,z:-15},
+    {text:'Agentic AI',x:48,y:-28,z:-22},
+    {text:'SAP.iO',x:4,y:46,z:15},
+  ];
+  SAP_KEYWORDS.forEach(({text,x,y,z})=>{const sp=makeKeywordSprite(text);sp.position.set(x,y,z);scene.add(sp);});
+  let clock=0;
+  (function animate(){requestAnimationFrame(animate);clock+=0.008;scene.rotation.y=Math.sin(clock*1.68)*0.5;renderer.render(scene,camera);})();
+  function onResize(){const w=container.clientWidth,h=container.clientHeight;if(!w||!h)return;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h);if(w<=768){scene.position.x=0;scene.position.y=30;}else{scene.position.x=34;scene.position.y=0;}}
+  window.addEventListener('resize',onResize);
+}
+</script>
+</body>
+</html>

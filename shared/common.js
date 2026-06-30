@@ -32,7 +32,7 @@ const _cmScript = document.currentScript;
     (function(){
       const page=location.pathname.split('/').pop()||'index.html';
       const map={
-        'hancom-orchestrator.html':0,'hancom-ai.html':0,'hancom-solution.html':0,'ito.html':0,
+        'hancom-orchestrator.html':0,'hancom-ai.html':0,'hancom-solution.html':0,'ito.html':0,'ax-service.html':0,'ax-platform.html':0,'sap-ai-coding.html':0,'sap-service.html':0,'sap-cloud-erp.html':0,
         'esg.html':1,'newsletter.html':1,
         'recruit.html':2,
         'company.html':3
@@ -197,6 +197,10 @@ const _cmScript = document.currentScript;
         ['.cv-map'],['.cv-loc-item'],['.cont-info','.cont-form'],
         ['.cu-tabs'],['.cu-feat'],['.cu-logo'],
         ['.it-svc'],['.it-band-item'],['.it-why'],
+        ['.ap-arch'],['.ap-band'],['.ap-arch-img'],['.ap-cat'],['.ap-step'],['.ap-cap'],['.ap-metric'],['.ap-doc-img'],['.ap-feat'],['.ap-apps'],
+        ['.sa-intro-tx'],['.sa-intro-vis'],['.sa-nova-diagram'],['.sa-app'],['.sa-cap'],['.sa-cap-note'],['.sa-eff'],
+        ['.sa-band'],['.sa-phase'],['.sa-svc'],['.sa-cta'],['.sa-method-img'],['.sa-method-cap'],
+        ['.ce-detail'],['.ce-feat'],['.ce-eff-band'],['.ce-soon'],['.ce-arch-ph'],['.ce-proc'],['.ce-rec'],['.ce-step'],['.ce-arch-img'],['.ce-note'],
       ];
       const targets=[];
       groups.forEach(sels=>{
