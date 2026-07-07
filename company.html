@@ -25,19 +25,19 @@ window.__breadcrumb = ["Company","About"];
 /* ── HERO (esg 차용) ── */
 .eb-hero{position:relative;overflow:hidden;height:34vh;min-height:300px;background:#0f1115;color:#fff}
 .eb-eye{font:700 12px/1 'Pretendard';letter-spacing:.14em;text-transform:uppercase;color:#7fd3f3}
-.eb-h1{margin:18px 0 0;font-weight:800;font-size:clamp(32px,4.4vw,54px);line-height:1.12;letter-spacing:-1px}
+.eb-h1{margin:0;font-weight:800;font-size:clamp(28px,3.8vw,46px);line-height:1.14;letter-spacing:-1px}
 .eb-h1 .g{background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.eb-sub{margin:22px 0 0;max-width:640px;font:400 16px/1.7 'Pretendard';color:#b9bcc4;word-break:keep-all}
+.eb-sub{margin:0;max-width:540px;font:400 15px/1.7 'Pretendard';color:#b9bcc4;word-break:keep-all}
 .esg-hero-inner{position:relative;z-index:10;height:100%;display:flex;align-items:center;max-width:1200px;margin:0 auto;padding:0 32px;gap:0}
 .esg-p-zone{flex:0 0 50%;height:100%;pointer-events:none}
-.esg-t-zone{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:6px}
+.esg-t-zone{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:10px}
 @media(max-width:1024px){.esg-p-zone{flex:0 0 45%}}
 @media(max-width:768px){
-  .eb-hero{height:calc(46vh - 100px);min-height:240px}
-  .eb-h1{font-size:clamp(26px,7vw,38px)}
-  .eb-sub{font-size:14.5px}
-  .esg-hero-inner{flex-direction:column-reverse;justify-content:flex-end;padding:0 20px 24px}
-  .esg-p-zone{flex:0 0 40%;width:100%;height:auto}
+  .eb-hero{height:28.8vh;min-height:256px}
+  .eb-h1{font-size:clamp(18px,5.2vw,26px)}
+  .eb-sub{font-size:12.5px;line-height:1.6;max-width:none}
+  .esg-hero-inner{padding:0 20px}
+  .esg-p-zone{flex:0 0 18%}
   .esg-t-zone{width:100%}
 }
 
@@ -193,7 +193,7 @@ window.__breadcrumb = ["Company","About"];
     <div class="esg-t-zone">
       <p class="eb-eye">About Company</p>
       <h1 class="eb-h1">성공 비즈니스 파트너,<br><span class="g">에코아이티</span></h1>
-      <p class="eb-sub"><strong style="color:#dfe3e8">All Technologies for Smart AX</strong><br>SAP, AI/RPA, Low-Code, 한컴AI, CRM &amp; ITO<br>빠르게 변하는 AI시대에 기술 및 트렌드에 신속하게 대응하여<br>기업이 지향하는 최고 수준의 AX 혁신을 지원합니다.</p>
+      <p class="eb-sub"><strong style="color:#dfe3e8">All Technologies for Smart AX</strong><br>SAP, AI/RPA, Low-Code, 한컴AI, CRM &amp; ITO<br>AI 시대의 변화에 신속하게 대응해 최고 수준의 AX 혁신을 지원합니다.</p>
     </div>
     <div class="esg-p-zone"></div>
   </div>
@@ -629,8 +629,7 @@ function initCompanyParticles() {
     const w=container.clientWidth,h=container.clientHeight;
     if(!w||!h)return;
     camera.aspect=w/h; camera.updateProjectionMatrix(); renderer.setSize(w,h);
-    if(w<=768){scene.position.x=0;scene.position.y=30;}
-    else{scene.position.x=34;scene.position.y=0;}
+    scene.position.x=34;scene.position.y=0;
   }
   new ResizeObserver(onResize).observe(container); onResize();
 

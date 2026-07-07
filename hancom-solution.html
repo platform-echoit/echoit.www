@@ -33,10 +33,13 @@ window.__breadcrumb = ["Business","한컴AI","솔루션 및 서비스"];
 .eb-sub{max-width:480px;font:400 15px/1.7 'Pretendard';color:#b9bcc4;word-break:keep-all}
 @media(max-width:1024px){.esg-p-zone{flex:0 0 45%}}
 @media(max-width:768px){
-  .eb-hero{height:calc(46vh - 100px);min-height:220px}
-  .esg-hero-inner{flex-direction:column-reverse;justify-content:flex-end;padding:0 20px 24px}
-  .esg-p-zone{flex:0 0 46%;width:100%;height:auto}
+  .eb-hero{height:28.8vh;min-height:256px}
+  .esg-hero-inner{padding:0 20px}
+  .esg-p-zone{flex:0 0 18%}
   .esg-t-zone{width:100%;align-items:flex-start}
+  .eb-eye{font-size:11px}
+  .eb-h1{font-size:clamp(18px,5.2vw,26px)}
+  .eb-sub{font-size:12.5px;line-height:1.6;max-width:none}
 }
 
 /* ── SECTION BASE ── */
@@ -349,8 +352,8 @@ function initBizParticles() {
   container.appendChild(renderer.domElement);
 
   const isMobile = () => container.clientWidth <= 768;
-  scene.position.x = isMobile() ? 0 : 34;
-  scene.position.y = isMobile() ? 30 : 0;
+  scene.position.x = 34;
+  scene.position.y = 0;
 
   const CW = 800, CH = 280;
   function sampleText(lines, fontSizes) {
@@ -491,7 +494,7 @@ function initBizParticles() {
     const w = container.clientWidth, h = container.clientHeight;
     if (!w || !h) return;
     camera.aspect = w/h; camera.updateProjectionMatrix(); renderer.setSize(w, h);
-    if (w <= 768) { scene.position.x = 0; scene.position.y = 30; }
+    if (false) { scene.position.x = 0; scene.position.y = 30; }
     else          { scene.position.x = 34; scene.position.y = 0; }
   }
   window.addEventListener('resize', onResize);

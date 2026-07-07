@@ -1,0 +1,659 @@
+<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="AI Labs · Altio" subtitle="기업을 위한 사내 AI 고객센터 — AICC 플랫폼" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECHOIT — Altio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+<link rel="stylesheet" href="shared/common.css">
+
+<!-- Three.js (UMD global) + GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+
+<script>window.__breadcrumb=['AI Labs','Altio'];</script>
+<div id="nav-root"></div>
+
+<style>
+/* ── HERO (edge-ai.html 차용) ── */
+.eb-hero{position:relative;overflow:hidden;height:36vh;min-height:320px;background:#0f1115;color:#fff}
+.esg-hero-inner{position:relative;z-index:10;height:100%;display:flex;align-items:center;max-width:1200px;margin:0 auto;padding:0 32px;gap:0}
+.esg-p-zone{flex:0 0 50%;height:100%;pointer-events:none}
+.esg-t-zone{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:10px}
+.eb-eye{font:700 12px/1 'Pretendard';letter-spacing:.14em;text-transform:uppercase;color:#7fd3f3}
+.eb-h1{font-weight:800;font-size:clamp(26px,3.6vw,44px);line-height:1.14;letter-spacing:-1px;color:#fff;margin:0}
+.eb-h1 .g{background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.eb-sub{max-width:540px;font:400 15px/1.7 'Pretendard';color:#b9bcc4;word-break:keep-all;margin:0}
+@media(max-width:1024px){.esg-p-zone{flex:0 0 45%}}
+@media(max-width:768px){
+  .eb-hero{height:28.8vh;min-height:256px}
+  .esg-hero-inner{padding:0 20px}
+  .esg-p-zone{flex:0 0 18%}
+  .eb-eye{font-size:11px}
+  .eb-h1{font-size:clamp(18px,5.2vw,26px)}
+  .eb-sub{font-size:12.5px;line-height:1.6;max-width:none}
+}
+
+/* ── SECTION BASE ── */
+.it-block{padding:80px 0}
+.it-block.alt{background:#f7f8fa;border-top:1px dashed #ccc}
+.it-head{text-align:center;max-width:880px;margin:0 auto 48px}
+.it-eye{font:700 12px/1 'Pretendard';letter-spacing:.12em;text-transform:uppercase;color:var(--b)}
+.it-title{margin:14px 0 0;font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.18;letter-spacing:-.6px;word-break:keep-all}
+.it-desc{margin:16px 0 0;font:400 16px/1.7 'Pretendard';color:#666;word-break:keep-all}
+
+/* ── 00 INTRO (Altio란?) ── */
+.al-intro{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:stretch}
+.al-intro-eye{display:inline-flex;align-items:center;gap:8px;font:700 12px/1 'Pretendard';letter-spacing:.1em;text-transform:uppercase;color:var(--b)}
+.al-intro h2{font:800 clamp(23px,2.7vw,31px)/1.32 'Pretendard';letter-spacing:-.5px;color:#141920;margin:14px 0 0;word-break:keep-all}
+.al-intro h2 b{color:#009ce0}
+.al-intro p{font:400 15.5px/1.8 'Pretendard';color:#555;margin:18px 0 0;word-break:keep-all}
+.al-intro-list{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
+.al-intro-list li{display:flex;align-items:flex-start;gap:12px;font:500 14.5px/1.55 'Pretendard';color:#374049;word-break:keep-all}
+.al-intro-list li .ms{flex:0 0 26px;width:26px;height:26px;border-radius:8px;background:#eef4f8;color:#009ce0;display:flex;align-items:center;justify-content:center;font-size:17px;margin-top:1px}
+.al-intro-vis{position:relative;border:1px solid #eaeaea;border-radius:20px;background:#fff;min-height:300px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:26px;overflow:hidden;padding:38px 34px}
+.al-intro-vis .vis-logo{width:130px;height:auto;display:block}
+.al-intro-vis .vis-chat{width:100%;max-width:420px;height:auto;display:block;border:1px solid #eef1f4;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.06)}
+
+/* ── MARKET STATS ── */
+.al-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.al-stat{border:1px solid #eee;border-radius:18px;background:#fff;padding:32px 34px;display:flex;flex-direction:column;gap:8px;transition:box-shadow .18s,border-color .18s,transform .18s}
+.al-stat:hover{box-shadow:0 14px 34px rgba(0,0,0,.09);border-color:#009ce0;transform:translateY(-4px)}
+.al-stat .region{display:inline-flex;align-items:center;gap:7px;font:700 12px/1 'Pretendard';letter-spacing:.06em;color:#9aa3ad;text-transform:uppercase}
+.al-stat .region .ms{font-size:17px;color:#009ce0}
+.al-stat .big{font:800 40px/1 'Pretendard';letter-spacing:-1.5px;color:#0f1115;margin-top:4px}
+.al-stat .big em{font-style:normal;background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.al-stat .sub{font:500 14px/1.5 'Pretendard';color:#666}
+.al-bar{margin-top:14px;display:flex;flex-direction:column;gap:9px}
+.al-bar-row{display:flex;align-items:center;gap:12px}
+.al-bar-row .yr{flex:0 0 42px;font:700 12px/1 'Pretendard';color:#9aa3ad}
+.al-bar-track{flex:1;height:10px;border-radius:6px;background:#eef1f4;overflow:hidden}
+.al-bar-fill{height:100%;border-radius:6px;background:var(--grd)}
+.al-bar-row .val{flex:0 0 auto;font:700 12.5px/1 'Pretendard';color:#374049}
+.al-stat .src{font:400 11.5px/1.4 'Pretendard';color:#b0b8c2;margin-top:4px}
+
+/* ── SHIFT (기준 변화 before/after) ── */
+.al-shift-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.al-shift{border:1px solid #eee;border-radius:18px;background:#fff;padding:30px 28px;display:flex;flex-direction:column;gap:16px;transition:box-shadow .18s,border-color .18s,transform .18s}
+.al-shift:hover{box-shadow:0 14px 34px rgba(0,0,0,.09);border-color:#009ce0;transform:translateY(-4px)}
+.al-shift-ic{width:52px;height:52px;border-radius:14px;color:#fff;display:flex;align-items:center;justify-content:center}
+.al-shift-ic .ms{font-size:27px}
+.al-shift:nth-child(1) .al-shift-ic{background:#89c895}
+.al-shift:nth-child(2) .al-shift-ic{background:#3eabbf}
+.al-shift:nth-child(3) .al-shift-ic{background:#009ce0}
+.al-shift h4{font:800 17px/1.35 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.al-ba{display:flex;flex-direction:column;gap:10px}
+.al-ba-item{display:flex;flex-direction:column;gap:3px}
+.al-ba-item .k{font:700 10.5px/1 'Pretendard';letter-spacing:.08em;text-transform:uppercase}
+.al-ba-item.before .k{color:#b0b8c2}
+.al-ba-item.after .k{color:#009ce0}
+.al-ba-item .v{font:500 13.5px/1.5 'Pretendard';word-break:keep-all}
+.al-ba-item.before .v{color:#98a0aa}
+.al-ba-item.after .v{color:#141920;font-weight:600}
+.al-ba .arrow{align-self:center;color:#cdd4dc;display:flex}
+.al-ba .arrow .ms{font-size:18px}
+
+/* ── TREND (챗봇 vs 생성형) ── */
+.al-vs{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.al-vs-card{border:1px solid #eee;border-radius:18px;padding:30px 30px;background:#fff}
+.al-vs-card.bad{border-color:#f0dcdc}
+.al-vs-card.good{border-color:#cfe9d7;background:#fbfefc}
+.al-vs-tag{display:inline-flex;align-items:center;gap:8px;font:800 15px/1 'Pretendard';margin:0 0 18px}
+.al-vs-card.bad .al-vs-tag{color:#c0554c}
+.al-vs-card.good .al-vs-tag{color:#2f9c5a}
+.al-vs-tag .ms{font-size:20px}
+.al-vs-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.al-vs-list li{position:relative;padding-left:28px;font:500 14px/1.55 'Pretendard';color:#374049;word-break:keep-all}
+.al-vs-list li .ms{position:absolute;left:0;top:0;font-size:19px}
+.al-vs-card.bad li .ms{color:#d78a83}
+.al-vs-card.good li .ms{color:#3fa45c}
+.al-usearea{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.al-usearea span{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;background:#eef4f8;font:600 14px/1 'Pretendard';color:#0f1115}
+.al-usearea span .ms{font-size:18px;color:#009ce0}
+
+/* ── PLAYERS (경쟁 환경) ── */
+.al-play-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.al-play{border:1px solid #eee;border-radius:18px;padding:28px 26px;background:#fff;display:flex;flex-direction:column;gap:12px;transition:box-shadow .18s,border-color .18s,transform .18s}
+.al-play:hover{box-shadow:0 12px 30px rgba(0,0,0,.08);border-color:#009ce0;transform:translateY(-4px)}
+.al-play-ic{width:48px;height:48px;border-radius:12px;background:#eef4f8;color:#009ce0;display:flex;align-items:center;justify-content:center}
+.al-play-ic .ms{font-size:25px}
+.al-play h4{font:800 17px/1.3 'Pretendard';color:#141920;margin:0}
+.al-play .strong{font:600 13.5px/1.55 'Pretendard';color:#374049;word-break:keep-all}
+.al-play .weak{margin-top:auto;font:500 13px/1.5 'Pretendard';color:#a0525a;background:#fbf1f2;border-radius:9px;padding:9px 12px;word-break:keep-all}
+.al-logos{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 4px}
+.al-logo{height:46px;padding:0 12px;flex:1 1 auto;min-width:70px;border:1px solid #eee;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1.15 'Pretendard';color:#3a4149;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.03)}
+.al-logo img{max-width:100%;max-height:28px;object-fit:contain;display:block}
+.al-gap-band{margin-top:26px;border-radius:16px;background:var(--grd);color:#fff;padding:26px 32px;display:flex;align-items:center;gap:18px}
+.al-gap-band .ms{flex:0 0 46px;width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:24px}
+.al-gap-band p{font:700 18px/1.45 'Pretendard';margin:0;letter-spacing:-.3px;word-break:keep-all}
+.al-gap-band p small{display:block;font:400 13.5px/1.5 'Pretendard';color:rgba(255,255,255,.88);margin-top:5px;letter-spacing:0}
+
+/* ── BENEFIT / ADVANTAGE cards ── */
+.al-card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.al-card{border:1px solid #eee;border-radius:18px;padding:28px 24px;background:#fff;display:flex;flex-direction:column;gap:13px;transition:box-shadow .18s,border-color .18s,transform .18s}
+.al-card:hover{box-shadow:0 14px 34px rgba(0,0,0,.09);border-color:#009ce0;transform:translateY(-4px)}
+.al-card-ic{width:50px;height:50px;border-radius:13px;color:#fff;display:flex;align-items:center;justify-content:center}
+.al-card-ic .ms{font-size:26px}
+.al-card-grid .al-card:nth-child(1) .al-card-ic{background:#89c895}
+.al-card-grid .al-card:nth-child(2) .al-card-ic{background:#5cb6a8}
+.al-card-grid .al-card:nth-child(3) .al-card-ic{background:#3eabbf}
+.al-card-grid .al-card:nth-child(4) .al-card-ic{background:#009ce0}
+.al-card h4{font:700 16.5px/1.35 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.al-card>p{font:400 13.5px/1.65 'Pretendard';color:#666;margin:0;word-break:keep-all}
+.al-card-list{list-style:none;margin:auto 0 0;padding:15px 0 0;border-top:1px solid #eee;display:flex;flex-direction:column;gap:9px}
+.al-card-list li{position:relative;padding-left:22px;font:500 13px/1.5 'Pretendard';color:#374049;word-break:keep-all}
+.al-card-list li .ms{position:absolute;left:0;top:1px;font-size:16px;color:#009ce0}
+
+/* ── POSITION TABLE ── */
+.al-pos{width:100%;border-collapse:separate;border-spacing:0;border:1px solid #eee;border-radius:16px;overflow:hidden}
+.al-pos th,.al-pos td{padding:15px 18px;text-align:center;font:500 14px/1.5 'Pretendard';border-bottom:1px solid #eee;border-right:1px solid #f0f0f0}
+.al-pos th:last-child,.al-pos td:last-child{border-right:none}
+.al-pos thead th{background:#f4f6f8;font-weight:700;color:#141920}
+.al-pos thead th.hi{background:var(--grd);color:#fff}
+.al-pos tbody th{text-align:left;background:#fafbfc;font-weight:700;color:#374049;width:170px}
+.al-pos tbody td.hi{background:#eaf6fc;font-weight:700;color:#0079b3}
+.al-pos tr:last-child th,.al-pos tr:last-child td{border-bottom:none}
+.al-pos td .ms{font-size:18px;vertical-align:-3px}
+.al-pos .ok{color:#2f9c5a}
+.al-pos .no{color:#c9564c}
+.al-pos .mid{color:#c98a2f}
+
+/* ── CLOSING ── */
+.al-close{position:relative;overflow:hidden;border-radius:24px;background:var(--grd);color:#fff;text-align:center;padding:60px 40px;max-width:1000px;margin:0 auto}
+.al-close::before{content:"";position:absolute;left:-60px;top:-60px;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,.1)}
+.al-close::after{content:"";position:absolute;right:-50px;bottom:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.08)}
+.al-close h2{font:800 clamp(24px,2.8vw,34px)/1.3 'Pretendard';letter-spacing:-.5px;margin:0;position:relative;z-index:1;word-break:keep-all}
+.al-close p{font:400 15.5px/1.7 'Pretendard';color:rgba(255,255,255,.92);margin:16px 0 0;position:relative;z-index:1;word-break:keep-all}
+.al-close-info{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px;margin-top:28px;position:relative;z-index:1}
+.al-close-info span{display:inline-flex;align-items:center;gap:8px;font:600 14.5px/1.4 'Pretendard'}
+.al-close-info span .ms{font-size:19px}
+
+/* ── AXIS (3대 축) + 강조 배너 ── */
+.al-axis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.al-ax{border:1px solid #eee;border-radius:16px;padding:26px 24px;background:#fff;display:flex;flex-direction:column;gap:11px;transition:box-shadow .18s,border-color .18s,transform .18s}
+.al-ax:hover{box-shadow:0 14px 34px rgba(0,0,0,.09);border-color:#009ce0;transform:translateY(-4px)}
+.al-ax-no{font:700 12px/1 'Pretendard';letter-spacing:.05em;color:#009ce0}
+.al-ax-ic{width:52px;height:52px;border-radius:14px;color:#fff;display:flex;align-items:center;justify-content:center}
+.al-ax-ic .ms{font-size:27px}
+.al-axis-grid .al-ax:nth-child(1) .al-ax-ic{background:#89c895}
+.al-axis-grid .al-ax:nth-child(2) .al-ax-ic{background:#3eabbf}
+.al-axis-grid .al-ax:nth-child(3) .al-ax-ic{background:#009ce0}
+.al-ax h4{font:800 17px/1.35 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.al-ax p{font:400 14px/1.7 'Pretendard';color:#666;margin:0;word-break:keep-all}
+.al-emph{margin-top:18px;border-radius:16px;background:var(--grd);color:#fff;padding:26px 30px;display:flex;align-items:center;gap:16px;word-break:keep-all}
+.al-emph .ms{flex:0 0 46px;width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:24px}
+.al-emph p{font:700 18px/1.5 'Pretendard';margin:0;letter-spacing:-.3px}
+.al-emph p b{border-bottom:2px solid rgba(255,255,255,.6)}
+/* 이것도 Altio의 강점 */
+.al-more{margin-top:22px;border:1px solid #eee;border-radius:16px;background:#fff;padding:28px 30px}
+.al-more h5{display:flex;align-items:center;gap:9px;font:800 16px/1.3 'Pretendard';color:#141920;margin:0 0 20px}
+.al-more h5 .ms{font-size:20px;color:#009ce0}
+.al-more ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+.al-more li{position:relative;padding-left:28px;font:500 14.5px/1.55 'Pretendard';color:#374049;word-break:keep-all}
+.al-more li .ms{position:absolute;left:0;top:0;font-size:19px;color:#3fa45c}
+
+@media(max-width:1024px){
+  .al-intro{grid-template-columns:1fr;gap:28px}
+  .al-shift-grid{grid-template-columns:1fr}
+  .al-play-grid{grid-template-columns:1fr}
+  .al-card-grid{grid-template-columns:repeat(2,1fr)}
+  .al-pos-wrap{overflow-x:auto}
+  .al-pos{min-width:680px}
+}
+@media(max-width:768px){
+  .it-block{padding:56px 0}
+  .al-stat-grid{grid-template-columns:1fr}
+  .al-vs{grid-template-columns:1fr}
+  .al-card-grid{grid-template-columns:1fr}
+  .al-gap-band{flex-direction:column;text-align:center}
+  .al-close{padding:48px 26px;border-radius:18px}
+  .al-axis-grid{grid-template-columns:1fr}
+  .al-emph{flex-direction:column;text-align:center}
+  .al-more ul{grid-template-columns:1fr}
+}
+</style>
+
+<!-- ── HERO (edge-ai.html 차용) ── -->
+<section class="eb-hero" id="sap-hero">
+  <svg id="sap-bg" style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="g1" gradientUnits="userSpaceOnUse" cx="180" cy="200" r="560"><stop offset="0%" stop-color="#009ce0" stop-opacity="0.4"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g2" gradientUnits="userSpaceOnUse" cx="1290" cy="60" r="320"><stop offset="0%" stop-color="#89c895" stop-opacity="0.3"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g3" gradientUnits="userSpaceOnUse" cx="780" cy="410" r="280"><stop offset="0%" stop-color="#3aa0d8" stop-opacity="0.2"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1440" height="400" fill="#0f1115"/>
+    <rect width="1440" height="400" fill="url(#g1)"/>
+    <rect width="1440" height="400" fill="url(#g2)"/>
+    <rect width="1440" height="400" fill="url(#g3)"/>
+  </svg>
+  <div class="esg-hero-inner">
+    <div class="esg-t-zone">
+      <p class="eb-eye">AI Labs · Altio</p>
+      <h1 class="eb-h1">우리 조직에 맞게 설계된<br><span class="g">사내 AI 고객센터, Altio</span></h1>
+      <p class="eb-sub"><b style="color:#fff;font-weight:700">AICC</b> <span style="color:#7fd3f3">(AI Contact Center)</span> · 응대·운영·개선을 하나로 통합한 AI 고객센터 플랫폼. 가장 현실적인 AICC 전환 경로를 제시합니다.</p>
+    </div>
+    <div class="esg-p-zone" id="sap-p-zone"></div>
+  </div>
+</section>
+
+<!-- ── 00 Altio란? ── -->
+<section class="it-block" id="about">
+  <div class="wrap">
+    <div class="al-intro">
+      <div>
+        <span class="al-intro-eye"><span class="ms" style="font-size:17px">support_agent</span>Altio란?</span>
+        <h2>현장에서 바로 활용할 수 있는 AI 고객센터,<br><b>가장 현실적인 AICC 전환 경로</b></h2>
+        <p>Altio는 고객센터의 응대·운영·개선을 하나로 통합한 AI 고객센터 플랫폼입니다. 고객 문의를 정확하게 이해하고, 기업이 보유한 정책·매뉴얼·FAQ·업무 데이터를 기반으로 일관된 답변을 제공합니다.</p>
+        <ul class="al-intro-list">
+          <li><span class="ms">forum</span>생성형 LLM으로 자연스러운 대화와 문맥 이해</li>
+          <li><span class="ms">search</span>Vector DB 검색을 통해 회사 기준에 맞는 근거 있는 답변</li>
+          <li><span class="ms">tune</span>고객센터 운영을 전제로 한 구조 설계</li>
+        </ul>
+      </div>
+      <div class="al-intro-vis">
+        <img class="vis-logo" src="assets/images/altio/altio-logo.svg" alt="Altio 로고">
+        <img class="vis-chat" src="assets/images/altio/altio-chat-v2.png" alt="Altio 채팅 UI — 사용자님, 새로운 대화를 시작해볼까요? 화면과 사내 검색 입력창">
+      </div>
+    </div>
+
+    <div class="al-axis-grid">
+      <div class="al-ax">
+        <span class="al-ax-no">AXIS 01</span>
+        <div class="al-ax-ic"><span class="ms">forum</span></div>
+        <h4>생성형 LLM</h4>
+        <p>자연스러운 대화와 문맥 이해로 고객의 의도를 정확히 파악합니다.</p>
+      </div>
+      <div class="al-ax">
+        <span class="al-ax-no">AXIS 02</span>
+        <div class="al-ax-ic"><span class="ms">search</span></div>
+        <h4>Vector DB 검색</h4>
+        <p>회사 기준에 맞는 근거 있는 답변을 검색된 데이터 범위 안에서 제공합니다.</p>
+      </div>
+      <div class="al-ax">
+        <span class="al-ax-no">AXIS 03</span>
+        <div class="al-ax-ic"><span class="ms">tune</span></div>
+        <h4>고객센터 운영 전제 설계</h4>
+        <p>실제 고객센터 운영을 전제로 한 구조로 현장에 바로 적용됩니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 01 AICC 시장 ── -->
+<section class="it-block alt" id="market">
+  <div class="wrap">
+    <div class="it-head">
+      <p class="it-eye">AICC Market</p>
+      <h2 class="it-title">AICC 시장은 'CS 자동화'를 넘어<br>기업 운영을 바꾸는 인프라로</h2>
+      <p class="it-desc">AI 기술의 고도화는 업무 자동화를 넘어 사업 운영 방식 자체를 재편하고 있습니다. 그 변화의 중심에 CS센터의 AI 전환(AICC)이 있습니다.</p>
+    </div>
+    <div class="al-stat-grid">
+      <div class="al-stat">
+        <span class="region"><span class="ms">public</span>글로벌 · 2025</span>
+        <div class="big"><em>$361억</em> <span style="font-size:20px;color:#888">(약 52조)</span></div>
+        <div class="sub">단순 IT 솔루션을 넘어, 조직 운영 구조를 재편하는 핵심 인프라로 성장</div>
+        <div class="al-bar">
+          <div class="al-bar-row"><span class="yr">2021</span><span class="al-bar-track"><span class="al-bar-fill" style="width:47%"></span></span><span class="val">$170억</span></div>
+          <div class="al-bar-row"><span class="yr">2025</span><span class="al-bar-track"><span class="al-bar-fill" style="width:100%"></span></span><span class="val">$360억</span></div>
+        </div>
+        <div class="src">자료 출처 : Allied Market Research</div>
+      </div>
+      <div class="al-stat">
+        <span class="region"><span class="ms">flag</span>국내 · 2023</span>
+        <div class="big"><em>₩3,500억</em></div>
+        <div class="sub">금융부터 공공·스타트업까지, 조 단위로 커지는 확산 시장</div>
+        <div class="al-bar">
+          <div class="al-bar-row"><span class="yr">2023</span><span class="al-bar-track"><span class="al-bar-fill" style="width:35%"></span></span><span class="val">3,500억</span></div>
+          <div class="al-bar-row"><span class="yr">2030</span><span class="al-bar-track"><span class="al-bar-fill" style="width:100%"></span></span><span class="val">1조</span></div>
+        </div>
+        <div class="src">국내 동향 · 조 단위 확산 전망</div>
+      </div>
+    </div>
+
+    <div class="al-shift-grid" style="margin-top:24px">
+      <div class="al-shift">
+        <div class="al-shift-ic"><span class="ms">groups</span></div>
+        <h4>대상의 범용화</h4>
+        <div class="al-ba">
+          <div class="al-ba-item before"><span class="k">Before</span><span class="v">대기업 전용 시스템</span></div>
+          <div class="arrow"><span class="ms">arrow_downward</span></div>
+          <div class="al-ba-item after"><span class="k">After</span><span class="v">고객 접점을 가진 모든 조직으로 확산</span></div>
+        </div>
+      </div>
+      <div class="al-shift">
+        <div class="al-shift-ic"><span class="ms">insights</span></div>
+        <h4>가치의 확장</h4>
+        <div class="al-ba">
+          <div class="al-ba-item before"><span class="k">Before</span><span class="v">단순 비용 절감</span></div>
+          <div class="arrow"><span class="ms">arrow_downward</span></div>
+          <div class="al-ba-item after"><span class="k">After</span><span class="v">운영 통제·데이터 축적·AI 기반 의사결정</span></div>
+        </div>
+      </div>
+      <div class="al-shift">
+        <div class="al-shift-ic"><span class="ms">hub</span></div>
+        <h4>인프라 위상 변화</h4>
+        <div class="al-ba">
+          <div class="al-ba-item before"><span class="k">Before</span><span class="v">CS 자동화 도구</span></div>
+          <div class="arrow"><span class="ms">arrow_downward</span></div>
+          <div class="al-ba-item after"><span class="k">After</span><span class="v">모든 기업 활동의 필수 AI 운영 인프라</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 02 기술 트렌드 ── -->
+<section class="it-block" id="trend">
+  <div class="wrap">
+    <div class="it-head">
+      <p class="it-eye">Technology Trend</p>
+      <h2 class="it-title">생성형 AI, AICC의 작동 방식을 바꾸다</h2>
+      <p class="it-desc">생성형 AI는 상담을 대체하는 기술이 아니라 상담 품질과 운영 효율을 동시에 끌어올리는 핵심 엔진입니다.</p>
+    </div>
+    <div class="al-vs">
+      <div class="al-vs-card bad">
+        <span class="al-vs-tag"><span class="ms">error</span>기존 챗봇의 한계</span>
+        <ul class="al-vs-list">
+          <li><span class="ms">close</span>정해진 시나리오 외 질문 대응 어려움</li>
+          <li><span class="ms">close</span>문맥 이해 부족으로 고객 경험 단절</li>
+          <li><span class="ms">close</span>질문 표현 변화에 취약</li>
+          <li><span class="ms">close</span>복합·장문 문의 처리 한계</li>
+        </ul>
+      </div>
+      <div class="al-vs-card good">
+        <span class="al-vs-tag"><span class="ms">verified</span>생성형 AI 도입 이후</span>
+        <ul class="al-vs-list">
+          <li><span class="ms">check</span>문맥 기반의 자연스러운 대화</li>
+          <li><span class="ms">check</span>질문 형태가 달라도 의도 파악 가능</li>
+          <li><span class="ms">check</span>대화 흐름을 유지한 응대</li>
+          <li><span class="ms">check</span>문의 유형별 안정적 처리</li>
+        </ul>
+      </div>
+    </div>
+    <div class="al-usearea">
+      <span><span class="ms">summarize</span>대화 요약·분류</span>
+      <span><span class="ms">recommend</span>실시간 정보 추천</span>
+      <span><span class="ms">smart_button</span>후처리 자동화</span>
+      <span><span class="ms">grading</span>품질 표준화</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── 03 경쟁 환경 ── -->
+<section class="it-block alt" id="players">
+  <div class="wrap">
+    <div class="it-head">
+      <p class="it-eye">Competitive Landscape</p>
+      <h2 class="it-title">주요 플레이어는 많지만,<br>'운영형 AICC'는 아직 공백입니다</h2>
+      <p class="it-desc">통신사·IT 서비스 기업·AI 기업이 동시 진입한 구조로, 기술은 풍부하지만 운영 현장에 최적화된 AI는 부족한 상태입니다.</p>
+    </div>
+    <div class="al-play-grid">
+      <div class="al-play">
+        <div class="al-play-ic"><span class="ms">cell_tower</span></div>
+        <h4>통신사</h4>
+        <div class="al-logos"><span class="al-logo"><img src="assets/logos/aicc/kt.png" alt="KT"></span><span class="al-logo"><img src="assets/logos/aicc/skt.png" alt="SK telecom"></span><span class="al-logo"><img src="assets/logos/aicc/lgu.png" alt="LG U+"></span></div>
+        <p class="strong">자체 인프라 기반 AICC 구축 · 대형 고객사 중심 프로젝트형 공급</p>
+        <p class="weak">높은 구축·운영 비용과 도입 장벽</p>
+      </div>
+      <div class="al-play">
+        <div class="al-play-ic"><span class="ms">dns</span></div>
+        <h4>IT 서비스 기업</h4>
+        <div class="al-logos"><span class="al-logo"><img src="assets/logos/aicc/naver.png" alt="NAVER"></span><span class="al-logo"><img src="assets/logos/aicc/kakao-enterprise.png" alt="kakao enterprise"></span></div>
+        <p class="strong">AI 엔진·플랫폼 중심 AICC 제공 · 높은 기술 완성도</p>
+        <p class="weak">제한적인 현업 운영 시나리오 대응</p>
+      </div>
+      <div class="al-play">
+        <div class="al-play-ic"><span class="ms">smart_toy</span></div>
+        <h4>AI 기업</h4>
+        <div class="al-logos"><span class="al-logo"><img src="assets/logos/aicc/skelter-labs.png" alt="Skelter Labs"></span><span class="al-logo"><img src="assets/logos/aicc/metanet.png" alt="Metanet"></span></div>
+        <p class="strong">음성·챗봇·STT·NLP 등 단일 기술 특화 · 빠른 기술 적용과 PoC 강점</p>
+        <p class="weak">단편적인 AICC 운영 관점</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 04 AICC 도입 효과 ── -->
+<section class="it-block" id="effect">
+  <div class="wrap">
+    <div class="it-head">
+      <p class="it-eye">Adoption Effects</p>
+      <h2 class="it-title">기업들이 AICC에 투자하는 이유</h2>
+      <p class="it-desc">이제 고객센터는 단순 응대를 넘어, 데이터와 연결되는 전략 자산이 되었습니다.</p>
+    </div>
+    <div class="al-card-grid">
+      <div class="al-card">
+        <div class="al-card-ic"><span class="ms">savings</span></div>
+        <h4>운영 비용 절감</h4>
+        <p>반복되는 단순 문의 50~70%를 AI가 자동 응대하여 인건비와 운영 비용을 함께 절감합니다.</p>
+      </div>
+      <div class="al-card">
+        <div class="al-card-ic"><span class="ms">schedule</span></div>
+        <h4>24/365 고객 응대</h4>
+        <p>야간·휴일 무중단 응대로 응답 지연에 따른 고객 이탈을 줄입니다.</p>
+      </div>
+      <div class="al-card">
+        <div class="al-card-ic"><span class="ms">sentiment_satisfied</span></div>
+        <h4>상담원 업무 환경 개선</h4>
+        <p>악성 민원·단순 문의를 AI가 1차 처리하여 감정 노동을 줄이고 만족도를 높이며 이직률을 낮춥니다.</p>
+      </div>
+      <div class="al-card">
+        <div class="al-card-ic"><span class="ms">database</span></div>
+        <h4>상담 데이터 자산화</h4>
+        <p>모든 상담을 텍스트로 축적하고 문의 유형·불만 원인을 분석해 마케팅·상품·정책 설계로 확장합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 05 Altio 핵심 장점 ── -->
+<section class="it-block alt" id="advantage">
+  <div class="wrap">
+    <div class="it-head">
+      <p class="it-eye">Why Altio</p>
+      <h2 class="it-title">Altio의 핵심 장점</h2>
+      <p class="it-desc">기존 생성형 AI의 한계인 '할루시네이션'을 Altio는 구조적으로 최소화합니다.</p>
+    </div>
+    <div class="al-card-grid">
+      <div class="al-card">
+        <div class="al-card-ic"><span class="ms">verified_user</span></div>
+        <h4>신뢰 가능한 응답</h4>
+        <p>고객센터 전용 문서를 벡터 DB로 구조화합니다.</p>
+        <ul class="al-card-list">
+          <li><span class="ms">check_circle</span>검색된 근거 내에서만 답변 제공</li>
+          <li><span class="ms">check_circle</span>웹 검색 등 보조 자료로 대안 제시</li>
+          <li><span class="ms">check_circle</span>회사 기준에 맞는 정확한 답변</li>
+        </ul>
+      </div>
+      <div class="al-card">
+        <div class="al-card-ic"><span class="ms">support_agent</span></div>
+        <h4>고객센터에 최적화된 AI 설계</h4>
+        <p>상담사 대체가 아닌 AI+상담사 협업 구조가 기본 전제입니다.</p>
+        <ul class="al-card-list">
+          <li><span class="ms">check_circle</span>고객 문의 자동 분류</li>
+          <li><span class="ms">check_circle</span>단순·반복은 AI, 복잡·예외는 상담사 전환</li>
+          <li><span class="ms">check_circle</span>상담 이력 자동 저장·요약</li>
+        </ul>
+      </div>
+      <div class="al-card">
+        <div class="al-card-ic"><span class="ms">rocket_launch</span></div>
+        <h4>빠르고 쉬운 도입 구조</h4>
+        <p>별도의 대규모 SI 없이 빠르게 구축합니다.</p>
+        <ul class="al-card-list">
+          <li><span class="ms">check_circle</span>문서 업로드와 간단한 설정만으로 구축</li>
+          <li><span class="ms">check_circle</span>중견기업·스타트업·신규 서비스팀도 도입</li>
+        </ul>
+      </div>
+      <div class="al-card">
+        <div class="al-card-ic"><span class="ms">inventory_2</span></div>
+        <h4>상담 데이터를 운영 자산으로</h4>
+        <p>고객센터를 비용 조직에서 고객 데이터 허브로 전환합니다.</p>
+        <ul class="al-card-list">
+          <li><span class="ms">check_circle</span>모든 상담 내용 자동 텍스트화</li>
+          <li><span class="ms">check_circle</span>유형·빈도·이슈별로 축적</li>
+          <li><span class="ms">check_circle</span>운영 개선 데이터로 활용</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="al-more">
+      <h5><span class="ms">stars</span>이것도 Altio의 강점</h5>
+      <ul>
+        <li><span class="ms">check</span>회사 기준에 맞는 정확한 답변 제공</li>
+        <li><span class="ms">check</span>상담사 대체가 아닌 AI + 상담사 협업 구조가 기본 전제</li>
+        <li><span class="ms">check</span>대기업뿐 아니라 중견기업·스타트업·신규 서비스팀도 도입 가능</li>
+        <li><span class="ms">check</span>고객센터를 비용 조직에서 고객 데이터 허브로 전환</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── 06 시장 포지션 ── -->
+<section class="it-block" id="position">
+  <div class="wrap">
+    <div class="it-head">
+      <p class="it-eye">Market Position</p>
+      <h2 class="it-title">대형 통신사형 솔루션과 단순 챗봇 사이의 공백을 채웁니다</h2>
+      <p class="it-desc">상담 품질 향상과 운영 효율 개선이라는 두 가지 목표를 모두 충족시키는 고객센터 특화 AI 솔루션입니다.</p>
+    </div>
+    <div class="al-pos-wrap">
+      <table class="al-pos">
+        <thead>
+          <tr><th>구분</th><th>기존 대형 AICC</th><th>단순 챗봇</th><th class="hi">Altio</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>도입 비용</th><td>높음</td><td>낮음</td><td class="hi">합리적</td></tr>
+          <tr><th>구축 난이도</th><td>높음 (SI 중심)</td><td>낮음</td><td class="hi">낮음</td></tr>
+          <tr><th>응답 품질</th><td>높음</td><td>제한적</td><td class="hi">높음</td></tr>
+          <tr><th>생성형 AI 활용</th><td>제한적</td><td>불안정</td><td class="hi">구조적 활용</td></tr>
+          <tr><th>운영 최적화</th><td><span class="ms ok">check</span> 가능</td><td><span class="ms no">close</span> 불가</td><td class="hi">가능</td></tr>
+          <tr><th>중소·중견기업 적합성</th><td>낮음</td><td>일부</td><td class="hi">높음</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<div id="modal-root"></div>
+
+<script src="shared/common.js"></script>
+<script>
+/* ── HERO 파티클 (Altio 키워드) ── */
+(function waitDeps(){
+  if(!window.THREE||!window.gsap){return setTimeout(waitDeps,50);}
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(initAltioParticles);}
+  else{initAltioParticles();}
+})();
+
+function initAltioParticles(){
+  const container=document.getElementById('sap-hero');
+  if(!container)return;
+  const scene=new THREE.Scene();
+  const w0=container.clientWidth,h0=container.clientHeight;
+  const camera=new THREE.PerspectiveCamera(50,w0/h0,0.1,2000);
+  camera.position.z=150;
+  const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.setSize(w0,h0);
+  renderer.setClearColor(0x0f1115,0);
+  renderer.domElement.style.cssText='position:absolute;top:0;left:0;width:100%;height:100%;z-index:1';
+  container.appendChild(renderer.domElement);
+  const isMobile=()=>container.clientWidth<=768;
+  scene.position.x=34;
+  scene.position.y=0;
+  const CW=800,CH=280;
+  function sampleText(lines,fontSizes){
+    const off=document.createElement('canvas');
+    off.width=CW;off.height=CH;
+    const ctx=off.getContext('2d');
+    ctx.fillStyle='#fff';
+    lines.forEach((line,i)=>{
+      ctx.font=`800 ${fontSizes[i]}px 'Pretendard',Arial Black,sans-serif`;
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      const yOff=lines.length===1?CH/2:(i===0?CH*0.36:CH*0.72);
+      ctx.fillText(line,CW/2,yOff);
+    });
+    const{data}=ctx.getImageData(0,0,CW,CH);
+    const pts=[];
+    for(let y=0;y<CH;y+=4)
+      for(let x=0;x<CW;x+=4)
+        if(data[(y*CW+x)*4]>128&&Math.random()>0.22)
+          pts.push([(x/CW-0.5)*96,-(y/CH-0.5)*72,(Math.random()-0.5)*1.0]);
+    return pts;
+  }
+  const rawSets=[
+    sampleText(['Altio'],[200]),
+    sampleText(['AICC'],[210]),
+    sampleText(['LLM'],[250]),
+    sampleText(['RAG'],[250]),
+  ];
+  const MAX_N=Math.max(...rawSets.map(s=>s.length));
+  function padAndShuffle(pts,n){
+    const out=pts.map(p=>[...p]);
+    while(out.length<n){const src=pts[Math.floor(Math.random()*pts.length)];out.push([src[0]+(Math.random()-0.5)*2,src[1]+(Math.random()-0.5)*2,(Math.random()-0.5)*1.5]);}
+    for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}
+    return out.slice(0,n);
+  }
+  const textSets=rawSets.map(pts=>padAndShuffle(pts,MAX_N));
+  const posArr=new Float32Array(MAX_N*3);
+  for(let i=0;i<MAX_N;i++){posArr[i*3]=(Math.random()-0.5)*200;posArr[i*3+1]=(Math.random()-0.5)*120;posArr[i*3+2]=(Math.random()-0.5)*60;}
+  const geoText=new THREE.BufferGeometry();
+  const posAttr=new THREE.BufferAttribute(posArr,3);
+  geoText.setAttribute('position',posAttr);
+  scene.add(new THREE.Points(geoText,new THREE.PointsMaterial({color:0xffffff,size:1.64,sizeAttenuation:true,transparent:true,opacity:0.95})));
+  const AMBIENT=460;
+  const ambPosArr=new Float32Array(AMBIENT*3);
+  for(let i=0;i<AMBIENT;i++){ambPosArr[i*3]=(Math.random()-0.5)*320;ambPosArr[i*3+1]=(Math.random()-0.5)*160;ambPosArr[i*3+2]=(Math.random()-0.5)*90;}
+  const geoAmb=new THREE.BufferGeometry();
+  geoAmb.setAttribute('position',new THREE.BufferAttribute(ambPosArr,3));
+  scene.add(new THREE.Points(geoAmb,new THREE.PointsMaterial({color:0x5a5a64,size:1.19,sizeAttenuation:true,transparent:true,opacity:0.75})));
+  let fromSnap=Array.from({length:MAX_N},(_,i)=>[posArr[i*3],posArr[i*3+1],posArr[i*3+2]]);
+  function morphTo(toIdx,duration){
+    const dur=duration??1.6;
+    const to=textSets[toIdx],from=fromSnap,proxy={t:0};
+    gsap.to(proxy,{t:1,duration:dur,ease:'power2.inOut',
+      onUpdate(){const t=proxy.t;for(let i=0;i<MAX_N;i++){posArr[i*3]=from[i][0]+(to[i][0]-from[i][0])*t;posArr[i*3+1]=from[i][1]+(to[i][1]-from[i][1])*t;posArr[i*3+2]=from[i][2]+(to[i][2]-from[i][2])*t;}posAttr.needsUpdate=true;},
+      onComplete(){fromSnap=to.map(p=>[...p]);gsap.delayedCall(3,()=>morphTo((toIdx+1)%textSets.length));}
+    });
+  }
+  morphTo(0,2.2);
+  function makeKeywordSprite(text){
+    const dpr=Math.min(devicePixelRatio,2),fs=28,pad=22;
+    const fontStr=`300 ${fs}px 'Pretendard',sans-serif`;
+    const mc=document.createElement('canvas').getContext('2d');
+    mc.font=fontStr;
+    const m=mc.measureText(text);
+    const logW=Math.ceil(m.width)+pad*2,logH=fs+pad;
+    const c=document.createElement('canvas');
+    c.width=logW*dpr;c.height=logH*dpr;
+    const ctx=c.getContext('2d');
+    ctx.scale(dpr,dpr);ctx.font=fontStr;ctx.fillStyle='#7a7a88';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(text,logW/2,logH/2);
+    const tex=new THREE.CanvasTexture(c);
+    const mat=new THREE.SpriteMaterial({map:tex,transparent:true,depthWrite:false,opacity:0.80});
+    const sp=new THREE.Sprite(mat);
+    const wH=9;sp.scale.set(wH*(logW/logH),wH,1);
+    return sp;
+  }
+  const KEYWORDS=[
+    {text:'할루시네이션 최소화',x:-52,y:30,z:-20},
+    {text:'상담 자동화',x:54,y:28,z:-15},
+    {text:'데이터 자산화',x:48,y:-28,z:-22},
+    {text:'24/365',x:4,y:46,z:15},
+  ];
+  KEYWORDS.forEach(({text,x,y,z})=>{const sp=makeKeywordSprite(text);sp.position.set(x,y,z);scene.add(sp);});
+  let clock=0;
+  (function animate(){requestAnimationFrame(animate);clock+=0.008;scene.rotation.y=Math.sin(clock*1.68)*0.5;renderer.render(scene,camera);})();
+  function onResize(){const w=container.clientWidth,h=container.clientHeight;if(!w||!h)return;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h);}
+  window.addEventListener('resize',onResize);
+}
+</script>
+</body>
+</html>

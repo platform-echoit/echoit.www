@@ -1,0 +1,523 @@
+<!-- @dsCard group="EchoIT Website" viewport="1280x760" name="AI Labs · Edge AI" subtitle="딥테크 블루프린트 — 맥세이프 음성인식 & UWB 전파감지" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECHOIT — Edge AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+<link rel="stylesheet" href="shared/common.css">
+
+<!-- Three.js (UMD global) + GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+
+<script>window.__breadcrumb=['AI Labs','Edge AI'];</script>
+<div id="nav-root"></div>
+
+<style>
+/* ── HERO ── */
+.eb-hero{position:relative;overflow:hidden;height:36vh;min-height:320px;background:#0f1115;color:#fff}
+.esg-hero-inner{position:relative;z-index:10;height:100%;display:flex;align-items:center;max-width:1200px;margin:0 auto;padding:0 32px;gap:0}
+.esg-p-zone{flex:0 0 50%;height:100%;pointer-events:none}
+.esg-t-zone{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:10px}
+.eb-eye{font:700 12px/1 'Pretendard';letter-spacing:.14em;text-transform:uppercase;color:#7fd3f3}
+.eb-h1{font-weight:800;font-size:clamp(26px,3.6vw,44px);line-height:1.14;letter-spacing:-1px;color:#fff;margin:0}
+.eb-h1 .g{background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.eb-sub{max-width:540px;font:400 15px/1.7 'Pretendard';color:#b9bcc4;word-break:keep-all;margin:0}
+@media(max-width:1024px){.esg-p-zone{flex:0 0 45%}}
+@media(max-width:768px){
+  .eb-hero{height:28.8vh;min-height:256px}
+  .esg-hero-inner{padding:0 20px}
+  .esg-p-zone{flex:0 0 18%}
+  .esg-t-zone{width:100%;align-items:flex-start}
+  .eb-eye{font-size:11px}
+  .eb-h1{font-size:clamp(18px,5.2vw,26px)}
+  .eb-sub{font-size:12.5px;line-height:1.6;max-width:none}
+}
+
+/* ── SECTION BASE ── */
+.it-block{padding:80px 0}
+.it-block.alt{background:#f7f8fa;border-top:1px dashed #ccc}
+.it-head{text-align:center;max-width:860px;margin:0 auto 48px}
+.it-eye{font:700 12px/1 'Pretendard';letter-spacing:.12em;text-transform:uppercase;color:var(--b)}
+.it-title{margin:14px 0 0;font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.18;letter-spacing:-.6px;word-break:keep-all}
+.it-desc{margin:16px 0 0;font:400 16px/1.7 'Pretendard';color:#666;word-break:keep-all}
+
+/* ── 00 INTRO ── */
+.ea-intro{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.ea-intro-eye{display:inline-flex;align-items:center;gap:8px;font:700 12px/1 'Pretendard';letter-spacing:.1em;text-transform:uppercase;color:var(--b)}
+.ea-intro h2{font:800 clamp(24px,2.8vw,32px)/1.3 'Pretendard';letter-spacing:-.6px;color:#141920;margin:14px 0 0;word-break:keep-all}
+.ea-intro p{font:400 16px/1.8 'Pretendard';color:#555;margin:18px 0 0;word-break:keep-all}
+.ea-intro-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.ea-intro-tags span{display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:999px;background:#eef4f8;font:600 13px/1 'Pretendard';color:#0f1115}
+.ea-intro-tags span .ms{font-size:17px;color:#009ce0}
+.ea-intro-vis{position:relative;border:1px solid #eaeaea;border-radius:20px;background:#fff;min-height:300px;display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:hidden}
+.ea-intro-vis img{width:100%;height:100%;object-fit:cover;display:block}
+.ea-intro-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:20px 22px}
+.ea-intro-cap .lead{font:800 17px/1.35 'Pretendard';letter-spacing:-.3px;color:#0f1115}
+.ea-flow-mini{display:flex;align-items:center;gap:7px;margin-top:10px;flex-wrap:wrap}
+.ea-flow-mini span.node{padding:6px 12px;border-radius:8px;font:700 12px/1 'Pretendard';color:#fff}
+.ea-flow-mini span.node:nth-of-type(1){background:#89c895}
+.ea-flow-mini span.node:nth-of-type(3){background:#3eabbf}
+.ea-flow-mini span.node:nth-of-type(5){background:#009ce0}
+.ea-flow-mini .ms{font-size:16px;color:#9aa3ad}
+
+/* ── TECH BLOCK ── */
+.ea-tech{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:stretch}
+.ea-col-title{display:flex;align-items:center;gap:10px;font:800 18px/1.2 'Pretendard';color:#141920;margin:0 0 20px}
+.ea-col-title .ms{font-size:22px;color:#009ce0}
+/* HW placeholder */
+.ea-hw{border:1px dashed #cdd4dc;border-radius:16px;background:#f7f9fb;background-image:repeating-linear-gradient(45deg,#eef1f4 0 12px,#f5f7f9 12px 24px);min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#9aa3ad;text-align:center;padding:28px}
+.ea-hw .ms{font-size:38px;color:#b4bcc6}
+.ea-hw .lbl{font:700 14px/1.4 'Pretendard';color:#6b7480}
+.ea-hw .sub{font:400 12.5px/1.5 'Pretendard';color:#9aa3ad;max-width:280px}
+/* HW parts list */
+.ea-parts{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
+.ea-parts li{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:1px solid #eee;border-radius:12px;background:#fff;transition:border-color .15s,box-shadow .15s}
+.ea-parts li:hover{border-color:#009ce0;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.ea-parts .pn{flex:0 0 34px;width:34px;height:34px;border-radius:9px;color:#fff;display:flex;align-items:center;justify-content:center}
+.ea-parts .pn .ms{font-size:19px}
+.ea-parts li:nth-child(1) .pn{background:#89c895}
+.ea-parts li:nth-child(2) .pn{background:#3eabbf}
+.ea-parts li:nth-child(3) .pn{background:#009ce0}
+.ea-parts .pt{font:700 14.5px/1.3 'Pretendard';color:#141920}
+.ea-parts .pd{font:400 12.5px/1.4 'Pretendard';color:#888;margin-top:3px}
+
+/* pipeline */
+.ea-pipe{display:flex;align-items:stretch;gap:10px;margin:4px 0 0}
+.ea-step{flex:1;border:1px solid #eee;border-radius:14px;background:#fff;padding:20px 14px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:9px;transition:box-shadow .18s,border-color .18s,transform .18s}
+.ea-step:hover{box-shadow:0 10px 26px rgba(0,0,0,.08);border-color:#009ce0;transform:translateY(-3px)}
+.ea-step-ic{width:44px;height:44px;border-radius:12px;color:#fff;display:flex;align-items:center;justify-content:center}
+.ea-step-ic .ms{font-size:23px}
+.ea-pipe .ea-step:nth-child(odd) .ea-step-ic{background:#5cb6a8}
+.ea-pipe .ea-step:nth-child(1) .ea-step-ic{background:#89c895}
+.ea-pipe .ea-step:nth-child(4) .ea-step-ic{background:#009ce0}
+.ea-step h5{font:700 14px/1.3 'Pretendard';color:#141920;margin:0}
+.ea-step p{font:400 11.5px/1.4 'Pretendard';color:#888;margin:0}
+.ea-arrow{flex:0 0 auto;align-self:center;color:#cdd4dc;display:flex}
+.ea-arrow .ms{font-size:22px}
+.ea-hw-img{border:1px solid #eaeaea;border-radius:16px;background:#fff;overflow:hidden;display:flex;justify-content:center;padding:20px}
+.ea-hw-img img{width:100%;max-width:460px;height:auto;display:block}
+.ea-hw-img.fill{padding:0}
+.ea-hw-img.fill img{max-width:none;width:100%}
+
+/* compare table */
+.ea-cmp{width:100%;border-collapse:separate;border-spacing:0;margin-top:22px;border:1px solid #eee;border-radius:14px;overflow:hidden}
+.ea-cmp th,.ea-cmp td{padding:15px 18px;text-align:left;font:500 14px/1.5 'Pretendard';border-bottom:1px solid #eee;word-break:keep-all}
+.ea-cmp thead th{background:#f4f6f8;font-weight:700;color:#141920}
+.ea-cmp thead th:last-child{background:#eaf5fb;color:#0079b3}
+.ea-cmp tbody th{font-weight:700;color:#374049;background:#fafbfc;width:150px}
+.ea-cmp tbody td:last-child{font-weight:700;color:#0f1115}
+.ea-cmp tr:last-child th,.ea-cmp tr:last-child td{border-bottom:none}
+.ea-cmp .em{color:#009ce0}
+
+/* insight bullets */
+.ea-ins{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
+.ea-ins li{position:relative;padding-left:30px;font:400 14.5px/1.65 'Pretendard';color:#444;word-break:keep-all}
+.ea-ins li b{color:#141920}
+.ea-ins li .ms{position:absolute;left:0;top:1px;font-size:20px;color:#009ce0}
+
+/* UWB metric */
+.ea-metric{display:flex;flex-direction:column;align-items:flex-start;gap:6px;border:1px solid #eee;border-radius:18px;background:#fff;padding:30px 32px}
+.ea-metric .big{font:800 46px/1 'Pretendard';letter-spacing:-1.5px;background:var(--grd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ea-metric .cap{font:400 14px/1.6 'Pretendard';color:#666;word-break:keep-all}
+.ea-metric .badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.ea-metric .badges span{padding:5px 11px;border-radius:7px;background:#eef4f8;font:700 11.5px/1 'Pretendard';color:#0079b3;letter-spacing:.02em}
+.ea-vital{display:flex;gap:14px;margin-top:18px}
+.ea-vital-card{flex:1;border:1px solid #eee;border-radius:14px;padding:14px 14px;text-align:center;background:#fff;display:flex;flex-direction:column;align-items:center;gap:5px;transition:border-color .15s,box-shadow .15s}
+.ea-vital-card:hover{border-color:#009ce0;box-shadow:0 8px 22px rgba(0,0,0,.06)}
+.ea-vital-card .ms{font-size:25px}
+.ea-vital-card:nth-child(1) .ms{color:#e2574c}
+.ea-vital-card:nth-child(2) .ms{color:#009ce0}
+.ea-vital-card h5{font:700 15px/1.2 'Pretendard';color:#141920;margin:0}
+.ea-vital-card p{font:400 12px/1.4 'Pretendard';color:#888;margin:0}
+
+/* ── ROADMAP ── */
+.ea-track{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:34px}
+.ea-track-card{border:1px solid #eee;border-radius:18px;background:#fff;padding:30px 30px;display:flex;flex-direction:column;gap:14px;transition:box-shadow .18s,border-color .18s,transform .18s}
+.ea-track-card:hover{box-shadow:0 14px 34px rgba(0,0,0,.09);border-color:#009ce0;transform:translateY(-4px)}
+.ea-track-head{display:flex;align-items:center;gap:13px}
+.ea-track-ic{width:50px;height:50px;border-radius:13px;color:#fff;display:flex;align-items:center;justify-content:center}
+.ea-track-ic .ms{font-size:26px}
+.ea-track-card:nth-child(1) .ea-track-ic{background:#009ce0}
+.ea-track-card:nth-child(2) .ea-track-ic{background:#89c895}
+.ea-track-tag{font:700 11px/1.3 'Pretendard';letter-spacing:.08em;color:#9aa3ad;text-transform:uppercase}
+.ea-track-head h4{font:800 18px/1.3 'Pretendard';color:#141920;margin:2px 0 0}
+.ea-track-list{list-style:none;margin:4px 0 0;padding:16px 0 0;border-top:1px solid #eee;display:flex;flex-direction:column;gap:11px}
+.ea-track-list li{position:relative;padding-left:26px;font:500 14px/1.55 'Pretendard';color:#374049;word-break:keep-all}
+.ea-track-list li .ms{position:absolute;left:0;top:1px;font-size:18px;color:#009ce0}
+
+/* orchestration band */
+.ea-orch-img{border:1px solid #eaeaea;border-radius:20px;background:#fff;overflow:hidden;margin-bottom:34px;display:flex;justify-content:center;padding:28px}
+.ea-orch-img img{width:100%;max-width:940px;height:auto;display:block}
+.ea-orch{position:relative;overflow:hidden;border-radius:22px;background:var(--grd);color:#fff;padding:44px 40px;display:grid;grid-template-columns:1fr auto 1fr;gap:28px;align-items:center;margin-bottom:34px}
+.ea-orch::after{content:"";position:absolute;left:-50px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.1)}
+.ea-orch-core{text-align:center;position:relative;z-index:1}
+.ea-orch-core .ms{font-size:40px}
+.ea-orch-core h3{font:800 22px/1.3 'Pretendard';margin:10px 0 0;letter-spacing:-.4px}
+.ea-orch-core p{font:400 13.5px/1.5 'Pretendard';color:rgba(255,255,255,.9);margin:6px 0 0}
+.ea-orch-side{position:relative;z-index:1}
+.ea-orch-side .lbl{font:700 12px/1 'Pretendard';letter-spacing:.06em;color:rgba(255,255,255,.75);text-transform:uppercase}
+.ea-orch-side p{font:600 15.5px/1.5 'Pretendard';margin:8px 0 0;word-break:keep-all}
+.ea-orch-side.right{text-align:right}
+.ea-orch-arrow{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7)}
+.ea-orch-arrow .ms{font-size:30px}
+
+/* pillars */
+.ea-pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ea-pillar{border:1px solid #eee;border-radius:18px;padding:30px 28px;background:#fff;display:flex;flex-direction:column;gap:12px;transition:box-shadow .18s,border-color .18s,transform .18s}
+.ea-pillar:hover{box-shadow:0 14px 34px rgba(0,0,0,.09);border-color:#009ce0;transform:translateY(-4px)}
+.ea-pillar-ic{width:52px;height:52px;border-radius:14px;background:#eef4f8;color:#009ce0;display:flex;align-items:center;justify-content:center}
+.ea-pillar-ic .ms{font-size:27px}
+.ea-pillar h4{font:700 17px/1.35 'Pretendard';color:#141920;margin:0;word-break:keep-all}
+.ea-pillar p{font:400 13.5px/1.65 'Pretendard';color:#666;margin:0;word-break:keep-all}
+
+@media(max-width:1024px){
+  .ea-intro{grid-template-columns:1fr;gap:28px}
+  .ea-tech{grid-template-columns:1fr;gap:30px}
+  .ea-hw{min-height:240px}
+  .ea-track{grid-template-columns:1fr}
+  .ea-orch{grid-template-columns:1fr;gap:20px;text-align:center}
+  .ea-orch-side.right{text-align:center}
+  .ea-orch-arrow{transform:rotate(90deg)}
+  .ea-pillar-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .it-block{padding:56px 0}
+  .ea-pipe{flex-direction:column;gap:8px}
+  .ea-arrow{transform:rotate(90deg)}
+  .ea-vital{flex-direction:column}
+  .ea-metric .big{font-size:38px}
+  .ea-cmp thead th,.ea-cmp tbody th{width:auto}
+  .ea-cmp th,.ea-cmp td{padding:12px 13px;font-size:13px}
+}
+</style>
+
+<!-- ── HERO ── -->
+<section class="eb-hero" id="sap-hero">
+  <svg id="sap-bg" style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="g1" gradientUnits="userSpaceOnUse" cx="180" cy="200" r="560"><stop offset="0%" stop-color="#009ce0" stop-opacity="0.4"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g2" gradientUnits="userSpaceOnUse" cx="1290" cy="60" r="320"><stop offset="0%" stop-color="#89c895" stop-opacity="0.3"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g3" gradientUnits="userSpaceOnUse" cx="780" cy="410" r="280"><stop offset="0%" stop-color="#3aa0d8" stop-opacity="0.2"/><stop offset="100%" stop-color="#0f1115" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1440" height="400" fill="#0f1115"/>
+    <rect width="1440" height="400" fill="url(#g1)"/>
+    <rect width="1440" height="400" fill="url(#g2)"/>
+    <rect width="1440" height="400" fill="url(#g3)"/>
+  </svg>
+  <div class="esg-hero-inner">
+    <div class="esg-t-zone">
+      <p class="eb-eye">AI Labs · Edge AI</p>
+      <h1 class="eb-h1">엣지 AI 센싱에서<br><span class="g">자체 SoC 팹리스</span> 도약까지</h1>
+      <p class="eb-sub">맥세이프 음성인식 &amp; UWB 전파감지 솔루션 기반 딥테크 블루프린트 — B2B/B2G 스케일업 로드맵.</p>
+    </div>
+    <div class="esg-p-zone" id="sap-p-zone"></div>
+  </div>
+</section>
+
+<!-- ── 00 INTRO ── -->
+<section class="it-block" id="intro">
+  <div class="wrap">
+    <div class="ea-intro">
+      <div>
+        <span class="ea-intro-eye"><span class="ms" style="font-size:17px">memory</span>Deep-Tech Blueprint</span>
+        <h2>에코아이티 딥테크 블루프린트</h2>
+        <p>초저전력 엣지 AI 센싱 하드웨어에서 출발하여, 데이터 초자동화 허브를 거쳐 차세대 NPU+UWB 통합 SoC를 독자 개발하는 글로벌 딥테크 팹리스로의 도약을 지향합니다. 맥세이프 음성인식과 UWB 전파감지, 두 개의 엣지 센싱 기술을 축으로 B2B·B2G 시장을 확대합니다.</p>
+        <div class="ea-intro-tags">
+          <span><span class="ms">graphic_eq</span>맥세이프 음성인식</span>
+          <span><span class="ms">radar</span>UWB 전파감지</span>
+          <span><span class="ms">bolt</span>초저전력 NPU</span>
+          <span><span class="ms">developer_board</span>자체 SoC</span>
+        </div>
+      </div>
+      <div class="ea-intro-vis">
+        <img src="assets/images/edge-ai/concept.png" alt="엣지 센싱 → 데이터 초자동화 → 자체 SoC 개념도 — 음파·전파 신호가 칩으로 모이는 일러스트">
+        <div class="ea-intro-cap">
+          <div class="lead">엣지 센싱 → 데이터 초자동화 → 자체 SoC</div>
+          <div class="ea-flow-mini">
+            <span class="node">Edge Sensing</span>
+            <span class="ms">arrow_forward</span>
+            <span class="node">AI Orchestration</span>
+            <span class="ms">arrow_forward</span>
+            <span class="node">Fabless SoC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 01 TECH 1 : MagSafe 비명 인식 ── -->
+<section class="it-block alt" id="tech-magsafe">
+  <div class="wrap">
+    <div class="it-head">
+      <p class="it-eye">Edge AI 기술 1</p>
+      <h2 class="it-title">이동형 안전을 위한 맥세이프 비명 인식 모듈</h2>
+      <p class="it-desc">스마트폰 후면 및 산업용 안전모에 자석으로 탈부착 가능한 이동형 폼팩터. 초저전력 NPU가 위급 상황의 비명을 감지해 즉각 구조 요청을 전송합니다.</p>
+    </div>
+
+    <div class="ea-tech">
+      <!-- HW -->
+      <div>
+        <div class="ea-hw-img">
+          <img src="assets/images/edge-ai/magsafe-module.png" alt="맥세이프 비명 인식 모듈 분해도 — 음성 인식 모듈(비명 감지 알고리즘), 전력 수신 모듈(초저전력 구동), 자석 부착 모듈(MagSafe 호환) 3단 구조와 안전모 장착 예시">
+        </div>
+      </div>
+
+      <!-- SW & Specs -->
+      <div>
+        <div class="ea-col-title"><span class="ms">settings_suggest</span>Software &amp; Specs</div>
+        <div class="ea-pipe">
+          <div class="ea-step"><div class="ea-step-ic"><span class="ms">graphic_eq</span></div><h5>음성 감지</h5><p>1~2m 근거리</p></div>
+          <div class="ea-arrow"><span class="ms">arrow_forward</span></div>
+          <div class="ea-step"><div class="ea-step-ic"><span class="ms">memory</span></div><h5>Alif B1 NPU 분석</h5><p>초저전력</p></div>
+          <div class="ea-arrow"><span class="ms">arrow_forward</span></div>
+          <div class="ea-step"><div class="ea-step-ic"><span class="ms">bluetooth</span></div><h5>BLE 통신 전송</h5><p>즉시 전달</p></div>
+          <div class="ea-arrow"><span class="ms">arrow_forward</span></div>
+          <div class="ea-step"><div class="ea-step-ic"><span class="ms">emergency</span></div><h5>모바일 구조 요청</h5><p>즉각 알림</p></div>
+        </div>
+
+        <table class="ea-cmp">
+          <thead><tr><th>구분</th><th>기존 범용 모델</th><th>에코아이티 다중 모델</th></tr></thead>
+          <tbody>
+            <tr><th>오탑률<br><small style="font-weight:400;color:#999">(오경보)</small></th><td>높음 (소음 취약)</td><td><span class="em">극소화</span> · 타인 음성 Garbage 처리</td></tr>
+            <tr><th>강건성<br><small style="font-weight:400;color:#999">(노이즈 제거)</small></th><td>80dB 이상 불가</td><td><span class="em">90dB</span> 극한 소음 환경 정밀 인식</td></tr>
+          </tbody>
+        </table>
+
+        <ul class="ea-ins">
+          <li><span class="ms">verified</span><b>기술적 우위</b> · 초저전력 NPU 탑재 및 남녀노소 음성 특성을 반영한 '개인 맞춤형 DNN 다중 모델' 자동 선택</li>
+          <li><span class="ms">widgets</span><b>제품 컨셉</b> · 스마트폰 후면 및 산업용 안전모에 자석 탈부착 가능한 이동형 폼팩터</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 02 TECH 2 : UWB 레이더 ── -->
+<section class="it-block" id="tech-uwb">
+  <div class="wrap">
+    <div class="it-head">
+      <p class="it-eye">Edge AI 기술 2</p>
+      <h2 class="it-title">공간 모니터링을 위한 비접촉 UWB 레이더 솔루션</h2>
+      <p class="it-desc">극초저전력 무해성 전파로 카메라 없이 24시간 생체 신호를 감지합니다. 침대·화장실 등 스팟 밀착형 비접촉 모니터링을 구현합니다.</p>
+    </div>
+
+    <div class="ea-tech">
+      <!-- visual + metric -->
+      <div>
+        <div class="ea-col-title"><span class="ms">sensors</span>Radar Sensing</div>
+        <div class="ea-hw-img fill">
+          <img src="assets/images/edge-ai/uwb-radar.png" alt="UWB 레이더 공간 감지 시각화 — 벽면 설치형 센서가 침대 위 사람의 코골이·호흡 등 1mm 미세 생체신호를 비접촉 감지. -41.3dBm 휴대폰 전파의 1/700 수준, 24시간 완벽 무해성(KC/FCC/CE)">
+        </div>
+        <div class="ea-vital">
+          <div class="ea-vital-card"><span class="ms">bedtime</span><h5>코골이 체크</h5></div>
+          <div class="ea-vital-card"><span class="ms">pulmonology</span><h5>호흡</h5></div>
+          <div class="ea-vital-card"><span class="ms">straighten</span><h5>1mm 미세 생체신호</h5></div>
+        </div>
+      </div>
+
+      <!-- metric + compare -->
+      <div>
+        <div class="ea-col-title"><span class="ms">shield</span>완벽 무해성</div>
+        <table class="ea-cmp">
+          <thead><tr><th>구분</th><th>기존 PIR 센서 &amp; 카메라</th><th>UWB 레이더 솔루션</th></tr></thead>
+          <tbody>
+            <tr><th>감지 대상</th><td>큰 움직임 위주 / 시각 정보 의존</td><td><span class="em">호흡 미세감지</span></td></tr>
+            <tr><th>프라이버시</th><td>사생활 침해 위험 및 사각지대 존재</td><td><span class="em">카메라 없는 비접촉 센싱</span> (완벽 보호)</td></tr>
+          </tbody>
+        </table>
+
+        <ul class="ea-ins">
+          <li><span class="ms">verified</span><b>기술적 우위</b> · 7~9GHz 초광대역 반사파를 분석하는 자체 신호처리 기술(MCU+FPGA)을 적용해, 카메라 없이도 미세한 생체 움직임까지 정밀하게 포착합니다.</li>
+          <li><span class="ms">widgets</span><b>제품 특성</b> · 극초저전력 무해성 전파로 환경 노이즈를 극복하고, 침대·화장실 등 스팟 밀착형 24시간 비접촉 생체 모니터링을 구현합니다.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 03 ROADMAP ── -->
+<section class="it-block alt" id="roadmap">
+  <div class="wrap">
+    <div class="it-head">
+      <p class="it-eye">사업화 로드맵</p>
+      <h2 class="it-title">다각화된 B2B/B2G 파이프라인 및 SoC 통합 칩 비전</h2>
+      <p class="it-desc">두 개의 엣지 센싱 트랙을 AI 초자동화 허브로 통합하고, 최종적으로 자체 SoC 칩셋을 내재화하여 글로벌 딥테크 팹리스로 진화합니다.</p>
+    </div>
+
+    <!-- tracks -->
+    <div class="ea-track">
+      <div class="ea-track-card">
+        <div class="ea-track-head">
+          <div class="ea-track-ic"><span class="ms">radar</span></div>
+          <div><div class="ea-track-tag">Track A</div><h4>UWB 전파</h4></div>
+        </div>
+        <ul class="ea-track-list">
+          <li><span class="ms">bed</span>코웨이 스마트 매트리스 (능동형 수면 케어)</li>
+          <li><span class="ms">elevator</span>공공 화장실 &amp; 오티스 엘리베이터 (낙상 감지)</li>
+        </ul>
+      </div>
+      <div class="ea-track-card">
+        <div class="ea-track-head">
+          <div class="ea-track-ic"><span class="ms">graphic_eq</span></div>
+          <div><div class="ea-track-tag">Track B</div><h4>MagSafe 음파</h4></div>
+        </div>
+        <ul class="ea-track-list">
+          <li><span class="ms">shield_with_heart</span>신안군 B2G 재난안전망</li>
+          <li><span class="ms">hub</span>韓/日 통신사 생태계 연계</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- orchestration (이미지 영역) -->
+    <div class="ea-orch-img" data-cap="AI Orchestration 통합 개념도">
+      <img src="assets/images/edge-ai/orchestration.png" alt="AI Orchestration 통합 개념도 — Track A(UWB 전파)·Track B(MagSafe 음파)가 Echo-Gen 멀티 에이전트 프레임웍을 거쳐 차세대 NPU+UWB 통합 SoC로 이어지는 구조">
+    </div>
+
+    <!-- pillars -->
+    <div class="ea-pillar-grid">
+      <div class="ea-pillar">
+        <div class="ea-pillar-ic"><span class="ms">sensors</span></div>
+        <h4>투트랙 엣지 센싱 선점</h4>
+        <p>UWB의 공간 장악력과 맥세이프의 이동성을 결합하여 엣지 센싱 시장을 선점합니다.</p>
+      </div>
+      <div class="ea-pillar">
+        <div class="ea-pillar-ic"><span class="ms">hub</span></div>
+        <h4>데이터 초자동화 허브</h4>
+        <p>단순 하드웨어 공급을 넘어 자사 엔터프라이즈 솔루션으로 생태계 락인을 구현합니다.</p>
+      </div>
+      <div class="ea-pillar">
+        <div class="ea-pillar-ic"><span class="ms">developer_board</span></div>
+        <h4>자체 SoC 칩셋 내재화</h4>
+        <p>설계부터 생산까지 관장하는 딥테크 팹리스 기업으로의 최종 진화를 추진합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<div id="modal-root"></div>
+
+<script src="shared/common.js"></script>
+<script>
+/* ── HERO 파티클 (Edge AI 키워드) ── */
+(function waitDeps(){
+  if(!window.THREE||!window.gsap){return setTimeout(waitDeps,50);}
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(initEdgeParticles);}
+  else{initEdgeParticles();}
+})();
+
+function initEdgeParticles(){
+  const container=document.getElementById('sap-hero');
+  if(!container)return;
+  const scene=new THREE.Scene();
+  const w0=container.clientWidth,h0=container.clientHeight;
+  const camera=new THREE.PerspectiveCamera(50,w0/h0,0.1,2000);
+  camera.position.z=150;
+  const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.setSize(w0,h0);
+  renderer.setClearColor(0x0f1115,0);
+  renderer.domElement.style.cssText='position:absolute;top:0;left:0;width:100%;height:100%;z-index:1';
+  container.appendChild(renderer.domElement);
+  const isMobile=()=>container.clientWidth<=768;
+  scene.position.x=34;
+  scene.position.y=0;
+  const CW=800,CH=280;
+  function sampleText(lines,fontSizes){
+    const off=document.createElement('canvas');
+    off.width=CW;off.height=CH;
+    const ctx=off.getContext('2d');
+    ctx.fillStyle='#fff';
+    lines.forEach((line,i)=>{
+      ctx.font=`800 ${fontSizes[i]}px 'Pretendard',Arial Black,sans-serif`;
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      const yOff=lines.length===1?CH/2:(i===0?CH*0.36:CH*0.72);
+      ctx.fillText(line,CW/2,yOff);
+    });
+    const{data}=ctx.getImageData(0,0,CW,CH);
+    const pts=[];
+    for(let y=0;y<CH;y+=4)
+      for(let x=0;x<CW;x+=4)
+        if(data[(y*CW+x)*4]>128&&Math.random()>0.22)
+          pts.push([(x/CW-0.5)*96,-(y/CH-0.5)*72,(Math.random()-0.5)*1.0]);
+    return pts;
+  }
+  const rawSets=[
+    sampleText(['EDGE','AI'],[190,190]),
+    sampleText(['UWB'],[260]),
+    sampleText(['MagSafe'],[150]),
+    sampleText(['SoC'],[260]),
+    sampleText(['NPU'],[250]),
+  ];
+  const MAX_N=Math.max(...rawSets.map(s=>s.length));
+  function padAndShuffle(pts,n){
+    const out=pts.map(p=>[...p]);
+    while(out.length<n){const src=pts[Math.floor(Math.random()*pts.length)];out.push([src[0]+(Math.random()-0.5)*2,src[1]+(Math.random()-0.5)*2,(Math.random()-0.5)*1.5]);}
+    for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}
+    return out.slice(0,n);
+  }
+  const textSets=rawSets.map(pts=>padAndShuffle(pts,MAX_N));
+  const posArr=new Float32Array(MAX_N*3);
+  for(let i=0;i<MAX_N;i++){posArr[i*3]=(Math.random()-0.5)*200;posArr[i*3+1]=(Math.random()-0.5)*120;posArr[i*3+2]=(Math.random()-0.5)*60;}
+  const geoText=new THREE.BufferGeometry();
+  const posAttr=new THREE.BufferAttribute(posArr,3);
+  geoText.setAttribute('position',posAttr);
+  scene.add(new THREE.Points(geoText,new THREE.PointsMaterial({color:0xffffff,size:1.64,sizeAttenuation:true,transparent:true,opacity:0.95})));
+  const AMBIENT=460;
+  const ambPosArr=new Float32Array(AMBIENT*3);
+  for(let i=0;i<AMBIENT;i++){ambPosArr[i*3]=(Math.random()-0.5)*320;ambPosArr[i*3+1]=(Math.random()-0.5)*160;ambPosArr[i*3+2]=(Math.random()-0.5)*90;}
+  const geoAmb=new THREE.BufferGeometry();
+  geoAmb.setAttribute('position',new THREE.BufferAttribute(ambPosArr,3));
+  scene.add(new THREE.Points(geoAmb,new THREE.PointsMaterial({color:0x5a5a64,size:1.19,sizeAttenuation:true,transparent:true,opacity:0.75})));
+  let fromSnap=Array.from({length:MAX_N},(_,i)=>[posArr[i*3],posArr[i*3+1],posArr[i*3+2]]);
+  function morphTo(toIdx,duration){
+    const dur=duration??1.6;
+    const to=textSets[toIdx],from=fromSnap,proxy={t:0};
+    gsap.to(proxy,{t:1,duration:dur,ease:'power2.inOut',
+      onUpdate(){const t=proxy.t;for(let i=0;i<MAX_N;i++){posArr[i*3]=from[i][0]+(to[i][0]-from[i][0])*t;posArr[i*3+1]=from[i][1]+(to[i][1]-from[i][1])*t;posArr[i*3+2]=from[i][2]+(to[i][2]-from[i][2])*t;}posAttr.needsUpdate=true;},
+      onComplete(){fromSnap=to.map(p=>[...p]);gsap.delayedCall(3,()=>morphTo((toIdx+1)%textSets.length));}
+    });
+  }
+  morphTo(0,2.2);
+  function makeKeywordSprite(text){
+    const dpr=Math.min(devicePixelRatio,2),fs=28,pad=22;
+    const fontStr=`300 ${fs}px 'Pretendard',sans-serif`;
+    const mc=document.createElement('canvas').getContext('2d');
+    mc.font=fontStr;
+    const m=mc.measureText(text);
+    const logW=Math.ceil(m.width)+pad*2,logH=fs+pad;
+    const c=document.createElement('canvas');
+    c.width=logW*dpr;c.height=logH*dpr;
+    const ctx=c.getContext('2d');
+    ctx.scale(dpr,dpr);ctx.font=fontStr;ctx.fillStyle='#7a7a88';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(text,logW/2,logH/2);
+    const tex=new THREE.CanvasTexture(c);
+    const mat=new THREE.SpriteMaterial({map:tex,transparent:true,depthWrite:false,opacity:0.80});
+    const sp=new THREE.Sprite(mat);
+    const wH=9;sp.scale.set(wH*(logW/logH),wH,1);
+    return sp;
+  }
+  const KEYWORDS=[
+    {text:'비명 인식',x:-58,y:30,z:-20},
+    {text:'생체 신호',x:50,y:28,z:-15},
+    {text:'초저전력',x:48,y:-28,z:-22},
+    {text:'팹리스',x:4,y:46,z:15},
+  ];
+  KEYWORDS.forEach(({text,x,y,z})=>{const sp=makeKeywordSprite(text);sp.position.set(x,y,z);scene.add(sp);});
+  let clock=0;
+  (function animate(){requestAnimationFrame(animate);clock+=0.008;scene.rotation.y=Math.sin(clock*1.68)*0.5;renderer.render(scene,camera);})();
+  function onResize(){const w=container.clientWidth,h=container.clientHeight;if(!w||!h)return;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h);}
+  window.addEventListener('resize',onResize);
+}
+</script>
+</body>
+</html>

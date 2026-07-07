@@ -33,9 +33,10 @@ const _cmScript = document.currentScript;
       const page=location.pathname.split('/').pop()||'index.html';
       const map={
         'hancom-orchestrator.html':0,'hancom-ai.html':0,'hancom-solution.html':0,'ito.html':0,'ax-service.html':0,'ax-platform.html':0,'sap-ai-coding.html':0,'sap-service.html':0,'sap-cloud-erp.html':0,
-        'esg.html':1,'newsletter.html':1,
-        'recruit.html':2,
-        'company.html':3
+        'esg.html':2,'newsletter.html':2,
+        'recruit.html':3,
+        'company.html':4,
+        'edge-ai.html':1,'altio.html':1
       };
       const idx=map[page];
       if(idx===undefined)return;
@@ -201,6 +202,9 @@ const _cmScript = document.currentScript;
         ['.sa-intro-tx'],['.sa-intro-vis'],['.sa-nova-diagram'],['.sa-app'],['.sa-cap'],['.sa-cap-note'],['.sa-eff'],
         ['.sa-band'],['.sa-phase'],['.sa-svc'],['.sa-cta'],['.sa-method-img'],['.sa-method-cap'],
         ['.ce-detail'],['.ce-feat'],['.ce-eff-band'],['.ce-soon'],['.ce-arch-ph'],['.ce-proc'],['.ce-rec'],['.ce-step'],['.ce-arch-img'],['.ce-note'],
+        ['.ea-intro'],['.ea-hw'],['.ea-parts li'],['.ea-step'],['.ea-cmp'],['.ea-ins li'],['.ea-metric'],['.ea-vital-card'],['.ea-track-card'],['.ea-orch'],['.ea-pillar'],
+        ['.al-intro'],['.al-stat'],['.al-shift'],['.al-vs-card'],['.al-usearea'],['.al-play'],['.al-gap-band'],['.al-card'],['.al-pos-wrap'],['.al-close'],['.al-ax'],['.al-emph'],['.al-more'],
+        ['.s2-head'],['.s2-mcard'],['.s2-srow'],['.s2-vs-card'],['.s2-badges'],['.s2-play'],['.s2-fill'],['.s2-eff'],['.s2-ax'],['.s2-emph'],['.s2-adv-card'],['.s2-adv-side'],['.s2-pos-wrap'],['.s2-why-card'],['.s2-why-banner'],['.s2-cta'],
       ];
       const targets=[];
       groups.forEach(sels=>{
