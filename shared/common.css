@@ -53,7 +53,7 @@ a{text-decoration:none;color:inherit}
 .mob-cta{padding:20px 24px}
 
 /* ── HERO (Three.js from heroArea.html) ── */
-#hero{position:relative;width:100%;height:calc(60vh - 200px);min-height:260px;overflow:hidden;cursor:grab}
+#hero{position:relative;width:100%;height:400px;overflow:hidden;cursor:grab}
 #hero.dragging{cursor:grabbing}
 #hero canvas{display:block;position:absolute;top:0;left:0;width:100%!important;height:100%!important}
 #headline{position:absolute;bottom:88px;top:auto;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;width:90%;text-align:center;user-select:none;pointer-events:none;opacity:0;transition:opacity 1.2s ease;z-index:25}
@@ -266,7 +266,7 @@ a{text-decoration:none;color:inherit}
   .nav-list,.nav-act .btn-b,.nav-act .btn-o{display:none}
   .ham{display:flex}
   .mob-menu{display:block}
-  #hero{height:calc(46vh - 100px);min-height:200px}
+  #hero{height:300px;min-height:0}
   #headline .slogan{white-space:normal;font-size:clamp(16px,4vw,24px)}
   .stats{grid-template-columns:repeat(2,1fr)}
   .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.18)}

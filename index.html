@@ -4,11 +4,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECHOIT — AX 실행 파트너</title>
+<title>ECHOIT — AX 전문 기업</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
 <link rel="stylesheet" href="shared/common.css">
+<style>
+  /* ── TRANSFORMATION FORMULA (섹션 1) ── */
+  .tf-list{margin-top:40px;display:flex;flex-direction:column;gap:16px}
+  .tf-row{display:grid;grid-template-columns:270px 1fr;gap:24px;align-items:center;padding:26px 30px;border:1px solid #eee;border-radius:18px;background:#fff;transition:box-shadow .2s,border-color .2s,transform .2s}
+  .tf-row:hover{box-shadow:0 16px 40px rgba(0,0,0,.08);border-color:#009ce0;transform:translateY(-3px)}
+  .tf-head{display:flex;flex-direction:column;gap:10px}
+  .tf-no{font:800 13px/1 'Pretendard';letter-spacing:.08em;color:#009ce0}
+  .tf-cat{display:flex;align-items:center;gap:10px;font:800 18px/1.3 'Pretendard';color:#141920;word-break:keep-all}
+  .tf-cat .ms{flex:0 0 40px;width:40px;height:40px;border-radius:11px;background:#eef4f8;color:#009ce0;display:flex;align-items:center;justify-content:center;font-size:22px}
+  .tf-formula{display:grid;grid-template-columns:minmax(150px,1fr) auto minmax(180px,1.1fr) auto minmax(200px,1.5fr);align-items:stretch;gap:12px}
+  .tf-base,.tf-add,.tf-out{display:flex;flex-direction:column;justify-content:center;gap:3px;padding:16px 20px;border-radius:13px;font-weight:700;word-break:keep-all}
+  .tf-base{background:#f4f6f8;color:#374049;font-size:15px}
+  .tf-add{background:#eaf5fb;border:1.5px solid #b9e0f4;color:#0079b3;font-size:15px}
+  .tf-add small{font:500 11.5px/1.35 'Pretendard';color:#4aa3cf}
+  .tf-out{background:var(--grd);color:#fff;font-size:16.5px;letter-spacing:-.3px;box-shadow:0 8px 22px rgba(0,156,224,.28)}
+  .tf-op{flex:0 0 auto;align-self:center;font:800 22px/1 'Pretendard';color:#9aa3ad}
+  .tf-arrow{flex:0 0 auto;align-self:center;display:flex;color:#009ce0}
+  .tf-arrow .ms{font-size:30px}
+  @media(max-width:900px){
+    .tf-row{grid-template-columns:1fr;gap:18px}
+    .tf-formula{grid-template-columns:1fr auto 1fr}
+    .tf-out{grid-column:1 / -1}
+  }
+  @media(max-width:768px){
+    .tf-formula{display:flex;flex-direction:column;align-items:stretch;gap:10px}
+    .tf-base,.tf-add,.tf-out{width:100%;text-align:center;align-items:center}
+    .tf-op{transform:none}
+    .tf-arrow{transform:rotate(90deg)}
+  }
+  .ph-body{margin-top:32px;display:flex;align-items:center;justify-content:center;min-height:200px;border:2px dashed #cdd4dc;border-radius:16px;background:repeating-linear-gradient(45deg,#eef1f4 0 14px,#f5f7f9 14px 28px);color:#9aa3ad;font:700 15px/1.4 'Pretendard'}
+  @media(max-width:768px){.ph-body{min-height:150px}}
+  /* ── CORE CAPABILITIES (섹션 2) ── */
+  .cap-grid{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .cap-card{position:relative;background:#fff;border:1px solid #eee;border-radius:20px;padding:36px 34px;display:flex;flex-direction:column;transition:box-shadow .2s,border-color .2s,transform .2s}
+  .cap-card:hover{box-shadow:0 18px 44px rgba(0,0,0,.09);border-color:#009ce0;transform:translateY(-4px)}
+  .cap-ic{width:58px;height:58px;border-radius:15px;background:#009ce0;color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .cap-ic .ms{font-size:30px}
+  .cap-no{font:800 12px/1 'Pretendard';letter-spacing:.08em;color:#009ce0;text-transform:uppercase}
+  .cap-title{margin:10px 0 0;font:800 21px/1.3 'Pretendard';letter-spacing:-.4px;color:#141920;word-break:keep-all}
+  .cap-ko{margin:6px 0 0;font:600 14px/1.4 'Pretendard';color:#8a93a0}
+  .cap-desc{margin:16px 0 0;font:400 14.5px/1.75 'Pretendard';color:#555;word-break:keep-all}
+  .cap-tags{margin-top:auto;padding-top:20px;border-top:1px dashed #e2e6ea;display:flex;flex-wrap:wrap;gap:8px}
+  .cap-tag{padding:8px 14px;border-radius:999px;font:600 12.5px/1 'Pretendard';background:#f1f3f5;color:#6b7480}
+  .cap-tag.prime{background:#eaf5fb;color:#0079b3;border:1px solid #cfe9f7}
+  @media(max-width:768px){
+    .ph-body{min-height:150px}
+    .cap-grid{grid-template-columns:1fr}
+    .cap-card{padding:30px 26px}
+  }
+</style>
 </head>
 <body>
 
@@ -41,12 +91,109 @@
   <div class="stat"><div class="sn">18년</div><div class="sl">SAP 구축·운영 경험</div></div>
 </div>
 
-<!-- ── INTRO ── -->
+<!-- ── PLACEHOLDER SECTIONS (콘텐츠 추가 예정) ── -->
+<section class="sec reveal" id="section-1">
+  <div class="wrap">
+    <p class="eye">AX Strategy</p>
+    <h2 class="htitle">EchoIT의 AX 전략</h2>
+    <p class="hdesc">4개 사업 축에 각기 다른 혁신 요소를 더해, 단순 구축·운영을 넘어 각 영역의 전문 기업으로 도약합니다.</p>
+    <div class="tf-list">
+
+      <div class="tf-row">
+        <div class="tf-head"><span class="tf-no">01</span><div class="tf-cat"><span class="ms">database</span><span>SAP ERP 비즈니스</span></div></div>
+        <div class="tf-formula">
+          <span class="tf-base">SAP 비즈니스</span>
+          <span class="tf-op">+</span>
+          <span class="tf-add">Nova<small>AI 기반 SAP 혁신 플랫폼</small></span>
+          <span class="tf-arrow"><span class="ms">trending_flat</span></span>
+          <span class="tf-out">Top-tier SAP AX 전문기업</span>
+        </div>
+      </div>
+
+      <div class="tf-row">
+        <div class="tf-head"><span class="tf-no">02</span><div class="tf-cat"><span class="ms">smart_toy</span><span>RPA · SI 비즈니스</span></div></div>
+        <div class="tf-formula">
+          <span class="tf-base">RPA · SI</span>
+          <span class="tf-op">+</span>
+          <span class="tf-add">Echo-Gen<small>자체 Multi-Agent Framework</small></span>
+          <span class="tf-arrow"><span class="ms">trending_flat</span></span>
+          <span class="tf-out">HyperAutomation 전문기업</span>
+        </div>
+      </div>
+
+      <div class="tf-row">
+        <div class="tf-head"><span class="tf-no">03</span><div class="tf-cat"><span class="ms">workspace_premium</span><span>한컴 AI 비즈니스</span></div></div>
+        <div class="tf-formula">
+          <span class="tf-base">한컴 AI 솔루션</span>
+          <span class="tf-op">+</span>
+          <span class="tf-add">자체 AI 솔루션<small>문서비교 · AI Gateway 등</small></span>
+          <span class="tf-arrow"><span class="ms">trending_flat</span></span>
+          <span class="tf-out">AI Distributor</span>
+        </div>
+      </div>
+
+      <div class="tf-row">
+        <div class="tf-head"><span class="tf-no">04</span><div class="tf-cat"><span class="ms">memory</span><span>에코아이티 자체 AI 비즈니스</span></div></div>
+        <div class="tf-formula">
+          <span class="tf-base">Edge AI · UWB 솔루션</span>
+          <span class="tf-op">+</span>
+          <span class="tf-add">SoC 칩 생산<small>자체 반도체 내재화</small></span>
+          <span class="tf-arrow"><span class="ms">trending_flat</span></span>
+          <span class="tf-out">AI Orchestration 프로바이더</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--alt reveal" id="section-2">
+  <div class="wrap">
+    <p class="eye">Core Capabilities</p>
+    <h2 class="htitle">핵심 역량</h2>
+    <p class="hdesc">글로벌 최고 수준의 AI Core 기술과 에코아이티만의 독보적인 융합 역량으로 비즈니스의 새로운 가치를 창출합니다.</p>
+    <div class="cap-grid">
+
+      <div class="cap-card">
+        <div class="cap-ic"><span class="ms">rocket_launch</span></div>
+        <span class="cap-no">Capability 01</span>
+        <h3 class="cap-title">AI Core Delivery Capability</h3>
+        <p class="cap-ko">AI Core 딜리버리 역량</p>
+        <p class="cap-desc">우리가 직접 AI Core 전체를 개발하지 않더라도, 업스테이지(Upstage)·퓨리오사AI(FuriosaAI)·한컴 AI·SAP 줄(Joule) 등 국내외 최고 수준의 AI Core를 확보하여, 고객이 현업에서 즉시 사용하고 성과를 낼 수 있도록 가장 빠르고 매끄럽게 딜리버리합니다.</p>
+        <div class="cap-tags">
+          <span class="cap-tag prime">Upstage</span>
+          <span class="cap-tag prime">FuriosaAI</span>
+          <span class="cap-tag prime">한컴 AI</span>
+          <span class="cap-tag prime">SAP Joule</span>
+          <span class="cap-tag">Seamless Delivery</span>
+          <span class="cap-tag">Fast Integration</span>
+        </div>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-ic"><span class="ms">travel_explore</span></div>
+        <span class="cap-no">Capability 02</span>
+        <h3 class="cap-title">Tech Sensing &amp; Sourcing Capability</h3>
+        <p class="cap-ko">솔루션 센싱 및 소싱 역량</p>
+        <p class="cap-desc">시장의 우수한 AI 기술과 혁신 솔루션을 끊임없이 발굴·센싱하고, 필요시 전략적 투자 대상으로 검토하며, 고객의 실제 비즈니스 환경에 가장 최적화된 형태로 맞춤형 융합(Fusion)을 이뤄냅니다.</p>
+        <div class="cap-tags">
+          <span class="cap-tag prime">Tech Sensing</span>
+          <span class="cap-tag prime">Strategic Sourcing</span>
+          <span class="cap-tag prime">Custom Fusion</span>
+          <span class="cap-tag">Investment Review</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── INTRO (숨김 — 추후 재사용 가능) ──
 <section class="sec" id="about" style="padding-top:40px">
   <div class="wrap">
     <div class="intro-grid">
       <div class="intro-card">
-        <p class="intro-h">에코아이티는<br><span class="ax">ERP · Hyper Automation · AI</span>를<br>하나의 흐름으로 잇는<br>AX 실행 파트너입니다.</p>
+        <p class="intro-h">에코아이티는<br><span class="ax">ERP · Hyper Automation · AI</span>를<br>하나의 흐름으로 잇는<br>AX 전문 기업입니다.</p>
       </div>
       <div class="gap-diagram">
         <div class="gd-labels">
@@ -82,9 +229,10 @@
     </div>
   </div>
 </section>
+-->
 
 <!-- ── AX CHRONICLES ── -->
-<section class="sec sec--alt" id="services">
+<section class="sec" id="services">
   <div class="wrap">
     <p class="eye">AX Chronicles</p>
     <h2 class="htitle">에코아이티가 만든 AX 현장</h2>
@@ -129,7 +277,7 @@
   </div>
 </section>
 
-<!-- ── CORE VALUES ── -->
+<!-- ── CORE VALUES (숨김 — 추후 재사용 가능)
 <section class="sec">
   <div class="wrap">
     <p class="eye">Core Values</p>
@@ -143,6 +291,7 @@
     </div>
   </div>
 </section>
+-->
 
 <!-- ── AX TIMELINE ── -->
 <section class="sec sec--alt" id="ax-system">

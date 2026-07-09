@@ -189,6 +189,8 @@ const _cmScript = document.currentScript;
         ['.intro-card','.gap-diagram'],['.stat'],
         ['#services .eye, #services .htitle, #services .hdesc'],
         ['.chr-card'],['.val-card'],['.tl-card'],['.cust-item'],
+        ['#section-1 .eye, #section-1 .htitle, #section-1 .hdesc'],['.tf-row'],
+        ['#section-2 .eye, #section-2 .htitle, #section-2 .hdesc'],['.cap-card'],
         ['#contact .eye, #contact .htitle, #contact .hdesc'],
         ['.cont-info','.cont-form'],
         ['.eb-block > .wrap > div:first-child'],
