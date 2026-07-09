@@ -21,9 +21,9 @@
   .tf-formula{display:grid;grid-template-columns:minmax(150px,1fr) auto minmax(180px,1.1fr) auto minmax(200px,1.5fr);align-items:stretch;gap:12px}
   .tf-base,.tf-add,.tf-out{display:flex;flex-direction:column;justify-content:center;gap:3px;padding:16px 20px;border-radius:13px;font-weight:700;word-break:keep-all}
   .tf-base{background:#f4f6f8;color:#374049;font-size:15px}
-  .tf-add{background:#eaf5fb;border:1.5px solid #b9e0f4;color:#0079b3;font-size:15px}
-  .tf-add small{font:500 11.5px/1.35 'Pretendard';color:#4aa3cf}
-  .tf-out{background:var(--grd);color:#fff;font-size:16.5px;letter-spacing:-.3px;box-shadow:0 8px 22px rgba(0,156,224,.28)}
+  .tf-add{background:var(--grd);color:#fff;font-size:16.5px;letter-spacing:-.3px;box-shadow:0 8px 22px rgba(0,156,224,.28)}
+  .tf-add small{font:500 11.5px/1.35 'Pretendard';color:rgba(255,255,255,.85)}
+  .tf-out{background:#eef1f4;border:1.5px solid #dde2e8;color:#374049;font-size:15px}
   .tf-op{flex:0 0 auto;align-self:center;font:800 22px/1 'Pretendard';color:#9aa3ad}
   .tf-arrow{flex:0 0 auto;align-self:center;display:flex;color:#009ce0}
   .tf-arrow .ms{font-size:30px}
@@ -58,6 +58,7 @@
     .cap-grid{grid-template-columns:1fr}
     .cap-card{padding:30px 26px}
   }
+  .cust-item{background:#fff}
 </style>
 </head>
 <body>
@@ -95,7 +96,7 @@
 <section class="sec reveal" id="section-1">
   <div class="wrap">
     <p class="eye">AX Strategy</p>
-    <h2 class="htitle">EchoIT의 AX 전략</h2>
+    <h2 class="htitle">에코아이티의 AX 전략</h2>
     <p class="hdesc">4개 사업 축에 각기 다른 혁신 요소를 더해, 단순 구축·운영을 넘어 각 영역의 전문 기업으로 도약합니다.</p>
     <div class="tf-list">
 
@@ -277,24 +278,23 @@
   </div>
 </section>
 
-<!-- ── CORE VALUES (숨김 — 추후 재사용 가능)
-<section class="sec">
+<!-- ── CORE VALUES ── -->
+<section class="sec sec--alt">
   <div class="wrap">
     <p class="eye">Core Values</p>
     <h2 class="htitle">에코아이티의 가치</h2>
     <p class="hdesc">'기회는 놓치지 않고, 실력은 결과로 증명한다'는 것이 에코아이티의 의지입니다.</p>
     <div class="val-grid">
+      <div class="val-card"><div class="val-letter">E</div><div class="val-en">Expertise &amp; Know-how</div><div class="val-ko">실력과 역량</div><div class="val-desc">축적된 경험과 노하우, 글로벌 파트너십을 기반으로 내실 있는 IT 서비스 체계를 구축합니다.</div></div>
       <div class="val-card"><div class="val-letter">C</div><div class="val-en">Customer satisfaction</div><div class="val-ko">고객만족</div><div class="val-desc">고객의 만족과 성공이 곧 에코아이티의 성공입니다. 신뢰와 책임을 바탕으로 실패 없는 프로젝트를 달성합니다.</div></div>
       <div class="val-card"><div class="val-letter">H</div><div class="val-en">Human Resources-oriented</div><div class="val-ko">인재중심</div><div class="val-desc">에코아이티의 성장 원천은 우수한 인재들입니다. 인재를 확보하고 육성하여 전문가로 함께 성장합니다.</div></div>
-      <div class="val-card"><div class="val-letter">A</div><div class="val-en">Challenge &amp; Action</div><div class="val-ko">도전과 추진력</div><div class="val-desc">자유로운 소통과 창의적 사고, 능동적 자세로 끊임없이 도전하고 변화하며 미래 성장동력을 만듭니다.</div></div>
-      <div class="val-card"><div class="val-letter">E</div><div class="val-en">Expertise &amp; Know-how</div><div class="val-ko">실력과 역량</div><div class="val-desc">축적된 경험과 노하우, 글로벌 파트너십을 기반으로 내실 있는 IT 서비스 체계를 구축합니다.</div></div>
+      <div class="val-card"><div class="val-letter">O</div><div class="val-en">Ownership</div><div class="val-ko">주도적 실행</div><div class="val-desc">열린 마음과 능동적인 자세로 자유롭게 소통하며, 맡은 일에 책임을 다해 고객과 회사의 지속적인 성장을 이끌어갑니다.</div></div>
     </div>
   </div>
 </section>
--->
 
 <!-- ── AX TIMELINE ── -->
-<section class="sec sec--alt" id="ax-system">
+<section class="sec" id="ax-system">
   <div class="wrap">
     <p class="eye">AX 실행체계</p>
     <h2 class="htitle">ERP부터 AI까지,<br>실행으로 완성하는 AX 파트너</h2>
@@ -341,7 +341,7 @@
 </section>
 
 <!-- ── CUSTOMERS ── -->
-<section class="sec">
+<section class="sec sec--alt">
   <div class="wrap">
     <p class="eye">Customers</p>
     <h2 class="htitle">함께한 고객사</h2>
@@ -364,7 +364,7 @@
 </section>
 
 <!-- ── CONTACT ── -->
-<section class="sec sec--alt" id="contact">
+<section class="sec" id="contact">
   <div class="wrap">
     <p class="eye">Contact Us</p>
     <h2 class="htitle">전문 컨설턴트가 직접 상담해 드립니다</h2>
